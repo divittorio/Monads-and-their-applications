@@ -30,6 +30,31 @@
 \usepackage{contour}
 \makeatletter        
 
+\newcommand*{\relrelbarsep}{.386ex}
+\newcommand*{\relrelbar}{%
+	\mathrel{%
+		\mathpalette\@relrelbar\relrelbarsep
+	}%
+}
+\newcommand*{\@relrelbar}[2]{%
+	\raise#2\hbox to 0pt{$\m@th#1\relbar$\hss}%
+	\lower#2\hbox{$\m@th#1\relbar$}%
+}
+\providecommand*{\rightrightarrowsfill@}{%
+	\arrowfill@\relrelbar\relrelbar\rightrightarrows
+}
+\providecommand*{\leftleftarrowsfill@}{%
+	\arrowfill@\leftleftarrows\relrelbar\relrelbar
+}
+\providecommand*{\xrightrightarrows}[2][]{%
+	\ext@arrow 0359\rightrightarrowsfill@{#1}{#2}%
+}
+\providecommand*{\xleftleftarrows}[2][]{%
+	\ext@arrow 3095\leftleftarrowsfill@{#1}{#2}%
+}
+\makeatother
+
+
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else  		
 	\hbox{}                                                        					
 	\vspace*{\fill}                                                					
@@ -239,9 +264,43 @@
 		Given a set $X$, let $\mathcal{U}X$ be the set of ultrafilters on it. Any compact T2 topology on $X$ allows us to see each ultrafilter as a system of neighborhoods of a unique point in $X$, hence it gives us a unique map $\mathcal{U}X\rightarrow X$ sending each ultrafilter to the respective point.
 	\end{exmp}
 	\begin{exmp}
-		Given a directed graph $D=(V,E,E\xrightarrow{s}V,E\xrightarrow{t}E)$, we can create its free category $FD$, where the objects are the vertices and $FD(v,w)=\{\text{finite paths } v\rightarrow\ldots\rightarrow w\}$. We set $\id_v$ to be the path of length 0, while composition is just the concatenation of paths.
+		Given a directed graph $D=(V,E,E \xrightrightarrows[t]{s} V)$, we can create its free category $FD$, where the objects are the vertices and $FD(v,w)=\{\text{finite paths } v\rightarrow\ldots\rightarrow w\}$. We set $\id_v$ to be the path of length 0, while composition is just the concatenation of paths.
 	\end{exmp}
 	\section{Monads}
+	
+	\begin{defn}[monad]
+		[\dots]
+		
+	\begin{minipage}{0.3\linewidth}
+			\begin{tikzcd}[row sep=1cm, column sep=1cm]
+		&\mathsf{C}\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\ar[r, "T"]\ar[drr, bend right=26, "T"description]
+		&\mathsf{C}\ar[dr, "T"]\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\\
+		\mathsf{C}
+		\ar[rrr, "T"'] 
+		\ar[ur, , "T"]
+		&\phantom{.} &\phantom{.}&\mathsf{C}
+			\end{tikzcd}
+	\end{minipage}
+\hspace{1.5cm}
+=
+	\begin{minipage}{0.3\linewidth}
+			\begin{tikzcd}[row sep=1cm, column sep=1cm]
+		&\mathsf{C}\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\ar[r, "T"]
+		&\mathsf{C}\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\ar[dr, "T"]\\
+		\mathsf{C}\ar[urr, bend right=26, "T"'description]
+		\ar[rrr, "T"'] 
+		\ar[ur, , "T"]
+		&\phantom{.} &\phantom{.}&\mathsf{C}
+		%
+		% drawing 2-cells  
+		%\arrow[Rightarrow, "\mu", from=A, to=K]
+		%\arrow[Rightarrow, "\mu", from=F, to=G]
+		\end{tikzcd}
+		\end{minipage}
+	
+		
+		
+	\end{defn}
 	\section{Algebras}
 	\section{Monadic functors}
 	\chapter{Beck’s monadicity theorem}
