@@ -58,7 +58,6 @@
 \newcommand{\Cat}{\catname{Cat}}
 \newcommand{\CAT}{\catname{CAT}}	
 \newcommand{\qCat}{\catname{qCat}}	
-
 \makeatother                                                   					
 
 \makeatletter
@@ -99,6 +98,9 @@
 \DeclareMathOperator{\Ob}{\text{Ob}}
 \DeclareMathOperator{\C}{\mathbf{C}}
 \DeclareMathOperator{\D}{\mathbf{D}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\id}{Id}
 
 \tikzset{shorten <>/.style={shorten >=#1,shorten <=#1}}
 \newcommand{\pullbackcorner}[1][ul]{\save*!/#1+1.5pc/#1:(1,-1)@^{|-}\restore}
@@ -164,78 +166,92 @@
 
 
 \begin{document}
-
-\author{by \\
-	Nicola Di Vittorio \\ Matteo Durante}
-\title{\huge Monads and their applications \\
-	\vspace*{5mm}
-\large Dr.\ Daniel Schäppi's course lecture notes} 
-\date{}
-
-\frontmatter
-\maketitle
-\tableofcontents
-
-\chapter{Introduction}
-
-\mainmatter
-
-\chapter{Categorical preliminaries}
-\begin{defn}[Categories]
 	
-\end{defn}
-
-\begin{defn}[Functors]
+	\author{by \\
+		Nicola Di Vittorio \\ Matteo Durante}
+	\title{\huge Monads and their applications \\
+		\vspace*{5mm}
+		\large Dr.\ Daniel Schäppi's course lecture notes} 
+	\date{}
 	
-\end{defn}
-
-\begin{defn}[Full functors, faithful functor]
+	\frontmatter
+	\maketitle
+	\tableofcontents
 	
-\end{defn}
-
-\begin{defn}[Natural transformations]
-
-\end{defn}
-
-\begin{defn}[Representable Functors]
+	\chapter{Introduction}
 	
-\end{defn}
-
-\begin{defn}[Whiskering]
+	\mainmatter
 	
-\end{defn}
-
-\begin{defn}[Horizontal and vertical composition of nat.transf.]
+	\chapter{Categorical preliminaries}
+	\begin{defn}[Categories]
+		
+	\end{defn}
 	
-\end{defn}
-
-\begin{defn}[adjunctions]
+	\begin{defn}[Functors]
+		
+	\end{defn}
 	
-\end{defn}
-
-\begin{lemma}[Yoneda]
+	\begin{defn}[Full functors, faithful functor]
+		
+	\end{defn}
 	
-\end{lemma}
-\begin{proof}
+	\begin{defn}[Natural transformations]
+		
+	\end{defn}
 	
-\end{proof}
-
-\chapter{Monads and algebras}
-
-\begin{exmp}
-$G$ group, a $G$-set 
-\end{exmp}
-\section{Monads}
-\section{Algebras}
-\section{Monadic functors}
-\chapter{Beck’s monadicity theorem}
-\chapter{Monads in 2-category theory}
-\chapter{Monads in $\infty$-category theory}
-
-
-
-
-\backmatter
-% bibliography, glossary and index would go here.
-
+	\begin{defn}[Representable Functors]
+		
+	\end{defn}
+	
+	\begin{defn}[Whiskering]
+		
+	\end{defn}
+	
+	\begin{defn}[Horizontal and vertical composition of nat.transf.]
+		
+	\end{defn}
+	
+	\begin{defn}[adjunctions]
+		
+	\end{defn}
+	
+	\begin{lemma}[Yoneda]
+		
+	\end{lemma}
+	\begin{proof}
+		
+	\end{proof}
+	
+	\chapter{Monads and algebras}
+	
+	Throughout mathematics we encounter structures defined by some action morphisms. Here we give some examples.
+	
+	\begin{exmp}
+		Given a group $G$, we may consider a $G$-set $X$ described by an action map $G\times X\rightarrow X$.
+	\end{exmp}
+	\begin{exmp}
+		Given an abelian group $M$ and a ring $R$, we can get an $R$-module $M$ by fixing a group homomorphism $R\otimes_{\Z} M\rightarrow M$.
+	\end{exmp}
+	\begin{exmp}
+		Given a monoid $M$ in $Set$, we get a map $\Pi_{k=1}^n M\rightarrow M$, $(m_1,\ldots,m_n)\mapsto ((\ldots ((m_1m_2)m_3)\ldots )m_{n-1}) m_n$. This induces an action map from $W(M)=\amalg_{n\in\N}\Pi_{k=1}^n M$, the set of words on $M$, to $M$.
+	\end{exmp}
+	\begin{exmp}
+		Given a set $X$, let $\mathcal{U}X$ be the set of ultrafilters on it. Any compact T2 topology on $X$ allows us to see each ultrafilter as a system of neighborhoods of a unique point in $X$, hence it gives us a unique map $\mathcal{U}X\rightarrow X$ sending each ultrafilter to the respective point.
+	\end{exmp}
+	\begin{exmp}
+		Given a directed graph $D=(V,E,E\xrightarrow{s}V,E\xrightarrow{t}E)$, we can create its free category $FD$, where the objects are the vertices and $FD(v,w)=\{\text{finite paths } v\rightarrow\ldots\rightarrow w\}$. We set $\id_v$ to be the path of length 0, while composition is just the concatenation of paths.
+	\end{exmp}
+	\section{Monads}
+	\section{Algebras}
+	\section{Monadic functors}
+	\chapter{Beck’s monadicity theorem}
+	\chapter{Monads in 2-category theory}
+	\chapter{Monads in $\infty$-category theory}
+	
+	
+	
+	
+	\backmatter
+	% bibliography, glossary and index would go here.
+	
 \end{document}
