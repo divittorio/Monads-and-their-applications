@@ -30,31 +30,6 @@
 \usepackage{contour}
 \makeatletter        
 
-\newcommand*{\relrelbarsep}{.386ex}
-\newcommand*{\relrelbar}{%
-	\mathrel{%
-		\mathpalette\@relrelbar\relrelbarsep
-	}%
-}
-\newcommand*{\@relrelbar}[2]{%
-	\raise#2\hbox to 0pt{$\m@th#1\relbar$\hss}%
-	\lower#2\hbox{$\m@th#1\relbar$}%
-}
-\providecommand*{\rightrightarrowsfill@}{%
-	\arrowfill@\relrelbar\relrelbar\rightrightarrows
-}
-\providecommand*{\leftleftarrowsfill@}{%
-	\arrowfill@\leftleftarrows\relrelbar\relrelbar
-}
-\providecommand*{\xrightrightarrows}[2][]{%
-	\ext@arrow 0359\rightrightarrowsfill@{#1}{#2}%
-}
-\providecommand*{\xleftleftarrows}[2][]{%
-	\ext@arrow 3095\leftleftarrowsfill@{#1}{#2}%
-}
-\makeatother
-
-
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else  		
 	\hbox{}                                                        					
 	\vspace*{\fill}                                                					
@@ -120,12 +95,16 @@
 \DeclareMathOperator{\Fib}{\text{Fib}}
 \DeclareMathOperator{\Cof}{\text{Cof}}
 \DeclareMathOperator{\V}{\mathcal{V}}
-\DeclareMathOperator{\Ob}{\text{Ob}}
+\DeclareMathOperator{\A}{\mathbf{A}}
 \DeclareMathOperator{\C}{\mathbf{C}}
 \DeclareMathOperator{\D}{\mathbf{D}}
 \DeclareMathOperator{\N}{\mathbb{N}}
 \DeclareMathOperator{\Z}{\mathbb{Z}}
-\DeclareMathOperator{\id}{Id}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Ar}{Ar}
 
 \tikzset{shorten <>/.style={shorten >=#1,shorten <=#1}}
 \newcommand{\pullbackcorner}[1][ul]{\save*!/#1+1.5pc/#1:(1,-1)@^{|-}\restore}
@@ -209,7 +188,20 @@
 	
 	\chapter{Categorical preliminaries}
 	\begin{defn}[Categories]
-		
+		A category $\C$ consists of:
+		\begin{enumerate}
+			\item a collection of objects $\Ob(\C)$;
+			\item a collection of arrows $\Ar(\C)$;
+			\item two maps $\dom,\cod:\Ar(\C)\rightarrow\Ob(\C)$;
+			\item a map $\id_{-}:\Ob(\C)\rightarrow\Ar(\C)$ with $\dom(\id_{c})=c=\cod(\id_{c})$;
+			\item for every $f,g\in\Ar(\C)$ such that $\cod(f)=\dom(g)$ a unique composite morphism $gf$ such that $\cod(gf)=\cod(g)$, $\dom(gf)=f$.
+		\end{enumerate}
+	This data has to satisfy the following axioms:
+		\begin{enumerate}
+			\item given $f\in\Ar(\C)$, $c=\dom(f)$ and $c'=\cod(f)$, $\id_{c'}f=f=\id_{c}$, that is the composition is unital;
+			\item given a composable triple $f,g,h\in\Ar(\C)$, $h(gf)=(hg)f$, that is the composition is associative.
+		\end{enumerate}
+		An arrow $f$ such that $c=\dom(f)$ and $c'=\cod(f)$ is denoted $f:c\rightarrow c'$.
 	\end{defn}
 	
 	\begin{defn}[Functors]
@@ -222,6 +214,9 @@
 	
 	\begin{defn}[Natural transformations]
 		
+	\end{defn}
+	
+	\begin{defn}[Equivalent functors]
 	\end{defn}
 	
 	\begin{defn}[Representable Functors]
@@ -249,6 +244,8 @@
 	
 	\chapter{Monads and algebras}
 	
+	\section{Introduction}
+		
 	Throughout mathematics we encounter structures defined by some action morphisms. Here we give some examples.
 	
 	\begin{exmp}
@@ -258,51 +255,174 @@
 		Given an abelian group $M$ and a ring $R$, we can get an $R$-module $M$ by fixing a group homomorphism $R\otimes_{\Z} M\rightarrow M$.
 	\end{exmp}
 	\begin{exmp}
-		Given a monoid $M$ in $Set$, we get a map $\Pi_{k=1}^n M\rightarrow M$, $(m_1,\ldots,m_n)\mapsto ((\ldots ((m_1m_2)m_3)\ldots )m_{n-1}) m_n$. This induces an action map from $W(M)=\amalg_{n\in\N}\Pi_{k=1}^n M$, the set of words on $M$, to $M$.
+		Given a monoid $M$ in $\Set$, we get a map $\Pi_{k=1}^n M\rightarrow M$, $(m_1,\ldots,m_n)\mapsto ((\ldots ((m_1m_2)m_3)\ldots )m_{n-1}) m_n$. This induces an action map from $W(M)=\amalg_{n\in\N}\Pi_{k=1}^n M$, the set of words on $M$, to $M$.
 	\end{exmp}
 	\begin{exmp}
 		Given a set $X$, let $\mathcal{U}X$ be the set of ultrafilters on it. Any compact T2 topology on $X$ allows us to see each ultrafilter as a system of neighborhoods of a unique point in $X$, hence it gives us a unique map $\mathcal{U}X\rightarrow X$ sending each ultrafilter to the respective point.
 	\end{exmp}
 	\begin{exmp}
-		Given a directed graph $D=(V,E,E \xrightrightarrows[t]{s} V)$, we can create its free category $FD$, where the objects are the vertices and $FD(v,w)=\{\text{finite paths } v\rightarrow\ldots\rightarrow w\}$. We set $\id_v$ to be the path of length 0, while composition is just the concatenation of paths.
+		Given a directed graph $D=(V,E,E\xrightarrow{s}V,E\xrightarrow{t}E)$, we can create its free category $FD$, where the objects are the vertices and $FD(v,w)=\{\text{finite paths } v\rightarrow\ldots\rightarrow w\}$. We set $\id_v$ to be the path of length 0, while composition is just the concatenation of paths.
+		
+		In particular, if $D$ is the directed graph with $V=\{0,\ldots,n\}$ and an edge $j\rightarrow k$ if and only if $k=j+1$, we have $FD\cong [n]$.
+		
+		If $D=\{*\}$ and $E=\{*\rightarrow *\}$, then $FD(*,*)\cong\N$.
+		
+		Given a small category $\C$, we may consider the underlying graph $U\C=D$ with $V=\Ob(\C)$, $E=\Ar(\C)$, $s=\dom$ and $t=\cod$. We get then an action map $UFU\C\rightarrow U\C$ sending a finite path to its composite. This map is a morphism of directed graph.
 	\end{exmp}
-	\section{Monads}
+
+	How can we see all of these examples as specific instances of a general phenomenon?
 	
-	\begin{defn}[monad]
-		[\dots]
+	Notice that we always have a category $\C$ and some functor $T:\C\rightarrow\C$ with an action map $T\C\rightarrow\C$.
+	
+	\begin{defn}
+		A monad on a category $\C$ is a triple $(T,\mu,\eta)$ where $T:\C\rightarrow\C$ is a functor, while $\mu:T^2\Rightarrow T$ and $\eta:\id_{\C}\Rightarrow T$ are natural transformations such that the following diagrams commute:
 		
-	\begin{minipage}{0.3\linewidth}
-			\begin{tikzcd}[row sep=1cm, column sep=1cm]
-		&\mathsf{C}\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\ar[r, "T"]\ar[drr, bend right=26, "T"description]
-		&\mathsf{C}\ar[dr, "T"]\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\\
-		\mathsf{C}
-		\ar[rrr, "T"'] 
-		\ar[ur, , "T"]
-		&\phantom{.} &\phantom{.}&\mathsf{C}
+		\[
+			\begin{tikzcd}
+				T^3\ar["\mu T", Rightarrow]{d}\ar["T\mu", Rightarrow]{r}
+				& T^2\ar["\mu", Rightarrow]{d} \\
+				T^2\ar["\mu", Rightarrow]{r}
+				& T
 			\end{tikzcd}
-	\end{minipage}
-\hspace{1.5cm}
-=
-	\begin{minipage}{0.3\linewidth}
+			\quad\quad
+			\begin{tikzcd}
+				T\ar["\eta T", Rightarrow]{r}\ar["\id_{T}", Rightarrow, swap]{dr}
+				& T^2\ar["\mu", Rightarrow]{d}\ar["T\eta", Leftarrow]{r}
+				& T\ar["\id_{T}", Rightarrow]{dl} \\
+				& T
+			\end{tikzcd}
+		\]
+		
+		$\mu$ is called the multiplicative map, while $\eta$ is the unit of $T$.
+		
+		The commutativity of the first diagram is equivalent to stating that the following two diagrams are equal:
+		
+		\begin{minipage}{0.3\linewidth}
 			\begin{tikzcd}[row sep=1cm, column sep=1cm]
-		&\mathsf{C}\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\ar[r, "T"]
-		&\mathsf{C}\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\ar[dr, "T"]\\
-		\mathsf{C}\ar[urr, bend right=26, "T"'description]
-		\ar[rrr, "T"'] 
-		\ar[ur, , "T"]
-		&\phantom{.} &\phantom{.}&\mathsf{C}
-		%
-		% drawing 2-cells  
-		%\arrow[Rightarrow, "\mu", from=A, to=K]
-		%\arrow[Rightarrow, "\mu", from=F, to=G]
-		\end{tikzcd}
+				&\C\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\ar[r, "T"]\ar[drr, bend right=26, "T"description]
+				&\C\ar[dr, "T"]\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\\
+				\C
+				\ar[rrr, "T"'] 
+				\ar[ur, , "T"]
+				&\phantom{.} &\phantom{.}&\C
+			\end{tikzcd}
 		\end{minipage}
-	
-		
-		
+		\hspace{1.5cm}
+		=
+		\begin{minipage}{0.3\linewidth}
+			\begin{tikzcd}[row sep=1cm, column sep=1cm]
+				&\C\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\ar[r, "T"]
+				&\C\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\ar[dr, "T"]\\
+				\C\ar[urr, bend right=26, "T"'description]
+				\ar[rrr, "T"'] 
+				\ar[ur, , "T"]
+				&\phantom{.} &\phantom{.}&\C
+			\end{tikzcd}
+		\end{minipage}
 	\end{defn}
-	\section{Algebras}
+
+	A monad naturally defines other algebraic structures, which we now introduce.
+	
+	\begin{defn}
+		Given a monad $(T,\mu,\eta)$, a $T$-algebra or $T$-module is a pair $(a,\alpha)$, where $a\in\Ob(\C)$ and $\alpha:Ta\rightarrow a$ is such that the following diagrams commute:
+		
+		\[	
+			\begin{tikzcd}
+				T^2 a\ar["\mu_{a}"]{d}\ar["T\alpha"]{r}
+				& Ta\ar["\alpha"]{d} \\
+				Ta\ar["\alpha"]{r}
+				& a
+			\end{tikzcd}
+			\quad\quad
+			\begin{tikzcd}
+				a\ar["\id_{a}", swap]{dr}\ar["\eta_{a}"]{r}
+				& Ta\ar["\alpha"]{d} \\
+				& a
+			\end{tikzcd}
+		\]
+	\end{defn}
+
+	\begin{defn}
+		A morphism of $T$-algebras $(a,\alpha)\rightarrow (b,\beta)$ is a morphism $f:a\rightarrow b$ such that the following diagram commutes:
+		\[
+			\begin{tikzcd}
+				Ta\arrow["\alpha"]{d}\arrow["Tf"]{r}
+				& Tb\arrow["\beta"]{d} \\
+				a\arrow["f"]{r}
+				& b
+			\end{tikzcd}
+		\]
+	\end{defn}
+
+		
+	$T$-algebras form a category $T-Alg$, which has a natural forgetful functor $U^T:T-Alg\rightarrow\C$.
+	
+	We now show how to recover the examples previously given with this language.
+	
+	\begin{exmp}
+		\begin{align*}
+			T=G\times - :&\ \Set \rightarrow\Set \\
+			\mu_A :&\ G\times (G\times A) \rightarrow G\times A \\
+			&\ (g,(h,a)) \mapsto (gh,a) \\
+			\eta_A:&\ A \rightarrow G\times A \\
+			&\ a \mapsto (e,a)
+		\end{align*}
+		is a monad and $(A,\alpha)$ is a $T$-algebra if and only if $A$ is a $G$-set. It follows that $T-Alg\cong G-\Set$.
+	\end{exmp}
+
+	\begin{exmp}
+		Given a ring $R$, $T=R\otimes_{\Z}:Ab\rightarrow Ab$ is a monad when considered with the following natural transformations:
+		
+		\begin{align*}
+			\mu_{-}: &\ R\otimes_{\Z}(R\otimes_{\Z}-)\cong (R\otimes_{\Z})\otimes_{\Z}-\Rightarrow R\otimes_{\Z}- \\
+			\eta_-: &\ -\cong\Z\otimes_{\Z}-\Rightarrow R\otimes_{\Z}-
+		\end{align*}
+	
+		We have that $(R\otimes_{\Z}-)-Alg\cong Mod_R$.
+	\end{exmp}
+
+	\begin{exmp}
+		COnsider $W:\Set\rightarrow\Set$ given by $WX=\amalg_{n\in\N}\Pi_{k=1}^n X$. Multiplication $\mu_X:WWX\rightarrow WX$ is given by concatenation of words, while the unit $\eta_X:X\rightarrow WX$ is just $x\mapsto (x)$.
+		
+		With this, $W-Alg\cong Mon(\Set)$.
+	\end{exmp}
+
+	\begin{exmp}
+		The functor $\mathcal{U}$ with the right natural transformations is a monad on $\Set$ and $\mathcal{U}-Alg\cong CHTop$, the category of compact T2 spaces.
+	\end{exmp}
+
+	\begin{exmp}
+		$UF$ also induces a monad on the category of directed graphs and $UF-Alg\cong\Cat$.
+	\end{exmp}
+
 	\section{Monadic functors}
+	
+	Now that we have introduced these structures, our aim is to characterize monadic functors, that is functors $U:\A\rightarrow\C$ which are equivalent to $U^T: T-Alg\rightarrow\C$ for some monad $(T,\mu,\eta)$ on $\C$.
+
+	First of all, notice that $U^T$ is faithful by construction, hence $U$ must be faithful, but more is true.
+	
+	\begin{lemma}
+		The functor $U^T$ is conservative, that is if $U^Tf$ is an isomorphism then $f$ is an isomorphism of $T$-algebras.
+	\end{lemma}
+	\begin{proof}
+		Suppose that $g$ is the inverse of $f:a\rightarrow b$ and $f$ is a morphism $(a,\alpha)\rightarrow (b,\beta)$. We only need to prove that the square on the left commutes, that is $g\beta=\alpha Tg$:
+		\[
+			\begin{tikzcd}
+				Tb\arrow["\beta"]{d}\arrow["Tg"]{r}
+				& Ta\arrow["\alpha"]{d}\arrow["Tf"]{r}
+				& Tb\arrow["\beta"]{d} \\
+				b\arrow["g"]{r}
+				& a\arrow["f"]{r}
+				& b
+			\end{tikzcd}
+		\]
+		
+	We see that $fg\beta=\beta$ and $f\alpha Tg=\beta Tf Tg=\beta T(fg)=\beta T\id_b=\beta$, hence the thesis.
+	\end{proof}
+
+	\begin{prop}
+		The functor $U^T:T-Alg\rightarrow\C$ has a left adjoint $F^T:\C\rightarrow T-Alg$ such that $F^Tc=(Tc,\mu_{c})$ and $F^Tf:(Tc,\mu_{c})\rightarrow (Td,\mu_{d})$.
+	\end{prop}
 	\chapter{Beck’s monadicity theorem}
 	\chapter{Monads in 2-category theory}
 	\chapter{Monads in $\infty$-category theory}
