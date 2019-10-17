@@ -261,7 +261,7 @@
 		Given a set $X$, let $\mathcal{U}X$ be the set of ultrafilters on it. Any compact T2 topology on $X$ allows us to see each ultrafilter as a system of neighborhoods of a unique point in $X$, hence it gives us a unique map $\mathcal{U}X\rightarrow X$ sending each ultrafilter to the respective point.
 	\end{exmp}
 	\begin{exmp}
-		Given a directed graph $D=(V,E,E\xrightarrow{s}V,E\xrightarrow{t}E)$, we can create its free category $FD$, where the objects are the vertices and $FD(v,w)=\{\text{finite paths } v\rightarrow\ldots\rightarrow w\}$. We set $\id_v$ to be the path of length 0, while composition is just the concatenation of paths.
+		Given a directed graph $D=(V,E, E\mathrel{\mathop{\rightrightarrows}^{\hspace{-3mm}\vspace{2cm}s}_{\hspace{-3mm}t}}V)$, we can create its free category $FD$, where the objects are the vertices and $FD(v,w)=\{\text{finite paths } v\rightarrow\ldots\rightarrow w\}$. We set $\id_v$ to be the path of length 0, while composition is just the concatenation of paths.
 		
 		In particular, if $D$ is the directed graph with $V=\{0,\ldots,n\}$ and an edge $j\rightarrow k$ if and only if $k=j+1$, we have $FD\cong [n]$.
 		

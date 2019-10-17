@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  17 OCT 2019 19:21
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  17 OCT 2019 19:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1393,12 +1393,12 @@ ist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2018/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmsy6.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmsy8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti1
-0.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pf
-b>
-Output written on monads.pdf (12 pages, 199023 bytes).
+0.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pf
+b><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on monads.pdf (12 pages, 206104 bytes).
 PDF statistics:
- 216 PDF objects out of 1000 (max. 8388607)
- 183 compressed objects within 2 object streams
+ 220 PDF objects out of 1000 (max. 8388607)
+ 186 compressed objects within 2 object streams
  54 named destinations out of 1000 (max. 500000)
  77 words of extra memory for PDF output out of 10000 (max. 10000000)
 
