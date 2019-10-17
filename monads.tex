@@ -321,6 +321,36 @@
 		\end{minipage}
 	\end{defn}
 
+On the other hand, the second diagram can be rephrased as follows:
+\begin{center}
+	
+	\begin{minipage}{0.3\linewidth}
+		\begin{tikzcd}[row sep=1cm, column sep=1cm]
+		& \C \arrow[d, Rightarrow, shift left=.5ex, shorten <= 1em, shorten >= 1em, "\mu"]\arrow[d, Rightarrow, shift right=5.8ex, shorten <= 1em, shorten >= 1em, "\eta"]\arrow[rd, "T"] &   \\
+		\C \arrow[rr, "T"', ""{name=A}] \arrow[ru, bend right, "T"'description, ""{name=T}] \arrow[ru, bend left, "\id_{\C}", ""{name=U}] &    \phantom{.}          & \C
+		%\arrow[Rightarrow, from=U, to=D]
+		\end{tikzcd}
+		
+	\end{minipage}
+	=
+	\hspace{.2cm}
+	\begin{minipage}{0.3\linewidth}
+		\begin{tikzcd}[row sep=1cm, column sep=1cm]
+		\C \arrow[d, bend right, "T"'] \arrow[d, bend left, "T"] \\
+		\C                                           
+		\end{tikzcd}
+	\end{minipage}
+	\hspace{-3.5cm}
+	=
+	\hspace{5mm}
+	=
+	\begin{minipage}{0.3\linewidth}
+		\begin{tikzcd}[row sep=1cm, column sep=1cm]
+		& \C \arrow[d, Rightarrow, shift right=1.2ex, shorten <= 1em, shorten >= 1em, "\mu"]\arrow[d, Rightarrow, shift left=5.8ex, shorten <= 1em, shorten >= 1em, "\eta"] \arrow[rd, bend right, "T"'description, ""{name=T}] \arrow[rd, bend left, "\id_{\C}", ""{name=U}] &   \\
+		\C \arrow[rr, "T"', ""{name=A}] \arrow[ru, "T", ""{name=B}] &\phantom{.}   & \C		\end{tikzcd}
+	\end{minipage}
+\end{center}
+
 	A monad naturally defines other algebraic structures, which we now introduce.
 	
 	\begin{defn}
