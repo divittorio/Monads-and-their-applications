@@ -5,7 +5,7 @@
 \usepackage{amsbsy}
 \usepackage{fontenc}
 \usepackage{amsfonts}
-\usepackage{amsmath} 		
+\usepackage{amsmath} 	
 \usepackage{mdframed}
 \usepackage{amsthm}  	
 \usepackage{amssymb}
@@ -23,7 +23,7 @@
 \usepackage{hyperref}
 \usepackage{xspace}
 \hypersetup{colorlinks=false, pdfborder={0 0 0}}                                 
-\usepackage[]{enumitem}
+\usepackage{enumitem}
 \setdescription{font=\normalfont}
 %\usepackage[style=alphabetic, backend=bibtex]{biblatex}
 \usepackage[normalem]{ulem}
@@ -453,8 +453,105 @@ On the other hand, the second diagram can be rephrased as follows:
      Notice that the forgetful functor $U\colon\mathbf{Top}\to\Set$ can't be monadic since it does not reflect isomorphisms. However, if we restrict it to the full subcategory of $\mathbf{Top}$ spanned by compact Hausdorff spaces we indeed obtain a monadic functor.
     \end{rmk}
 	\begin{prop}
-		The functor $U^T\colon T-Alg\rightarrow\C$ has a left adjoint $F^T\colon\C\rightarrow T-Alg$ such that $F^Tc=(Tc,\mu_{c})$ and $F^Tf\colon(Tc,\mu_{c})\rightarrow (Td,\mu_{d})$.
+		The functor $U^T\colon T-Alg\rightarrow\C$ has a left adjoint $F^T\colon\C\rightarrow T-Alg$ such that $F^Tc=(Tc,\mu_{c})$, $F^Tf\colon(Tc,\mu_{c})\xrightarrow{Tf} (Td,\mu_{d})$ and $U^TF^T=T$. Furthermore, the unit of this adjunction is given by $\gamma_c=\eta_c\colon c\to U^TF^Tc=Tc$ and the counit has components $\epsilon_{(a,\alpha)}=\alpha\colon(Ta,\mu_a)\to(a,\alpha)$.
 	\end{prop}
+\begin{proof}
+	\begin{enumerate}[label=(\roman*)]
+		\item To show that $(Tc, \mu_c)$ is a $T$-algebra we need the following diagrams to be commutative.
+		\[
+		\begin{tikzcd}
+		T^3c\ar["\mu_{Tc}"', rightarrow]{d}\ar["T\mu_c", rightarrow]{r}
+		& T^2c\ar["\mu_c", rightarrow]{d} \\
+		T^2c\ar["\mu_c"', rightarrow]{r}
+		& Tc
+		\end{tikzcd}
+		\quad\quad
+		\begin{tikzcd}
+		Tc\ar["\eta_{Tc}",rightarrow]{r}\ar[equal]{dr}
+		& T^2c\ar["\mu_c", rightarrow]{d}
+		\\
+		& Tc
+		\end{tikzcd}
+		\]
+		These are exactly the associativity and one of the unit laws for $(T, \mu, \eta)$.
+	\item For every $f\colon c\to c'$, $Tf$ is a morphism of algebras $(Tc,\mu_c)\to(Tc', \mu_{c'})$. The diagram 
+		\[
+	\begin{tikzcd}
+	T^2c\ar["\mu_{c}"', rightarrow]{d}\ar["T^2f", rightarrow]{r}
+	& T^2c'\ar["\mu_{c'}", rightarrow]{d} \\
+	Tc\ar["Tf"', rightarrow]{r}
+	& Tc'
+	\end{tikzcd}
+		\]
+	is commutative because of the naturality of $\mu$. Hence $F^T$ is defined on morphisms. It is a functor by the functoriality of $T$.
+	\item The unit is natural by assumption. We claim that $\epsilon_{(a,\alpha)}=\alpha$ is a morphism of algebras $$F^TU^T(a,\alpha)=F^Ta=(Ta,\mu_a) \to \id_{T-Alg}(a,\alpha)=(a,\alpha)$$ and $\epsilon$ is a natural transformation $F^TU^T\Rightarrow\id_{T-Alg}$. Let's check it. We know that $\alpha$ is a morphism of algebras if and only if 
+	\[	
+	\begin{tikzcd}
+	T^2 a\ar["\mu_{a}"']{d}\ar["T\alpha"]{r}
+	& Ta\ar["\alpha"]{d} \\
+	Ta\ar["\alpha"']{r}
+	& a
+	\end{tikzcd}
+	\]
+	is commutative. But this is one of the two $T$-algebra axioms! Moreover, to prove that $\epsilon$ is natural, we need to show that
+		\[	
+	\begin{tikzcd}
+	(Ta,\mu_a) \ar["Tf"']{d}\ar["\alpha=\epsilon_{(a,\alpha)}"]{r}
+	& (a,\alpha)\ar["f"]{d} \\
+	(Tb,\mu_b)\ar["\beta=\epsilon_{(b,\beta)}"']{r}
+	& (b,\beta)
+	\end{tikzcd}
+	\]
+	is commutative, but this is the axiom for $f$ to be a morphism of $T$-algebras! 
+	\item It remains to check the two triangular identities $\epsilon F^T \circ F^T\eta=id_{F^T}$ and $U^T\epsilon\circ\eta U^T=id_{U^T}$. These are to be checked on the components at $c$ and $(a, \alpha)$, respectively.
+	\[
+		\begin{tikzcd}
+	(Tc,\mu_c)\ar["T\eta_{c}",rightarrow]{r}\ar[equal]{dr}
+	& (T^2c,\mu_{Tc})\ar["\mu_{Tc}", rightarrow]{d}
+	\\
+	& (Tc,\mu_c)
+	\end{tikzcd}	\quad\quad
+	\begin{tikzcd}
+	a\ar["\eta_a",rightarrow]{r}\ar[equal]{dr}
+	& Ta\ar["\alpha", rightarrow]{d}
+	\\
+	& a
+	\end{tikzcd}
+	\]
+	The commutativity of these two diagrams is ensured by the second unit law for a monad and the unit law for the $T$-algebra $(a,\alpha)$, respectively.
+	\end{enumerate}
+\end{proof}
+\begin{defn}
+Algebras of the form $(Tc, \mu_c)$ are called free $T$-algebras.	
+\end{defn}
+Thanks to the proposition above we can prove that, given a monad $T$ we can always find an adjunction that generates it. Actually, the converse holds too.
+\begin{prop}
+If $U\colon\D\to\C$ has a left adjoint $F$ with unit $\eta$ and counit $\epsilon$, then $(UF,U\epsilon F,\eta)$ is a monad on $\C$. Also, if $(T,\mu,\eta)$ is a monad on $\C$, then $(U^TF^T,U^T\epsilon F^T,\eta)=(T,\mu,\eta)$. 
+\end{prop}
+\begin{proof}
+Let us check the axioms. First of all, the associativity holds due to the following equations.
+\flushleft
+	\begin{tikzcd}[row sep=.55cm, column sep=.55cm]
+		&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .01em, "\epsilon"']&&&&&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .01em, "\epsilon"'] &&\\
+		\C\arrow[r, "F"]&\D\arrow[ru, "U"] \arrow[rr, bend right, equal] &\phantom{.}& \D \arrow[r, "U"] & \C \arrow[r, "F"] & \D \arrow[r, "U"] & \C  \arrow[r, "F"] &\D\arrow[ru, "U"] \arrow[rr, bend right, equal] &\phantom{.}& \D \arrow[r, "U"] & \C
+		\end{tikzcd}
+			\begin{center}
+				=				
+			\end{center}
+			\begin{center}
+			\begin{tikzcd}
+		&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .01em, "\epsilon"']&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .01em, "\epsilon"']\\
+		\C\arrow[r, "F"]&\D\arrow[ru, "U"] \arrow[rr, bend right, equal] &\phantom{.}& \D\arrow[ru, "U"] \arrow[rr, bend right, equal] &\phantom{.}& \D\arrow[r, "U"]&\C
+		\end{tikzcd}	
+	\end{center}
+\begin{center}
+	=
+		\begin{tikzcd}[row sep=.55cm, column sep=.55cm]
+		&            &            &                                    &\C  \arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .01em, "\epsilon"'] &            &            &                                    &  \C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .01em, "\epsilon"'] &            &  \\
+		\C\arrow[r, "F"] & \D \arrow[r, "U"] & \C  \arrow[r, "F"] &  \D\arrow[ru, "U"] \arrow[rr, bend right, equal] &  \phantom{.}           &\D  \arrow[r, "U"] &\C  \arrow[r, "F"] & \D \arrow[ru, "U"] \arrow[rr, bend right, equal] &\phantom{.}             &\D  \arrow[r, "U"] & \C
+		\end{tikzcd}
+\end{center}
+\end{proof}
 	\chapter{Beck’s monadicity theorem}
 	\chapter{Monads in 2-category theory}
 	\chapter{Monads in $\infty$-category theory}
