@@ -29,6 +29,22 @@
 \usepackage[normalem]{ulem}
 \usepackage{contour}
 \makeatletter        
+\newcommand*{\doublerightarrow}[2]{\mathrel{
+		\settowidth{\@tempdima}{$\scriptstyle#1$}
+		\settowidth{\@tempdimb}{$\scriptstyle#2$}
+		\ifdim\@tempdimb>\@tempdima \@tempdima=\@tempdimb\fi
+		\mathop{\vcenter{
+				\offinterlineskip\ialign{\hbox to\dimexpr\@tempdima+1em{##}\cr
+					\rightarrowfill\cr\noalign{\kern.5ex}
+					\rightarrowfill\cr}}}\limits^{\!#1}_{\!#2}}}
+\newcommand*{\triplerightarrow}[1]{\mathrel{
+		\settowidth{\@tempdima}{$\scriptstyle#1$}
+		\mathop{\vcenter{
+				\offinterlineskip\ialign{\hbox to\dimexpr\@tempdima+1em{##}\cr
+					\rightarrowfill\cr\noalign{\kern.5ex}
+					\rightarrowfill\cr\noalign{\kern.5ex}
+					\rightarrowfill\cr}}}\limits^{\!#1}}}
+\makeatother
 
 \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else  		
 	\hbox{}                                                        					
@@ -261,13 +277,15 @@
 		Given a set $X$, let $\mathcal{U}X$ be the set of ultrafilters on it. Any compact T2 topology on $X$ allows us to see each ultrafilter as a system of neighborhoods of a unique point in $X$, hence it gives us a unique map $\mathcal{U}X\rightarrow X$ sending each ultrafilter to the respective point.
 	\end{exmp}
 	\begin{exmp}
-		Given a directed graph $D=(V,E, E\mathrel{\mathop{\rightrightarrows}^{\hspace{-3mm}\vspace{2cm}s}_{\hspace{-3mm}t}}V)$, we can create its free category $FD$, where the objects are the vertices and $FD(v,w)=\{\text{finite paths } v\rightarrow\ldots\rightarrow w\}$. We set $\id_v$ to be the path of length 0, while composition is just the concatenation of paths.
+		Given a directed graph $D=(V,E,\hspace{-1.5mm}\begin{tikzcd}
+		E\hspace{-1.5mm}\arrow[r, "t" description,  shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, "s" description, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}V
+		\end{tikzcd}\hspace{-1.5mm})$, we can create its free category $FD$, where the objects are the vertices and $FD(v,w)=\{\text{finite paths } v\rightarrow\ldots\rightarrow w\}$. We set $\id_v$ to be the path of length 0, while composition is just the concatenation of paths.
 		
 		In particular, if $D$ is the directed graph with $V=\{0,\ldots,n\}$ and an edge $j\rightarrow k$ if and only if $k=j+1$, we have $FD\cong [n]$.
 		
 		If $D=\{*\}$ and $E=\{*\rightarrow *\}$, then $FD(*,*)\cong\N$.
 		
-		Given a small category $\C$, we may consider the underlying graph $U\C=D$ with $V=\Ob(\C)$, $E=\Ar(\C)$, $s=\dom$ and $t=\cod$. We get then an action map $UFU\C\rightarrow U\C$ sending a finite path to its composite. This map is a morphism of directed graph.
+		Given a small category $\C$, we may consider the underlying graph $U\C=D$ with $V=\Ob(\C)$, $E=\Ar(\C)$, $s=\dom$ and $t=\cod$. We get then an action map $UFU\C\rightarrow U\C$ sending a finite path to its composite. This map is a morphism of directed graphs.
 	\end{exmp}
 
 	How can we see all of these examples as specific instances of a general phenomenon?
@@ -401,7 +419,7 @@ On the other hand, the second diagram can be rephrased as follows:
 	\end{exmp}
 
 	\begin{exmp}
-		Given a ring $R$, $T=R\otimes_{\Z}\colon Ab\rightarrow Ab$ is a monad when considered with the following natural transformations:
+		Given a ring $R$, $T=R\otimes_{\Z}-\colon Ab\rightarrow Ab$ is a monad when considered with the following natural transformations:
 		
 		\begin{align*}
 			\mu_{-}\colon &\ R\otimes_{\Z}(R\otimes_{\Z}-)\cong (R\otimes_{\Z})\otimes_{\Z}-\Rightarrow R\otimes_{\Z}- \\
@@ -551,6 +569,7 @@ Let us check the axioms. First of all, the associativity holds due to the follow
 		\C\arrow[r, "F"] & \D \arrow[r, "U"] & \C  \arrow[r, "F"] &  \D\arrow[ru, "U"] \arrow[rr, bend right, equal] &  \phantom{.}           &\D  \arrow[r, "U"] &\C  \arrow[r, "F"] & \D \arrow[ru, "U"] \arrow[rr, bend right, equal] &\phantom{.}             &\D  \arrow[r, "U"] & \C
 		\end{tikzcd}
 \end{center}
+
 \end{proof}
 	\chapter{Beck’s monadicity theorem}
 	\chapter{Monads in 2-category theory}
