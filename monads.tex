@@ -569,8 +569,55 @@ Let us check the axioms. First of all, the associativity holds due to the follow
 		\C\arrow[r, "F"] & \D \arrow[r, "U"] & \C  \arrow[r, "F"] &  \D\arrow[ru, "U"] \arrow[rr, bend right, equal] &  \phantom{.}           &\D  \arrow[r, "U"] &\C  \arrow[r, "F"] & \D \arrow[ru, "U"] \arrow[rr, bend right, equal] &\phantom{.}             &\D  \arrow[r, "U"] & \C
 		\end{tikzcd}
 \end{center}
-
+The unit axiom is witnessed by [\dots]
 \end{proof}
+\begin{exmp}[Interesting adjunction, boring monad] Let us consider the adjunction $U\colon\mathbf{Top}\rightleftarrows\Set\colon\mathsf{Disc}\eqqcolon F$, whose left adjoint assigns to every set $X$ the discrete topological space $FX=(X, 2^X)$.
+It's immediate to see that $UFX=X$, hence $UF=\id_\Set$. How many natural transformations $\id_\Set=UF\xRightarrow{\alpha} UF=\id_\Set$ are there?
+We know that $\id_\Set\cong\hom(*,-)$, so $\text{Nat}(\id_\Set, \id_\Set)\cong\text{Nat}(\hom(*,-),\hom(*,-))\cong\hom(*,*)=\{\id_*\}$ by Yoneda, hence $\alpha=\id$. Therefore $(UF,U\epsilon F, \eta)=(\id_\Set, \id, \id)$
+\end{exmp}
+\begin{exmp}
+If $S$ is a set, $\Set(S,-)\colon\Set\to\Set$ is right adjoint to $S\times-\colon\Set\to\Set$, so we get a monad $X\mapsto\Set(S,S\times X)$. This is called \emph{the state monad} and is important in Computer Science.
+\end{exmp}
+There is always a comparison morphism $\D\xrightarrow{\overline{U}}UF-Alg$	s.t. 
+\[
+\begin{tikzcd}
+\D\ar["\overline{U}"]{rr}\ar["U"']{dr}
+&& UF-Alg\ar["U^{UF}", rightarrow]{dl}
+\\
+& \C
+\end{tikzcd}
+\]
+commutes. We set $\overline{U}f=(Ud,UFUd\xrightarrow{U\epsilon_d}Ud)=(Ud, U\epsilon_d)$. More generally, for a given functor $\D\xrightarrow{G}\C$ we can ask what do we need to get a lift $\overline{G}\colon\D\to T-Alg$.
+\begin{defn}
+A $T$-action on a functor $\D\xrightarrow{G}\C$ is a natural transformation $TG\xRightarrow{\gamma}G$ s.t. 
+\[
+\begin{tikzcd}
+T^2G\ar["\mu G"', Rightarrow]{d}\ar["T\gamma", Rightarrow]{r}
+& TG\ar["\gamma", Rightarrow]{d} \\
+TG\ar["\gamma"', Rightarrow]{r}
+& G
+\end{tikzcd}
+\quad\quad
+\begin{tikzcd}
+G\ar["\eta G", Rightarrow]{r}\ar[equal]{dr}
+& TG\ar["\gamma", Rightarrow]{d}\\
+& G
+\end{tikzcd}
+\]
+commute.
+\end{defn}
+\begin{defn}
+A morphism of $T$-actions is a natural transformation $\varphi\colon G\Rightarrow K$ s.t. 
+\[
+\begin{tikzcd}
+TG\ar["T\varphi", Rightarrow]{r}\ar["\gamma"', Rightarrow]{d}
+& TK\ar["\alpha", Rightarrow]{d}\\
+G\ar[r, Rightarrow, "\varphi"']& K 
+\end{tikzcd}
+\]
+commutes.
+\end{defn}
+Up to size, we get a category $T$-$\mathsf{act}(\D)$
 	\chapter{Beck’s monadicity theorem}
 	\chapter{Monads in 2-category theory}
 	\chapter{Monads in $\infty$-category theory}
