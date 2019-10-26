@@ -77,6 +77,7 @@
 \DeclareMathOperator{\VB}{\mathbf{VB}}
 
 \newcommand{\Set}{\catname{Set}}
+\newcommand{\Top}{\catname{Top}}
 \newcommand{\CHTop}{\catname{CHTop}}
 \newcommand{\Ab}{\catname{Ab}}
 \newcommand{\RMod}{\catname{Mod}_R}
@@ -476,7 +477,7 @@ On the other hand, the second diagram can be rephrased as follows:
 	We see that $fg\beta=\beta$ and $f\alpha Tg=\beta Tf Tg=\beta T(fg)=\beta T\id_b=\beta$, hence the thesis.
 	\end{proof}
     \begin{rmk}
-     Notice that the forgetful functor $U\colon\mathbf{Top}\to\Set$ can't be monadic since it does not reflect isomorphisms. However, if we restrict it to the full subcategory of $\mathbf{Top}$ spanned by compact Hausdorff spaces we indeed obtain a monadic functor.
+     Notice that the forgetful functor $U\colon\Top\to\Set$ can't be monadic since it does not reflect isomorphisms. However, if we restrict it to the full subcategory of $\Top$ spanned by compact Hausdorff spaces we indeed obtain a monadic functor.
     \end{rmk}
 	\begin{prop}
 		The functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ has a left adjoint $F^T\colon\C\rightarrow T\mbox{-}\Alg$ such that $F^Tc=(Tc,\mu_{c})$, $F^Tf\colon(Tc,\mu_{c})\xrightarrow{Tf} (Td,\mu_{d})$ and $U^TF^T=T$. Furthermore, the unit of this adjunction is given by $\gamma_c=\eta_c\colon c\to U^TF^Tc=Tc$ and the counit has components $\epsilon_{(a,\alpha)}=\alpha\colon(Ta,\mu_a)\to(a,\alpha)$.
@@ -594,6 +595,7 @@ is equal to $1_{UF}$, since $\epsilon F\circ F\eta=1_F$ by one of the triangular
 is equal to $1_{UF}$. This follows from the explicit description of the unit and the counit of the adjunction $F^T\dashv U^T$, in fact 
 $$U^T\epsilon F^Tc=U^T\epsilon_{(Tc, \eta_c)}=\mu_c$$ \qedhere
 \end{proof}
+
 \begin{exmp}[Interesting adjunction, boring monad] Let us consider the adjunction $U\colon\mathbf{Top}\rightleftarrows\Set\colon\mathsf{Disc}\eqqcolon F$, whose left adjoint assigns to every set $X$ the discrete topological space $FX=(X, 2^X)$.
 It's immediate to see that $UFX=X$, hence $UF=\id_\Set$. How many natural transformations $\id_\Set=UF\xRightarrow{\alpha} UF=\id_\Set$ are there?
 We know that $\id_\Set\cong\hom(*,-)$, so $\text{Nat}(\id_\Set, \id_\Set)\cong\text{Nat}(\hom(*,-),\hom(*,-))\cong\hom(*,*)=\{\id_*\}$ by Yoneda, hence $\alpha=\id$. Therefore $(UF,U\epsilon F, \eta)=(\id_\Set, \id, \id)$
@@ -610,41 +612,170 @@ There is always a comparison morphism $\D\xrightarrow{\overline{U}}UF\mbox{-}\Al
 & \C
 \end{tikzcd}
 \]
-commutes. We set $\overline{U}f=(Ud,UFUd\xrightarrow{U\epsilon_d}Ud)=(Ud, U\epsilon_d)$. More generally, for a given functor $\D\xrightarrow{G}\C$ we can ask what do we need to get a lift $\overline{G}\colon\D\to T\mbox{-}\Alg$.
-\begin{defn}
-A $T$-action on a functor $\D\xrightarrow{G}\C$ is a natural transformation $TG\xRightarrow{\gamma}G$ s.t. 
-\[
-\begin{tikzcd}
-T^2G\ar["\mu G"', Rightarrow]{d}\ar["T\gamma", Rightarrow]{r}
-& TG\ar["\gamma", Rightarrow]{d} \\
-TG\ar["\gamma"', Rightarrow]{r}
-& G
-\end{tikzcd}
-\quad\quad
-\begin{tikzcd}
-G\ar["\eta G", Rightarrow]{r}\ar[equal]{dr}
-& TG\ar["\gamma", Rightarrow]{d}\\
-& G
-\end{tikzcd}
-\]
-commute.
-\end{defn}
-\begin{defn}
-A morphism of $T$-actions is a natural transformation $\varphi\colon G\Rightarrow K$ s.t. 
-\[
-\begin{tikzcd}
-TG\ar["T\varphi", Rightarrow]{r}\ar["\gamma"', Rightarrow]{d}
-& TK\ar["\alpha", Rightarrow]{d}\\
-G\ar[r, Rightarrow, "\varphi"']& K 
-\end{tikzcd}
-\]
-commutes.
-\end{defn}
-Up to size, we get a category $T$-$\mathsf{Act}(\D)$, defined as follows.
+commutes. We set $\overline{U}f=(Ud,UFUd\xrightarrow{U\epsilon_d}Ud)=(Ud, U\epsilon_d)$. More specifically, for a given functor $\D\xrightarrow{G}\C$ we can ask what do we need to get an equivalence $\overline{G}\colon\D\to T\mbox{-}\Alg$. To get there, we will need a few more definitions and lemmas.
+
+
+\section{The category of $T$-actions}
+
+Just like a monad $(T,\mu,\eta)$ defines a category $T-\Alg$, it also allows us to construct another category from functors $\D\rightarrow\C$.
 
 \begin{defn}
-Given a monad $(T,\mu, \eta)$
-\end{defn}
+	Given a monad $(T,\mu,\eta)$ and fixed a category $\D$, a $T$-action on a functor $\D\xrightarrow{G}\C$ is a natural transformation $TG\xRightarrow{\gamma}G$ such that the diagrams
+	\[
+		\begin{tikzcd}
+			T^2G\ar["\mu G"', Rightarrow]{d}\ar["T\gamma", 	Rightarrow]{r}
+			& TG\ar["\gamma", Rightarrow]{d} \\
+			TG\ar["\gamma"', Rightarrow]{r}
+			& G
+		\end{tikzcd}
+		\quad\quad
+		\begin{tikzcd}
+			G\ar["\eta G", Rightarrow]{r}\ar[equal]{dr}
+			& TG\ar["\gamma", Rightarrow]{d}\\
+			& G
+		\end{tikzcd}
+	\]
+		commute.
+	
+		A morphism of $T$-actions $(G,\gamma)\Rightarrow (K,\kappa)$ is a natural transformation $\varphi: G\Rightarrow K$ such that
+\[
+\begin{tikzcd}
+	TG\ar["T\varphi", Rightarrow]{r}\ar["\gamma"', Rightarrow]{d}
+		& TK\ar["\kappa", Rightarrow]{d}\\
+		G\ar[r, Rightarrow, "\varphi"']& K 
+		\end{tikzcd}
+		\]
+		commutes.
+	\end{defn}
+
+	Up to size, $T$-actions and their morphisms assemble into a category $T$-$\mathsf{Act}(\D)$.
+
+\begin{exmp}
+	$U^T: T-\Alg\rightarrow\C$ has a $T$-action given by $(U^T,\alpha:TU^T\Rightarrow U^T)$, where $\alpha_{(b,\beta)}:=\beta:Tb\rightarrow b$.
+\end{exmp}
+
+\begin{exmp}
+	Given an adjunction  $U\dashv F:\C\rightarrow\D$ with unit $\eta:\id_{\C}\Rightarrow UG$ and counit $\epsilon :GU\Rightarrow\id_{\D}$, we get a monad on $(UF,U\epsilon F,\eta)$ on $\C$. We have then a $UF$-action $U\epsilon : UFU\Rightarrow U$, where the axioms follow from the triangular identities.
+\end{exmp}
+
+\begin{prop}
+	$(U^T,\alpha)$ is the universal $T$-action, that is for any category $\D$ the functor $\Cat(\D,T-\Alg)\rightarrow T-\mathsf{Act}(\D)$ sending $G$ to $(U^TG,\alpha G)$ and $\beta:G\Rightarrow H$ to $U^T\beta:(U^TG,\alpha G)\Rightarrow (U^TH,\alpha H)$ is an isomorphism of categories.
+\end{prop}
+
+\begin{proof}
+	In other words, for every $T$-action $(G,\gamma)$ there exists a unique lift $\overline{G}:\D\rightarrow T-\Alg$ such that $(U^T\overline{G},\alpha\overline{G})=(G,\gamma)$ and for every $\phi:(G,\gamma)\Rightarrow (K,\kappa)$ there is a unique $\overline{\phi}:\overline{G}\Rightarrow\overline{K}$ with $U^T\overline{\phi}=\phi$.
+	
+	It is enough to set $\overline{G}d:=(Gd,\gamma_d)$ on objects, $\overline{G}f:=Gf$ on morphisms, $\overline{\phi}_d:=\phi_d$ and check the axioms.
+	
+	\[
+		\begin{tikzcd}
+			D\ar[r, dotted, "\exists!\overline{G}"]\ar[dr, swap, "G"]
+			& T-\Alg\ar[d, "U^T"] \\
+			& \C
+		\end{tikzcd}
+	\]
+\end{proof}
+
+Following the construction in this proof, from the last example we get the comparison functor for the adjunction $F\dashv U$. In particular, $\overline{U}d=(Ud,U\epsilon_d)$. In particular, $U:\Top\rightarrow\Set$ factors through identities.
+
+
+\section{Limits and colimits}
+
+We have shown that the forgetful functor $U^T:T-\Alg\rightarrow\C$ is a right adjoint, hence as such it preserves limits. However, more is true.
+
+\begin{prop}
+	For any monad $(T,\mu,\eta)$ on $\C$, the forgetful functor $U^T:T-\Alg\rightarrow\C$ creates limits.
+\end{prop}
+
+\begin{proof}
+	This statement means that, for any diagram $D:I\rightarrow T-\Alg$ such that $U^TD:I\rightarrow\C$ has a limit $(l,\kappa_i)$, there is a unique $T$-algebra structure $\lambda:Tl\rightarrow l$ such that $\kappa_i$ is a morphism of $T$-algebras for all $i\in I$. This makes $((l,\lambda),\kappa_i)$ into a limit of $D$.
+	
+	Now we begin the proof.
+	
+	First of all, remember that $D\phi:D_i\rightarrow D_j$ is a morphism of $T$-algebras for all $\phi:i\rightarrow j$ by assumption, hence the morphisms $\delta_i T\kappa_i:Tl\rightarrow D_i$ define a cone over $D$, where $\delta_i$ is the $T$-algebra structure on $D_i$. By the universal property of the limits, there is a unique morphism $\lambda: Tl\rightarrow l$ making the diagram commute for all $i$:
+	
+	\[
+		\begin{tikzcd}
+			Tl\ar[d, "T\kappa_i"]\ar[r, dotted, "\lambda"]
+			& l\ar[d, "\kappa_i"] \\
+			TD_i\ar[r, "\delta_i"]
+			& D_i
+		\end{tikzcd}
+	\]
+	
+	This tells us that, if the limit $((l,\lambda),\kappa_i)$ of $D$ exists, it is unique. We have to check that $(l,\lambda)$ is a $T$-algebra.
+	
+	Notice that for all $i$ all of the faces of the following diagrams, except for possibly the top ones, commute:
+	
+	\[
+		\begin{tikzcd}
+			& Tl\ar[drr, "\lambda"]\ar[ddd, "T\kappa_i" near start] \\
+			T^2l\ar[ur, "T\lambda"]\ar[drr, crossing over, "\mu_l" near start, swap]\ar[ddd, "T^2\kappa_i"]
+			&&& l\ar[ddd, "\kappa_i"] \\
+			&& Tl\ar[ur, "\lambda"]\ar[ddd, crossing over, "T\kappa_i" near start] \\
+			& TD_i\ar[drr, swap, "\delta_i" near start] \\
+			T^2D_i\ar[ur, "T\delta_i"]\ar[drr, "\mu_{D_i}"]
+			&&& D_i \\
+			&& TD_i\ar[ur, "\delta_i"]
+		\end{tikzcd}
+		\quad\quad
+		\begin{tikzcd}
+			& Tl\ar[dr, "\lambda"]\ar[dd, "T\kappa_i" near end] \\
+			l\ar[ur, "\eta_l"]\ar[rr, crossing over, equal]\ar[dd, swap, "\kappa_i"]
+			&& l\ar[dd, "\kappa_i"] \\
+			& TD_i\ar[dr, "\kappa_i"] \\
+			D_i\ar[ur, "\eta_{D_i}"]\ar[rr, equal]
+			&& D_i
+		\end{tikzcd}
+	\]
+	
+	Since the $\kappa_i$ are jointly monic, the upper face commutes and therefore $(l,\lambda)$ is a $T$-algebra. It remains to check that $((l,\lambda),\kappa_i)$ factors every other cone over $D$.
+	
+	Let $\gamma_i:(x,\zeta)\rightarrow (D_i,\delta_i)$ be a cone over $D$. Then, there is a unique $f:x\rightarrow l$ in $\C$ such that $\kappa_if=\gamma_i$. We only have to show that $f$ is a morphism of $T$-algebras $(x,\zeta)\rightarrow (l,\lambda)$.
+	
+	Consider the following diagram and notice that the outer square, the one on the right and the two triangles commute, hence the square on the left commutes as well since the $\kappa_i$ are jointly monic.
+	
+	\[
+		\begin{tikzcd}
+			Tx\ar[rr, bend left, "T\gamma_i"]\ar[r, swap, "Tf"]\ar[d, "\zeta"]
+			& Tl\ar[r, swap, "T\kappa_i"]\ar[d, "\lambda"]
+			& TD_i\ar[d, "\delta_i"] \\
+			x\ar[r, "f"]\ar[rr, bend right, swap, "\gamma_i"]
+			& l\ar[r, "\kappa_i"]
+			& D_i
+		\end{tikzcd}
+	\]
+\end{proof}
+
+A similar statement holds for colimits.
+
+\begin{prop}
+	For any monad $(T,\mu,\eta)$ on $\C$, the forgetful functor $U^T:T-\Alg\rightarrow\C$ creates any limit preserved by both $T$ and $T^2$.
+\end{prop}
+
+\begin{proof}
+	Similarly to the dual situation, this means that for any diagram $D:I\rightarrow T-\Alg$ such that $U^TD:I\rightarrow\C$ has a colimit $(c,\kappa)$ preserved by both $T$ and $T^2$, there is a unique $T$-algebra structure $\lambda:Tc\rightarrow c$ such that $l_i$ is a morphism of $T$-algebras for all $i\in I$. This makes $((c,\lambda),\kappa_i)$ into a colimit of $D$.
+	
+	The proof is essentially dual to the one given earlier, in the sense that again we find a unique $\lambda:Tc\rightarrow c$ using the universal property of the colimit $(Tc,Tl_i)$ of $TD$.
+	
+	\[
+		\begin{tikzcd}
+			TD_i\ar[r, "Tl_i"]\ar[d, "\delta_i"]
+			& Tc\ar[d, dotted, "\lambda"] \\
+			D_i\ar[r, "l_i"]
+			& c
+		\end{tikzcd}
+	\]
+	
+	To check that $(c,\lambda)$ is an algebra we use the universal property of $(T^2c,T^2l_i)$ (for $\mu$) and of $(c,l_i)$ (for $\eta$).
+\end{proof}
+
+\begin{exmp}
+	If $T$ is a monad on a complete category $\C$, then $T-\Alg$ is complete. If $\C$ is cocomplete and $T$ is cocontinuous, then $T-\Alg$ is cocontinuous.
+
+	In particular, let $\C$ be a small category. There is a cocontinuous monad on the category of $\Ob(\C)$-indexed collections of sets whose category of algebras is the functor category $[\C,\Set]$. Its endofunctor $T:[\Ob(\C),\Set]\rightarrow [\Ob(\C),\Set]$ maps $(X_c)_{c\in\C}$ into $(\coprod_{d\in\C}\C(d,c)\times X_d)_{c\in\C}$. Since $[\Ob(\C),\Set]$ is complete and cocomplete, $[\C,\Set]$ is as well.
+\end{exmp}
+
 	\chapter{Beck’s monadicity theorem}
 	\begin{thm}[Beck]
 	
