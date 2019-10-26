@@ -67,8 +67,19 @@
 	\mathop{\mathpalette\colim@{\rightarrowfill@\scriptscriptstyle}}\nmlimits@
 }
 
+
 \newcommand{\catname}[1]{{\normalfont\textbf{#1}}}
+
+\DeclareMathOperator{\Aff}{\mathbf{Aff}}
+\DeclareMathOperator{\Alg}{\mathbf{Alg}}
+\DeclareMathOperator{\Coh}{\mathbf{Coh}}
+\DeclareMathOperator{\QCoh}{\mathbf{QCoh}}
+\DeclareMathOperator{\VB}{\mathbf{VB}}
+
 \newcommand{\Set}{\catname{Set}}
+\newcommand{\CHTop}{\catname{CHTop}}
+\newcommand{\Ab}{\catname{Ab}}
+\newcommand{\RMod}{\catname{Mod}_R}
 \newcommand{\sSet}{\catname{sSet}}
 \newcommand{\Rel}{\catname{Rel}}
 \newcommand{\Cat}{\catname{Cat}}
@@ -105,6 +116,7 @@
 \renewcommand{\headrulewidth}{0pt}                   \usepackage{amsmath,calligra,mathrsfs}
 \DeclareMathOperator{\innerhom}{\mathscr{H}\text{\kern -3pt {\calligra\Large om}}\,}
 \DeclareMathOperator{\Hom}{\text{Hom}}
+\DeclareMathOperator{\End}{\text{End}}
 \DeclareMathOperator{\op}{\text{op}}
 \DeclareMathOperator{\co}{\text{co}}
 \DeclareMathOperator{\coop}{\text{coop}}
@@ -273,7 +285,7 @@
 	\begin{exmp}
 		Given a monoid $M$ in $\Set$, we get a map $\Pi_{k=1}^n M\rightarrow M$, $(m_1,\ldots,m_n)\mapsto ((\ldots ((m_1m_2)m_3)\ldots )m_{n-1}) m_n$. This induces an action map from $W(M)=\amalg_{n\in\N}\Pi_{k=1}^n M$, the set of words on $M$, to $M$.
 	\end{exmp}
-	\begin{exmp}
+	\begin{exmp}\label{ultrafilters}
 		Given a set $X$, let $\mathcal{U}X$ be the set of ultrafilters on it. Any compact T2 topology on $X$ allows us to see each ultrafilter as a system of neighborhoods of a unique point in $X$, hence it gives us a unique map $\mathcal{U}X\rightarrow X$ sending each ultrafilter to the respective point.
 	\end{exmp}
 	\begin{exmp}
@@ -288,9 +300,7 @@
 		Given a small category $\C$, we may consider the underlying graph $U\C=D$ with $V=\Ob(\C)$, $E=\Ar(\C)$, $s=\dom$ and $t=\cod$. We get then an action map $UFU\C\rightarrow U\C$ sending a finite path to its composite. This map is a morphism of directed graphs.
 	\end{exmp}
 
-	How can we see all of these examples as specific instances of a general phenomenon?
-	
-	Notice that we always have a category $\C$ and some functor $T\colon\C\rightarrow\C$ with an action map $T\C\rightarrow\C$.
+	Notice that we always have a category $\C$ and some functor $T\colon\C\rightarrow\C$ with an action map $T\C\rightarrow\C$. How can we see all of these examples as specific instances of a general phenomenon?
 	
 	\begin{defn}
 		A monad on a category $\C$ is a triple $(T,\mu,\eta)$ where $T\colon\C\rightarrow\C$ is a functor, while $\mu\colon T^2\Rightarrow T$ and $\eta\colon\id_{\C}\Rightarrow T$ are natural transformations such that the following diagrams commute:
@@ -318,7 +328,7 @@
 		\begin{minipage}{0.3\linewidth}
 			\begin{tikzcd}[row sep=1cm, column sep=1cm]
 				&\C\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\ar[r, "T"]\ar[drr, bend right=26, "T"description]
-				&\C\ar[dr, "T"]\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\\
+				&\C\ar[dr, "T"]\ar[d, Rightarrow, yshift=1ex, shorten <= 1em, shorten >= 1em, "\mu"]\\
 				\C
 				\ar[rrr, "T"'] 
 				\ar[ur, , "T"]
@@ -329,7 +339,7 @@
 		=
 		\begin{minipage}{0.3\linewidth}
 			\begin{tikzcd}[row sep=1cm, column sep=1cm]
-				&\C\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\ar[r, "T"]
+				&\C\ar[d, Rightarrow, yshift=1ex, shorten <= 1em, shorten >= 1em, "\mu"]\ar[r, "T"]
 				&\C\ar[d, Rightarrow, shorten <= 1em, shorten >= 1em, "\mu"]\ar[dr, "T"]\\
 				\C\ar[urr, bend right=26, "T"'description]
 				\ar[rrr, "T"'] 
@@ -403,7 +413,7 @@ On the other hand, the second diagram can be rephrased as follows:
 	\end{defn}
 
 		
-	$T$-algebras form a category $T-Alg$, which has a natural forgetful functor $U^T\colon T-Alg\rightarrow\C$.
+	$T$-algebras form a category $T\mbox{-}\Alg$, which has a natural forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$.
 	
 	We now show how to recover the examples previously given with this language.
 	
@@ -415,37 +425,35 @@ On the other hand, the second diagram can be rephrased as follows:
 			\eta_A\colon&\ A \rightarrow G\times A \\
 			&\ a \mapsto (e,a)
 		\end{align*}
-		is a monad and $(A,\alpha)$ is a $T$-algebra if and only if $A$ is a $G$-set. It follows that $T-Alg\cong G-\Set$.
+		is a monad and $(A,\alpha)$ is a $T$-algebra if and only if $A$ is a $G$-set. It follows that $T\mbox{-}\Alg\cong G\mbox{-}\Set$.
 	\end{exmp}
 
 	\begin{exmp}
-		Given a ring $R$, $T=R\otimes_{\Z}-\colon Ab\rightarrow Ab$ is a monad when considered with the following natural transformations:
+		Given a ring $R$, $T=R\otimes_{\Z}-\colon \Ab\rightarrow \Ab$ is a monad when considered with the following natural transformations:
 		
 		\begin{align*}
 			\mu_{-}\colon &\ R\otimes_{\Z}(R\otimes_{\Z}-)\cong (R\otimes_{\Z})\otimes_{\Z}-\Rightarrow R\otimes_{\Z}- \\
 			\eta_-\colon &\ -\cong\Z\otimes_{\Z}-\Rightarrow R\otimes_{\Z}-
 		\end{align*}
 	
-		We have that $(R\otimes_{\Z}-)-Alg\cong Mod_R$.
+		We have that $(R\otimes_{\Z}-)\mbox{-}\Alg\cong \RMod$.
 	\end{exmp}
 
 	\begin{exmp}
-		COnsider $W\colon\Set\rightarrow\Set$ given by $WX=\amalg_{n\in\N}\Pi_{k=1}^n X$. Multiplication $\mu_X\colon WWX\rightarrow WX$ is given by concatenation of words, while the unit $\eta_X\colon X\rightarrow WX$ is just $x\mapsto (x)$.
-		
-		With this, $W-Alg\cong Mon(\Set)$.
+		Consider $W\colon\Set\rightarrow\Set$ given by $WX=\amalg_{n\in\N}\Pi_{k=1}^n X$. Multiplication $\mu_X\colon WWX\rightarrow WX$ is given by concatenation of words, while the unit $\eta_X\colon X\rightarrow WX$ is just $x\mapsto (x)$. With this, $W\mbox{-}\Alg\cong \text{Mon}(\Set)$.
 	\end{exmp}
 
 	\begin{exmp}
-		The functor $\mathcal{U}$ with the right natural transformations is a monad on $\Set$ and $\mathcal{U}-Alg\cong CHTop$, the category of compact T2 spaces.
+		The functor $\mathcal{U}$ defined in Example \ref{ultrafilters}, equipped with suitable natural transformations, is a monad on $\Set$ and $\mathcal{U}\mbox{-}\Alg\cong \CHTop$, the category of compact T2 spaces.
 	\end{exmp}
 
 	\begin{exmp}
-		$UF$ also induces a monad on the category of directed graphs and $UF-Alg\cong\Cat$.
+		The free-forgetful adjunction $F\dashv U$ between categories and directed graphs induces a monad on the latter, with $UF\mbox{-}\Alg\cong\Cat$.
 	\end{exmp}
 
 	\section{Monadic functors}
 	
-	Now that we have introduced these structures, our aim is to characterize monadic functors, that is functors $U\colon\A\rightarrow\C$ which are equivalent to $U^T\colon T-Alg\rightarrow\C$ for some monad $(T,\mu,\eta)$ on $\C$.
+	Now that we have introduced these structures, our aim is to characterize \emph{monadic functors}, that is functors $U\colon\A\rightarrow\C$ which are equivalent to $U^T\colon T\mbox{-}\Alg\rightarrow\C$ for some monad $(T,\mu,\eta)$ on $\C$.
 
 	First of all, notice that $U^T$ is faithful by construction, hence $U$ must be faithful, but more is true.
 	
@@ -471,7 +479,7 @@ On the other hand, the second diagram can be rephrased as follows:
      Notice that the forgetful functor $U\colon\mathbf{Top}\to\Set$ can't be monadic since it does not reflect isomorphisms. However, if we restrict it to the full subcategory of $\mathbf{Top}$ spanned by compact Hausdorff spaces we indeed obtain a monadic functor.
     \end{rmk}
 	\begin{prop}
-		The functor $U^T\colon T-Alg\rightarrow\C$ has a left adjoint $F^T\colon\C\rightarrow T-Alg$ such that $F^Tc=(Tc,\mu_{c})$, $F^Tf\colon(Tc,\mu_{c})\xrightarrow{Tf} (Td,\mu_{d})$ and $U^TF^T=T$. Furthermore, the unit of this adjunction is given by $\gamma_c=\eta_c\colon c\to U^TF^Tc=Tc$ and the counit has components $\epsilon_{(a,\alpha)}=\alpha\colon(Ta,\mu_a)\to(a,\alpha)$.
+		The functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ has a left adjoint $F^T\colon\C\rightarrow T\mbox{-}\Alg$ such that $F^Tc=(Tc,\mu_{c})$, $F^Tf\colon(Tc,\mu_{c})\xrightarrow{Tf} (Td,\mu_{d})$ and $U^TF^T=T$. Furthermore, the unit of this adjunction is given by $\gamma_c=\eta_c\colon c\to U^TF^Tc=Tc$ and the counit has components $\epsilon_{(a,\alpha)}=\alpha\colon(Ta,\mu_a)\to(a,\alpha)$.
 	\end{prop}
 \begin{proof}
 	\begin{enumerate}[label=(\roman*)]
@@ -502,7 +510,7 @@ On the other hand, the second diagram can be rephrased as follows:
 	\end{tikzcd}
 		\]
 	is commutative because of the naturality of $\mu$. Hence $F^T$ is defined on morphisms. It is a functor by the functoriality of $T$.
-	\item The unit is natural by assumption. We claim that $\epsilon_{(a,\alpha)}=\alpha$ is a morphism of algebras $$F^TU^T(a,\alpha)=F^Ta=(Ta,\mu_a) \to \id_{T-Alg}(a,\alpha)=(a,\alpha)$$ and $\epsilon$ is a natural transformation $F^TU^T\Rightarrow\id_{T-Alg}$. Let's check it. We know that $\alpha$ is a morphism of algebras if and only if 
+	\item The unit is natural by assumption. We claim that $\epsilon_{(a,\alpha)}=\alpha$ is a morphism of algebras $$F^TU^T(a,\alpha)=F^Ta=(Ta,\mu_a) \to \id_{T\mbox{-}\Alg}(a,\alpha)=(a,\alpha)$$ and $\epsilon$ is a natural transformation $F^TU^T\Rightarrow\id_{T\mbox{-}\Alg}$. Let's check it. We know that $\alpha$ is a morphism of algebras if and only if 
 	\[	
 	\begin{tikzcd}
 	T^2 a\ar["\mu_{a}"']{d}\ar["T\alpha"]{r}
@@ -550,26 +558,41 @@ If $U\colon\D\to\C$ has a left adjoint $F$ with unit $\eta$ and counit $\epsilon
 Let us check the axioms. First of all, the associativity holds due to the following equations.
 \flushleft
 	\begin{tikzcd}[row sep=.55cm, column sep=.55cm]
-		&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .01em, "\epsilon"']&&&&&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .01em, "\epsilon"'] &&\\
-		\C\arrow[r, "F"]&\D\arrow[ru, "U"] \arrow[rr, bend right, equal] &\phantom{.}& \D \arrow[r, "U"] & \C \arrow[r, "F"] & \D \arrow[r, "U"] & \C  \arrow[r, "F"] &\D\arrow[ru, "U"] \arrow[rr, bend right, equal] &\phantom{.}& \D \arrow[r, "U"] & \C
+		&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']&&&&&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"'] &&\\
+		\C\arrow[r, "F"]&\D\arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}& \D \arrow[r, "U"] & \C \arrow[r, "F"] & \D \arrow[r, "U"] & \C  \arrow[r, "F"] &\D\arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}& \D \arrow[r, "U"] & \C
 		\end{tikzcd}
 			\begin{center}
 				=				
 			\end{center}
 			\begin{center}
 			\begin{tikzcd}
-		&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .01em, "\epsilon"']&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .01em, "\epsilon"']\\
-		\C\arrow[r, "F"]&\D\arrow[ru, "U"] \arrow[rr, bend right, equal] &\phantom{.}& \D\arrow[ru, "U"] \arrow[rr, bend right, equal] &\phantom{.}& \D\arrow[r, "U"]&\C
+		&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']\\
+		\C\arrow[r, "F"]&\D\arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}& \D\arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}& \D\arrow[r, "U"]&\C
 		\end{tikzcd}	
 	\end{center}
 \begin{center}
 	=
 		\begin{tikzcd}[row sep=.55cm, column sep=.55cm]
-		&            &            &                                    &\C  \arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .01em, "\epsilon"'] &            &            &                                    &  \C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .01em, "\epsilon"'] &            &  \\
-		\C\arrow[r, "F"] & \D \arrow[r, "U"] & \C  \arrow[r, "F"] &  \D\arrow[ru, "U"] \arrow[rr, bend right, equal] &  \phantom{.}           &\D  \arrow[r, "U"] &\C  \arrow[r, "F"] & \D \arrow[ru, "U"] \arrow[rr, bend right, equal] &\phantom{.}             &\D  \arrow[r, "U"] & \C
+		&            &            &                                    &\C  \arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"'] &            &            &                                    &  \C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"'] &            &  \\
+		\C\arrow[r, "F"] & \D \arrow[r, "U"] & \C  \arrow[r, "F"] &  \D\arrow[ru, "U"] \arrow[rr, equal] &  \phantom{.}           &\D  \arrow[r, "U"] &\C  \arrow[r, "F"] & \D \arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}             &\D  \arrow[r, "U"] & \C
 		\end{tikzcd}
 \end{center}
-The unit axiom is witnessed by [\dots]
+Unit laws:
+\[
+\begin{tikzcd}
+&         \arrow[d, Rightarrow, yshift=1ex, shorten <= .5em, shorten >= .01em, "\eta"']    &\C \arrow[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']  \arrow[rd, "F"] &            &  \\
+\C\arrow[r, "F"] \arrow[rru, bend left, equal] &\D  \arrow[ru, "U"] \arrow[rr, equal] &  \phantom{.}           &\D  \arrow[r, "U"] & \C
+\end{tikzcd}
+\]
+is equal to $1_{UF}$, since $\epsilon F\circ F\eta=1_F$ by one of the triangular identities of the adjunction $F\dashv U$. Furthermore,
+\[
+\begin{tikzcd}
+&            &\C \arrow[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']  \arrow[rd, "F"]\arrow[rrd, bend left, equal] &  \arrow[d, Rightarrow, yshift=1ex, shorten <= .5em, shorten >= .01em, "\eta"']           &  \\
+\C\arrow[r, "F"]  &\D  \arrow[ru, "U"] \arrow[rr, equal] &  \phantom{.}           &\D  \arrow[r, "U"] & \C
+\end{tikzcd}
+\] 
+is equal to $1_{UF}$. This follows from the explicit description of the unit and the counit of the adjunction $F^T\dashv U^T$, in fact 
+$$U^T\epsilon F^Tc=U^T\epsilon_{(Tc, \eta_c)}=\mu_c$$ \qedhere
 \end{proof}
 \begin{exmp}[Interesting adjunction, boring monad] Let us consider the adjunction $U\colon\mathbf{Top}\rightleftarrows\Set\colon\mathsf{Disc}\eqqcolon F$, whose left adjoint assigns to every set $X$ the discrete topological space $FX=(X, 2^X)$.
 It's immediate to see that $UFX=X$, hence $UF=\id_\Set$. How many natural transformations $\id_\Set=UF\xRightarrow{\alpha} UF=\id_\Set$ are there?
@@ -578,16 +601,16 @@ We know that $\id_\Set\cong\hom(*,-)$, so $\text{Nat}(\id_\Set, \id_\Set)\cong\t
 \begin{exmp}
 If $S$ is a set, $\Set(S,-)\colon\Set\to\Set$ is right adjoint to $S\times-\colon\Set\to\Set$, so we get a monad $X\mapsto\Set(S,S\times X)$. This is called \emph{the state monad} and is important in Computer Science.
 \end{exmp}
-There is always a comparison morphism $\D\xrightarrow{\overline{U}}UF-Alg$	s.t. 
+There is always a comparison morphism $\D\xrightarrow{\overline{U}}UF\mbox{-}\Alg$	s.t. 
 \[
 \begin{tikzcd}
 \D\ar["\overline{U}"]{rr}\ar["U"']{dr}
-&& UF-Alg\ar["U^{UF}", rightarrow]{dl}
+&& UF\mbox{-}\Alg\ar["U^{UF}", rightarrow]{dl}
 \\
 & \C
 \end{tikzcd}
 \]
-commutes. We set $\overline{U}f=(Ud,UFUd\xrightarrow{U\epsilon_d}Ud)=(Ud, U\epsilon_d)$. More generally, for a given functor $\D\xrightarrow{G}\C$ we can ask what do we need to get a lift $\overline{G}\colon\D\to T-Alg$.
+commutes. We set $\overline{U}f=(Ud,UFUd\xrightarrow{U\epsilon_d}Ud)=(Ud, U\epsilon_d)$. More generally, for a given functor $\D\xrightarrow{G}\C$ we can ask what do we need to get a lift $\overline{G}\colon\D\to T\mbox{-}\Alg$.
 \begin{defn}
 A $T$-action on a functor $\D\xrightarrow{G}\C$ is a natural transformation $TG\xRightarrow{\gamma}G$ s.t. 
 \[
@@ -617,8 +640,15 @@ G\ar[r, Rightarrow, "\varphi"']& K
 \]
 commutes.
 \end{defn}
-Up to size, we get a category $T$-$\mathsf{act}(\D)$
+Up to size, we get a category $T$-$\mathsf{Act}(\D)$, defined as follows.
+
+\begin{defn}
+Given a monad $(T,\mu, \eta)$
+\end{defn}
 	\chapter{Beck’s monadicity theorem}
+	\begin{thm}
+		contenuto...
+	\end{thm}
 	\chapter{Monads in 2-category theory}
 	\chapter{Monads in $\infty$-category theory}
 	

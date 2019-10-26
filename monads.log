@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  19 OCT 2019 04:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  26 OCT 2019 18:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1214,20 +1214,20 @@ Package: extarrows 2008/05/15 v1.0b Some extensible arrows
 ) (./monads.aux)
 \openout1 = `monads.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 188.
-LaTeX Font Info:    ... okay on input line 188.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 200.
+LaTeX Font Info:    ... okay on input line 200.
 
 (c:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1262,7 +1262,7 @@ e
 \AtBeginShipoutBox=\box95
 
 ABD: EveryShipout initializing macros
-Package hyperref Info: Link coloring OFF on input line 188.
+Package hyperref Info: Link coloring OFF on input line 200.
 
 (c:/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1272,30 +1272,30 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count326
 )
-LaTeX Info: Redefining \ref on input line 188.
-LaTeX Info: Redefining \pageref on input line 188.
-LaTeX Info: Redefining \nameref on input line 188.
+LaTeX Info: Redefining \ref on input line 200.
+LaTeX Info: Redefining \pageref on input line 200.
+LaTeX Info: Redefining \nameref on input line 200.
 
 (./monads.out) (./monads.out)
 \@outlinefile=\write5
 \openout5 = `monads.out'.
 
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 188.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 200.
 
 (c:/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 188.
+LaTeX Font Info:    Try loading font information for U+msa on input line 200.
 
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 188.
+LaTeX Font Info:    Try loading font information for U+msb on input line 200.
 
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.43799pt on input line 188.
+Package xypdf Info: Line width: 0.43799pt on input line 200.
  [1
 
 
@@ -1318,32 +1318,39 @@ Chapter 2.
 [2
 
 ]
-Overfull \hbox (51.45172pt too wide) in paragraph at lines 326--327
+Overfull \hbox (51.45172pt too wide) in paragraph at lines 336--337
 [][] 
  []
 
 
-Overfull \hbox (51.45172pt too wide) in paragraph at lines 338--339
+Overfull \hbox (51.45172pt too wide) in paragraph at lines 348--349
 [][] 
  []
 
 
-Overfull \hbox (4.47534pt too wide) in paragraph at lines 350--351
+Overfull \hbox (4.47534pt too wide) in paragraph at lines 360--361
 [][] 
  []
 
 
-Overfull \hbox (4.47534pt too wide) in paragraph at lines 368--369
+Overfull \hbox (4.47534pt too wide) in paragraph at lines 378--379
 [][] 
  []
 
-[3] [4] [5]
-Overfull \hbox (3.06467pt too wide) in paragraph at lines 555--556
+[3] [4]
+Overfull \hbox (10.91125pt too wide) in paragraph at lines 482--483
+[][]\OT1/cmr/bx/n/10.95 Proposition 2.2.3. []\OT1/cmr/m/n/10.95 The func-tor $\
+OML/cmm/m/it/10.95 U[] [] [] T[] [] \OMS/cmsy/m/n/10.95 ! []$ \OT1/cmr/m/n/10.9
+5 has a left ad-joint $\OML/cmm/m/it/10.95 F[] [] []  [] \OMS/cmsy/m/n/10.95 !
+ []
+
+[5]
+Overfull \hbox (3.06467pt too wide) in paragraph at lines 563--564
 []  
  []
 
 [6]
-Overfull \hbox (3.06467pt too wide) in paragraph at lines 566--571
+Overfull \hbox (3.06467pt too wide) in paragraph at lines 574--579
  [] 
  []
 
@@ -1359,32 +1366,32 @@ Chapter 4.
 Chapter 5.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 623.
+(hyperref)                removing `math shift' on input line 653.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\infty' on input line 623.
+(hyperref)                removing `\infty' on input line 653.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 623.
+(hyperref)                removing `math shift' on input line 653.
 
 [11
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 631.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 631.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 661.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 661.
  (./monads.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 631.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 631.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 661.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 661.
 Package rerunfilecheck Info: File `monads.out' has not changed.
 (rerunfilecheck)             Checksum: 4E58CA22C20675CEABF3A74B4B9B7452;468.
  ) 
 Here is how much of TeX's memory you used:
- 36372 strings out of 492616
- 717124 string characters out of 6132769
- 867415 words of memory out of 5000000
- 39636 multiletter control sequences out of 15000+600000
+ 36522 strings out of 492616
+ 720767 string characters out of 6132769
+ 863412 words of memory out of 5000000
+ 39784 multiletter control sequences out of 15000+600000
  550803 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,18n,82p,3239b,1167s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1406,10 +1413,10 @@ ype1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/20
 18/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2018/t
 exmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on monads.pdf (14 pages, 247549 bytes).
+Output written on monads.pdf (14 pages, 250098 bytes).
 PDF statistics:
- 252 PDF objects out of 1000 (max. 8388607)
- 213 compressed objects within 3 object streams
- 67 named destinations out of 1000 (max. 500000)
+ 255 PDF objects out of 1000 (max. 8388607)
+ 216 compressed objects within 3 object streams
+ 69 named destinations out of 1000 (max. 500000)
  77 words of extra memory for PDF output out of 10000 (max. 10000000)
 
