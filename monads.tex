@@ -651,7 +651,7 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 	Up to size, $T$-actions and their morphisms assemble into a category $T\mbox{-}\mathsf{Act}(\D)$.
 
 \begin{exmp}
-	$U^T\colon T\mbox{-}\Alg\rightarrow\C$ has a $T$-action given by $(U^T,\alpha\colon TU^T\Rightarrow U^T)$, where $\alpha_{(b,\beta)}\coloneqq\beta\colon Tb\rightarrow b$.
+	The functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ has a $T$-action given by $(U^T,\alpha\colon TU^T\Rightarrow U^T)$, where $\alpha_{(b,\beta)}\coloneqq\beta\colon Tb\rightarrow b$.
 \end{exmp}
 
 \begin{exmp}
@@ -672,8 +672,8 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 			D\ar[r, dotted, "\exists!\overline{G}"]\ar[dr, swap, "G"]
 			& T\mbox{-}\Alg\ar[d, "U^T"] \\
 			& \C
-		\end{tikzcd}
-	\]
+		\end{tikzcd}    
+	\]			\qedhere
 \end{proof}
 
 Following the construction in this proof, from the last example we get the comparison functor for the adjunction $F\dashv U$. In particular, $\overline{U}d=(Ud,U\epsilon_d)$. In particular, $U\colon\Top\rightarrow\Set$ factors through identities.
@@ -772,15 +772,24 @@ A similar statement holds for colimits.
 \end{proof}
 
 \begin{exmp}
-	If $T$ is a monad on a complete category $\C$, then $T\mbox{-}\Alg$ is complete. If $\C$ is cocomplete and $T$ is cocontinuous, then $T\mbox{-}\Alg$ is cocontinuous.
-
-	In particular, let $\C$ be a small category. There is a cocontinuous monad on the category of $\Ob(\C)$-indexed collections of sets whose category of algebras is the functor category $[\C,\Set]$. Its endofunctor $T\colon [\Ob(\C),\Set]\rightarrow [\Ob(\C),\Set]$ maps $(X_c)_{c\in\C}$ into $(\coprod_{d\in\C}\C(d,c)\times X_d)_{c\in\C}$. Since $[\Ob(\C),\Set]$ is complete and cocomplete, $[\C,\Set]$ is as well.
+	If $T$ is a monad on a complete category $\C$, then $T\mbox{-}\Alg$ is complete. If $\C$ is cocomplete and $T$ is cocontinuous, then $T\mbox{-}\Alg$ is cocomplete.
 \end{exmp}
-
+In particular, let $\C$ be a small category. There is a cocontinuous monad on the category of $\Ob(\C)$-indexed collections of sets whose category of algebras is the functor category $[\C,\Set]$. The underlying endofunctor of this monad is defined as 
+	\begin{align*}
+	T\colon[\Ob(\C),\Set]&\to[\Ob(\C),\Set] \\
+	(X_c)_{c\in\C}&\mapsto \left(\coprod_{d\in\C}\C(d,c)\times X_d\right)_{c\in\C}
+	\end{align*}
+ Since $[\Ob(\C),\Set]$ is complete and cocomplete, so is $[\C,\Set]$ (with limits and colimits computed pointwise).
+ 
 	\chapter{Beck’s monadicity theorem}
-	\begin{thm}[Beck]
+	\begin{teo}[Beck]\label{Beck} Let $U\colon\D\to\C$ be a right adjoint to $F\colon\C\to\D$. Let $(T=UF, U\epsilon F, \eta)$ be the induced monad and $\overline{U}\colon\D\to T\mbox{-}\Alg$ be the comparison functor. 
+	\begin{enumerate}
+		\item If $\D$ has coequalizers of $U$-split pairs, then $\overline{U}$ has a left adjoint $\overline{F}\colon T\mbox{-}\Alg\to\D$;
+		\item if, in addition, $U$ preserves coequalizers of $U$-split pairs, the unit $\overline{\eta}\colon\id\Rightarrow\overline{U}\hspace{.5mm} \overline{F}$ is an isomorphism;
+		\item if $U$ is also conservative, then $\overline{U}$ is an equivalence of categories.
+	\end{enumerate}
 	
-	\end{thm}
+	\end{teo}
 	\chapter{Monads in 2-category theory}
 	\chapter{Monads in $\infty$-category theory}
 	
