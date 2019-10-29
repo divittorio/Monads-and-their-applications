@@ -648,7 +648,7 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 		commutes.
 	\end{defn}
 
-	Up to size, $T$-actions and their morphisms assemble into a category $T$-$\mathsf{Act}(\D)$.
+	Up to size, $T$-actions and their morphisms assemble into a category $T\mbox{-}\mathsf{Act}(\D)$.
 
 \begin{exmp}
 	$U^T\colon T\mbox{-}\Alg\rightarrow\C$ has a $T$-action given by $(U^T,\alpha\colon TU^T\Rightarrow U^T)$, where $\alpha_{(b,\beta)}\coloneqq\beta\colon Tb\rightarrow b$.
@@ -659,7 +659,7 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 \end{exmp}
 
 \begin{prop}
-	$(U^T,\alpha)$ is the universal $T$-action, that is for any category $\D$ the functor $\Cat(\D,T\mbox{-}\Alg)\rightarrow T-\mathsf{Act}(\D)$ sending $G$ to $(U^TG,\alpha G)$ and $\beta\colon G\Rightarrow H$ to $U^T\beta\colon(U^TG,\alpha G)\Rightarrow (U^TH,\alpha H)$ is an isomorphism of categories.
+	$(U^T,\alpha)$ is the universal $T$-action, that is for any category $\D$ the functor $\Cat(\D,T\mbox{-}\Alg)\rightarrow T\mbox{-}\mathsf{Act}(\D)$ sending $G$ to $(U^TG,\alpha G)$ and $\beta\colon G\Rightarrow H$ to $U^T\beta\colon(U^TG,\alpha G)\Rightarrow (U^TH,\alpha H)$ is an isomorphism of categories.
 \end{prop}
 
 \begin{proof}
@@ -712,11 +712,12 @@ We have shown that the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ 
 			& Tl\ar[drr, "\lambda"]\ar[ddd, "T\kappa_i" near start] \\
 			T^2l\ar[ur, "T\lambda"]\ar[drr, crossing over, "\mu_l" near start, swap]\ar[ddd, "T^2\kappa_i"]
 			&&& l\ar[ddd, "\kappa_i"] \\
-			&& Tl\ar[ur, "\lambda"]\ar[ddd, crossing over, "T\kappa_i" near start] \\
+			&& Tl\ar[ur, "\lambda"]%\ar[ddd, "T\kappa_i" near start] 
+			\\
 			& TD_i\ar[drr, swap, "\delta_i" near start] \\
 			T^2D_i\ar[ur, "T\delta_i"]\ar[drr, "\mu_{D_i}"]
 			&&& D_i \\
-			&& TD_i\ar[ur, "\delta_i"]
+			&& TD_i\ar[ur, "\delta_i"] \ar[from=uuu,crossing over,  "T\kappa_i" near start]
 		\end{tikzcd}
 		\quad\quad
 		\begin{tikzcd}
