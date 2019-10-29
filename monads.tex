@@ -679,7 +679,7 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 Following the construction in this proof, from the last example we get the comparison functor for the adjunction $F\dashv U$. In particular, $\overline{U}d=(Ud,U\epsilon_d)$. Furthermore, this means that $U\colon\Top\rightarrow\Set$ factors through identities.
 
 
-\section{Limits and colimits}
+\section{Limits and colimits in the category of algebras}
 
 We have shown that the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ is a right adjoint, hence as such it preserves limits. However, more is true.
 
@@ -781,8 +781,14 @@ In particular, let $\C$ be a small category. There is a cocontinuous monad on th
 	The final ingredient we need is the observation that $T$-algebras admit canonical presentations using free algebras.
 	
 \begin{exmp}
-	Pick an epi $F\twoheadrightarrow G$ in the category of groups $\mathbf{Grp}$, where $F$ is a free group.
+	Pick an epi $F\twoheadrightarrow G$ in the category of groups $\mathbf{Grp}$, where $F$ is a free group. The kernel of this homomorphism defines a (normal) subgroup $K$ of $F$, giving rise to the sequence $K\rightarrowtail F\twoheadrightarrow G$. We can take another epi $F'\twoheadrightarrow K$, with $F'$ again a free group. Therefore $G$ is the cokernel of some morphism $F'\to F$. The same argument applies to rings, algebras and so on.
 \end{exmp}
+
+It is natural to ask if we can do this systematically for general $T$-algebras. Given $(a,\alpha)$ in $T\mbox{-}\Alg$, we have $F^TU^T(a,\alpha)\to(a,\alpha)$ i.e. $(Ta,\mu_a)\xrightarrow{\alpha}(a,\alpha)$. A candidate\footnote{Think about free groups: in that case we take words on $Ta$.} for $F'$ would be $F^TU^T(Ta, \mu_a)=(T^2a, \mu_{Ta})$. What are the ``elements'' of $Ta$?
+Notice that 
+\[
+(T^2a,\mu_{Ta}) \doublerightarrow{\mu_a}{T\alpha}(Ta,\mu_a)\xrightarrow{\alpha}(a,\alpha)
+\]
 
 	\begin{teo}[Beck]\label{Beck} Let $U\colon\D\to\C$ be a right adjoint to $F\colon\C\to\D$. Let $(T=UF, U\epsilon F, \eta)$ be the induced monad and $\overline{U}\colon\D\to T\mbox{-}\Alg$ be the comparison functor. 
 	\begin{enumerate}
