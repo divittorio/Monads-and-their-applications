@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  26 OCT 2019 18:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  29 OCT 2019 11:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1393,21 +1393,14 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 792.
  (./monads.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 792.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 792.
-
-
-Package rerunfilecheck Warning: File `monads.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `monads.out':
-(rerunfilecheck)             Before: 4E58CA22C20675CEABF3A74B4B9B7452;468
-(rerunfilecheck)             After:  0725915A6EFBB5021E95BA7C2309C6AF;605.
+Package rerunfilecheck Info: File `monads.out' has not changed.
+(rerunfilecheck)             Checksum: 0725915A6EFBB5021E95BA7C2309C6AF;605.
  ) 
 Here is how much of TeX's memory you used:
- 36883 strings out of 492616
- 729409 string characters out of 6132769
+ 36884 strings out of 492616
+ 729414 string characters out of 6132769
  865602 words of memory out of 5000000
- 40133 multiletter control sequences out of 15000+600000
+ 40134 multiletter control sequences out of 15000+600000
  555130 words of font info for 117 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,18n,82p,3239b,1167s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1431,10 +1424,10 @@ ts/cm/cmr8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss1
 dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2018/texmf-dist/font
 s/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2018/texmf-dist/fonts/ty
 pe1/public/amsfonts/symbols/msbm10.pfb>
-Output written on monads.pdf (17 pages, 283506 bytes).
+Output written on monads.pdf (17 pages, 283779 bytes).
 PDF statistics:
- 283 PDF objects out of 1000 (max. 8388607)
- 239 compressed objects within 3 object streams
+ 291 PDF objects out of 1000 (max. 8388607)
+ 247 compressed objects within 3 object streams
  78 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 93 words of extra memory for PDF output out of 10000 (max. 10000000)
 
