@@ -683,7 +683,7 @@ Following the construction in this proof, from the last example we get the compa
 
 We have shown that the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ is a right adjoint, hence as such it preserves limits. However, more is true.
 
-\begin{prop}
+\begin{prop}\label{create lims}
 	For any monad $(T,\mu,\eta)$ on $\C$, the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ creates limits.
 \end{prop}
 
@@ -748,7 +748,7 @@ We have shown that the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ 
 
 A similar statement holds for colimits.
 
-\begin{prop}
+\begin{prop}\label{create colims}
 	Given a monad $(T,\mu,\eta)$ on $\C$, the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ creates any colimit preserved by both $T$ and $T^2$.
 \end{prop}
 
@@ -787,9 +787,21 @@ In particular, let $\C$ be a small category. There is a cocontinuous monad on th
 It is natural to ask if we can do this systematically for general $T$-algebras. Given $(a,\alpha)$ in $T\mbox{-}\Alg$, we have $F^TU^T(a,\alpha)\to(a,\alpha)$ i.e. $(Ta,\mu_a)\xrightarrow{\alpha}(a,\alpha)$. A candidate\footnote{Think about free groups: in that case we take words on $Ta$.} for $F'$ would be $F^TU^T(Ta, \mu_a)=(T^2a, \mu_{Ta})$. What are the ``elements'' of $Ta$?
 Notice that 
 \[
-(T^2a,\mu_{Ta}) \doublerightarrow{\mu_a}{T\alpha}(Ta,\mu_a)\xrightarrow{\alpha}(a,\alpha)
+(T^2a,\mu_{Ta}) \doublerightarrow{T\alpha}{\mu_a}(Ta,\mu_a)\xrightarrow{\alpha}(a,\alpha)
 \]
+is a well defined diagram in $T\mbox{-}\Alg$, with $\alpha\mu_a=\alpha T\alpha$. Moreover, this is a coequalizer. We can use Proposition \ref{create colims} to prove it, so that we need to check whether $U^T$ sends the diagram above into a coequalizer preserved by $T$ and $T^2$. In $\C$, we get a split coequalizer\footnote{A \emph{split coequalizer} diagram consists of maps
+\[
+\begin{tikzcd}[ampersand replacement=\&]
+x\arrow[r, shift left, "f"] \arrow[r, shift right, "g"']\& y \arrow[r, "h"] \arrow[l, bend right=49, "t"'] \& z \arrow[l, bend right=49, "s"']
+\end{tikzcd}
+\]
+so that $hf=hg, hs=1_z, gt=1_y$, and $ft=sh$.} of the form
 
+\[
+\begin{tikzcd}
+T^2a\arrow[r, shift left, "T\alpha"] \arrow[r, shift right, "\mu_a"']&Ta  \arrow[r, "\alpha"] \arrow[l, bend right=49, "\eta_{Ta}"'] & a \arrow[l, bend right=49, "\hspace*{-2mm}\eta_a"']
+\end{tikzcd}
+\]
 	\begin{teo}[Beck]\label{Beck} Let $U\colon\D\to\C$ be a right adjoint to $F\colon\C\to\D$. Let $(T=UF, U\epsilon F, \eta)$ be the induced monad and $\overline{U}\colon\D\to T\mbox{-}\Alg$ be the comparison functor. 
 	\begin{enumerate}
 		\item If $\D$ has coequalizers of $U$-split pairs, then $\overline{U}$ has a left adjoint $\overline{F}\colon T\mbox{-}\Alg\to\D$;
