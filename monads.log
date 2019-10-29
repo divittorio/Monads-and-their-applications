@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  29 OCT 2019 13:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  29 OCT 2019 15:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1365,10 +1365,10 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 
 [8] [9] [10] [11]
 Chapter 3.
-Package mdframed Info: mdframed works in twoside mode on input line 785.
+Package mdframed Info: mdframed works in twoside mode on input line 787.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 785.
+(mdframed)              on input line 787.
 [12
 
 ]
@@ -1379,30 +1379,30 @@ Chapter 4.
 Chapter 5.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 794.
+(hyperref)                removing `math shift' on input line 798.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\infty' on input line 794.
+(hyperref)                removing `\infty' on input line 798.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 794.
+(hyperref)                removing `math shift' on input line 798.
 
 [14
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 802.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 802.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 806.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 806.
  (./monads.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 802.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 802.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 806.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 806.
 Package rerunfilecheck Info: File `monads.out' has not changed.
 (rerunfilecheck)             Checksum: 0725915A6EFBB5021E95BA7C2309C6AF;605.
  ) 
 Here is how much of TeX's memory you used:
- 36891 strings out of 492616
- 729500 string characters out of 6132769
+ 36892 strings out of 492616
+ 729509 string characters out of 6132769
  865645 words of memory out of 5000000
  40138 multiletter control sequences out of 15000+600000
  555130 words of font info for 117 fonts, out of 8000000 for 9000
@@ -1428,10 +1428,10 @@ ts/cm/cmr8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmss1
 dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2018/texmf-dist/font
 s/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2018/texmf-dist/fonts/ty
 pe1/public/amsfonts/symbols/msbm10.pfb>
-Output written on monads.pdf (17 pages, 285718 bytes).
+Output written on monads.pdf (17 pages, 286630 bytes).
 PDF statistics:
- 295 PDF objects out of 1000 (max. 8388607)
- 251 compressed objects within 3 object streams
- 81 named destinations out of 1000 (max. 500000)
+ 296 PDF objects out of 1000 (max. 8388607)
+ 252 compressed objects within 3 object streams
+ 82 named destinations out of 1000 (max. 500000)
  93 words of extra memory for PDF output out of 10000 (max. 10000000)
 

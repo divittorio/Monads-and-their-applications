@@ -655,7 +655,7 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 \end{exmp}
 
 \begin{exmp}
-	Given an adjunction  $U\dashv F\colon\C\rightarrow\D$ with unit $\eta\colon\id_{\C}\Rightarrow UG$ and counit $\epsilon\colon GU\Rightarrow\id_{\D}$, we get a monad on $(UF,U\epsilon F,\eta)$ on $\C$. We have then a $UF$-action $U\epsilon\colon UFU\Rightarrow U$, where the axioms follow from the triangular identities.
+	Given an adjunction  $F\dashv U\colon\C\rightarrow\D$ with unit $\eta\colon\id_{\C}\Rightarrow UF$ and counit $\epsilon\colon FU\Rightarrow\id_{\D}$, we get a monad on $(UF,U\epsilon F,\eta)$ on $\C$. We have then a $UF$-action $U\epsilon\colon UFU\Rightarrow U$, where the axioms follow from the triangular identities.
 \end{exmp}
 
 \begin{prop}
@@ -676,7 +676,7 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 	\]			\qedhere
 \end{proof}
 
-Following the construction in this proof, from the last example we get the comparison functor for the adjunction $F\dashv U$. In particular, $\overline{U}d=(Ud,U\epsilon_d)$. In particular, $U\colon\Top\rightarrow\Set$ factors through identities.
+Following the construction in this proof, from the last example we get the comparison functor for the adjunction $F\dashv U$. In particular, $\overline{U}d=(Ud,U\epsilon_d)$. Furthermore, this means that $U\colon\Top\rightarrow\Set$ factors through identities.
 
 
 \section{Limits and colimits}
@@ -688,21 +688,19 @@ We have shown that the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ 
 \end{prop}
 
 \begin{proof}
-	This statement means that, for any diagram $D\colon I\rightarrow T\mbox{-}\Alg$ such that $U^TD\colon I\rightarrow\C$ has a limit $(l,\kappa_i)$, there is a unique $T$-algebra structure $\lambda\colon Tl\rightarrow l$ such that $\kappa_i$ is a morphism of $T$-algebras for all $i\in I$. This makes $((l,\lambda),\kappa_i)$ into a limit of $D$.
+	This statement means that, for any diagram $D\colon I\rightarrow T\mbox{-}\Alg$ such that $U^TD\colon I\rightarrow\C$ has a limit $(l,\kappa_i)$ in $\C$, there is a unique $T$-algebra structure $\lambda\colon Tl\rightarrow l$ such that $\kappa_i$ is a morphism of $T$-algebras for all $i\in I$ and this makes $((l,\lambda),\kappa_i)$ into a limit of $D$.
 	
 	Now we begin the proof.
 	
-	First of all, remember that $D\phi\colon D_i\rightarrow D_j$ is a morphism of $T$-algebras for all $\phi\colon i\rightarrow j$ by assumption, hence the morphisms $\delta_i T\kappa_i\colon Tl\rightarrow D_i$ define a cone over $D$, where $\delta_i$ is the $T$-algebra structure on $D_i$. By the universal property of the limits, there is a unique morphism $\lambda\colon Tl\rightarrow l$ making the diagram commute for all $i$:
-	
+	First of all, remember that $D\phi\colon D_i\rightarrow D_j$ is a morphism of $T$-algebras for all $\phi\colon i\rightarrow j$ by assumption, hence the morphisms $\delta_i T\kappa_i\colon Tl\rightarrow D_i$ define a cone over $D$, where $\delta_i$ is the $T$-algebra structure on $D_i$. By the universal property of the limit, there is a unique morphism $\lambda\colon Tl\rightarrow l$ making the following diagram commute for all $i$.
 	\[
 		\begin{tikzcd}
-			Tl\ar[d, "T\kappa_i"]\ar[r, dotted, "\lambda"]
+			Tl\ar[d, "T\kappa_i"']\ar[r, dotted, "\lambda"]
 			& l\ar[d, "\kappa_i"] \\
-			TD_i\ar[r, "\delta_i"]
+			TD_i\ar[r, "\delta_i"']
 			& D_i
 		\end{tikzcd}
-	\]
-	
+	\]	
 	This tells us that, if the limit $((l,\lambda),\kappa_i)$ of $D$ exists, it is unique. We have to check that $(l,\lambda)$ is a $T$-algebra.
 	
 	Notice that for all $i$ all of the faces of the following diagrams, except for possibly the top ones, commute:
@@ -751,24 +749,22 @@ We have shown that the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ 
 A similar statement holds for colimits.
 
 \begin{prop}
-	For any monad $(T,\mu,\eta)$ on $\C$, the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ creates any limit preserved by both $T$ and $T^2$.
+	Given a monad $(T,\mu,\eta)$ on $\C$, the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ creates any colimit preserved by both $T$ and $T^2$.
 \end{prop}
 
 \begin{proof}
-	Similarly to the dual situation, this means that for any diagram $D\colon I\rightarrow T\mbox{-}\Alg$ such that $U^TD\colon I\rightarrow\C$ has a colimit $(c,\kappa)$ preserved by both $T$ and $T^2$, there is a unique $T$-algebra structure $\lambda\colon Tc\rightarrow c$ such that $l_i$ is a morphism of $T$-algebras for all $i\in I$. This makes $((c,\lambda),\kappa_i)$ into a colimit of $D$.
+	Similarly to the dual situation, this means that for any diagram $D\colon I\rightarrow T\mbox{-}\Alg$ such that $U^TD\colon I\rightarrow\C$ has a colimit $(c,\kappa_i)$ preserved by both $T$ and $T^2$, there is a unique $T$-algebra structure $\lambda\colon Tc\rightarrow c$ such that $\kappa_i$ is a morphism of $T$-algebras for all $i\in I$. This makes $((c,\lambda),\kappa_i)$ into a colimit of $D$.
 	
-	The proof is essentially dual to the one given earlier, in the sense that again we find a unique $\lambda\colon Tc\rightarrow c$ using the universal property of the colimit $(Tc,Tl_i)$ of $TD$.
-	
+	The proof is essentially dual to the one given earlier, in the sense that we find again a unique $\lambda\colon Tc\rightarrow c$ using the universal property of the colimit $(Tc,T\kappa_i)$ of $TD$.
 	\[
 		\begin{tikzcd}
-			TD_i\ar[r, "Tl_i"]\ar[d, "\delta_i"]
+			TD_i\ar[r, "T\kappa_i"]\ar[d, "\delta_i"']
 			& Tc\ar[d, dotted, "\lambda"] \\
-			D_i\ar[r, "l_i"]
+			D_i\ar[r, "\kappa_i"']
 			& c
 		\end{tikzcd}
 	\]
-	
-	To check that $(c,\lambda)$ is an algebra we use the universal property of $(T^2c,T^2l_i)$ (for $\mu$) and of $(c,l_i)$ (for $\eta$).
+	To check that $(c,\lambda)$ is an algebra we use the universal property of $(T^2c,T^2\kappa_i)$ (for $\mu$) and the one of $(c,\kappa_i)$ (for $\eta$).
 \end{proof}
 
 \begin{exmp}
@@ -782,14 +778,22 @@ In particular, let $\C$ be a small category. There is a cocontinuous monad on th
  Since $[\Ob(\C),\Set]$ is complete and cocomplete, so is $[\C,\Set]$ (with limits and colimits computed pointwise).
  
 	\chapter{Beck’s monadicity theorem}
+	The final ingredient we need is the observation that $T$-algebras admit canonical presentations using free algebras.
+	
+\begin{exmp}
+	Pick an epi $F\twoheadrightarrow G$ in the category of groups $\mathbf{Grp}$, where $F$ is a free group.
+\end{exmp}
+
 	\begin{teo}[Beck]\label{Beck} Let $U\colon\D\to\C$ be a right adjoint to $F\colon\C\to\D$. Let $(T=UF, U\epsilon F, \eta)$ be the induced monad and $\overline{U}\colon\D\to T\mbox{-}\Alg$ be the comparison functor. 
 	\begin{enumerate}
 		\item If $\D$ has coequalizers of $U$-split pairs, then $\overline{U}$ has a left adjoint $\overline{F}\colon T\mbox{-}\Alg\to\D$;
 		\item if, in addition, $U$ preserves coequalizers of $U$-split pairs, the unit $\overline{\eta}\colon\id\Rightarrow\overline{U}\hspace{.5mm} \overline{F}$ is an isomorphism;
 		\item if $U$ is also conservative, then $\overline{U}$ is an equivalence of categories.
 	\end{enumerate}
-	
 	\end{teo}
+	\begin{proof}
+		
+	\end{proof}
 	\chapter{Monads in 2-category theory}
 	\chapter{Monads in $\infty$-category theory}
 	
