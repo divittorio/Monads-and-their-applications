@@ -781,7 +781,7 @@ In particular, let $\C$ be a small category. There is a cocontinuous monad on th
 	The final ingredient we need is the observation that $T$-algebras admit canonical presentations using free algebras.
 	
 \begin{exmp}
-	Pick an epi $F\twoheadrightarrow G$ in the category of groups $\mathbf{Grp}$, where $F$ is a free group. The kernel of this homomorphism defines a (normal) subgroup $K$ of $F$, giving rise to the sequence $K\rightarrowtail F\twoheadrightarrow G$. We can take another epi $F'\twoheadrightarrow K$, with $F'$ again a free group. Therefore $G$ is the cokernel of some morphism $F'\to F$. The same argument applies to rings, algebras and so on.
+	Pick an epi $F\twoheadrightarrow G$ in the category of groups $\mathbf{Grp}$, where $F$ is a free group. The kernel of this homomorphism defines a (normal) subgroup $K$ of $F$, giving rise to the sequence $K\rightarrowtail F\twoheadrightarrow G$. We can take another epi $F'\twoheadrightarrow K$, with $F'$ again a free group. Therefore $G$ is the cokernel of some morphism $F'\to F$. This argument applies to rings, algebras etc.
 \end{exmp}
 
 It is natural to ask if we can do this systematically for general $T$-algebras. Given $(a,\alpha)$ in $T\mbox{-}\Alg$, we have $F^TU^T(a,\alpha)\to(a,\alpha)$ i.e. $(Ta,\mu_a)\xrightarrow{\alpha}(a,\alpha)$. A candidate\footnote{Think about free groups: in that case we take words on $Ta$.} for $F'$ would be $F^TU^T(Ta, \mu_a)=(T^2a, \mu_{Ta})$. What are the ``elements'' of $Ta$?
@@ -789,19 +789,61 @@ Notice that
 \[
 (T^2a,\mu_{Ta}) \doublerightarrow{T\alpha}{\mu_a}(Ta,\mu_a)\xrightarrow{\alpha}(a,\alpha)
 \]
-is a well defined diagram in $T\mbox{-}\Alg$, with $\alpha\mu_a=\alpha T\alpha$. Moreover, this is a coequalizer. We can use Proposition \ref{create colims} to prove it, so that we need to check whether $U^T$ sends the diagram above into a coequalizer preserved by $T$ and $T^2$. In $\C$, we get a split coequalizer\footnote{A \emph{split coequalizer} diagram consists of maps
-\[
-\begin{tikzcd}[ampersand replacement=\&]
-x\arrow[r, shift left, "f"] \arrow[r, shift right, "g"']\& y \arrow[r, "h"] \arrow[l, bend right=49, "t"'] \& z \arrow[l, bend right=49, "s"']
-\end{tikzcd}
-\]
-so that $hf=hg, hs=1_z, gt=1_y$, and $ft=sh$.} of the form
-
+is a well defined diagram in $T\mbox{-}\Alg$, with $\alpha\mu_a=\alpha T\alpha$. Moreover, this is a coequalizer. We can use Proposition \ref{create colims} to prove it, so that we need to check whether $U^T$ sends the diagram above into a coequalizer preserved by $T$ and $T^2$. In $\C$, we get the diagram
 \[
 \begin{tikzcd}
 T^2a\arrow[r, shift left, "T\alpha"] \arrow[r, shift right, "\mu_a"']&Ta  \arrow[r, "\alpha"] \arrow[l, bend right=49, "\eta_{Ta}"'] & a \arrow[l, bend right=49, "\hspace*{-2mm}\eta_a"']
 \end{tikzcd}
 \]
+in which the following equations hold true: $\alpha\eta_a=\id_a,\ \mu_a\eta_{Ta}=\id_{Ta}$ and $\eta_a\alpha=T\alpha\hspace{1mm}\eta_{Ta}$ by naturality. It is a particular case of a more general concept.
+\begin{defn}
+	A \emph{split coequalizer} is a diagram of the form
+	\vspace*{-2.4mm}
+	\[
+	\begin{tikzcd}[ampersand replacement=\&]
+	a\arrow[r, shift left, "f"] \arrow[r, shift right, "g"']\& b \arrow[r, "h"] \arrow[l, bend left=49, "t"] \& c \arrow[l, bend left=49, "s"]
+	\end{tikzcd}
+	\]
+	so that $hf=hg,\ hs=\id_c,\ gt=\id_b$, and $ft=sh$.
+\end{defn}
+
+\begin{prop}
+In the above situation, 
+\[
+\begin{tikzcd}[ampersand replacement=\&]
+a\arrow[r, shift left, "f"] \arrow[r, shift right, "g"']\& b \arrow[r, "h"] \& c 
+\end{tikzcd}
+\] is a coequalizer. In particular, any functor preserves this coequalizer.
+\end{prop}
+\begin{proof}
+Take $k\colon b\to d$ such that $kf=kg$ and define $\overline{k}\coloneqq ks$. Then we have
+$$\overline{k}h=ksh=kft=kgt=k.$$
+Uniqueness is clear since $h$ is a (split) epi. 
+\end{proof}
+$T$ and $T^2$ preserve split coequalizers, so they preserve our coequalizer.
+\begin{cor}
+Let $T$ be a monad on $\C$ and $(a,\alpha)$ a $T$-algebra. Then 
+\[
+(T^2a,\mu_{Ta}) \doublerightarrow{T\alpha}{\mu_a}(Ta,\mu_a)\xrightarrow{\alpha}(a,\alpha)
+\]
+is a coequalizer in $T\mbox{-}\Alg$, which $U^T\colon T\mbox{-}\Alg\to\C$ sends to a split coequalizer in $\C$.
+\end{cor}
+\begin{proof}
+We have already observed that the second statement holds, so that coeq$(U^T(T\alpha), U^T(\mu_a))$ is preserved by $T$ and $T^2$. Hence there exists a unique lift of the (split) coequalizer in $\C$ to a coequalizer in $T\mbox{-}\Alg$. 
+\end{proof}
+\begin{defn}
+Let $U\colon\D\to\C$ be a functor. A pair of morphisms $f,g\colon d\rightrightarrows d'$ in $\D$ is \emph{$U$-split} if $Uf,Ug\colon Ud\rightrightarrows Ud'$ is part of a split coequalizer in $\C$.
+\end{defn} 
+\begin{rmk}
+$T\alpha,\mu_a\colon(T^2a,\mu_{Ta})\rightrightarrows(Ta,\mu_a)$ is a $U^T$-split pair. Moreover, $T\mbox{-}\Alg$ has coequalizers of $U^T$-split pairs and $U^T$ preserves them. Hence, functors equivalent to $U^T$ satisfy three conditions:
+\begin{enumerate}
+	\item they have a left adjoint;
+	\item they are conservative;
+	\item $U$-split pairs have coequalizers which are preserved by $U$.
+\end{enumerate}
+\end{rmk}
+We are now ready to prove
+
 	\begin{teo}[Beck]\label{Beck} Let $U\colon\D\to\C$ be a right adjoint to $F\colon\C\to\D$. Let $(T=UF, U\epsilon F, \eta)$ be the induced monad and $\overline{U}\colon\D\to T\mbox{-}\Alg$ be the comparison functor. 
 	\begin{enumerate}
 		\item If $\D$ has coequalizers of $U$-split pairs, then $\overline{U}$ has a left adjoint $\overline{F}\colon T\mbox{-}\Alg\to\D$;
