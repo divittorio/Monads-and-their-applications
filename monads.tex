@@ -863,7 +863,15 @@ $T\alpha,\mu_a\colon(T^2a,\mu_{Ta})\rightrightarrows(Ta,\mu_a)$ is a $U^T$-split
 	&=\C(a,U-)\\
 	&\cong\D(Fa,-) 
 	\end{align*} 
-	therefore the value of $\overline{F}$ at $(Ta,\mu_a)$ has to be $Fa$. 
+	therefore the value of $\overline{F}$ at $(Ta,\mu_a)$ has to be $Fa$. Since every $T$-algebra is a coequalizer of free algebras which is preserved by $U^T$, we may define $\overline{F}(a,\alpha)$ as the coequalizer of a pair of morphisms $FTa\rightrightarrows Fa$. We write this as $FUFU^T(a,\alpha)\rightrightarrows FU^T(a,\alpha)$. Consider the following pair of morphisms of functors $$FUFU^T\doublerightarrow{F\alpha}{\epsilon FU^T}FU^T$$ in the functor category $[T\mbox{-}\Alg, \D]$. We claim that this pair has a coequalizer and $\overline{F}\colon T\mbox{-}\Alg\to\D$ is left adjoint to $\overline{U}$. Note that the pair of morphisms just above becomes split after the composition with $U\colon\D\to\C$. In fact
+	\[
+	\begin{tikzcd}
+	UFUFU^T\arrow[r, shift left, "UF\alpha"] \arrow[r, shift right, "U\epsilon FU^T"']
+	&UFU^T  \arrow[r, "\alpha"] \arrow[l, bend left=49, "\eta UFU^T"] & U^T\arrow[l, bend left=49, "\hspace*{-2mm}\eta U^T"]
+	\end{tikzcd}
+	\]
+	is a split coequalizer in $[T\mbox{-}\Alg, \C]$, given that it holds pointwise since $UF=T$. Let us denote by $\beta\colon FU^T\to\overline{F}$ the colimit (computed pointwise) of the pair $F\alpha, \epsilon FU^T\colon FUFU^T\rightrightarrows FU^T$. Precomposing this pair with $\overline{U}$ and recalling that $\alpha\overline{U}=U\epsilon, \ U^T\overline{U}=U$, we get the pair  
+	$$FUFU\doublerightarrow{FU\epsilon}{\epsilon FU}FU$$
 	\end{enumerate}
 	\end{proof}
 	\chapter{Monads in 2-category theory}
