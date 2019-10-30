@@ -792,7 +792,8 @@ Notice that
 is a well defined diagram in $T\mbox{-}\Alg$, with $\alpha\mu_a=\alpha T\alpha$. Moreover, this is a coequalizer. We can use Proposition \ref{create colims} to prove it, so that we need to check whether $U^T$ sends the diagram above into a coequalizer preserved by $T$ and $T^2$. In $\C$, we get the diagram
 \[
 \begin{tikzcd}
-T^2a\arrow[r, shift left, "T\alpha"] \arrow[r, shift right, "\mu_a"']&Ta  \arrow[r, "\alpha"] \arrow[l, bend right=49, "\eta_{Ta}"'] & a \arrow[l, bend right=49, "\hspace*{-2mm}\eta_a"']
+T^2a\arrow[r, shift left, "T\alpha"] \arrow[r, shift right, "\mu_a"']
+&Ta  \arrow[r, "\alpha"] \arrow[l, bend right=49, "\eta_{Ta}"'] & a \arrow[l, bend right=49, "\hspace*{-2mm}\eta_a"']
 \end{tikzcd}
 \]
 in which the following equations hold true: $\alpha\eta_a=\id_a,\ \mu_a\eta_{Ta}=\id_{Ta}$ and $\eta_a\alpha=T\alpha\hspace{1mm}\eta_{Ta}$ by naturality. It is a particular case of a more general concept.
@@ -801,7 +802,8 @@ in which the following equations hold true: $\alpha\eta_a=\id_a,\ \mu_a\eta_{Ta}
 	\vspace*{-2.4mm}
 	\[
 	\begin{tikzcd}[ampersand replacement=\&]
-	a\arrow[r, shift left, "f"] \arrow[r, shift right, "g"']\& b \arrow[r, "h"] \arrow[l, bend left=49, "t"] \& c \arrow[l, bend left=49, "s"]
+	a\arrow[r, shift left, "f"] \arrow[r, shift right, "g"']
+\& b \arrow[r, "h"] \arrow[l, bend left=49, "t"] \& c \arrow[l, bend left=49, "s"]
 	\end{tikzcd}
 	\]
 	so that $hf=hg,\ hs=\id_c,\ gt=\id_b$, and $ft=sh$.
@@ -811,7 +813,8 @@ in which the following equations hold true: $\alpha\eta_a=\id_a,\ \mu_a\eta_{Ta}
 In the above situation, 
 \[
 \begin{tikzcd}[ampersand replacement=\&]
-a\arrow[r, shift left, "f"] \arrow[r, shift right, "g"']\& b \arrow[r, "h"] \& c 
+a\arrow[r, shift left, "f"] \arrow[r, shift right, "g"']
+\& b \arrow[r, "h"] \& c 
 \end{tikzcd}
 \] is a coequalizer. In particular, any functor preserves this coequalizer.
 \end{prop}
@@ -831,6 +834,7 @@ is a coequalizer in $T\mbox{-}\Alg$, which $U^T\colon T\mbox{-}\Alg\to\C$ sends 
 \begin{proof}
 We have already observed that the second statement holds, so that coeq$(U^T(T\alpha), U^T(\mu_a))$ is preserved by $T$ and $T^2$. Hence there exists a unique lift of the (split) coequalizer in $\C$ to a coequalizer in $T\mbox{-}\Alg$. 
 \end{proof}
+Results like the previous one inspire us to look at the parallel pairs of morphisms in a category which are sent to split coequalizers or, to say it better, to a parallel pair of morphisms that can be extended to a split coequalizer diagram. Those kinds of pairs will be of crucial importance in the following.
 \begin{defn}
 Let $U\colon\D\to\C$ be a functor. A pair of morphisms $f,g\colon d\rightrightarrows d'$ in $\D$ is \emph{$U$-split} if $Uf,Ug\colon Ud\rightrightarrows Ud'$ is part of a split coequalizer in $\C$.
 \end{defn} 
@@ -842,9 +846,8 @@ $T\alpha,\mu_a\colon(T^2a,\mu_{Ta})\rightrightarrows(Ta,\mu_a)$ is a $U^T$-split
 	\item $U$-split pairs have coequalizers which are preserved by $U$.
 \end{enumerate}
 \end{rmk}
-We are now ready to prove
 
-	\begin{teo}[Beck]\label{Beck} Let $U\colon\D\to\C$ be a right adjoint to $F\colon\C\to\D$. Let $(T=UF, U\epsilon F, \eta)$ be the induced monad and $\overline{U}\colon\D\to T\mbox{-}\Alg$ be the comparison functor. 
+\begin{teo}[Beck]\label{Beck} Let $U\colon\D\to\C$ be a right adjoint to $F\colon\C\to\D$. Let $(T=UF, U\epsilon F, \eta)$ be the induced monad and $\overline{U}\colon\D\to T\mbox{-}\Alg$ be the comparison functor. 
 	\begin{enumerate}
 		\item If $\D$ has coequalizers of $U$-split pairs, then $\overline{U}$ has a left adjoint $\overline{F}\colon T\mbox{-}\Alg\to\D$;
 		\item if, in addition, $U$ preserves coequalizers of $U$-split pairs, the unit $\overline{\eta}\colon\id\Rightarrow\overline{U}\hspace{.5mm} \overline{F}$ is an isomorphism;
@@ -852,7 +855,10 @@ We are now ready to prove
 	\end{enumerate}
 	\end{teo}
 	\begin{proof}
-		
+	\begin{enumerate}
+	\item For each free $T$-algebra $(Ta,\mu_a)$ we have 
+	$$T\mbox{-}\Alg((Ta,\mu_a),\overline{U}-)\cong$$ 
+	\end{enumerate}
 	\end{proof}
 	\chapter{Monads in 2-category theory}
 	\chapter{Monads in $\infty$-category theory}
