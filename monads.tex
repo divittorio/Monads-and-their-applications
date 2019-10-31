@@ -894,7 +894,7 @@ $T\alpha,\mu_a\colon(T^2a,\mu_{Ta})\rightrightarrows(Ta,\mu_a)$ is a $U^T$-split
 	&& \id_{\D}
 	\end{tikzcd}
 	\]
-	Since $\overline{F}\hspace{.5mm}\overline{U}$ is the coequalizer of the diagram above, there exists a unique $\overline{\epsilon}\colon\overline{F}\hspace{.5mm}\overline{U}\Rightarrow\id_{\D}$ such that $\overline{\epsilon}\cdot\beta\overline{U}=\epsilon$. To get the unit $\overline{\eta}\colon\id_{\C}\Rightarrow\overline{U}\hspace{.5mm}\overline{F}$ we need to describe a morphism of actions $(UT, \alpha)\to(UT\overline{U}\hspace{.5mm}\overline{F},\alpha\overline{U}\hspace{.5mm}\overline{F})$. We claim that the comparison functor
+	Since $\overline{F}\hspace{.5mm}\overline{U}$ is the coequalizer of the diagram above, there exists a unique $\overline{\epsilon}\colon\overline{F}\hspace{.5mm}\overline{U}\Rightarrow\id_{\D}$ such that $\overline{\epsilon}\cdot\beta\overline{U}=\epsilon$. To get the unit $\overline{\eta}\colon\id_{T\mbox{-}\Alg}\Rightarrow\overline{U}\hspace{.5mm}\overline{F}$ we need to describe a morphism of actions $(UT, \alpha)\to(UT\overline{U}\hspace{.5mm}\overline{F},\alpha\overline{U}\hspace{.5mm}\overline{F})$. We claim that the comparison functor
 	\[
 	\begin{tikzcd}
 	U^T\overline{U}FUFU^T\arrow[r, shift left] \arrow[r, shift right]\arrow[d, equal]	&U^T\overline{U}FU^T  \arrow[r, "\alpha"] \arrow[d, equal] & U^T\overline{U}\hspace{.5mm}\overline{F}\arrow[d, dashed, "\exists!\overline{\epsilon}"]\\
@@ -903,10 +903,24 @@ $T\alpha,\mu_a\colon(T^2a,\mu_{Ta})\rightrightarrows(Ta,\mu_a)$ is a $U^T$-split
 	\]
 	is a morphism of $T$-actions. 
 	
-	Unraveling [\dots]
-	
-	
-		The only thing left to do is checking the triangular identities, which is left to the reader.
+	Unraveling what this means, we have to check that the diagram
+	\[
+	\begin{tikzcd}[column sep=1.5cm]
+	UFa\ar[r, "UF\overline{\eta}_{(a,\alpha)}"]\ar[d, "\alpha"']
+	& UFU\overline{F}(a,\alpha)\ar[d, "U\epsilon_{\overline{F}(a,\alpha)}"] \\
+	a\ar[r, "\overline{\eta}_{(a,\alpha)}"']
+	& U\overline{F}(a,\alpha)
+	\end{tikzcd}
+	\]	
+	is commutative. We know that $\overline{\eta}\alpha=U\beta_{(a,\alpha)}$ by the definition of $\overline{\eta}$. Moreover, $\alpha$ is a split epi in $\C$, hence we can precompose with $UF\alpha$ (again a split epi) and check the commutativity of the resulting diagram. We get the diagram
+	\[
+	\begin{tikzcd}
+	UFUFa\arrow[d, "UF\alpha"'] \arrow[rd, bend left, near end, "UFU\beta"description] \arrow[rrd, bend left, "U\epsilon_{Fa}"description] &            & \ar[lld,draw=none, near start,"\hspace{-1.5cm}\text{nat.\ of\ } \epsilon" description]  \\
+	UFa\arrow[d, "\alpha"'] \arrow[r, "UF\overline{\eta}"] \arrow[rd, "U\beta"']                        & UFU\overline{F}(a,\alpha)  \arrow[d, "U\epsilon"] &        UFa           \arrow[ld, bend left, "U\beta"description]      \\
+	a\arrow[r, "\overline{\eta}"']                                             &     U\overline{F}(a,\alpha)       &                        
+	\end{tikzcd}
+	\]
+	The definition of $\beta$ as a coequalizer implies that $\beta F\alpha=\beta\epsilon_{Fa}$, so we get the natural transformation $\overline{\eta}\colon\id_{T\mbox{-}\Alg}\Rightarrow\overline{U}\hspace{.5mm}\overline{F}$. The only thing left to do is checking the triangular identities, which is left to the reader.
 	
 	\item If $U$ preserves coequalizers of $U$-split pairs, both $U\overline{F}$ and $U^T$ are coequalizers of the above diagram, hence $\overline{\eta}$ is an isomorphism.
 	
