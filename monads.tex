@@ -656,7 +656,7 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 \end{exmp}
 
 \begin{exmp}
-	Given an adjunction  $F\dashv U\colon\C\rightleftarrows\D$ with unit $\eta\colon\id_{\C}\Rightarrow UF$ and counit $\epsilon\colon FU\Rightarrow\id_{\D}$, we get a monad on $(UF,U\epsilon F,\eta)$ on $\C$. We have then a $UF$-action $U\epsilon\colon UFU\Rightarrow U$, where the axioms follow from the triangular identities.
+	Given an adjunction  $F\dashv U\colon\C\rightleftarrows\D$ with unit $\eta\colon\id_{\C}\Rightarrow UF$ and counit $\epsilon\colon FU\Rightarrow\id_{\D}$, we get a monad on $(UF,U\epsilon F,\eta)$ on $\C$. We have then a $UF$-action $U\epsilon\colon UFU\Rightarrow U$, where the axioms follow from the triangular identities and the naturality of $U\epsilon$.
 \end{exmp}
 
 \begin{prop}
@@ -670,7 +670,7 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 	
 	\[
 		\begin{tikzcd}
-			D\ar[r, dashed, "\exists!\overline{G}"]\ar[dr, swap, "G"]
+			\D\ar[r, dashed, "\exists!\overline{G}"]\ar[dr, swap, "G"]
 			& T\mbox{-}\Alg\ar[d, "U^T"] \\
 			& \C
 		\end{tikzcd}    
