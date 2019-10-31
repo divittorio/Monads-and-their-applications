@@ -128,6 +128,8 @@
 \DeclareMathOperator{\B}{\mathbf{B}}
 \DeclareMathOperator{\C}{\mathbf{C}}
 \DeclareMathOperator{\D}{\mathbf{D}}
+\DeclareMathOperator{\I}{\mathbf{I}}
+\DeclareMathOperator{\J}{\mathbf{J}}
 \DeclareMathOperator{\N}{\mathbb{N}}
 \DeclareMathOperator{\Z}{\mathbb{Z}}
 \DeclareMathOperator{\id}{id}
@@ -135,6 +137,10 @@
 \DeclareMathOperator{\cod}{cod}
 \DeclareMathOperator{\Ob}{Ob}
 \DeclareMathOperator{\Ar}{Ar}
+\DeclareMathOperator{\Lan}{Lan}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\Cocone}{Cocone}
+\DeclareMathOperator{\Nat}{Nat}
 
 \tikzset{shorten <>/.style={shorten >=#1,shorten <=#1}}
 \newcommand{\pullbackcorner}[1][ul]{\save*!/#1+1.5pc/#1(1,-1)@^{|-}\restore}
@@ -218,7 +224,7 @@
 	
 	\chapter{Categorical preliminaries}
 	\begin{defn}[Categories]
-		A category $\C$ consists of:
+		A \emph{category} $\C$ consists of:
 		\begin{enumerate}
 			\item a collection of objects $\Ob(\C)$;
 			\item a collection of arrows $\Ar(\C)$;
@@ -305,13 +311,13 @@
 	Notice that we always have a category $\C$ and some functor $T\colon\C\rightarrow\C$ with an action map $T\C\rightarrow\C$. How can we see all of these examples as specific instances of a general phenomenon?
 	
 	\begin{defn}
-		A monad on a category $\C$ is a triple $(T,\mu,\eta)$ where $T\colon\C\rightarrow\C$ is a functor, while $\mu\colon T^2\Rightarrow T$ and $\eta\colon\id_{\C}\Rightarrow T$ are natural transformations such that the following diagrams commute:
+		A \emph{monad} on a category $\C$ is a triple $(T,\mu,\eta)$ where $T\colon\C\rightarrow\C$ is a functor, while $\mu\colon T^2\Rightarrow T$ and $\eta\colon\id_{\C}\Rightarrow T$ are natural transformations such that the following diagrams commute:
 		
 		\[
 			\begin{tikzcd}
-				T^3\ar["\mu T", Rightarrow]{d}\ar["T\mu", Rightarrow]{r}
+				T^3\ar["\mu T"', Rightarrow]{d}\ar["T\mu", Rightarrow]{r}
 				& T^2\ar["\mu", Rightarrow]{d} \\
-				T^2\ar["\mu", Rightarrow]{r}
+				T^2\ar["\mu"', Rightarrow]{r}
 				& T
 			\end{tikzcd}
 			\quad\quad
@@ -323,7 +329,7 @@
 			\end{tikzcd}
 		\]
 		
-		$\mu$ is called the multiplicative map, while $\eta$ is the unit of $T$.
+		$\mu$ is called the \emph{multiplicative map}, while $\eta$ is the \emph{unit} of $T$.
 		
 		The commutativity of the first diagram is equivalent to stating that the following two diagrams are equal:
 		
@@ -384,13 +390,13 @@ On the other hand, the second diagram can be rephrased as follows:
 	A monad naturally defines other algebraic structures, which we now introduce.
 	
 	\begin{defn}
-		Given a monad $(T,\mu,\eta)$, a $T$-algebra or $T$-module is a pair $(a,\alpha)$, where $a\in\Ob(\C)$ and $\alpha\colon Ta\rightarrow a$ is such that the following diagrams commute:
+		Given a monad $(T,\mu,\eta)$, a \emph{$T$-algebra} or \emph{$T$-module} is a pair $(a,\alpha)$, where $a\in\Ob(\C)$ and $\alpha\colon Ta\rightarrow a$ is such that the following diagrams commute:
 		
 		\[	
 			\begin{tikzcd}
-				T^2 a\ar["\mu_{a}"]{d}\ar["T\alpha"]{r}
+				T^2 a\ar["\mu_{a}"']{d}\ar["T\alpha"]{r}
 				& Ta\ar["\alpha"]{d} \\
-				Ta\ar["\alpha"]{r}
+				Ta\ar["\alpha"']{r}
 				& a
 			\end{tikzcd}
 			\quad\quad
@@ -403,12 +409,12 @@ On the other hand, the second diagram can be rephrased as follows:
 	\end{defn}
 
 	\begin{defn}
-		A morphism of $T$-algebras $(a,\alpha)\rightarrow (b,\beta)$ is a morphism $f\colon a\rightarrow b$ such that the following diagram commutes:
+		A \emph{morphism of $T$-algebras} $(a,\alpha)\rightarrow (b,\beta)$ is a morphism $f\colon a\rightarrow b$ such that the following diagram commutes:
 		\[
 			\begin{tikzcd}
-				Ta\arrow["\alpha"]{d}\arrow["Tf"]{r}
+				Ta\arrow["\alpha"']{d}\arrow["Tf"]{r}
 				& Tb\arrow["\beta"]{d} \\
-				a\arrow["f"]{r}
+				a\arrow["f"']{r}
 				& b
 			\end{tikzcd}
 		\]
@@ -432,13 +438,11 @@ On the other hand, the second diagram can be rephrased as follows:
 
 	\begin{exmp}
 		Given a ring $R$, $T=R\otimes_{\Z}-\colon \Ab\rightarrow \Ab$ is a monad when considered with the following natural transformations:
-		
 		\begin{align*}
 			\mu_{-}\colon &\ R\otimes_{\Z}(R\otimes_{\Z}-)\cong (R\otimes_{\Z})\otimes_{\Z}-\Rightarrow R\otimes_{\Z}- \\
 			\eta_-\colon &\ -\cong\Z\otimes_{\Z}-\Rightarrow R\otimes_{\Z}-
 		\end{align*}
-	
-		We have that $(R\otimes_{\Z}-)\mbox{-}\Alg\cong \RMod$.
+	We have that $(R\otimes_{\Z}-)\mbox{-}\Alg\cong \RMod$.
 	\end{exmp}
 
 	\begin{exmp}
@@ -466,11 +470,11 @@ On the other hand, the second diagram can be rephrased as follows:
 		Suppose that $g$ is the inverse of $f\colon a\rightarrow b$ and $f$ is a morphism $(a,\alpha)\rightarrow (b,\beta)$. We only need to prove that the square on the left commutes, that is $g\beta=\alpha Tg$:
 		\[
 			\begin{tikzcd}
-				Tb\arrow["\beta"]{d}\arrow["Tg"]{r}
-				& Ta\arrow["\alpha"]{d}\arrow["Tf"]{r}
+				Tb\arrow["\beta"']{d}\arrow["Tg"]{r}
+				& Ta\arrow["\alpha"']{d}\arrow["Tf"]{r}
 				& Tb\arrow["\beta"]{d} \\
-				b\arrow["g"]{r}
-				& a\arrow["f"]{r}
+				b\arrow["g"']{r}
+				& a\arrow["f"']{r}
 				& b
 			\end{tikzcd}
 		\]
@@ -531,7 +535,7 @@ On the other hand, the second diagram can be rephrased as follows:
 	\end{tikzcd}
 	\]
 	is commutative, but this is the axiom for $f$ to be a morphism of $T$-algebras! 
-	\item It remains to check the two triangular identities $\epsilon F^T \circ F^T\eta=\id_{F^T}$ and $U^T\epsilon\circ\eta U^T=\id_{U^T}$. These are to be checked on the components at $c$ and $(a, \alpha)$, respectively.
+	\item It remains to check the two triangular identities $\epsilon F^T \cdot F^T\eta=\id_{F^T}$ and $U^T\epsilon\cdot\eta U^T=\id_{U^T}$. These are to be checked on the components at $c$ and $(a, \alpha)$, respectively.
 	\[
 		\begin{tikzcd}
 	(Tc,\mu_c)\ar["T\eta_{c}",rightarrow]{r}\ar[equal]{dr}
@@ -546,11 +550,11 @@ On the other hand, the second diagram can be rephrased as follows:
 	& a
 	\end{tikzcd}
 	\]
-	The commutativity of these two diagrams is ensured by the second unit law for a monad and the unit law for the $T$-algebra $(a,\alpha)$, respectively.
+	The commutativity of these diagrams is ensured by the second unit law for a monad and the unit law for the $T$-algebra $(a,\alpha)$, respectively. \qedhere
 	\end{enumerate}
 \end{proof}
 \begin{defn}
-Algebras of the form $(Tc, \mu_c)$ are called free $T$-algebras.	
+Algebras of the form $(Tc, \mu_c)$ are called \emph{free $T$-algebras}.
 \end{defn}
 Thanks to the proposition above we can prove that, given a monad $T$ we can always find an adjunction that generates it. Actually, the converse holds too.
 \begin{prop}
@@ -586,7 +590,7 @@ Unit laws:
 \C\arrow[r, "F"] \arrow[rru, bend left, equal] &\D  \arrow[ru, "U"] \arrow[rr, equal] &  \phantom{.}           &\D  \arrow[r, "U"] & \C
 \end{tikzcd}
 \]
-is equal to $1_{UF}$, since $\epsilon F\circ F\eta=1_F$ by one of the triangular identities of the adjunction $F\dashv U$. Furthermore,
+is equal to $1_{UF}$, since $\epsilon F\cdot F\eta=1_F$ by one of the triangular identities of the adjunction $F\dashv U$. Furthermore,
 \[
 \begin{tikzcd}
 &            &\C \arrow[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']  \arrow[rd, "F"]\arrow[rrd, bend left, equal] &  \arrow[d, Rightarrow, yshift=1ex, shorten <= .5em, shorten >= .01em, "\eta"']           &  \\
@@ -594,7 +598,7 @@ is equal to $1_{UF}$, since $\epsilon F\circ F\eta=1_F$ by one of the triangular
 \end{tikzcd}
 \] 
 is equal to $1_{UF}$. This follows from the explicit description of the unit and the counit of the adjunction $F^T\dashv U^T$, in fact 
-$$U^T\epsilon F^Tc=U^T\epsilon_{(Tc, \eta_c)}=\mu_c$$ \qedhere
+$$\hspace*{4cm} U^T\epsilon F^Tc=U^T\epsilon_{(Tc, \eta_c)}=\mu_c \hspace*{3.5cm} \qedhere$$ 
 \end{proof}
 
 \begin{exmp}[Interesting adjunction, boring monad] Let us consider the adjunction $U\colon\mathbf{Top}\rightleftarrows\Set\colon\mathsf{Disc}\eqqcolon F$, whose left adjoint assigns to every set $X$ the discrete topological space $FX=(X, 2^X)$.
@@ -613,7 +617,7 @@ There is always a comparison morphism $\D\xrightarrow{\overline{U}}UF\mbox{-}\Al
 & \C
 \end{tikzcd}
 \]
-commutes. We set $\overline{U}f=(Ud,UFUd\xrightarrow{U\epsilon_d}Ud)=(Ud, U\epsilon_d)$. More specifically, for a given functor $\D\xrightarrow{G}\C$ we can ask what do we need to get an equivalence $\overline{G}\colon\D\to T\mbox{-}\Alg$. To get there, we will need a few more definitions and lemmas.
+commutes. We set $\overline{U}f=(Ud,UFUd\xrightarrow{U\epsilon_d}Ud)=(Ud, U\epsilon_d)$. More specifically, for a given functor $G\colon\D\rightarrow\C$ we can ask what do we need to get an equivalence $\overline{G}\colon\D\to T\mbox{-}\Alg$. To get there, we will need a few more definitions and lemmas.
 
 
 \section{The category of $T$-actions}
@@ -621,7 +625,7 @@ commutes. We set $\overline{U}f=(Ud,UFUd\xrightarrow{U\epsilon_d}Ud)=(Ud, U\epsi
 Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also allows us to construct another category from functors $\D\rightarrow\C$.
 
 \begin{defn}
-	Given a monad $(T,\mu,\eta)$ on a category $\C$ and fixed another category $\D$, a $T$-action on a functor $G\colon\D\to\C$ is a natural transformation $\gamma\colon TG\Rightarrow G$ such that the diagrams
+	Given a monad $(T,\mu,\eta)$ on a category $\C$ and fixed another category $\D$, a \emph{$T$-action} on a functor $G\colon\D\to\C$ is a natural transformation $\gamma\colon TG\Rightarrow G$ such that the diagrams
 	\[
 		\begin{tikzcd}
 			T^2G\ar["\mu G"', Rightarrow]{d}\ar["T\gamma", 	Rightarrow]{r}
@@ -638,7 +642,7 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 	\]
 		commute.
 	
-		A morphism of $T$-actions $(G,\gamma)\xRightarrow{\varphi}(K,\kappa)$ is a natural transformation $\varphi\colon G\Rightarrow K$ such that
+		A \emph{morphism of $T$-actions} $(G,\gamma)\xRightarrow{\varphi}(K,\kappa)$ is a natural transformation $\varphi\colon G\Rightarrow K$ such that
 \[
 \begin{tikzcd}
 	TG\ar["T\varphi", Rightarrow]{r}\ar["\gamma"', Rightarrow]{d}
@@ -647,9 +651,11 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 		\end{tikzcd}
 		\]
 		commutes.
+	
+		Up to size, $T$-actions and their morphisms assemble into a category $T\mbox{-}\mathsf{Act}(\D)$.
 	\end{defn}
 
-	Up to size, $T$-actions and their morphisms assemble into a category $T\mbox{-}\mathsf{Act}(\D)$.
+	
 
 \begin{exmp}
 	The functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ has a $T$-action given by $(U^T,\alpha\colon TU^T\Rightarrow U^T)$, where $\alpha_{(b,\beta)}\coloneqq\beta\colon Tb\rightarrow b$.
@@ -674,7 +680,7 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 			& T\mbox{-}\Alg\ar[d, "U^T"] \\
 			& \C
 		\end{tikzcd}    
-	\]			\qedhere
+	\]			
 \end{proof}
 
 Following the construction in this proof, from the last example we get the comparison functor for the adjunction $F\dashv U$. In particular, $\overline{U}d=(Ud,U\epsilon_d)$. Furthermore, this means that $U\colon\Top\rightarrow\Set$ factors through identities.
@@ -801,7 +807,7 @@ is a well defined diagram in $T\mbox{-}\Alg$, with $\alpha\mu_a=\alpha T\alpha$.
 \[
 \begin{tikzcd}
 T^2a\arrow[r, shift left, "T\alpha"] \arrow[r, shift right, "\mu_a"']
-&Ta  \arrow[r, "\alpha"] \arrow[l, bend right=49, "\eta_{Ta}"'] & a \arrow[l, bend right=49, "\hspace*{-2mm}\eta_a"']
+&Ta  \arrow[r, "\alpha"] \arrow[l, bend left=49, swap, "\eta_{Ta}"'] & a \arrow[l, bend left=49, swap, "\eta_a"']
 \end{tikzcd}
 \]
 in which the following equations hold true: $\alpha\eta_a=\id_a,\ \mu_a\eta_{Ta}=\id_{Ta}$ and $\eta_a\alpha=T\alpha\hspace{1mm}\eta_{Ta}$ by naturality. It is a particular case of a more general concept.
@@ -904,14 +910,14 @@ $T\alpha,\mu_a\colon(T^2a,\mu_{Ta})\rightrightarrows(Ta,\mu_a)$ is a $U^T$-split
 	
 	\item If $U$ preserves coequalizers of $U$-split pairs, both $U\overline{F}$ and $U^T$ are coequalizers of the above diagram, hence $\overline{\eta}$ is an isomorphism.
 	
-	\item From the triangular identities, $\overline{\eta}\overline{U}\cdot\overline{U}\epsilon=\id_{FU}$, hence $\overline{U}\overline{\epsilon}$ is an isomorphism. Being $U^T\overline{U}=U$ conservative, $\overline{\epsilon}$ is an isomorphism as well.
+	\item From the triangular identities, $\overline{\eta}\overline{U}\cdot\overline{U}\epsilon=\id_{FU}$, hence $\overline{U}\overline{\epsilon}$ is an isomorphism. Being $U^T\overline{U}=U$ conservative, $\overline{\epsilon}$ is an isomorphism as well. \qedhere
 \end{enumerate}
 \end{proof}
 
 \begin{defn}
-A pair $f,g\colon c\rightarrow d$ in a category $\C$ is \emph{reflexive} if there exists a common section $i\colon d\rightarrow c$, that is $fi=gi=\id_d$.
+A pair $f,g\colon c\rightrightarrows d$ in a category $\C$ is \emph{reflexive} if there exists a common section $i\colon d\rightarrow c$, that is $fi=gi=\id_d$.
 
-A coequalizer of a reflexive pair is a \emph{reflexive equalizer}.
+A coequalizer of a reflexive pair is a \emph{reflexive coequalizer}.
 \end{defn}
 
 \begin{rmk}
@@ -929,11 +935,111 @@ In Beck's monadicity theorem it suffices for $(1)$ that coequalizers of reflexiv
 \begin{proof}
 The pair
 $$FUFU^T\doublerightarrow{F\alpha}{\epsilon FU^T}FU^T$$
-has $F\eta U^T$ as common section. $\alpha\cdot\eta U^T=\id$ by the unit law of the $T$-action $\alpha\colon TU^T\Rightarrow U^T$ and $\epsilon F\cdot F\eta=\id$ by the triangular identities.
+has $F\eta U^T$ as common section. Moreover, $\alpha\cdot\eta U^T=\id_{U^T}$ by the unit law of the $T$-action $\alpha\colon TU^T\Rightarrow U^T$ and $\epsilon F\cdot F\eta=\id_F$ by the triangular identities.
 \end{proof}
 
 \begin{exmp}
-Let $\A$ and $\B$ be small categories, $\C$ a category which is both complete and cocomplete, $G\colon\A\rightarrow\B$ a functor. The restriction along $G$ has both adjoints, given by left and right Kan extensions.
+Let $\A$ and $\B$ be small categories, $\C$ a category which is both complete and cocomplete, and $G\colon\A\rightarrow\B$ a functor. The restriction along $G$, $G^*$, has both adjoints, given by left and right Kan extensions. Notice that the induced monad is cocontinuous since $G^*$ is a left adjoint. Moreover, $G^*$ is conservative if $G$ is essentially surjective, thus any essentially surjective functor $G$ induces a monadic adjunction as follows:
+
+\[
+\begin{tikzcd}[column sep=tiny]
+	\left[\B,\C\right]\ar[rr, "\overline{G^*}"]\ar[dr, swap, "G^*", ""{name=start, below}]
+	&& G^*\Lan_G\mbox{-}\Alg\ar[dl, ""{name=end, below}] \\
+	& \left[\A,\C\right]
+	\ar[Rightarrow, "\sim", shorten <= 1.5 em, shorten >= 1.5 em, shift left=1.5ex, from=start, to=end]
+\end{tikzcd}
+\]
+
+\end{exmp}
+
+We are going to show why reflexive coequalizers are useful, but first we need some preliminary definitions and results.
+
+\begin{defn}
+	A functor $F\colon\I\rightarrow\J$ between small categories is called \emph{final} if for any diagram $D\colon\J\to\C$ the comparison morphism $\colim_{\I} DF\to\colim_{\J} D$ is an isomorphism whenever both colimits exist.
+\end{defn}
+
+\begin{prop}
+	Let $F\colon\I\rightarrow\J$ be a functor between small categories. The following are equivalent:
+	\begin{enumerate}
+		\item $F$ is final;
+		\item the unique isomorphism
+		
+		\[
+		\begin{tikzcd}[column sep=tiny]
+			\I^{\op}\ar[rr, "F^{\op}"]\ar[dr, swap, "*" near start, ""{name=Lan, below}]
+			&& \J^{\op}\ar[dl, "*" near start, ""{name=ext, below}] \\
+			& \Set
+			\ar[Rightarrow, shorten <= .6em, shorten >= .6em, shift left=1.5ex, from=Lan, to=ext, "\sim"] 
+		\end{tikzcd}
+		\]
+		exibits $*$ as $\Lan_{F^{\op}}*$;
+		
+		\item for each $j\in\J$, the category $(j\downarrow F)$ is connected.
+	\end{enumerate}
+\end{prop}
+
+\begin{proof}
+	$(ii)\iff(iii)$ We have $\Lan_{F^{\op}}*(j)\cong\colim_{(j\downarrow F)}*$ by the formula for Kan extensions. A colimit of $(j\downarrow F)\rightarrow\Set$, $(\phi,j')\mapsto *$ is terminal if and only if $(j\downarrow F)$ is connected, hence the thesis.
+	
+	$(ii)\implies(i)$ Let $D\colon\J\rightarrow\C$ be a diagram. We can then write $\Cocone(D,-)$ as follows:
+	$$\Cocone(D,X)\cong\Nat(*,\C(D-,X))\cong [\J^{\op},\Set](*,\C(D-,X))$$
+	
+	By definition of left Kan extension, we also have
+	$$[I^{\op},\Set(*,\C(DF-,X))]\cong [\J^{\op},\Set](\Lan_{F^{\op}}*,\C(D-,X))$$
+	
+	If $\Lan_{F^{\op}}*\cong *$, this shows that $\colim_{\I} DF\cong\colim_{\J} D$.
+	
+	$(i)\implies (iii)$ Left as an exercise.
+\end{proof}
+
+\begin{defn}
+	A small category $\I$ is \emph{sifted} if the diagonal $\Delta\colon\I\rightarrow\I\times\I$ is final. A colimit is sifted if the domain category is.
+\end{defn}
+
+\begin{exmp}
+	For any filtered category $\I$, the category $((i,i')\downarrow\Delta)$ is again filtered and hence connected, thus filtered colimits are sifted.
+\end{exmp}
+
+\begin{exmp}
+	Reflexive coequalizers are sifted.
+\end{exmp}
+
+\begin{prop}
+	If $F\colon\A\times\B\rightarrow\C$ is a functor preserving reflexive coequalizers in each variable, that is for any $a\in\A$, $b\in\B$ the functors $F(a,-)\colon\B\rightarrow\C$ and $F(-,b)\colon\A\rightarrow\C$ preserve reflexive coequalizers, then $F$ preserves reflexive coequalizers as well.
+\end{prop}
+
+\begin{proof}
+	We need to check that, given a reflexive coequalizer $\hspace{-1.5mm}\begin{tikzcd}
+	a_0\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}a_1\hspace{-1.5mm}\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]\arrow[r, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}a_2
+	\end{tikzcd}\hspace{-1.5mm}$ in $\A$ and $\hspace{-1.5mm}\begin{tikzcd}
+	b_0\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}b_1\hspace{-1.5mm}\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]\arrow[r, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}b_2
+	\end{tikzcd}\hspace{-1.5mm}$ in $\B$, the diagonal of the following diagram is a coequalizer diagram in $\C$.
+	\[
+	\begin{tikzcd}
+		F(a_0,b_0)\ar[r, shift right=.5ex]\ar[r, shift left=1ex]\ar[d, shift right=.5ex]\ar[d, shift left=1ex]\ar[dr, shift right=.5ex]\ar[dr, shift left=1ex]
+		& F(a_1,b_0)\ar[d, shift right=.5ex]\ar[d, shift left=1ex]\ar[l, shift right=.25ex]\ar[r]
+		& F(a_2,b_0)\ar[d, shift right=.5ex]\ar[d, shift left=1ex] \\
+		F(a_0,b_1)\ar[r, shift right=.5ex]\ar[r, shift left=1ex]\ar[u, shift right=.25ex]\ar[d]
+		& F(a_1,b_1)\ar[u, shift right=.25ex]\ar[l, shift right=.25ex]\ar[ul, shift right=.25ex]\ar[r]\ar[d]\ar[dr]
+		& F(a_2,b_1)\ar[u, shift right=.25ex]\ar[d] \\
+		F(a_0,b_2)\ar[r, shift right=.5ex]\ar[r, shift left=1ex]
+		& F(a_1,b_2)\ar[l, shift right=.25ex]\ar[r]
+		& F(a_2,b_2) \\
+	\end{tikzcd}
+	\]
+	From general facts, $F(a_2,b_2)$ is the colimit of the square in the top left. We may prove this using the sections, however in this case we can use the fact that, under certain hypothesis, given a diagram $D\colon\I\times\I\rightarrow\C$ we have $\colim_{\I\times\I}D\cong\colim_{\I} D\Delta$. Specifically, we want this to hold when $\I=\{\hspace{-1.5mm}\begin{tikzcd}
+	a_0\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em] \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}a_1\hspace{-1.5mm}\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]\end{tikzcd}\}$. But the category $(i\downarrow\Delta)$ is clearly connected for any $i\in\I$, hence $\Delta$ is final and we have the thesis.
+\end{proof}
+
+\begin{exmp}
+	The functor $\Set\times\Set\xrightarrow{-\times-}\Set$ satisfies the hypothesis of the theorem since $\Set$ is cartesian closed, hence $X\mapsto X\times X$ preserves reflexive coequalizers by the proposition. This shows that $\Set(X,-)\cong\Pi_{x\in X}\Set(*,-)$ preserves reflexive coequalizers if $X$ is finite, hence the functor $\Set(X,-)\colon\Set\rightarrow\Set$ is monadic with $T=\Set(X,X\times-)$ for $X$ finite.
+	\[
+		\begin{tikzcd}[column sep=tiny]
+			\Set\ar[rr, "\cong"] \ar[dr, swap, "{\Set(X,-)}"]
+			&& T\mbox{-}\Alg\ar[dl, "U^T"] \\
+			& \Set
+		\end{tikzcd}
+	\]
 \end{exmp}
 
 	\chapter{Monads in 2-category theory}
