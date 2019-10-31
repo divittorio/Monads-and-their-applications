@@ -125,6 +125,7 @@
 \DeclareMathOperator{\Cof}{\text{Cof}}
 \DeclareMathOperator{\V}{\mathcal{V}}
 \DeclareMathOperator{\A}{\mathbf{A}}
+\DeclareMathOperator{\B}{\mathbf{B}}
 \DeclareMathOperator{\C}{\mathbf{C}}
 \DeclareMathOperator{\D}{\mathbf{D}}
 \DeclareMathOperator{\N}{\mathbb{N}}
@@ -620,7 +621,7 @@ commutes. We set $\overline{U}f=(Ud,UFUd\xrightarrow{U\epsilon_d}Ud)=(Ud, U\epsi
 Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also allows us to construct another category from functors $\D\rightarrow\C$.
 
 \begin{defn}
-	Given a monad $(T,\mu,\eta)$ and fixed a category $\D$, a $T$-action on a functor $\D\xrightarrow{G}\C$ is a natural transformation $TG\xRightarrow{\gamma}G$ such that the diagrams
+	Given a monad $(T,\mu,\eta)$ on a category $\C$ and fixed another category $\D$, a $T$-action on a functor $G\colon\D\to\C$ is a natural transformation $\gamma\colon TG\Rightarrow G$ such that the diagrams
 	\[
 		\begin{tikzcd}
 			T^2G\ar["\mu G"', Rightarrow]{d}\ar["T\gamma", 	Rightarrow]{r}
@@ -637,7 +638,7 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 	\]
 		commute.
 	
-		A morphism of $T$-actions $(G,\gamma)\Rightarrow (K,\kappa)$ is a natural transformation $\varphi\colon G\Rightarrow K$ such that
+		A morphism of $T$-actions $(G,\gamma)\xRightarrow{\varphi}(K,\kappa)$ is a natural transformation $\varphi\colon G\Rightarrow K$ such that
 \[
 \begin{tikzcd}
 	TG\ar["T\varphi", Rightarrow]{r}\ar["\gamma"', Rightarrow]{d}
@@ -655,7 +656,7 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 \end{exmp}
 
 \begin{exmp}
-	Given an adjunction  $F\dashv U\colon\C\rightarrow\D$ with unit $\eta\colon\id_{\C}\Rightarrow UF$ and counit $\epsilon\colon FU\Rightarrow\id_{\D}$, we get a monad on $(UF,U\epsilon F,\eta)$ on $\C$. We have then a $UF$-action $U\epsilon\colon UFU\Rightarrow U$, where the axioms follow from the triangular identities.
+	Given an adjunction  $F\dashv U\colon\C\rightleftarrows\D$ with unit $\eta\colon\id_{\C}\Rightarrow UF$ and counit $\epsilon\colon FU\Rightarrow\id_{\D}$, we get a monad on $(UF,U\epsilon F,\eta)$ on $\C$. We have then a $UF$-action $U\epsilon\colon UFU\Rightarrow U$, where the axioms follow from the triangular identities.
 \end{exmp}
 
 \begin{prop}
@@ -669,7 +670,7 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 	
 	\[
 		\begin{tikzcd}
-			D\ar[r, dotted, "\exists!\overline{G}"]\ar[dr, swap, "G"]
+			D\ar[r, dashed, "\exists!\overline{G}"]\ar[dr, swap, "G"]
 			& T\mbox{-}\Alg\ar[d, "U^T"] \\
 			& \C
 		\end{tikzcd}    
@@ -681,10 +682,10 @@ Following the construction in this proof, from the last example we get the compa
 
 \section{Limits and colimits in the category of algebras}
 
-We have shown that the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ is a right adjoint, hence as such it preserves limits. However, more is true.
+We have shown that the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ is a right adjoint, and as such it preserves limits. However, more is true.
 
 \begin{prop}\label{create lims}
-	For any monad $(T,\mu,\eta)$ on $\C$, the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ creates limits.
+	For any monad $(T,\mu,\eta)$ on $\C$, the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ strictly creates limits.
 \end{prop}
 
 \begin{proof}
@@ -694,12 +695,12 @@ We have shown that the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ 
 	
 	First of all, remember that $D\phi\colon D_i\rightarrow D_j$ is a morphism of $T$-algebras for all $\phi\colon i\rightarrow j$ by assumption, hence the morphisms $\delta_i T\kappa_i\colon Tl\rightarrow D_i$ define a cone over $D$, where $\delta_i$ is the $T$-algebra structure on $D_i$. By the universal property of the limit, there is a unique morphism $\lambda\colon Tl\rightarrow l$ making the following diagram commute for all $i$.
 	\[
-		\begin{tikzcd}
-			Tl\ar[d, "T\kappa_i"']\ar[r, dotted, "\lambda"]
-			& l\ar[d, "\kappa_i"] \\
-			TD_i\ar[r, "\delta_i"']
-			& D_i
-		\end{tikzcd}
+	\begin{tikzcd}
+	Tl\ar[d, dashed, "\lambda"'] \ar[r, "T\kappa_i"]
+	& TD_i\ar[d, "\delta_i"]\\
+	 l\ar[r, "\kappa_i"']
+	& D_i
+	\end{tikzcd}
 	\]	
 	This tells us that, if the limit $((l,\lambda),\kappa_i)$ of $D$ exists, it is unique. We have to check that $(l,\lambda)$ is a $T$-algebra.
 	
@@ -749,7 +750,7 @@ We have shown that the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ 
 A similar statement holds for colimits.
 
 \begin{prop}\label{create colims}
-	Given a monad $(T,\mu,\eta)$ on $\C$, the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ creates any colimit preserved by both $T$ and $T^2$.
+Given a monad $(T,\mu,\eta)$ on $\C$, the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ strictly creates any colimit preserved by both $T$ and $T^2$.
 \end{prop}
 
 \begin{proof}
@@ -759,7 +760,7 @@ A similar statement holds for colimits.
 	\[
 		\begin{tikzcd}
 			TD_i\ar[r, "T\kappa_i"]\ar[d, "\delta_i"']
-			& Tc\ar[d, dotted, "\lambda"] \\
+			& Tc\ar[d, dashed, "\lambda"] \\
 			D_i\ar[r, "\kappa_i"']
 			& c
 		\end{tikzcd}
@@ -767,15 +768,22 @@ A similar statement holds for colimits.
 	To check that $(c,\lambda)$ is an algebra we use the universal property of $(T^2c,T^2\kappa_i)$ (for $\mu$) and the one of $(c,\kappa_i)$ (for $\eta$).
 \end{proof}
 
-\begin{exmp}
+\begin{rmk}
+	The same statement holds for monadic functors, except for the fact that they may not create limits and colimits strictly since they are just equivalent to a $U^T$.
+\end{rmk}
+
+\begin{rmk}
 	If $T$ is a monad on a complete category $\C$, then $T\mbox{-}\Alg$ is complete. If $\C$ is cocomplete and $T$ is cocontinuous, then $T\mbox{-}\Alg$ is cocomplete.
-\end{exmp}
-In particular, let $\C$ be a small category. There is a cocontinuous monad on the category of $\Ob(\C)$-indexed collections of sets whose category of algebras is the functor category $[\C,\Set]$. The underlying endofunctor of this monad is defined as 
+\end{rmk}
+
+\begin{exmp}
+	Let $\C$ be a small category. There is a cocontinuous monad on the category of $\Ob(\C)$-indexed collections of sets whose category of algebras is the functor category $[\C,\Set]$. The underlying endofunctor of this monad is defined as 
 	\begin{align*}
 	T\colon[\Ob(\C),\Set]&\to[\Ob(\C),\Set] \\
 	(X_c)_{c\in\C}&\mapsto \left(\coprod_{d\in\C}\C(d,c)\times X_d\right)_{c\in\C}
 	\end{align*}
- Since $[\Ob(\C),\Set]$ is complete and cocomplete, so is $[\C,\Set]$ (with limits and colimits computed pointwise).
+	Since $[\Ob(\C),\Set]$ is complete and cocomplete, so is $[\C,\Set]$ (with limits and colimits computed pointwise).
+\end{exmp}
  
 	\chapter{Beck’s monadicity theorem}
 	The final ingredient we need is the observation that $T$-algebras admit canonical presentations using free algebras.
@@ -832,7 +840,7 @@ Let $T$ be a monad on $\C$ and $(a,\alpha)$ a $T$-algebra. Then
 is a coequalizer in $T\mbox{-}\Alg$, which $U^T\colon T\mbox{-}\Alg\to\C$ sends to a split coequalizer in $\C$.
 \end{cor}
 \begin{proof}
-We have already observed that the second statement holds, so that coeq$(U^T(T\alpha), U^T(\mu_a))$ is preserved by $T$ and $T^2$. Hence there exists a unique lift of the (split) coequalizer in $\C$ to a coequalizer in $T\mbox{-}\Alg$. 
+We have already observed that the second statement holds, so that coeq $(U^T(T\alpha), U^T(\mu_a))$ is preserved by $T$ and $T^2$. Hence there exists a unique lift of the (split) coequalizer in $\C$ to a coequalizer in $T\mbox{-}\Alg$. 
 \end{proof}
 Results like the previous one inspire us to look at the parallel pairs of morphisms in a category which are sent to split coequalizers or, to say it better, to a parallel pair of morphisms that can be extended to a split coequalizer diagram. Those kinds of pairs will be of crucial importance in the following.
 \begin{defn}
@@ -867,13 +875,67 @@ $T\alpha,\mu_a\colon(T^2a,\mu_{Ta})\rightrightarrows(Ta,\mu_a)$ is a $U^T$-split
 	\[
 	\begin{tikzcd}
 	UFUFU^T\arrow[r, shift left, "UF\alpha"] \arrow[r, shift right, "U\epsilon FU^T"']
-	&UFU^T  \arrow[r, "\alpha"] \arrow[l, bend left=49, "\eta UFU^T"] & U^T\arrow[l, bend left=49, "\hspace*{-2mm}\eta U^T"]
+	&UFU^T  \arrow[r, "\alpha"] \arrow[l, bend left=49, "\eta UFU^T"] & U^T\arrow[l, bend left=49, "\eta U^T"]
 	\end{tikzcd}
 	\]
 	is a split coequalizer in $[T\mbox{-}\Alg, \C]$, given that it holds pointwise since $UF=T$. Let us denote by $\beta\colon FU^T\to\overline{F}$ the colimit (computed pointwise) of the pair $F\alpha, \epsilon FU^T\colon FUFU^T\rightrightarrows FU^T$. Precomposing this pair with $\overline{U}$ and recalling that $\alpha\overline{U}=U\epsilon, \ U^T\overline{U}=U$, we get the pair  
-	$$FUFU\doublerightarrow{FU\epsilon}{\epsilon FU}FU$$
-	\end{enumerate}
-	\end{proof}
+	$$FUFU\doublerightarrow{FU\epsilon}{\epsilon FU}FU,$$
+	which is coequalized by $\epsilon\colon FU\Rightarrow\id_{\D}$. 
+	\[
+	\begin{tikzcd}
+	FUFU\arrow[r, shift left, "FU\epsilon"] \arrow[r, shift right, "\epsilon FU"']
+	&FU \ar[dr, "\epsilon"'] \arrow[r, "\beta\overline{U}"]  & \overline{F}\hspace{.5mm}\overline{U}\arrow[d, dashed, "\exists!\overline{\epsilon}"]\\
+	&& \id_{\D}
+	\end{tikzcd}
+	\]
+	Since $\overline{F}\hspace{.5mm}\overline{U}$ is the coequalizer of the diagram above, there exists a unique $\overline{\epsilon}\colon\overline{F}\hspace{.5mm}\overline{U}\Rightarrow\id_{\D}$ such that $\overline{\epsilon}\cdot\beta\overline{U}=\epsilon$. To get the unit $\overline{\eta}\colon\id_{\C}\Rightarrow\overline{U}\hspace{.5mm}\overline{F}$ we need to describe a morphism of actions $(UT, \alpha)\to(UT\overline{U}\hspace{.5mm}\overline{F},\alpha\overline{U}\hspace{.5mm}\overline{F})$. We claim that the comparison functor
+	\[
+	\begin{tikzcd}
+	U^T\overline{U}FUFU^T\arrow[r, shift left] \arrow[r, shift right]\arrow[d, equal]	&U^T\overline{U}FU^T  \arrow[r, "\alpha"] \arrow[d, equal] & U^T\overline{U}\hspace{.5mm}\overline{F}\arrow[d, dashed, "\exists!\overline{\epsilon}"]\\
+	UFUFU^T\arrow[r, shift left] \arrow[r, shift right]&UFU^T\arrow[r, "U\beta"']& U^T
+	\end{tikzcd}
+	\]
+	is a morphism of $T$-actions. 
+	
+	Unraveling [\dots]
+	
+	
+		The only thing left to do is checking the triangular identities, which is left to the reader.
+	
+	\item If $U$ preserves coequalizers of $U$-split pairs, both $U\overline{F}$ and $U^T$ are coequalizers of the above diagram, hence $\overline{\eta}$ is an isomorphism.
+	
+	\item From the triangular identities, $\overline{\eta}\overline{U}\cdot\overline{U}\epsilon=\id_{FU}$, hence $\overline{U}\overline{\epsilon}$ is an isomorphism. Being $U^T\overline{U}=U$ conservative, $\overline{\epsilon}$ is an isomorphism as well.
+\end{enumerate}
+\end{proof}
+
+\begin{defn}
+A pair $f,g\colon c\rightarrow d$ in a category $\C$ is \emph{reflexive} if there exists a common section $i\colon d\rightarrow c$, that is $fi=gi=\id_d$.
+
+A coequalizer of a reflexive pair is a \emph{reflexive equalizer}.
+\end{defn}
+
+\begin{rmk}
+To give a cone of a reflexive pair it is enough to give a map $h\colon d\rightarrow x$ such that $hf=hg$, hence $\colim (\hspace{-1.5mm}\begin{tikzcd}
+c\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}d\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]
+\end{tikzcd}\hspace{-1.5mm})\cong\colim (\hspace{-1.5mm}\begin{tikzcd}
+c\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}d
+\end{tikzcd}\hspace{-1.5mm})$.
+\end{rmk}
+
+\begin{prop}
+In Beck's monadicity theorem it suffices for $(1)$ that coequalizers of reflexive $U$-split pairs exist, while in $(2)$ and $(3)$ we only need for them to be preserved.
+\end{prop}
+
+\begin{proof}
+The pair
+$$FUFU^T\doublerightarrow{F\alpha}{\epsilon FU^T}FU^T$$
+has $F\eta U^T$ as common section. $\alpha\cdot\eta U^T=\id$ by the unit law of the $T$-action $\alpha\colon TU^T\Rightarrow U^T$ and $\epsilon F\cdot F\eta=\id$ by the triangular identities.
+\end{proof}
+
+\begin{exmp}
+Let $\A$ and $\B$ be small categories, $\C$ a category which is both complete and cocomplete, $G\colon\A\rightarrow\B$ a functor. The restriction along $G$ has both adjoints, given by left and right Kan extensions.
+\end{exmp}
+
 	\chapter{Monads in 2-category theory}
 	\chapter{Monads in $\infty$-category theory}
 	
