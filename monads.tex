@@ -715,21 +715,21 @@ We have shown that the forgetful functor $U^T\colon T\mbox{-}\Alg\rightarrow\C$ 
 	\[
 		\begin{tikzcd}
 			& Tl\ar[drr, "\lambda"]\ar[ddd, "T\kappa_i" near start] \\
-			T^2l\ar[ur, "T\lambda"]\ar[drr, crossing over, "\mu_l" near start, swap]\ar[ddd, "T^2\kappa_i"]
+			T^2l\ar[ur, "T\lambda"]\ar[drr, crossing over, "\mu_l" near start, swap]\ar[ddd, "T^2\kappa_i"']
 			&&& l\ar[ddd, "\kappa_i"] \\
 			&& Tl\ar[ur, "\lambda"]%\ar[ddd, "T\kappa_i" near start] 
 			\\
 			& TD_i\ar[drr, swap, "\delta_i" near start] \\
-			T^2D_i\ar[ur, "T\delta_i"]\ar[drr, "\mu_{D_i}"]
+			T^2D_i\ar[ur, "T\delta_i"]\ar[drr, "\mu_{D_i}"']
 			&&& D_i \\
-			&& TD_i\ar[ur, "\delta_i"] \ar[from=uuu,crossing over,  "T\kappa_i" near start]
+			&& TD_i\ar[ur, "\delta_i"'] \ar[from=uuu,crossing over,  "T\kappa_i" near start]
 		\end{tikzcd}
 		\quad\quad
 		\begin{tikzcd}
 			& Tl\ar[dr, "\lambda"]\ar[dd, "T\kappa_i" near end] \\
 			l\ar[ur, "\eta_l"]\ar[rr, crossing over, equal]\ar[dd, swap, "\kappa_i"]
 			&& l\ar[dd, "\kappa_i"] \\
-			& TD_i\ar[dr, "\kappa_i"] \\
+			& TD_i\ar[dr, "\delta_i"] \\
 			D_i\ar[ur, "\eta_{D_i}"]\ar[rr, equal]
 			&& D_i
 		\end{tikzcd}
@@ -771,11 +771,11 @@ Given a monad $(T,\mu,\eta)$ on $\C$, the forgetful functor $U^T\colon T\mbox{-}
 			& c
 		\end{tikzcd}
 	\]
-	To check that $(c,\lambda)$ is an algebra we use the universal property of $(T^2c,T^2\kappa_i)$ (for $\mu$) and the one of $(c,\kappa_i)$ (for $\eta$).
+	To check that $(c,\lambda)$ is an algebra we use the universal property of $(T^2c,T^2\kappa_i)$, for $\mu$, and the one of $(c,\kappa_i)$, for $\eta$.
 \end{proof}
 
 \begin{rmk}
-	The same statement holds for monadic functors, except for the fact that they may not create limits and colimits strictly since they are just equivalent to a $U^T$.
+	The same statements hold for monadic functors, except for the fact that they might not create limits and colimits strictly since they are just equivalent to a $U^T$.
 \end{rmk}
 
 \begin{rmk}

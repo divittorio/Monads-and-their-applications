@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  31 OCT 2019 20:24
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  2 NOV 2019 16:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1418,7 +1418,7 @@ Package rerunfilecheck Info: File `monads.out' has not changed.
 Here is how much of TeX's memory you used:
  37648 strings out of 492616
  747003 string characters out of 6132769
- 881847 words of memory out of 5000000
+ 881845 words of memory out of 5000000
  40851 multiletter control sequences out of 15000+600000
  558872 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1445,7 +1445,7 @@ type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmti10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfon
 ts/symbols/msam10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/s
 ymbols/msbm10.pfb>
-Output written on monads.pdf (23 pages, 343694 bytes).
+Output written on monads.pdf (23 pages, 343709 bytes).
 PDF statistics:
  367 PDF objects out of 1000 (max. 8388607)
  314 compressed objects within 4 object streams
