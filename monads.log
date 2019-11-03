@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  2 NOV 2019 16:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  3 NOV 2019 15:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1379,7 +1379,15 @@ Package mdframed Info: mdframed detected package amsthm
 Package mdframed Info: Not enough space on this page on input line 870.
  [13]
 Package mdframed Info: Not enough space on this page on input line 870.
- [14] [15] [16]
+ [14]
+Overfull \hbox (5.43396pt too wide) in paragraph at lines 896--898
+\OT1/cmr/m/n/10.95 we need to de-scribe a mor-phism of $\OML/cmm/m/it/10.95 T$\
+OT1/cmr/m/n/10.95 -actions $(\OML/cmm/m/it/10.95 U[]; \OT1/cmr/m/n/10.95 ) \OM
+S/cmsy/m/n/10.95 ! \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 U[][] []; [] []\OT1
+/cmr/m/n/10.95 )$.
+ []
+
+[15] [16]
 Overfull \hbox (1.7602pt too wide) in paragraph at lines 1026--1031
 []\OT1/cmr/m/n/10.95 We need to check that, given a re-flex-ive co-equal-izer $
  [] $
@@ -1416,13 +1424,13 @@ Package rerunfilecheck Info: File `monads.out' has not changed.
 (rerunfilecheck)             Checksum: 051C546E4ED00C06D7059843299B552D;633.
  ) 
 Here is how much of TeX's memory you used:
- 37648 strings out of 492616
- 747003 string characters out of 6132769
- 881845 words of memory out of 5000000
- 40851 multiletter control sequences out of 15000+600000
+ 37647 strings out of 492616
+ 746985 string characters out of 6132769
+ 881850 words of memory out of 5000000
+ 40850 multiletter control sequences out of 15000+600000
  558872 words of font info for 132 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,18n,82p,3239b,1183s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,18n,82p,3239b,1181s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
 live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb><c:/texlive/2018/texmf-dis
@@ -1445,7 +1453,7 @@ type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/publ
 ic/amsfonts/cm/cmti10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfon
 ts/symbols/msam10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/s
 ymbols/msbm10.pfb>
-Output written on monads.pdf (23 pages, 343709 bytes).
+Output written on monads.pdf (23 pages, 344129 bytes).
 PDF statistics:
  367 PDF objects out of 1000 (max. 8388607)
  314 compressed objects within 4 object streams
