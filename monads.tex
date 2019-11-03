@@ -391,7 +391,6 @@ On the other hand, the second diagram can be rephrased as follows:
 	
 	\begin{defn}
 		Given a monad $(T,\mu,\eta)$, a \emph{$T$-algebra} or \emph{$T$-module} is a pair $(a,\alpha)$, where $a\in\Ob(\C)$ and $\alpha\colon Ta\rightarrow a$ is such that the following diagrams commute:
-		
 		\[	
 			\begin{tikzcd}
 				T^2 a\ar["\mu_{a}"']{d}\ar["T\alpha"]{r}
@@ -901,7 +900,7 @@ $T\alpha,\mu_a\colon(T^2a,\mu_{Ta})\rightrightarrows(Ta,\mu_a)$ is a $U^T$-split
 	U^T\overline{U}FUFU^T\arrow[r, shift left,  "U^T\overline{U}F\alpha"] \arrow[r, shift right, "U^T\overline{U}\epsilon FU^T"']&U^T\overline{U}FU^T\arrow[r, "U^T\overline{U}\beta"']& U^T\overline{U}\hspace{.5mm}\overline{F}
 	\end{tikzcd}
 	\]
-	is a morphism of $T$-actions. 
+	is a morphism of $T$-actions\footnote{In fact, this tells us that the morphism $\overline{\eta}_{(a,\alpha)}\colon a\to U^T\overline{U}\hspace{.5mm}\overline{F}(a,\alpha)$ in $\C$ lifts uniquely to a morphism of $T$-algebras $\overline{\eta}_{(a,\alpha)}\colon(a,\alpha)\to\overline{U}\hspace{.5mm}\overline{F}(a,\alpha)$.}. 
 	
 	Unraveling what this means, we have to check that the diagram
 	\[
@@ -924,7 +923,7 @@ $T\alpha,\mu_a\colon(T^2a,\mu_{Ta})\rightrightarrows(Ta,\mu_a)$ is a $U^T$-split
 	
 	\item If $U$ preserves coequalizers of $U$-split pairs, both $U\overline{F}$ and $U^T$ are coequalizers of the above diagram, hence $\overline{\eta}$ is an isomorphism.
 	
-	\item From the triangular identities, $\overline{\eta}\overline{U}\cdot\overline{U}\epsilon=\id_{FU}$, hence $\overline{U}\overline{\epsilon}$ is an isomorphism. Being $U^T\overline{U}=U$ conservative, $\overline{\epsilon}$ is an isomorphism as well. \qedhere
+	\item From the triangular identities, $\overline{U}\overline{\epsilon}\cdot\overline{\eta}\overline{U}=\id_{\overline{U}}$, hence $\overline{U}\overline{\epsilon}$ is an isomorphism. Being $U^T\overline{U}=U$ conservative, $\overline{\epsilon}$ is an isomorphism as well. \qedhere
 \end{enumerate}
 \end{proof}
 
