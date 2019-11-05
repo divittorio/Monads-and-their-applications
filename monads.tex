@@ -948,7 +948,7 @@ In Beck's monadicity theorem it suffices for $(1)$ that coequalizers of reflexiv
 \begin{proof}
 The pair
 $$FUFU^T\doublerightarrow{F\alpha}{\epsilon FU^T}FU^T$$
-has $F\eta U^T$ as common section. Moreover, $\alpha\cdot\eta U^T=\id_{U^T}$ by the unit law of the $T$-action $\alpha\colon TU^T\Rightarrow U^T$ and $\epsilon F\cdot F\eta=\id_F$ by the triangular identities.
+has $F\eta U^T$ as common section. In fact, $\alpha\cdot\eta U^T=\id_{U^T}$ by the unit law of the $T$-action $\alpha\colon TU^T\Rightarrow U^T$ and $\epsilon F\cdot F\eta=\id_F$ by the triangular identities.
 \end{proof}
 
 \begin{exmp}
@@ -973,7 +973,7 @@ We are going to show why reflexive coequalizers are useful, but first we need so
 
 \begin{prop}
 	Let $F\colon\I\rightarrow\J$ be a functor between small categories. The following are equivalent:
-	\begin{enumerate}
+	\begin{enumerate}[label=(\roman*)]
 		\item $F$ is final;
 		\item the unique isomorphism
 		
@@ -992,17 +992,19 @@ We are going to show why reflexive coequalizers are useful, but first we need so
 \end{prop}
 
 \begin{proof}
-	$(ii)\iff(iii)$ We have $\Lan_{F^{\op}}*(j)\cong\colim_{(j\downarrow F)}*$ by the formula for Kan extensions. A colimit of $(j\downarrow F)\rightarrow\Set$, $(\phi,j')\mapsto *$ is terminal if and only if $(j\downarrow F)$ is connected, hence the thesis.
+	\begin{itemize}[itemindent=36pt]
+
+	\item[(ii)$\iff$(iii)] We have $\Lan_{F^{\op}}*(j)\cong\colim_{(j\downarrow F)}*$ by the formula for Kan extensions. A colimit of $(j\downarrow F)\rightarrow\Set$, $(\phi,j')\mapsto *$ is terminal if and only if $(j\downarrow F)$ is connected, hence the thesis.
 	
-	$(ii)\implies(i)$ Let $D\colon\J\rightarrow\C$ be a diagram. We can then write $\Cocone(D,-)$ as follows:
+	\item[(ii)$\implies$(i)] Let $D\colon\J\rightarrow\C$ be a diagram. We can then write $\Cocone(D,-)$ as follows:
 	$$\Cocone(D,X)\cong\Nat(*,\C(D-,X))\cong [\J^{\op},\Set](*,\C(D-,X))$$
 	
 	By definition of left Kan extension, we also have
 	$$[I^{\op},\Set(*,\C(DF-,X))]\cong [\J^{\op},\Set](\Lan_{F^{\op}}*,\C(D-,X))$$
 	
 	If $\Lan_{F^{\op}}*\cong *$, this shows that $\colim_{\I} DF\cong\colim_{\J} D$.
-	
-	$(i)\implies (iii)$ Left as an exercise.
+	\item[(i)$\implies$(iii)] Left as an exercise.
+	\end{itemize}
 \end{proof}
 
 \begin{defn}
