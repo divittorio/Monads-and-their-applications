@@ -86,7 +86,11 @@
 \newcommand{\Cat}{\catname{Cat}}
 \newcommand{\CAT}{\catname{CAT}}	
 \newcommand{\qCat}{\catname{qCat}}	
-\makeatother                                                   					
+\newcommand{\yo}{\text{\usefont{U}{min}{m}{n}\symbol{'210}}}
+\makeatother                                                   
+
+\DeclareFontFamily{U}{min}{}
+\DeclareFontShape{U}{min}{m}{n}{<-> udmj30}{}
 
 \makeatletter
 \renewcommand\part{%
@@ -1012,11 +1016,22 @@ We are going to show why reflexive coequalizers are useful, but first we need so
 \end{defn}
 
 \begin{exmp}
-	For any filtered category $\I$, the category $((i,i')\downarrow\Delta)$ is again filtered and hence connected, thus filtered colimits are sifted.
+	For any filtered category $\I$, the category $((i,i')\downarrow\Delta)$ is again filtered for any $i,i'\in\I$ and hence connected, thus filtered colimits are sifted.
 \end{exmp}
 
 \begin{exmp}
-	Reflexive coequalizers are sifted.
+	Reflexive coequalizers are sifted. Checking it for yourself may be a tedious yet useful exercise.
+	
+	However, coequalizers are not sifted. Indeed, their indexing category $\I=\{\hspace{-1.5mm}\begin{tikzcd}
+		1\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}0\end{tikzcd}\hspace{-1.5mm}\}$ is such that $((0,1)\downarrow\Delta)$ is not connected.
+\end{exmp}
+
+\begin{exmp}
+	Coproducts and initial objects are not sifted, for their slice categories may be either empty or have several connected components.
+\end{exmp}
+
+\begin{exmp}
+	Pushouts are not sifted.
 \end{exmp}
 
 \begin{prop}
@@ -1043,20 +1058,121 @@ We are going to show why reflexive coequalizers are useful, but first we need so
 	\end{tikzcd}
 	\]
 	From general facts, $F(a_2,b_2)$ is the colimit of the square in the top left. We may prove this using the sections, however in this case we can use the fact that, under certain hypothesis, given a diagram $D\colon\I\times\I\rightarrow\C$ we have $\colim_{\I\times\I}D\cong\colim_{\I} D\Delta$. Specifically, we want this to hold when $\I=\{\hspace{-1.5mm}\begin{tikzcd}
-	a_0\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em] \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}a_1\hspace{-1.5mm}\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]\end{tikzcd}\}$. But the category $(i\downarrow\Delta)$ is clearly connected for any $i\in\I$, hence $\Delta$ is final and we have the thesis.
+	a_0\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em] \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}a_1\hspace{-1.5mm}\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]\end{tikzcd}\}$. But the category $((i,i')\downarrow\Delta)$ is connected for any $i\in\I$, hence $\Delta$ is final and we have the thesis.
 \end{proof}
 
 \begin{exmp}
 	The functor $\Set\times\Set\xrightarrow{-\times-}\Set$ satisfies the hypothesis of the theorem since $\Set$ is cartesian closed, hence $X\mapsto X\times X$ preserves reflexive coequalizers by the proposition. This shows that $\Set(X,-)\cong\Pi_{x\in X}\Set(*,-)$ preserves reflexive coequalizers if $X$ is finite, hence the functor $\Set(X,-)\colon\Set\rightarrow\Set$ is monadic with $T=\Set(X,X\times-)$ for $X$ finite.
 	\[
-		\begin{tikzcd}[column sep=tiny]
-			\Set\ar[rr, "\cong"] \ar[dr, swap, "{\Set(X,-)}"]
-			&& T\mbox{-}\Alg\ar[dl, "U^T"] \\
-			& \Set
-		\end{tikzcd}
+	\begin{tikzcd}[column sep=tiny]
+	\Set\ar[rr, "\cong"] \ar[dr, swap, "{\Set(X,-)}"]
+	&& T\mbox{-}\Alg\ar[dl, "U^T"] \\
+	& \Set
+	\end{tikzcd}
 	\]
 \end{exmp}
 
+We also have the following result.
+
+\begin{prop}
+	If $F\colon\B\times\C\rightarrow\D$ is a functor preserving sifted colimits in each variable, then it preserves them as a functor $\B\times\C\rightarrow\D$.
+\end{prop}
+
+\begin{rmk}
+	This proposition is false if we drop the siftedness condition, for under the functor $\Set\times\Set\xrightarrow{-\times-}\Set$ we have $(*+*)\times (*+*)\not\cong *+*\cong (*\times*)+(*\times *)$
+\end{rmk}
+
+\section{Algebraic Theories and Finitary Monads}
+
+Many objects in algebra can be described as sets $X$ with some finitary operations $X^n\xrightarrow{m_i}X$ subject to a list of axioms involving the $m_i$ and their products.
+
+\begin{exmp}
+	(Commutative) monoids and groups, rings and, fixed a ring $R$, $R$-modules, where for each $r\in R$ we specify an operation $X\xrightarrow{r}X$.
+\end{exmp}
+
+We can construct categories whose objects are sets paired with operations fullfilling the axioms and functions commuting with the operations as morphisms. These are called models for single-sorted finitary theories.
+
+\begin{prop}
+	The forgetful functor from a category $\C$ of models of a single-sorted finitary theory to $\Set$ creates sifted colimits.
+\end{prop}
+
+\begin{proof}
+	Notice that the $n$-fold product $\Set\xrightarrow{(-)^n}\Set$ factors as $\Set\xrightarrow{\Delta}\Set^n\xrightarrow{-\times\cdots\times-}\Set$, hence it preserves sifted colimits. This gives us unique candidates for operations on the colimit such that the cocone in $\Set$ is a morphism of models. These operations satisfy the axioms because the domain is in each case again of the form $\colim^n$.
+	\[
+		\begin{tikzcd}
+			X^n\ar[r, shift right=.5ex]\ar[r, shift left=1ex]\ar[d, "m_i"]
+			& Y^n\ar[l, shift right=.25ex]\ar[d, "m_i"]\ar[r]
+			& Z^n\ar[d, dotted, "\exists!m_i"] \\
+			X\ar[r, shift right=.5ex]\ar[r, shift left=1ex]
+			& Y\ar[l, shift right=.25ex]\ar[r]
+			& Z
+		\end{tikzcd}
+	\]
+\end{proof}
+
+\begin{cor}
+	Let $\C,\D$ be categories of models of single sorted finitary theories. Any functor $U\colon\C\rightarrow\D$ which commutes with the forgetful functor to $\Set$ preserves reflexive coequalizers. If $U$ has a left adjoint, then it is monadic.
+\end{cor}
+
+\begin{proof}
+	The forgetful functors $\C\rightarrow\Set$, $\D\rightarrow\Set$ are both conservative, hence $U$ is as well. The statement about reflexive coequalizers was just proved and the last claim follows from Beck's theorem.
+\end{proof}
+
+\begin{exmp}
+	The forgetful functor $\mathbf{CAlg}_R\rightarrow\mathbf{Mod}_R$ is monadic for any commutative ring $R$. The same goes for the forgetful functors from $\mathbf{Grp}$, $\mathbf{Mod}_R$ and $\mathbf{Ring}$ to $\Set$.
+\end{exmp}
+
+\begin{defn}
+	A functor $F\colon\C\rightarrow\D$ is finitary if it commutes with filtered colimits. A monad is finitary if its underlying endofunctor $T$ is finitary.
+\end{defn}
+
+\begin{rmk}
+	Asking for the underlying endofunctor $T$ to be finitary is equivalent to asking for its forgetful functor $U^T$ to be finitary.
+\end{rmk}
+
+\begin{exmp}
+	All the forgetful functors from single sorted finitary theories which have a left adjoint (fact: all of them do) come from finitary monads on $\Set$.
+\end{exmp}
+
+	In general, preserving filtered colimits is a weaker condition than preserving sifted colimits. However, for endofunctors on $\Set$ the two coincide.
+
+	In order to prove this, we need to know how such an endofunctor is determined by its action on finite sets and the idea is to check its behaviour on finite sets, since every set is a directed union of its finite subsets.
+	
+	We write $[\C,\D]_\text{fin}$ for the full subcategory of $[\C,\D]$ whose objects are finitary functors, $\Set_\text{fin}$ for the category of finite sets.
+	
+	\begin{thm}
+		Restriction along the inclusion $K\colon\Set_\text{fin}\rightarrow\Set$ induces an equivalence of $[\Set,\Set]_\text{fin}\rightarrow[\Set_\text{fin},\Set]$ whose inverse send $F$ to $\Lan_KF$.
+	\end{thm}
+
+Before proving this theorem, we present some consequences.
+
+\begin{cor}
+	Any finitary functor $\Set\rightarrow\Set$ preserves sifted colimits. In particular, if $T\colon\Set\rightarrow\Set$ is the underlying endofunctor of a finitary monad, then $U^T\colon T-\Alg\rightarrow\Set$ creates sifted colimits.
+\end{cor}
+
+\begin{proof}
+	Recall that $\Lan_K\colon[\Set_\text{fin},\Set]\rightarrow[\Set,\Set]_\text{fin}$ is a left adjoint and on both sides colimits are computed pointwise. Moreover, functors preserving colimits of a given class are closed under formation of pointwise colimits, hence it is enough to check on a generating set.
+	
+	If $\Lan_KF_i$ preserves sifted colimits for all $F_i\colon\Set_\text{fin}\rightarrow\Set$, then the functor $\colim\Lan_KF_i\cong\Lan_K\colim F_i$ preserves sifted colimits.
+	
+	Any functor $F\colon\Set_\text{fin}\rightarrow\Set$ is a colimit of representable functors $\Set_\text{fin}(X,-)$. Indeed, it is enough to consider $(\yo\downarrow F)\rightarrow[\Set_\text{fin},\Set]$, $(\Set_\text{fin}(X,-)\Rightarrow F)\mapsto\Set_\text{fin}(X,-)$ and notice that this being a colimit diagram essentially follows from Yoneda as $F\cong\colim_{(\yo\downarrow F)}\dom$.
+	
+	By the previous theorem, it is enough to check now that the functor $\Lan_K\Set_\text{fin}(X,-)$ preserves sifted colimits.
+
+	Observe the following diagram:
+	\[
+	\begin{tikzcd}[column sep=tiny]
+	\Set_{\text{fin}}\ar[rr, "K"]\ar[dr, swap, "{\Set_{\text{fin}}(X,-)}" near start, ""{name=Lan, below}]
+	&& \Set\ar[dl, "{\Lan_K\Set_\text{fin}(X,-)}" near start, ""{name=ext, below}] \\
+	& \Set
+	\ar[Rightarrow, shorten <= .6em, shorten >= .6em, shift left=1.5ex, from=Lan, to=ext] 
+	\end{tikzcd}
+	\]
+	
+	A natural transformation $\Lan_K\Set_\text{fin}(X,-)\Rightarrow G$ by definition is equivalent to a natural transformation $\Set_\text{fin}(X,-)\Rightarrow GK$, which by Yoneda is equivalent to a map $*\rightarrow GKX$, which again by Yoneda corresponds to a natural transformation $\Set(KX,-)\Rightarrow G$, hence $\Lan_K\Set_\text{fin}(X,-)\cong\Set(KX,-)$.
+	
+	We only have to check now that $\Set(KX,-)\cong\Pi_{x\in X}\Set(*,-)$ preserves sifted colimits, but this is just the functor $Y\mapsto \Pi_{x\in X}Y$, which as we know commutes with sifted colimits.
+\end{proof}
 	\chapter{Monads in 2-category theory}
 	\chapter{Monads in $\infty$-category theory}
 	
