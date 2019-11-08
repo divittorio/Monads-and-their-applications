@@ -67,6 +67,7 @@
 	\mathop{\mathpalette\colim@{\rightarrowfill@\scriptscriptstyle}}\nmlimits@
 }
 
+\newcommand\Yoneda{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily Yoneda}}}{\cong}}}
 
 \newcommand{\catname}[1]{{\normalfont\textbf{#1}}}
 
@@ -1147,7 +1148,7 @@ We can construct categories whose objects are sets paired with operations fullfi
 Before proving this theorem, we present some consequences.
 
 \begin{cor}
-	Any finitary functor $\Set\rightarrow\Set$ preserves sifted colimits. In particular, if $T\colon\Set\rightarrow\Set$ is the underlying endofunctor of a finitary monad, then $U^T\colon T-\Alg\rightarrow\Set$ creates sifted colimits.
+	Any finitary functor $\Set\rightarrow\Set$ preserves sifted colimits. In particular, if $T\colon\Set\rightarrow\Set$ is the underlying endofunctor of a finitary monad, then $U^T\colon T\mbox{-}\Alg\rightarrow\Set$ creates sifted colimits.
 \end{cor}
 
 \begin{proof}
@@ -1173,7 +1174,106 @@ Before proving this theorem, we present some consequences.
 	
 	We only have to check now that $\Set(KX,-)\cong\Pi_{x\in X}\Set(*,-)$ preserves sifted colimits, but this is just the functor $Y\mapsto \Pi_{x\in X}Y$, which as we know commutes with sifted colimits.
 \end{proof}
+\begin{prop}
+	A category $\C$ with sifted colimits is cocomplete if and only if it has an initial object and binary coproducts.
+\end{prop}
+\begin{proof}
+One implication is obvious. For the other one, notice that we get finitary coproducts immediately. An infinite coproduct can be written as a filtered colimit of finite coproducts. We are only missing coequalizers. If $f,g\colon a\rightrightarrows b$ is a pair, then $f+\id,g+\id\colon\hspace{-1.5mm}$\begin{tikzcd}
+a+b\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}b\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]
+\end{tikzcd}$\hspace{-1.5mm}\colon\text{in}_b$ (where in$_b$ is the inclusion of $b$ in the coproduct) is a reflexive pair hence the coequalizer $K=\text{coeq}(a+b\rightrightarrows b)$ exists and coequalizes the original pair. The universal $h\colon b\rightarrow K$ is also a coequalizer of $f,g\colon a\rightrightarrows b$.
+\end{proof}
+\begin{thm}
+Let $X$ be a set, $T\colon\prod_{x\in X}\Set\to\prod_{x\in X}\Set$ be a finitary monad. Then $T\mbox{-}\Alg$ is cocomplete.
+\end{thm}
+\begin{proof}
+$T\mbox{-}\Alg$ has always an initial object, namely the free algebra of the initial object $\left(T\prod_{x\in X}\emptyset,\mu_{\prod_{x\in X}\emptyset}\right)$. Similarly, for $a,b\in\prod_{x\in X}\Set$, using that $F^T$ is a left adjoint (hence it preserves colimits) we find that $\left(T\left(a\coprod b\right),\mu_{a\coprod b}\right)$ is a coproduct of $(Ta,\mu_a)$ and $(Tb,\mu_b)$. Therefore $T\mbox{-}\Alg$ has coproducts of free algebras. We want to check that we have binary coproducts of $T$-algebras $(a,\alpha)$ and $(b,\beta)$. We have reflective coequalizers
+\[
+\begin{tikzcd}[column sep=1.5cm]
+(T^2a,\mu_{Ta})\hspace{-1.5mm}\arrow[r, shift right=1.5ex, "\mu_a"']  \arrow[r, shift left=2ex, "T\alpha"] & (Ta,\mu_a)\arrow[l, shift right=.25ex, "T\eta_a"description]\arrow[r,"\alpha"]&(a,\alpha)
+\end{tikzcd}
+\]
+\[
+\begin{tikzcd}[column sep=1.5cm]
+(T^2b,\mu_{Tb})\hspace{-1.5mm}\arrow[r, shift right=1.5ex, "\mu_b"']  \arrow[r, shift left=2ex, "T\beta"] & (Tb,\mu_b)\arrow[l, shift right=.25ex, "T\eta_b"description]\arrow[r,"\beta"]&(b,\beta)
+\end{tikzcd}
+\]
+so we get a new reflective pair by taking coproducts of the free algebras
+\[
+\begin{tikzcd}[column sep=1.5cm]
+(T^2a,\mu_{Ta})+(T^2b,\mu_{Tb})\hspace{-1.5mm}\arrow[r, shift right=1.5ex, "\mu_a+\mu_b"']  \arrow[r, shift left=2ex, "T\alpha+T\beta"] & (Ta,\mu_a)+(Tb,\mu_b)\arrow[l, shift right=.25ex, "T\eta_b"description]
+\end{tikzcd}
+\]
+From the corollary, $T$ preserves sifted colimits, hence $T\mbox{-}\Alg$ has reflexive coequalizers. Then the diagram above has a coequalizer, which is a coproduct of $(a,\alpha)$ and $(b,\beta)$. 
+\end{proof}
+\begin{rmk}
+	This shows that $\Ab,\mathbf{Grp},\mathbf{Rng}$ etc.\ are cocomplete.
+\end{rmk}
+\begin{rmk}
+	We only used the fact that $T$ preserves sifted colimits, hence a monad on a cocomplete category $\C$ preserving sifted colimits has a cocomplete category of algebras.
+\end{rmk}
+\begin{rmk}
+	In fact, we only need that reflexive coequalizers and filtered colimits exist in $T\mbox{-}\Alg$.
+\end{rmk}
+\section{Dense generators}
+The aim of this section is to prove the theorem about finitary endofunctors of $\Set$. We want to identify ``nice'' generating subcategories like $\Set_\text{fin}\to\Set$.
+\begin{defn}
+	Let $K\colon\A\to\C$ be the inclusion of a full subcategory or, equivalently, a fully faithful functor. We define the \emph{restricted Yoneda functor} $\widetilde{K}\colon\C\to\left[\A^{\op},\Set\right]$ as the functor sending $c\in\C$ to $\C(K-,c)$.
+\end{defn}
+\begin{defn}
+	Given $c\in\C$, we write $\A\slash c$ for the category with objects $\varphi\colon Ka\to c$ and morphisms $(a,\varphi)\to(a',\varphi')$ maps $f\colon a\to a'$ s.t.\ $\varphi'Kf=\varphi$.
+\end{defn}
+The \emph{canonical cocone} on the domain functor
+\begin{align*}
+\dom\colon(K\downarrow c)&\to\C\\
+(a,\varphi)&\mapsto Ka
+\end{align*}
+has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
+\begin{defn}
+	A colimit of a diagram $D\colon I\to\C$ is \emph{$K$-absolute} if it is preserved by $\widetilde{K}\colon\C\to\left[\A^{\op},\Set\right]$.
+\end{defn}
+\begin{thm}\label{long thm}
+	Let $\C$ be a cocomplete category, $\A$ a small category and $K\colon\A\to\C$ a fully faithful functor. Then $\widetilde{K}$ has a left adjoint given by $\Lan_yK\colon[\A^{\op},\Set]\to\C$. 
+		\[
+	\begin{tikzcd}[column sep=tiny]
+	\A\ar[rr, "y"]\ar[dr, swap, "K"]
+	&& \left[\A^{\op},\Set\right]\ar[dl, "\Lan_yK"] \\
+	& \C\end{tikzcd}
+	\]
+	Moreover, the following conditions are equivalent:
+	\begin{enumerate}
+		\item $\widetilde{K}$ is fully faithful;
+		\item $\forall c\in\C$, the canonical cocone on $\dom\colon \A\slash c\to\C$ exibits it as colimit of the diagram $\dom\colon(K\downarrow c)\to\C$;
+		\item every object is a $K$-absolute colimit of a diagram of the form $\I\xrightarrow{D}\A\xrightarrow{K}\C$;
+		\item there exists some family of diagrams $D_i\colon\I_i\to\C$ which have $K$-absolute colimits and $\C$ is the closure\footnote{That is, the smallest subcategory $\B$ of $\C$ which contains $\A$ and which satisfies the following 
+		\begin{center}
+			if some diagram $D_i\colon\I_i\to\C$ factors through $\B$, then $\colim D_i\in\B$
+		\end{center}
+	is $\C$ itself.} of $\A$ under the colimits of $D_i$;
+	\item the counit of $\Lan_yK\dashv\widetilde{K}$ is an isomorphism.
+	\end{enumerate}
+	\end{thm}
+	\begin{defn}
+		A full subcategory/fully faithful functor $K\colon\A\to\C$ is called \emph{dense} if $\widetilde{K}$ is fully faithful.
+	\end{defn}
+\begin{proof}[Proof of Theorem \ref{long thm}]
+	We have $\displaystyle \Lan_yK(F)=\colim_{\A(-,a)\Rightarrow F}Ka$, hence
+	\begin{align*}
+	\C(\Lan_yK(F),c)&\cong\lim_{\A(-,a)\Rightarrow F}\C(Ka,c)\\
+					&\Yoneda \lim_{\A(-,a)\Rightarrow F}\left[\A^{\op},\Set\right]\left(\A(-,a),\C(K-,c)\right)\\
+					&\cong\left[\A^{\op},\Set\right]\left(\colim_{\A(-,a)\Rightarrow F}\A(-,a),\C(K-,c)\right)\\
+					&\cong\left[\A^{\op},\Set\right](F,\C(K-,c))
+	\end{align*}
+	hence $\Lan_yK\dashv\widetilde{K}$. It remains to check the implications.
+	\begin{itemize}[itemindent=36pt]
+	\item[1.$\implies$2.] If $\widetilde{K}$ is fully faithful, it suffices to check that the image of the canonical cocone under $\widetilde{K}$ is a colimit. Since $K$ is fully faithful, this image is precisely the diagram $\A(-,a)\cong\C(K-,Ka)\Rightarrow\C(K-,c)$. Then $$\colim\widetilde{K}\circ\dom=\displaystyle\colim_{y\downarrow\C(K-,c)}\A(-,a)\cong\C(K-,c).$$This proves $2.$ and the fact that the colimit of $(K\downarrow c)\to\C$ is preserved by $\widetilde{K}\colon\C\to\left[\A^{\op},\Set\right]$.
+	\item[2.$\implies$3.] As we just observed, $\displaystyle\colim_{(K\downarrow c)}\dom$ is $\widetilde{K}$-abs.\ and $\dom\colon(K\downarrow~c)\to\C$ factors through $\A$.	
+	\item[3.$\implies$4.] Clear.
+	\item[4.$\implies$5.] Let $\mathcal{B}$ be the class of objects $b$ in $\C$ s.t.\ $\epsilon_b\colon\Lan_yK\widetilde{K}(b)\to b$ is an isomorphism. The subcategory $\B$ spanned by $\mathcal{B}$ is closed under $K$-absolute colimits since they are preserved by $\widetilde{K}$ (by definition), by the left adjoint $\Lan_yK$ and by $\id_{\C}$. It remains to check that the counit at $a\in\A$ is an isomorphism. But $\widetilde{K}a=\C(K-,Ka)\cong\A(-,a)$, so $\Lan_yK(\A(-,a))\cong a$, where the last isomorphism is a consequence of the fact that $(y\downarrow\A(-,a))$ has a terminal object $\id\colon\A(-,a)\Rightarrow\A(-,a)$.
+	\item[5.$\implies$1.] Any right adjoint whose counit is an isomorphism is fully faithful.\qedhere
+	\end{itemize}
+	\end{proof}
 	\chapter{Monads in 2-category theory}
+	
 	\chapter{Monads in $\infty$-category theory}
 	
 	
