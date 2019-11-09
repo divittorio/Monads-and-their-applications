@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  9 NOV 2019 13:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  9 NOV 2019 16:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -515,18 +515,45 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen156
 \l_MT_below_shortintertext_sep=\dimen157
 )
+(c:/texlive/2018/texmf-dist/tex/latex/doclicense/doclicense.sty
+Package: doclicense 2018/06/10 v1.8.0 Support for putting documents under a lic
+ense
+
+(c:/texlive/2018/texmf-dist/tex/latex/xifthen/xifthen.sty
+Package: xifthen 2015/11/05 v1.4.0 Extended ifthen features
+
+(c:/texlive/2018/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(c:/texlive/2018/texmf-dist/tex/latex/ifmtarg/ifmtarg.sty
+Package: ifmtarg 2018/04/16 v1.2b check for an empty argument
+))
+(c:/texlive/2018/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+)
+(c:/texlive/2018/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks29
+\verbatim@line=\toks30
+\verbatim@in@stream=\read2
+)
+\doclicense@hsize=\skip128
+
+(c:/texlive/2018/texmf-dist/tex/latex/doclicense/doclicense-english.ldf
+File: doclicense-english.ldf 
+))
 (c:/texlive/2018/texmf-dist/tex/latex/epigraph/epigraph.sty
 Package: epigraph 2009/09/02 v1.5c typesetting epigraphs
-\beforeepigraphskip=\skip128
-\afterepigraphskip=\skip129
-\epigraphwidth=\skip130
-\epigraphrule=\skip131
+\beforeepigraphskip=\skip129
+\afterepigraphskip=\skip130
+\epigraphwidth=\skip131
+\epigraphrule=\skip132
 )
 (c:/texlive/2018/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
 (c:/texlive/2018/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (c:/texlive/2018/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (c:/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks29
+\pgfutil@everybye=\toks31
 \pgfutil@tempdima=\dimen158
 \pgfutil@tempdimb=\dimen159
 
@@ -549,11 +576,11 @@ Package: pgf 2019/02/02 v3.1.1 (3.1.1)
 Package: pgfsys 2019/02/02 v3.1.1 (3.1.1)
 
 (c:/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks30
-\pgfkeys@temptoks=\toks31
+\pgfkeys@pathtoks=\toks32
+\pgfkeys@temptoks=\toks33
 
 (c:/texlive/2018/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
-\pgfkeys@tmptoks=\toks32
+\pgfkeys@tmptoks=\toks34
 ))
 \pgf@x=\dimen160
 \pgf@y=\dimen161
@@ -564,14 +591,14 @@ Package: pgfsys 2019/02/02 v3.1.1 (3.1.1)
 \pgf@xc=\dimen166
 \pgf@yc=\dimen167
 \w@pgf@writea=\write3
-\r@pgf@reada=\read2
+\r@pgf@reada=\read3
 \c@pgf@counta=\count269
 \c@pgf@countb=\count270
 \c@pgf@countc=\count271
 \c@pgf@countd=\count272
-\t@pgf@toka=\toks33
-\t@pgf@tokb=\toks34
-\t@pgf@tokc=\toks35
+\t@pgf@toka=\toks35
+\t@pgf@tokb=\toks36
+\t@pgf@tokc=\toks37
 \pgf@sys@id@count=\count273
  (c:/texlive/2018/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2019/02/02 v3.1.1 (3.1.1)
@@ -619,9 +646,9 @@ Package: pgfcore 2019/02/02 v3.1.1 (3.1.1)
 \pgfmath@dimen=\dimen168
 \pgfmath@count=\count276
 \pgfmath@box=\box53
-\pgfmath@toks=\toks36
-\pgfmath@stack@operand=\toks37
-\pgfmath@stack@operation=\toks38
+\pgfmath@toks=\toks38
+\pgfmath@stack@operand=\toks39
+\pgfmath@stack@operation=\toks40
 )
 (c:/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (c:/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.te
@@ -756,8 +783,8 @@ Package: pgffor 2019/02/02 v3.1.1 (3.1.1)
 (c:/texlive/2018/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
 \pgffor@iter=\dimen195
 \pgffor@skip=\dimen196
-\pgffor@stack=\toks39
-\pgffor@toks=\toks40
+\pgffor@stack=\toks41
+\pgffor@toks=\toks42
 ))
 (c:/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2019/02/02 v3.1.1 (3.1.1)
@@ -953,18 +980,15 @@ Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 82.
 )
-\Hy@SectionHShift=\skip132
+\Hy@SectionHShift=\skip133
 )
-(c:/texlive/2018/texmf-dist/tex/latex/tools/xspace.sty
-Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
-)
-Package hyperref Info: Option `colorlinks' set `false' on input line 25.
+Package hyperref Info: Option `colorlinks' set `false' on input line 26.
 
 (c:/texlive/2018/texmf-dist/tex/latex/enumitem/enumitem.sty
 Package: enumitem 2019/02/04 v3.8 Customized lists
-\labelindent=\skip133
+\labelindent=\skip134
 \enit@outerparindent=\dimen276
-\enit@toks=\toks41
+\enit@toks=\toks43
 \enit@inbox=\box64
 \enit@count@id=\count304
 \enitdp@description=\count305
@@ -972,8 +996,8 @@ Package: enumitem 2019/02/04 v3.8 Customized lists
 (c:/texlive/2018/texmf-dist/tex/generic/ulem/ulem.sty
 \UL@box=\box65
 \UL@hyphenbox=\box66
-\UL@skip=\skip134
-\UL@hook=\toks42
+\UL@skip=\skip135
+\UL@hook=\toks44
 \UL@height=\dimen277
 \UL@pe=\count306
 \UL@pixel=\dimen278
@@ -983,7 +1007,7 @@ Package: ulem 2012/05/18
 )
 (c:/texlive/2018/texmf-dist/tex/latex/contour/contour.sty
 Package: contour 2004/11/18 v2.14 Print contoured text (HH, MH)
-\con@length=\skip135
+\con@length=\skip136
 
 Loading configuration file `contour.cfg'.
 (c:/texlive/2018/texmf-dist/tex/latex/contour/contour.cfg
@@ -1003,15 +1027,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathbbmss' in version `bold'
 (c:/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
 s
-\f@nch@headwidth=\skip136
-\f@nch@O@elh=\skip137
-\f@nch@O@erh=\skip138
-\f@nch@O@olh=\skip139
-\f@nch@O@orh=\skip140
-\f@nch@O@elf=\skip141
-\f@nch@O@erf=\skip142
-\f@nch@O@olf=\skip143
-\f@nch@O@orf=\skip144
+\f@nch@headwidth=\skip137
+\f@nch@O@elh=\skip138
+\f@nch@O@erh=\skip139
+\f@nch@O@olh=\skip140
+\f@nch@O@orh=\skip141
+\f@nch@O@elf=\skip142
+\f@nch@O@erf=\skip143
+\f@nch@O@olf=\skip144
+\f@nch@O@orf=\skip145
 )
 (c:/texlive/2018/texmf-dist/tex/latex/fundus-calligra/calligra.sty
 Package: calligra 2012/04/10 v1.9 LaTeX package calligra
@@ -1087,9 +1111,9 @@ File: pgflibraryshapes.multipart.code.tex 2019/02/02 v3.1.1 (3.1.1)
 (c:/texlive/2018/texmf-dist/tex/latex/attachfile/attachfile.sty
 Package: attachfile 2016/09/18 v1.9 PDF 1.3+ file attachment
 \c@atfi@tmp=\count307
-\atfi@appearancewidth=\skip145
-\atfi@appearanceheight=\skip146
-\atfi@appearancedepth=\skip147
+\atfi@appearancewidth=\skip146
+\atfi@appearanceheight=\skip147
+\atfi@appearancedepth=\skip148
 \atfi@appearancebox=\box88
 )
 \MBox=\box89
@@ -1112,14 +1136,14 @@ Loading kernel: messages; fonts; allocations: state,
 \D@c=\dimen283
 \L@c=\dimen284
 \R@c=\dimen285
-\Edge@c=\toks43
+\Edge@c=\toks45
 \X@p=\dimen286
 \Y@p=\dimen287
 \U@p=\dimen288
 \D@p=\dimen289
 \L@p=\dimen290
 \R@p=\dimen291
-\Edge@p=\toks44
+\Edge@p=\toks46
 \X@origin=\dimen292
 \Y@origin=\dimen293
 \X@xbase=\dimen294
@@ -1141,16 +1165,16 @@ Loading kernel: messages; fonts; allocations: state,
 \Direction=\count312
 \K@dXdY=\dimen305
 \K@dYdX=\dimen306
-\xyread@=\read3
+\xyread@=\read4
 \xywrite@=\write4
 \csp@=\count313
 \quotPTK@=\dimen307
 
 utility macros; pictures: \xy, positions,
-\swaptoks@@=\toks45
+\swaptoks@@=\toks47
 \connectobjectbox@@=\box92
  objects,
-\styletoks@=\toks46
+\styletoks@=\toks48
  decorations;
 kernel objects: directionals, circles, text; options; algorithms: directions,
 edges, connections;  Xy-pic loaded)
@@ -1161,7 +1185,7 @@ Package: xy 2013/10/06 Xy-pic version 3.8.9
 (c:/texlive/2018/texmf-dist/tex/generic/xypic/xycurve.tex
  Xy-pic option: Curve and Spline extension v.3.12 curve,
 \crv@cnt@=\count314
-\crvpts@=\toks47
+\crvpts@=\toks49
 \splinebox@=\box93
 \splineval@=\dimen308
 \splinedepth@=\dimen309
@@ -1188,8 +1212,8 @@ Package: xy 2013/10/06 Xy-pic version 3.8.9
  Xy-pic option: Matrix feature v.3.14
 \Row=\count315
 \Col=\count316
-\queue@=\toks48
-\queue@@=\toks49
+\queue@=\toks50
+\queue@@=\toks51
 \qcount@=\count317
 \qcount@@=\count318
 \matrixsize@=\count319
@@ -1211,37 +1235,69 @@ Xy-pic pdf driver: `rotate' extension support
 (c:/texlive/2018/texmf-dist/tex/generic/xypic/xypdf-ro.tex loaded) loaded))
 (c:/texlive/2018/texmf-dist/tex/latex/extarrows/extarrows.sty
 Package: extarrows 2008/05/15 v1.0b Some extensible arrows
-) (./monads.aux)
+)
+(c:/texlive/2018/texmf-dist/tex/latex/csquotes/csquotes.sty
+Package: csquotes 2018/04/13 v5.2d context-sensitive quotations (JAW)
+\csq@reset=\count320
+\csq@gtype=\count321
+\csq@glevel=\count322
+\csq@qlevel=\count323
+\csq@maxlvl=\count324
+\csq@tshold=\count325
+\csq@ltx@everypar=\toks52
+
+(c:/texlive/2018/texmf-dist/tex/latex/csquotes/csquotes.def
+File: csquotes.def 2018/04/13 v5.2d csquotes generic definitions (JAW)
+)
+Package csquotes Info: Trying to load configuration file 'csquotes.cfg'...
+Package csquotes Info: ... configuration file loaded successfully.
+
+(c:/texlive/2018/texmf-dist/tex/latex/csquotes/csquotes.cfg
+File: csquotes.cfg 
+))
+(c:/texlive/2018/texmf-dist/tex/latex/ccicons/ccicons.sty
+Package: ccicons 2017/10/30 v1.6 LaTeX support for Creative Commons icons
+
+(c:/texlive/2018/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(c:/texlive/2018/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(c:/texlive/2018/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks53
+\XKV@tempa@toks=\toks54
+)
+\XKV@depth=\count326
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))) (./monads.aux)
 \openout1 = `monads.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 213.
-LaTeX Font Info:    ... okay on input line 213.
-
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 214.
+LaTeX Font Info:    ... okay on input line 214.
 (c:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count320
+\scratchcounter=\count327
 \scratchdimen=\dimen314
 \scratchbox=\box94
-\nofMPsegments=\count321
-\nofMParguments=\count322
-\everyMPshowfont=\toks50
-\MPscratchCnt=\count323
+\nofMPsegments=\count328
+\nofMParguments=\count329
+\everyMPshowfont=\toks55
+\MPscratchCnt=\count330
 \MPscratchDim=\dimen315
-\MPnumerator=\count324
-\makeMPintoPDFobject=\count325
-\everyMPtoPDFconversion=\toks51
+\MPnumerator=\count331
+\makeMPintoPDFobject=\count332
+\everyMPtoPDFconversion=\toks56
 ) (c:/texlive/2018/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1262,7 +1318,7 @@ e
 \AtBeginShipoutBox=\box95
 
 ABD: EveryShipout initializing macros
-Package hyperref Info: Link coloring OFF on input line 213.
+Package hyperref Info: Link coloring OFF on input line 214.
 
 (c:/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1270,37 +1326,44 @@ Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 (c:/texlive/2018/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count326
+\c@section@level=\count333
 )
-LaTeX Info: Redefining \ref on input line 213.
-LaTeX Info: Redefining \pageref on input line 213.
-LaTeX Info: Redefining \nameref on input line 213.
+LaTeX Info: Redefining \ref on input line 214.
+LaTeX Info: Redefining \pageref on input line 214.
+LaTeX Info: Redefining \nameref on input line 214.
 
 (./monads.out) (./monads.out)
 \@outlinefile=\write5
 \openout5 = `monads.out'.
 
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 213.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 214.
 
 (c:/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 213.
+LaTeX Font Info:    Try loading font information for U+msa on input line 214.
 
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 213.
+LaTeX Font Info:    Try loading font information for U+msb on input line 214.
 
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.43799pt on input line 213.
- [1
+Package xypdf Info: Line width: 0.43799pt on input line 214.
+<doclicense-CC-by-sa.pdf, id=57, 121.45375pt x 43.16125pt>
+File: doclicense-CC-by-sa.pdf Graphic file (type pdf)
+<use doclicense-CC-by-sa.pdf>
+Package pdftex.def Info: doclicense-CC-by-sa.pdf  used on input line 215.
+(pdftex.def)             Requested size: 109.50027pt x 38.91324pt.
+ [1{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+
+ <c:/texlive/2018/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-sa.pd
+f>] [1
 
 
-
-{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] (./monads.toc)
+] (./monads.toc)
 \tf@toc=\write6
 \openout6 = `monads.toc'.
 
@@ -1310,7 +1373,12 @@ Package xypdf Info: Line width: 0.43799pt on input line 213.
 
 ]
 Chapter 1.
-[1
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.288 	
+        [1
 
 
 ] [2]
@@ -1318,69 +1386,69 @@ Chapter 2.
 [3
 
 ]
-Overfull \hbox (51.45172pt too wide) in paragraph at lines 351--352
+Overfull \hbox (51.45172pt too wide) in paragraph at lines 352--353
 [][] 
  []
 
 
-Overfull \hbox (51.45172pt too wide) in paragraph at lines 363--364
+Overfull \hbox (51.45172pt too wide) in paragraph at lines 364--365
 [][] 
  []
 
 
-Overfull \hbox (4.47534pt too wide) in paragraph at lines 375--376
+Overfull \hbox (4.47534pt too wide) in paragraph at lines 376--377
 [][] 
  []
 
 
-Overfull \hbox (4.47534pt too wide) in paragraph at lines 393--394
+Overfull \hbox (4.47534pt too wide) in paragraph at lines 394--395
 [][] 
  []
 
 [4] [5]
-Overfull \hbox (10.91125pt too wide) in paragraph at lines 494--495
+Overfull \hbox (10.91125pt too wide) in paragraph at lines 495--496
 [][]\OT1/cmr/bx/n/10.95 Proposition 2.2.3. []\OT1/cmr/m/n/10.95 The func-tor $\
 OML/cmm/m/it/10.95 U[] [] [] T[] [] \OMS/cmsy/m/n/10.95 ! []$ \OT1/cmr/m/n/10.9
 5 has a left ad-joint $\OML/cmm/m/it/10.95 F[] [] []  [] \OMS/cmsy/m/n/10.95 !
  []
 
 [6]
-Overfull \hbox (3.06467pt too wide) in paragraph at lines 575--576
+Overfull \hbox (3.06467pt too wide) in paragraph at lines 576--577
 []  
  []
 
 [7]
-Overfull \hbox (3.06467pt too wide) in paragraph at lines 586--591
+Overfull \hbox (3.06467pt too wide) in paragraph at lines 587--592
  [] 
  []
 
 
 Package amsthm Warning: The \qedhere command may not work correctly here on inp
-ut line 607.
+ut line 608.
 
 [8]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 629.
+(hyperref)                removing `math shift' on input line 630.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 629.
+(hyperref)                removing `math shift' on input line 630.
 
 [9] [10] [11] [12]
 Chapter 3.
 [13
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 870.
+Package mdframed Info: mdframed works in twoside mode on input line 871.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 870.
-Package mdframed Info: Not enough space on this page on input line 876.
+(mdframed)              on input line 871.
+Package mdframed Info: Not enough space on this page on input line 877.
  [14]
-Package mdframed Info: Not enough space on this page on input line 876.
+Package mdframed Info: Not enough space on this page on input line 877.
  [15]
-Overfull \hbox (5.43396pt too wide) in paragraph at lines 902--904
+Overfull \hbox (5.43396pt too wide) in paragraph at lines 903--905
 \OT1/cmr/m/n/10.95 we need to de-scribe a mor-phism of $\OML/cmm/m/it/10.95 T$\
 OT1/cmr/m/n/10.95 -actions $(\OML/cmm/m/it/10.95 U[]; \OT1/cmr/m/n/10.95 ) \OM
 S/cmsy/m/n/10.95 ! \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 U[][] []; [] []\OT1
@@ -1388,7 +1456,7 @@ S/cmsy/m/n/10.95 ! \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 U[][] []; [] []\OT1
  []
 
 [16] [17] [18]
-Overfull \hbox (1.7602pt too wide) in paragraph at lines 1045--1050
+Overfull \hbox (1.7602pt too wide) in paragraph at lines 1046--1051
 []\OT1/cmr/m/n/10.95 We need to check that, given a re-flex-ive co-equal-izer $
  [] $
  []
@@ -1401,36 +1469,36 @@ Chapter 4.
 Chapter 5.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1277.
+(hyperref)                removing `math shift' on input line 1278.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\infty' on input line 1277.
+(hyperref)                removing `\infty' on input line 1278.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1277.
+(hyperref)                removing `math shift' on input line 1278.
 
 [26
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1285.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1285.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1286.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1286.
  (./monads.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1285.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1285.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1286.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1286.
 
 Package rerunfilecheck Info: File `monads.out' has not changed.
 (rerunfilecheck)             Checksum: 42FB32470FE1F5AE951F41610FDC3E09;781.
  ) 
 Here is how much of TeX's memory you used:
- 37962 strings out of 492616
- 753901 string characters out of 6132769
- 882173 words of memory out of 5000000
- 41118 multiletter control sequences out of 15000+600000
+ 38968 strings out of 492616
+ 770277 string characters out of 6132769
+ 909365 words of memory out of 5000000
+ 42079 multiletter control sequences out of 15000+600000
  560894 words of font info for 144 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 56i,19n,82p,3239b,1189s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,19n,82p,3239b,1191s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/tex
 live/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2018
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmbx6.pfb><c:/texlive/2018/texmf-dis
@@ -1457,10 +1525,10 @@ cmsy8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
 ve/2018/texmf-dist/fonts/type1/wadalab/dmj/dmjhira.pfb><c:/texlive/2018/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2018/texmf-dist/
 fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on monads.pdf (29 pages, 411309 bytes).
+Output written on monads.pdf (30 pages, 416677 bytes).
 PDF statistics:
- 460 PDF objects out of 1000 (max. 8388607)
- 396 compressed objects within 4 object streams
+ 471 PDF objects out of 1000 (max. 8388607)
+ 404 compressed objects within 5 object streams
  153 named destinations out of 1000 (max. 500000)
- 109 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 114 words of extra memory for PDF output out of 10000 (max. 10000000)
 
