@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  9 NOV 2019 11:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  9 NOV 2019 13:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1401,31 +1401,31 @@ Chapter 4.
 Chapter 5.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1280.
+(hyperref)                removing `math shift' on input line 1277.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\infty' on input line 1280.
+(hyperref)                removing `\infty' on input line 1277.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1280.
+(hyperref)                removing `math shift' on input line 1277.
 
 [26
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1288.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1288.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1285.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1285.
  (./monads.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1288.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1288.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1285.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1285.
 
 Package rerunfilecheck Info: File `monads.out' has not changed.
 (rerunfilecheck)             Checksum: 42FB32470FE1F5AE951F41610FDC3E09;781.
  ) 
 Here is how much of TeX's memory you used:
- 37963 strings out of 492616
- 753910 string characters out of 6132769
+ 37962 strings out of 492616
+ 753901 string characters out of 6132769
  882173 words of memory out of 5000000
  41118 multiletter control sequences out of 15000+600000
  560894 words of font info for 144 fonts, out of 8000000 for 9000
@@ -1457,10 +1457,10 @@ cmsy8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
 ve/2018/texmf-dist/fonts/type1/wadalab/dmj/dmjhira.pfb><c:/texlive/2018/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2018/texmf-dist/
 fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on monads.pdf (29 pages, 412745 bytes).
+Output written on monads.pdf (29 pages, 411309 bytes).
 PDF statistics:
- 462 PDF objects out of 1000 (max. 8388607)
- 398 compressed objects within 4 object streams
- 154 named destinations out of 1000 (max. 500000)
+ 460 PDF objects out of 1000 (max. 8388607)
+ 396 compressed objects within 4 object streams
+ 153 named destinations out of 1000 (max. 500000)
  109 words of extra memory for PDF output out of 10000 (max. 10000000)
 
