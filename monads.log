@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  9 NOV 2019 16:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  10 NOV 2019 15:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1352,33 +1352,28 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 214.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Package xypdf Info: Line width: 0.43799pt on input line 214.
-<doclicense-CC-by-sa.pdf, id=57, 121.45375pt x 43.16125pt>
+ [1
+
+
+
+{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<doclicense-CC-by-sa.pdf, id=64, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-sa.pdf Graphic file (type pdf)
 <use doclicense-CC-by-sa.pdf>
-Package pdftex.def Info: doclicense-CC-by-sa.pdf  used on input line 215.
+Package pdftex.def Info: doclicense-CC-by-sa.pdf  used on input line 225.
 (pdftex.def)             Requested size: 109.50027pt x 38.91324pt.
- [1{c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
-
- <c:/texlive/2018/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-sa.pd
-f>] [1
-
-
-] (./monads.toc)
+ [2 <c:/texlive/2018/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-sa
+.pdf>] (./monads.toc)
 \tf@toc=\write6
 \openout6 = `monads.toc'.
 
- [2
+ [3
 
-] [3
+] [4
 
 ]
 Chapter 1.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.288 	
-        [1
+[1
 
 
 ] [2]
@@ -1386,69 +1381,69 @@ Chapter 2.
 [3
 
 ]
-Overfull \hbox (51.45172pt too wide) in paragraph at lines 352--353
+Overfull \hbox (51.45172pt too wide) in paragraph at lines 353--354
 [][] 
  []
 
 
-Overfull \hbox (51.45172pt too wide) in paragraph at lines 364--365
+Overfull \hbox (51.45172pt too wide) in paragraph at lines 365--366
 [][] 
  []
 
 
-Overfull \hbox (4.47534pt too wide) in paragraph at lines 376--377
+Overfull \hbox (4.47534pt too wide) in paragraph at lines 377--378
 [][] 
  []
 
 
-Overfull \hbox (4.47534pt too wide) in paragraph at lines 394--395
+Overfull \hbox (4.47534pt too wide) in paragraph at lines 395--396
 [][] 
  []
 
 [4] [5]
-Overfull \hbox (10.91125pt too wide) in paragraph at lines 495--496
+Overfull \hbox (10.91125pt too wide) in paragraph at lines 496--497
 [][]\OT1/cmr/bx/n/10.95 Proposition 2.2.3. []\OT1/cmr/m/n/10.95 The func-tor $\
 OML/cmm/m/it/10.95 U[] [] [] T[] [] \OMS/cmsy/m/n/10.95 ! []$ \OT1/cmr/m/n/10.9
 5 has a left ad-joint $\OML/cmm/m/it/10.95 F[] [] []  [] \OMS/cmsy/m/n/10.95 !
  []
 
 [6]
-Overfull \hbox (3.06467pt too wide) in paragraph at lines 576--577
+Overfull \hbox (3.06467pt too wide) in paragraph at lines 577--578
 []  
  []
 
 [7]
-Overfull \hbox (3.06467pt too wide) in paragraph at lines 587--592
+Overfull \hbox (3.06467pt too wide) in paragraph at lines 588--593
  [] 
  []
 
 
 Package amsthm Warning: The \qedhere command may not work correctly here on inp
-ut line 608.
+ut line 609.
 
 [8]
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 630.
+(hyperref)                removing `math shift' on input line 631.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 630.
+(hyperref)                removing `math shift' on input line 631.
 
 [9] [10] [11] [12]
 Chapter 3.
 [13
 
 ]
-Package mdframed Info: mdframed works in twoside mode on input line 871.
+Package mdframed Info: mdframed works in twoside mode on input line 872.
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 871.
-Package mdframed Info: Not enough space on this page on input line 877.
+(mdframed)              on input line 872.
+Package mdframed Info: Not enough space on this page on input line 878.
  [14]
-Package mdframed Info: Not enough space on this page on input line 877.
+Package mdframed Info: Not enough space on this page on input line 878.
  [15]
-Overfull \hbox (5.43396pt too wide) in paragraph at lines 903--905
+Overfull \hbox (5.43396pt too wide) in paragraph at lines 904--906
 \OT1/cmr/m/n/10.95 we need to de-scribe a mor-phism of $\OML/cmm/m/it/10.95 T$\
 OT1/cmr/m/n/10.95 -actions $(\OML/cmm/m/it/10.95 U[]; \OT1/cmr/m/n/10.95 ) \OM
 S/cmsy/m/n/10.95 ! \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 U[][] []; [] []\OT1
@@ -1456,7 +1451,7 @@ S/cmsy/m/n/10.95 ! \OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 U[][] []; [] []\OT1
  []
 
 [16] [17] [18]
-Overfull \hbox (1.7602pt too wide) in paragraph at lines 1046--1051
+Overfull \hbox (1.7602pt too wide) in paragraph at lines 1047--1052
 []\OT1/cmr/m/n/10.95 We need to check that, given a re-flex-ive co-equal-izer $
  [] $
  []
@@ -1469,32 +1464,32 @@ Chapter 4.
 Chapter 5.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1278.
+(hyperref)                removing `math shift' on input line 1279.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\infty' on input line 1278.
+(hyperref)                removing `\infty' on input line 1279.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1278.
+(hyperref)                removing `math shift' on input line 1279.
 
 [26
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1286.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1286.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1287.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1287.
  (./monads.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1286.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1286.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1287.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1287.
 
 Package rerunfilecheck Info: File `monads.out' has not changed.
 (rerunfilecheck)             Checksum: 42FB32470FE1F5AE951F41610FDC3E09;781.
  ) 
 Here is how much of TeX's memory you used:
- 38968 strings out of 492616
- 770277 string characters out of 6132769
- 909365 words of memory out of 5000000
+ 38969 strings out of 492616
+ 770284 string characters out of 6132769
+ 910356 words of memory out of 5000000
  42079 multiletter control sequences out of 15000+600000
  560894 words of font info for 144 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1525,10 +1520,10 @@ cmsy8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb>
 ve/2018/texmf-dist/fonts/type1/wadalab/dmj/dmjhira.pfb><c:/texlive/2018/texmf-d
 ist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2018/texmf-dist/
 fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on monads.pdf (30 pages, 416677 bytes).
+Output written on monads.pdf (30 pages, 416844 bytes).
 PDF statistics:
- 471 PDF objects out of 1000 (max. 8388607)
- 404 compressed objects within 5 object streams
- 153 named destinations out of 1000 (max. 500000)
+ 472 PDF objects out of 1000 (max. 8388607)
+ 405 compressed objects within 5 object streams
+ 154 named destinations out of 1000 (max. 500000)
  114 words of extra memory for PDF output out of 10000 (max. 10000000)
 
