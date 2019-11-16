@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  16 NOV 2019 13:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  16 NOV 2019 16:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1386,10 +1386,10 @@ Overfull \hbox (10.05882pt too wide) in paragraph at lines 234--234
 
 {c:/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./monadsForDinn
 er.jpg>]
-<doclicense-CC-by-sa.pdf, id=69, 121.45375pt x 43.16125pt>
-File: doclicense-CC-by-sa.pdf Graphic file (type pdf)
-<use doclicense-CC-by-sa.pdf>
-Package pdftex.def Info: doclicense-CC-by-sa.pdf  used on input line 244.
+<doclicense-CC-by-nc-sa.pdf, id=69, 121.45375pt x 43.16125pt>
+File: doclicense-CC-by-nc-sa.pdf Graphic file (type pdf)
+<use doclicense-CC-by-nc-sa.pdf>
+Package pdftex.def Info: doclicense-CC-by-nc-sa.pdf  used on input line 244.
 (pdftex.def)             Requested size: 109.50027pt x 38.91324pt.
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 245.
 
@@ -1400,8 +1400,8 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 245.
  [1
 
- <c:/texlive/2018/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-sa.pd
-f>]
+ <c:/texlive/2018/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-nc-sa
+.pdf>]
 Contents
 (./monads.toc)
 \tf@toc=\write6
@@ -1513,13 +1513,20 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 1523.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1523.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1523.
 
-Package rerunfilecheck Info: File `monads.out' has not changed.
-(rerunfilecheck)             Checksum: 4AAFD30B7C024B217A971E0A7AD048C5;972.
+
+
+Package rerunfilecheck Warning: File `monads.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `monads.out':
+(rerunfilecheck)             Before: C175FAFA699F4E286A3C2CB88139E65E;985
+(rerunfilecheck)             After:  4AAFD30B7C024B217A971E0A7AD048C5;972.
  ) 
 Here is how much of TeX's memory you used:
  39556 strings out of 492616
- 779299 string characters out of 6132769
- 923891 words of memory out of 5000000
+ 779314 string characters out of 6132769
+ 923900 words of memory out of 5000000
  42477 multiletter control sequences out of 15000+600000
  552818 words of font info for 112 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -1547,7 +1554,7 @@ public/amsfonts/cm/cmsy9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmti10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/wadalab/dmj/dmjhira
 .pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 ><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on monads.pdf (27 pages, 481409 bytes).
+Output written on monads.pdf (27 pages, 482964 bytes).
 PDF statistics:
  489 PDF objects out of 1000 (max. 8388607)
  427 compressed objects within 5 object streams
