@@ -1,13 +1,13 @@
-\BOOKMARK [0][-]{chapter.1}{Chapter 1. Categorical preliminaries}{}% 1
-\BOOKMARK [0][-]{chapter.2}{Chapter 2. Monads and algebras}{}% 2
-\BOOKMARK [1][-]{section.2.1}{1. Introduction}{chapter.2}% 3
-\BOOKMARK [1][-]{section.2.2}{2. Monadic functors}{chapter.2}% 4
-\BOOKMARK [1][-]{section.2.3}{3. The category of T-actions}{chapter.2}% 5
-\BOOKMARK [1][-]{section.2.4}{4. Limits and colimits in the category of algebras}{chapter.2}% 6
-\BOOKMARK [0][-]{chapter.3}{Chapter 3. Beck\220s monadicity theorem}{}% 7
-\BOOKMARK [1][-]{section.3.1}{1. Split coequalizers and Beck's theorem}{chapter.3}% 8
-\BOOKMARK [1][-]{section.3.2}{2. Algebraic Theories and Finitary Monads}{chapter.3}% 9
-\BOOKMARK [1][-]{section.3.3}{3. Dense generators}{chapter.3}% 10
-\BOOKMARK [1][-]{section.3.4}{4. Locally presentable categories}{chapter.3}% 11
-\BOOKMARK [0][-]{chapter.4}{Chapter 4. Monads in 2-category theory}{}% 12
-\BOOKMARK [0][-]{chapter.5}{Chapter 5. Monads in -category theory}{}% 13
+\BOOKMARK [0][-]{chapter*.1}{Categorical preliminaries}{}% 1
+\BOOKMARK [0][-]{chapter.1}{Chapter 1. Monads and algebras}{}% 2
+\BOOKMARK [1][-]{section.1.1}{1. Introduction}{chapter.1}% 3
+\BOOKMARK [1][-]{section.1.2}{2. Monadic functors}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.3}{3. The category of T-actions}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.4}{4. Limits and colimits in the category of algebras}{chapter.1}% 6
+\BOOKMARK [0][-]{chapter.2}{Chapter 2. Beck\220s monadicity theorem}{}% 7
+\BOOKMARK [1][-]{section.2.1}{1. Split coequalizers and Beck's theorem}{chapter.2}% 8
+\BOOKMARK [1][-]{section.2.2}{2. Algebraic Theories and Finitary Monads}{chapter.2}% 9
+\BOOKMARK [1][-]{section.2.3}{3. Dense generators}{chapter.2}% 10
+\BOOKMARK [1][-]{section.2.4}{4. Locally presentable categories}{chapter.2}% 11
+\BOOKMARK [0][-]{chapter.3}{Chapter 3. Monads in 2-category theory}{}% 12
+\BOOKMARK [0][-]{chapter.4}{Chapter 4. Monads in -category theory}{}% 13
