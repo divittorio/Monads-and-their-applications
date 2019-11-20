@@ -700,12 +700,11 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\mbox{-}\Alg$, it also all
 	In other words, for every $T$-action $(G,\gamma)$ there exists a unique lift $\overline{G}\colon\D\rightarrow T\mbox{-}\Alg$ such that $(U^T\overline{G},\alpha\overline{G})=(G,\gamma)$ and for every $\phi\colon(G,\gamma)\Rightarrow (K,\kappa)$ there is a unique $\overline{\phi}\colon\overline{G}\Rightarrow\overline{K}$ with $U^T\overline{\phi}=\phi$.
 	
 	It is enough to set $\overline{G}d\coloneqq(Gd,\gamma_d)$ on objects, $\overline{G}f\coloneqq Gf$ on morphisms, $\overline{\phi}_d\coloneqq\phi_d$ and check the axioms.
-	
 	\[
 		\begin{tikzcd}
 			\D\ar[r, dashed, "\exists!\overline{G}"]\ar[dr, swap, "G"]
 			& T\mbox{-}\Alg\ar[d, "U^T"] \\
-			& \C
+			& \C                  
 		\end{tikzcd}    
 	\]			
 \end{proof}
@@ -1266,10 +1265,12 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 		\item $\widetilde{K}$ is fully faithful;
 		\item $\forall c\in\C$, the canonical cocone on $\dom\colon (\A\downarrow c)\to\C$ exibits it as colimit of the diagram $\dom\colon(K\downarrow c)\to\C$;
 		\item every object is a $K$-absolute colimit of a diagram of the form $\I\xrightarrow{D}\A\xrightarrow{K}\C$;
-		\item there exists some family of diagrams $D_i\colon\I_i\to\C$ which have $K$-absolute colimits and $\C$ is the closure\footnote{That is, the smallest subcategory $\B$ of $\C$ which contains $\A$ and which satisfies the following 
+		\item there exists some family of diagrams $D_i\colon\I_i\to\C$ which have $K$-absolute colimits and $\C$ is the closure\footnote{That is, the smallest full subcategory $\B$ of $\C$ which contains $\A$ and which satisfies the following 
+			
 		\begin{center}
 			if some diagram $D_i\colon\I_i\to\C$ factors through $\B$, then $\colim D_i\in\B$
 		\end{center}
+	
 	is $\C$ itself.} of $\A$ under the colimits of $D_i$;
 	\item the counit of $\Lan_\yo K\dashv\widetilde{K}$ is an isomorphism.
 	\end{enumerate}
@@ -1383,7 +1384,7 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
       is an equivalence. 
   \end{cor}
   \begin{defn}
-      Let $\Phi$ be a class of colimit shapes. Let $\A$ be a small category. We write $\Phi(\A)$ for the closure of the representable presheaves in $\left[\A^{\op},\Set\right]$ under $\Phi$-colimits. We have $\yo\colon\A\to\Phi(\A)$
+      Let $\Phi$ be a class of colimit shapes and $\A$ be a small category. We write $\Phi(\A)$ for the closure of the representable presheaves in $\left[\A^{\op},\Set\right]$ under $\Phi$-colimits. We have $\yo\colon\A\to\Phi(\A)$
   \end{defn}
   \begin{rmk}
       By construction, there exists a density presentation for $\yo\colon\A\to\Phi(\A)$ consisting of $\Phi$-colimits. This follows from $\widetilde{\yo}\colon\Phi(\A)\to\left[\A^{\op},\Set\right]$ being simply the inclusion.

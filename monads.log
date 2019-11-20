@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  19 NOV 2019 20:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  20 NOV 2019 16:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1444,7 +1444,7 @@ Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
 (hyperref)                removing `math shift' on input line 650.
 
 [6]
-Underfull \vbox (badness 7291) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7]
 [8] [9]
@@ -1452,7 +1452,7 @@ Chapter 2
 [10
 
 ]
-Overfull \hbox (29.04973pt too wide) in paragraph at lines 876--877
+Overfull \hbox (29.04973pt too wide) in paragraph at lines 875--876
 []\OT1/cmr/m/n/10.95 We have al-ready ob-served that the sec-ond state-ment hol
 ds, so that coeq$(\OML/cmm/m/it/10.95 U[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
 5 T\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; U[]\OT1/cmr/m/n/10.95 (\OML/cmm/m
@@ -1461,16 +1461,16 @@ ds, so that coeq$(\OML/cmm/m/it/10.95 U[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 891.
+(mdframed)              on input line 890.
 
-Overfull \hbox (24.04405pt too wide) in paragraph at lines 913--915
+Overfull \hbox (24.04405pt too wide) in paragraph at lines 912--914
 \OT1/cmr/m/n/10.95 de-note by $\OML/cmm/m/it/10.95 ^^L [] [] FU[] \OMS/cmsy/m/n
 /10.95 ! []$ \OT1/cmr/m/n/10.95 the col-imit (com-puted point-wise) of the pair
  $\OML/cmm/m/it/10.95 F; ^^OFU[] [] [] FUFU[] \U/msa/m/n/10.95 ^^S
  []
 
 [11] [12] [13] [14] [15]
-Overfull \hbox (1.78694pt too wide) in paragraph at lines 1178--1179
+Overfull \hbox (1.78694pt too wide) in paragraph at lines 1177--1178
 []\OT1/cmr/m/n/10.95 If $[][] \OML/cmm/m/it/10.95 F[]$ \OT1/cmr/m/n/10.95 pre-s
 erves sifted col-im-its for all $\OML/cmm/m/it/10.95 F[] [] [] [][] \OMS/cmsy/m
 /n/10.95 ! []$\OT1/cmr/m/n/10.95 , then the func-tor $[] [][] \OML/cmm/m/it/10.
@@ -1478,7 +1478,7 @@ erves sifted col-im-its for all $\OML/cmm/m/it/10.95 F[] [] [] [][] \OMS/cmsy/m
  []
 
 [16] [17] [18]
-Overfull \hbox (6.34964pt too wide) in paragraph at lines 1336--1337
+Overfull \hbox (6.34964pt too wide) in paragraph at lines 1337--1338
 []\OT1/cmr/m/n/10.95 We want a $\OML/cmm/m/it/10.95 L$ \OT1/cmr/m/n/10.95 as in
  the above propo-si-tion $[](\OML/cmm/m/it/10.95 Lc; d\OT1/cmr/m/n/10.95 ) [] [
 ] ([](\OML/cmm/m/it/10.95 K\OMS/cmsy/m/n/10.95 ^^@\OML/cmm/m/it/10.95 ; c\OT1/c
@@ -1494,24 +1494,24 @@ Chapter 3
 Chapter 4
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1515.
+(hyperref)                removing `math shift' on input line 1516.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\infty' on input line 1515.
+(hyperref)                removing `\infty' on input line 1516.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1515.
+(hyperref)                removing `math shift' on input line 1516.
 
 [24
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1523.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1523.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1524.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1524.
  (./monads.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1523.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1523.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1524.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1524.
 
 Package rerunfilecheck Info: File `monads.out' has not changed.
 (rerunfilecheck)             Checksum: 88781EB4B3E5EE25BD4B98A2812EA5D5;962.
@@ -1547,7 +1547,7 @@ public/amsfonts/cm/cmsy9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmti10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/wadalab/dmj/dmjhira
 .pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 ><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on monads.pdf (27 pages, 482936 bytes).
+Output written on monads.pdf (27 pages, 482947 bytes).
 PDF statistics:
  489 PDF objects out of 1000 (max. 8388607)
  427 compressed objects within 5 object streams
