@@ -1482,9 +1482,16 @@ Our next goal is to prove that if $(T,\mu,\eta)$ is an accessible monad on a loc
 	(T^2a,\mu_{Ta})\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}(Ta,\mu_a)\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]
 	\end{tikzcd}\hspace{-1.5mm}$ for all $(a,\alpha)\in T\mbox{-}\Alg$. The closure under $\Phi_1\cup\Phi_2$ is clearly all of $T\mbox{-}\Alg$, so we just need to show that $\Phi_2$-colimits are $K$-absolute, i.e.\ preserved by each $T\mbox{-}\Alg((Ta_0,\mu_{a_0}),-)$. Since $T\mbox{-}\Alg((Ta_0,\mu_{a_0}),-)\cong\A(a_0, U^T-)$ and $U^T$ sends a coequalizer in question to a split coequalizer, the colimit is indeed $K$-absolute.
 \end{proof}
-
-
-
+\begin{exmp}
+	\emph{Finite} free groups, abelian groups, commutative rings etc.\ form dense generators of $\mathbf{Grp}$, $\Ab$, $\mathbf{CRng}$ etc.
+\end{exmp}
+Recall that the category of $T$-algebras of a finitary monad $T\colon\Set\to\Set$ is cocomplete. We would like to know that $T\mbox{-}\Alg$ is locally finitely presentable. This result can be proved using the following fact:
+\begin{center}
+	$\kappa$-presentable objects are closed under $\kappa$-small colimits.
+\end{center}
+\begin{prop}
+	Let $\C$ be a cocomplete category which has a \emph{small} dense subcategory consisting of $\kappa$-presentable objects. Then $\C$ is locally $\kappa$-presentable.
+\end{prop}
 
 
 
