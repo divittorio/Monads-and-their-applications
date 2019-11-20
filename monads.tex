@@ -1475,9 +1475,13 @@ A category $\A$ is called \emph{accessible} (resp.\ \emph{locally presentable}) 
 
 Our next goal is to prove that if $(T,\mu,\eta)$ is an accessible monad on a locally presentable category, then $T\mbox{-}\Alg$ is locally presentable.
 \begin{prop}
-    If $\C$ is $\kappa$-accessible and $(T,\mu,\eta)$ is a monad of rank $\kappa$, then $T\mbox{-}\Alg$ has a dense subcategory consisting of $\kappa$-presentable objects.
+    Let $\A$ be $\kappa$-accessible, $\A_0\subseteq\A$ be the small subcategory of $\kappa$-presentable objects s.t.\ $\A$ is the closure of $\A_0$ under $\kappa$-filtered colimits, and $(T,\mu,\eta)$ be a monad of rank $\kappa$ on $\A$. Then $\B=\{ (Ta_0,\mu_{a_0})\ | \ a_0\in\A_0 \}$ is a dense generator of $T\mbox{-}\Alg$.
 \end{prop}
-
+\begin{proof}
+	First note that $(Ta_0,\mu_{a_0})$ is $\kappa$-presentable. Indeed, we have $T\mbox{-}\Alg((Ta_0,\mu_{a_0}),-)\cong\A(a_0,U^T-)$ and $U^T$ creates all colimits that $T$ preserves, in particular $\kappa$-filtered ones. Hence, LHS preserves $\kappa$-filtered colimits and for this reason $(Ta_0,\mu_{a_0})$ is $\kappa$-presentable. Let $\Phi_1$  be the class of $\kappa$-filtered diagrams. Writing $K\colon\B\to T\mbox{-}\Alg$ for the inclusion, we have just shown that $\Phi_1$-colimits are $K$-absolute. Note that the closure of $\B$ under $\Phi_1$ contains all free algebras $(Ta,\mu_a)$ since $\A$ is the closure of $\A_0$ under $\Phi_1$-colimits. Let $\Phi_2$ be the class of diagrams $\hspace{-1.5mm}\begin{tikzcd}
+	(T^2a,\mu_{Ta})\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}(Ta,\mu_a)\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]
+	\end{tikzcd}\hspace{-1.5mm}$ for all $(a,\alpha)\in T\mbox{-}\Alg$. The closure under $\Phi_1\cup\Phi_2$ is clearly all of $T\mbox{-}\Alg$, so we just need to show that $\Phi_2$-colimits are $K$-absolute, i.e.\ preserved by each $T\mbox{-}\Alg((Ta_0,\mu_{a_0}),-)$. Since $T\mbox{-}\Alg((Ta_0,\mu_{a_0}),-)\cong\A(a_0, U^T-)$ and $U^T$ sends a coequalizer in question to a split coequalizer, the colimit is indeed $K$-absolute.
+\end{proof}
 
 
 
