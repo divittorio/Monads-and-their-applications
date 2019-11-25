@@ -1572,8 +1572,33 @@ Kelly's main observation is that all obvious constructions can be reduced to the
 \begin{defn}
 	Let $S\colon\C\to\C$ be a functor. We call $S$ \emph{pointed} if there exists $\sigma\colon\id_{\C}\Rightarrow S$. The pair $(S,\sigma)$ is \emph{well pointed} if $S\sigma=\sigma S\colon S\Rightarrow S^2$.
 \end{defn}
-
-
+\begin{defn}
+	Given a pointed endofunctor $(S,\sigma)$, an $(S,\sigma)$-algebra is a pair $(a,\alpha)$, where $\alpha\colon Sa\to a$ is a morphism in $\C$ s.t.\ $\alpha\sigma_a=\id_a$ (basically a monad without multiplication gives an example). A morphism of algebras $(a,\alpha)\to(b,\beta)$ is a morphism $f\colon a\to b$ in $\C$ s.t.\ 
+		\[
+	\begin{tikzcd}
+	Sa\arrow["\alpha"']{d}\arrow["Sf"]{r}
+	& Sb\arrow["\beta"]{d} \\
+	a\arrow["f"']{r}
+	& b
+	\end{tikzcd}
+	\]
+	commutes. We write $(S,\sigma)\mbox{-}\Alg$ for the resulting category and $U^S\colon(S,\sigma)\mbox{-}\Alg\to\C$ for the forgetful functor.
+\end{defn}
+\begin{lemma}
+	If $(S,\sigma)$ is a well pointed endofunctor, then there exists at most one algebra structure for any object. It exists if and only if $\sigma_a$ is invertible, in which case $\alpha=\sigma_a^{-1}$. Moreover, $U^S\colon(S,\sigma)\mbox{-}\Alg\to\C$ is fully faithful\footnote{For instance, it is easy to show that if the unit of a monad satisfies the condition of well pointedness, then the monad is idempotent.}. In other words, $(S,\sigma)\mbox{-}\Alg$ is isomorphic to the full subcategory of $\C$ given by $\{a\in\C\ |\ \sigma_a \ \text{is invertible} \}$
+\end{lemma}
+\begin{proof}
+	For fixed $(a,\alpha)\in(S,\sigma)\mbox{-}\Alg$, the diagram
+		\[
+	\begin{tikzcd}
+	Sa\arrow["\alpha"']{d}\arrow["\sigma_{Sa}"]{r}
+	& S^2a\arrow["S\alpha"]{d} \\
+	a\arrow["\sigma_a"']{r}
+	& Sa
+	\end{tikzcd}
+	\] 
+	commutes by the naturality of $\sigma$. Since $S$ is well pointed, this implies $\sigma_a \alpha=S\alpha\circ\sigma_{Sa}=S\alpha\circ S\sigma_a=S(\alpha\sigma_a)=S(\id_a)=\id_{Sa}$. Therefore $\alpha=\sigma_a^{-1}$.
+\end{proof}
 
 
 
