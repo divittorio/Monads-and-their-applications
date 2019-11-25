@@ -1493,27 +1493,85 @@ Recall that the category of $T$-algebras of a finitary monad $T\colon\Set\to\Set
 	Let $\C$ be a cocomplete category which has a \emph{small} dense subcategory consisting of $\kappa$-presentable objects. Then $\C$ is locally $\kappa$-presentable.
 \end{prop}
 
+[\dots]
 
+\begin{cor}
+Let $\C$ be a locally $\kappa$-presentable category. We have that $\kappa$-filtered colimits commute with $\kappa$-small limits in $\C$.
+\end{cor}
+\begin{proof}
+	Choose a small dense subcategory $\A\subset\C$ of $\kappa$-presentable objects. The inclusion $K\colon\A\to\C$ induces a fully faithful functor $\widetilde{K}\colon\C\to\left[\A^{\op},\Set\right]$ with left adjoint $\Lan_\yo K$, hence it preserves all limits. This implies aside that $\C$ is complete as a reflective subcategory of the complete category $\left[\A^{\op}, \Set\right]$. Moreover, $\widetilde{K}$ preserves $\kappa$-filtered colimits, given that $\text{ev}_a\circ\widetilde{K}=\C(Ka,-)$ hence this reduces the problem to limits and $\kappa$-filtered colimits in $\left[\A^{\op}, \Set\right]$, where both are computed levelwise.
+\end{proof}
+\begin{prop}
+Let $\C$, $\D$ be locally $\kappa$-presentable, $\lambda\ge\kappa$ a regular cardinal. Then the category $\left[\C,\D\right]_\lambda$ of $\lambda$-accessible functors and natural transformations is locally small, cocomplete and the inclusion $\left[\C,\D\right]_\lambda\to\left[\C,\D\right]$ preserves colimits. In fact, $\left[\C,\D\right]_\lambda$ is locally presentable.
+\end{prop}
+\begin{proof}
+The category $\C_\lambda$ of $\lambda$-presentable objects in $\C$ is essentially small and each $\C_\lambda\downarrow c$ is $\lambda$-filtered, so $\C_\lambda\hookrightarrow\C$ is dense with density presentation consisting of $\lambda$-filtered colimits. From a general fact, the left adjoint of 
+\[
+\begin{tikzcd}
+\left[\C_\lambda,\D\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A, below}] & \left[\C,\D\right]\ar[l, shift left=1.5ex, "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
+\end{tikzcd}
+\]
+ induces an equivalence onto its essential image, which is precisely $\left[\C,\D\right]_\lambda$. In other words, $\left[\C,\D\right]_\lambda\cong\left[\C_\lambda,\D\right]$ is locally small and the inclusion preserves all colimits. Furthermore, $\left[\C,\D\right]_\lambda$ is locally presentable since  $\left[\C_\lambda,\D\right]$ is locally $\kappa$-presentable.
+\end{proof}
+\begin{cor}
+	The category of accessible functors $\left[\C,\D\right]_\text{acc}$ is closed under small colimits in $\left[\C,\D\right]$.
+\end{cor}
+\begin{proof}
+	This is clear, since $\displaystyle\left[\C,\D\right]_\text{acc}=\bigcup_\lambda\left[\C,\D\right]_\lambda$.
+\end{proof}
+The following theorem about dense functor has already been secretly used previously. Let us prove it once and for all. 
+\begin{thm}
+	Consider two small categories $\A$ and $\A'$ and two fully faithful functors $\A\xrightarrow{P}\A'\xrightarrow{J}\C$. If the composite $K=JP$ is dense, then both $P$ and $J$ are dense.
+\end{thm}
+\begin{proof}
+It is immediate for $P$, since $\widetilde{P}=\widetilde{K}|_{\A'}$. Let us show $J$ is dense. Note that we have 
+\begin{align*}
+\C(Jd,c)&\xrightarrow[\sim]{\hspace*{4mm}\widetilde{JP}\hspace*{4mm}}\left[\A^{\op}, \Set\right](\C(JP-,Jd),\C(JP-,c))\\
+&\xrightarrow[\sim]{(J_{P-,d})^*}\left[\A^{\op}, \Set\right](\A'(P-,d),\C(JP-,c))
+\end{align*}
+where the first isomorphism holds because $JP$ is dense and the second one because $J$ is fully faithful. Consequently $J$ is the pointwise left Kan extension of $JP$ along $P$:
+	\[
+\begin{tikzcd}[column sep=small]
+\A\ar[rr, "P"]\ar[dr, swap, "JP" near start, ""{name=JP, below}]
+&& \A'\ar[dl, "J" near start, ""{name=J, below}] \\
+& \C
+\ar[Rightarrow, shorten <= .6em, shorten >= .6em, shift left=1.5ex, "\sim", from=JP, to=J] 
+\end{tikzcd}
+\]
+Since the left Kan extension is pointwise, it is preserved by any cocontinuous functor out of $\C$. In particular, for every $c\in\C$ we can apply $\C(-,c)\colon\C\to\Set^{\op}$ and we get
+	\[
+\begin{tikzcd}[column sep=tiny]
+\A^{\op}\ar[rr, "P^{\op}"]\ar[dr, swap, "\C(JP-\text{, }\hspace*{-.5mm}c)"near start, ""{name=JP, below}]
+&& (\A')^{\op}\ar[dl, "\C(J-\text{, }\hspace*{-.5mm} c)" near start, ""{name=J, below}] \\
+& \Set
+\ar[Leftarrow, shorten <= .6em, shorten >= .6em, shift left=1.5ex, "\sim", from=JP, to=J] 
+\end{tikzcd}
+\]
+is a right Kan extension for every $c\in\C$. In particular, each $\alpha\colon\C(J-,c)\Rightarrow\C(J-,c')$ is uniquely given by $\alpha P^{\op}\colon\C(JP-,c)\Rightarrow\C(JP-,c')$. By density of $JP=K$, $\alpha P^{\op}$ must be of the form $g_*$ for a unique $g\colon c\to c'$. By uniqueness, $\alpha=\C(J-,g)$, hence $\widetilde{J}$ is full. Moreover, $\widetilde{JP}$ is equal to the composition $\C\xlongrightarrow{\widetilde{J}} \left[(\A')^{\op},\Set\right]\xrightarrow{(P^{\op})^*}\left[\A^{\op},\Set\right]$ and then $\widetilde{J}$ is also faithful.
+\end{proof}
 
+\section{Cocompleteness of categories of algebras}
+The goal of this section is to show that, if $T$ is a monad on a locally presentable category $\C$ and $T$ has rank (i.e.\ is accessible), then $T\mbox{-}\Alg$ is cocomplete and thus locally presentable (the last bit is a consequence of a previous result).
 
+There exists a single construction which admits the following as special cases:
+\begin{itemize}
+	\item free monad on an endofunctor,
+	\item free monad on a pointed endofunctor,
+	\item free monoid on an object in a monoidal category,
+	\item orthogonal factorization system generated by a set of morphisms,
+	\item reflectiveness of a small orthogonality class,
+	\item cocompletion of $T\mbox{-}\Alg$ for suitable monads $T$,
+	\item existence of colimits of diagrams of accessible monads.
+\end{itemize}
+This was observed by G.\ M.\ Kelly in \emph{A unified treatment of transfinite constructions for free algebras, free monoids, colimits, associated sheaves, and so on} (1980), which is ``hard to read'' but simplifies greatly in the context of locally presentable categories.
 
+Throughout this section we will work with locally presentable categories and accessible functors.
 
+Kelly's main observation is that all obvious constructions can be reduced to the case of algebras for a well pointed endofunctor.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+\begin{defn}
+	Let $S\colon\C\to\C$ be a functor. We call $S$ \emph{pointed} if there exists $\sigma\colon\id_{\C}\Rightarrow S$. The pair $(S,\sigma)$ is \emph{well pointed} if $S\sigma=\sigma S\colon S\Rightarrow S^2$.
+\end{defn}
 
 
 
