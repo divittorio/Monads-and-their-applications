@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  25 NOV 2019 21:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  26 NOV 2019 16:27
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1047,11 +1047,11 @@ s
 )
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 121.
+less on input line 124.
 
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 123.
+less on input line 126.
 
 (c:/texlive/2018/texmf-dist/tex/latex/fundus-calligra/calligra.sty
 Package: calligra 2012/04/10 v1.9 LaTeX package calligra
@@ -1292,30 +1292,30 @@ LaTeX Warning: Unused global option(s):
 (./monads.aux)
 \openout1 = `monads.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 215.
-LaTeX Font Info:    ... okay on input line 215.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 215.
-LaTeX Font Info:    ... okay on input line 215.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 215.
-LaTeX Font Info:    ... okay on input line 215.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 215.
-LaTeX Font Info:    ... okay on input line 215.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 215.
-LaTeX Font Info:    ... okay on input line 215.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 215.
-LaTeX Font Info:    ... okay on input line 215.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 215.
-LaTeX Font Info:    ... okay on input line 215.
-LaTeX Font Info:    Try loading font information for U+msa on input line 215.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 218.
+LaTeX Font Info:    ... okay on input line 218.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 218.
+LaTeX Font Info:    ... okay on input line 218.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 218.
+LaTeX Font Info:    ... okay on input line 218.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 218.
+LaTeX Font Info:    ... okay on input line 218.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 218.
+LaTeX Font Info:    ... okay on input line 218.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 218.
+LaTeX Font Info:    ... okay on input line 218.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 218.
+LaTeX Font Info:    ... okay on input line 218.
+LaTeX Font Info:    Try loading font information for U+msa on input line 218.
  (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 215.
+LaTeX Font Info:    Try loading font information for U+msb on input line 218.
 
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 215.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 218.
 
 (c:/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
@@ -1353,7 +1353,7 @@ e
 \AtBeginShipoutBox=\box96
 
 ABD: EveryShipout initializing macros
-Package hyperref Info: Link coloring OFF on input line 215.
+Package hyperref Info: Link coloring OFF on input line 218.
 
 (c:/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1363,22 +1363,22 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count334
 )
-LaTeX Info: Redefining \ref on input line 215.
-LaTeX Info: Redefining \pageref on input line 215.
-LaTeX Info: Redefining \nameref on input line 215.
+LaTeX Info: Redefining \ref on input line 218.
+LaTeX Info: Redefining \pageref on input line 218.
+LaTeX Info: Redefining \nameref on input line 218.
 
 (./monads.out) (./monads.out)
 \@outlinefile=\write5
 \openout5 = `monads.out'.
 
-Package xypdf Info: Line width: 0.43799pt on input line 215.
+Package xypdf Info: Line width: 0.43799pt on input line 218.
 <monadsForDinner.jpg, id=63, 661.47125pt x 501.875pt>
 File: monadsForDinner.jpg Graphic file (type jpg)
 <use monadsForDinner.jpg>
-Package pdftex.def Info: monadsForDinner.jpg  used on input line 234.
+Package pdftex.def Info: monadsForDinner.jpg  used on input line 237.
 (pdftex.def)             Requested size: 463.02672pt x 351.31009pt.
 
-Overfull \hbox (10.05882pt too wide) in paragraph at lines 234--234
+Overfull \hbox (10.05882pt too wide) in paragraph at lines 237--237
  [][] 
  []
 
@@ -1389,15 +1389,15 @@ er.jpg>]
 <doclicense-CC-by-nc-sa.pdf, id=73, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc-sa.pdf Graphic file (type pdf)
 <use doclicense-CC-by-nc-sa.pdf>
-Package pdftex.def Info: doclicense-CC-by-nc-sa.pdf  used on input line 244.
+Package pdftex.def Info: doclicense-CC-by-nc-sa.pdf  used on input line 247.
 (pdftex.def)             Requested size: 109.50027pt x 38.91324pt.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 245.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 248.
 
  (c:/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 245.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 248.
  [1
 
  <c:/texlive/2018/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-nc-sa
@@ -1417,19 +1417,19 @@ Categorical preliminaries
 ]
 Chapter 1
 
-Overfull \hbox (23.56108pt too wide) in paragraph at lines 371--372
+Overfull \hbox (23.56108pt too wide) in paragraph at lines 374--375
 [][] 
  []
 
 
-Overfull \hbox (23.56108pt too wide) in paragraph at lines 384--385
+Overfull \hbox (23.56108pt too wide) in paragraph at lines 387--388
 [][] 
  []
 
 [2
 
 ] [3] [4] [5]
-Overfull \hbox (19.02669pt too wide) in paragraph at lines 631--634
+Overfull \hbox (19.02669pt too wide) in paragraph at lines 634--637
 [][][]\OT1/cmr/m/sc/10.95 Example \OT1/cmr/m/n/10.95 2.6 (In-ter-est-ing ad-jun
 c-tion, bor-ing monad)\OT1/cmr/m/sc/10.95 . []\OT1/cmr/m/n/10.95 Let us con-sid
 er the ad-junc-tion $\OML/cmm/m/it/10.95 U [] [] [] \U/msa/m/n/10.95 ^^]
@@ -1437,11 +1437,11 @@ er the ad-junc-tion $\OML/cmm/m/it/10.95 U [] [] [] \U/msa/m/n/10.95 ^^]
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 650.
+(hyperref)                removing `math shift' on input line 653.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 650.
+(hyperref)                removing `math shift' on input line 653.
 
 [6]
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1452,7 +1452,7 @@ Chapter 2
 [10
 
 ]
-Overfull \hbox (29.04973pt too wide) in paragraph at lines 875--876
+Overfull \hbox (29.04973pt too wide) in paragraph at lines 878--879
 []\OT1/cmr/m/n/10.95 We have al-ready ob-served that the sec-ond state-ment hol
 ds, so that coeq$(\OML/cmm/m/it/10.95 U[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
 5 T\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; U[]\OT1/cmr/m/n/10.95 (\OML/cmm/m
@@ -1461,16 +1461,16 @@ ds, so that coeq$(\OML/cmm/m/it/10.95 U[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 890.
+(mdframed)              on input line 893.
 
-Overfull \hbox (24.04405pt too wide) in paragraph at lines 912--914
+Overfull \hbox (24.04405pt too wide) in paragraph at lines 915--917
 \OT1/cmr/m/n/10.95 de-note by $\OML/cmm/m/it/10.95 ^^L [] [] FU[] \OMS/cmsy/m/n
 /10.95 ! []$ \OT1/cmr/m/n/10.95 the col-imit (com-puted point-wise) of the pair
  $\OML/cmm/m/it/10.95 F; ^^OFU[] [] [] FUFU[] \U/msa/m/n/10.95 ^^S
  []
 
 [11] [12] [13] [14] [15]
-Overfull \hbox (1.78694pt too wide) in paragraph at lines 1177--1178
+Overfull \hbox (1.78694pt too wide) in paragraph at lines 1180--1181
 []\OT1/cmr/m/n/10.95 If $[][] \OML/cmm/m/it/10.95 F[]$ \OT1/cmr/m/n/10.95 pre-s
 erves sifted col-im-its for all $\OML/cmm/m/it/10.95 F[] [] [] [][] \OMS/cmsy/m
 /n/10.95 ! []$\OT1/cmr/m/n/10.95 , then the func-tor $[] [][] \OML/cmm/m/it/10.
@@ -1478,7 +1478,7 @@ erves sifted col-im-its for all $\OML/cmm/m/it/10.95 F[] [] [] [][] \OMS/cmsy/m
  []
 
 [16] [17] [18]
-Overfull \hbox (6.34964pt too wide) in paragraph at lines 1337--1338
+Overfull \hbox (6.34964pt too wide) in paragraph at lines 1340--1341
 []\OT1/cmr/m/n/10.95 We want a $\OML/cmm/m/it/10.95 L$ \OT1/cmr/m/n/10.95 as in
  the above propo-si-tion $[](\OML/cmm/m/it/10.95 Lc; d\OT1/cmr/m/n/10.95 ) [] [
 ] ([](\OML/cmm/m/it/10.95 K\OMS/cmsy/m/n/10.95 ^^@\OML/cmm/m/it/10.95 ; c\OT1/c
@@ -1487,48 +1487,48 @@ mr/m/n/10.95 )\OML/cmm/m/it/10.95 ; []\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 F
  []
 
 [19] [20] [21]
-Overfull \hbox (1.0396pt too wide) in paragraph at lines 1478--1479
+Overfull \hbox (1.0396pt too wide) in paragraph at lines 1481--1482
 [][][]\OT1/cmr/m/sc/10.95 Proposition \OT1/cmr/m/n/10.95 4.10\OT1/cmr/m/sc/10.9
 5 . []\OT1/cmr/m/n/10.95 Let $[]$ be $\OML/cmm/m/it/10.95 ^^T$\OT1/cmr/m/n/10.9
 5 -accessible, $[][] \OMS/cmsy/m/n/10.95 ^^R []$ \OT1/cmr/m/n/10.95 be the smal
 l sub-cat-e-gory of $\OML/cmm/m/it/10.95 ^^T$\OT1/cmr/m/n/10.95 -presentable
  []
 
-[22] [23] [24]
+[22] [23] [24] [25] [26]
 Chapter 3
-[25
+[27
 
 ]
 Chapter 4
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1610.
+(hyperref)                removing `math shift' on input line 1733.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\infty' on input line 1610.
+(hyperref)                removing `\infty' on input line 1733.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 1610.
+(hyperref)                removing `math shift' on input line 1733.
 
-[26
+[28
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1618.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1618.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1741.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1741.
  (./monads.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1618.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1618.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1741.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1741.
 
 Package rerunfilecheck Info: File `monads.out' has not changed.
 (rerunfilecheck)             Checksum: F12C44B97D58D0BC33476B24CA837033;1052.
  ) 
 Here is how much of TeX's memory you used:
- 39782 strings out of 492616
- 784525 string characters out of 6132769
- 925666 words of memory out of 5000000
- 42690 multiletter control sequences out of 15000+600000
+ 39937 strings out of 492616
+ 788177 string characters out of 6132769
+ 928021 words of memory out of 5000000
+ 42834 multiletter control sequences out of 15000+600000
  552818 words of font info for 112 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
  56i,19n,82p,3239b,1191s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1555,10 +1555,10 @@ public/amsfonts/cm/cmsy9.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/ams
 fonts/cm/cmti10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/wadalab/dmj/dmjhira
 .pfb><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb
 ><c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on monads.pdf (29 pages, 501810 bytes).
+Output written on monads.pdf (31 pages, 514204 bytes).
 PDF statistics:
- 517 PDF objects out of 1000 (max. 8388607)
- 453 compressed objects within 5 object streams
- 193 named destinations out of 1000 (max. 500000)
+ 536 PDF objects out of 1000 (max. 8388607)
+ 470 compressed objects within 5 object streams
+ 204 named destinations out of 1000 (max. 500000)
  135 words of extra memory for PDF output out of 10000 (max. 10000000)
 

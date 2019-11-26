@@ -78,6 +78,7 @@
 \DeclareMathOperator{\Coh}{\mathbf{Coh}}
 \DeclareMathOperator{\QCoh}{\mathbf{QCoh}}
 \DeclareMathOperator{\VB}{\mathbf{VB}}
+\DeclareMathOperator{\Arr}{Arr}
 
 \newcommand{\Set}{\catname{Set}}
 \newcommand{\Top}{\catname{Top}}
@@ -90,6 +91,8 @@
 \newcommand{\CAT}{\catname{CAT}}	
 \newcommand{\qCat}{\catname{qCat}}	
 \newcommand{\yo}{\text{\usefont{U}{min}{m}{n}\symbol{'210}}}
+\newcommand{\from}{\colon}
+\newcommand{\card}[1]{\left\lvert #1 \right\rvert}
 \makeatother                                                   
 
 \DeclareFontFamily{U}{min}{}
@@ -1492,26 +1495,108 @@ Recall that the category of $T$-algebras of a finitary monad $T\colon\Set\to\Set
 \begin{prop}
 	Let $\C$ be a cocomplete category which has a \emph{small} dense subcategory consisting of $\kappa$-presentable objects. Then $\C$ is locally $\kappa$-presentable.
 \end{prop}
+\begin{proof}
+    Let $ \catname A' $ be the closure of $ \catname A $ under $ \kappa $-small  colimits.
+    This is constructed as follows: $ \catname A_0 = \catname A $.
+    For any ordinal $ i $ we set
+    \begin{displaymath}
+	\catname A_{i+1} = \{\text{colimits of $ \kappa $-small diagrams in $ \catname A_i $\}}
+    \end{displaymath} 
+    and for a limit-ordinal $ \lambda $ we set $ \catname A_\lambda = \bigcup_{\mu<\lambda} \catname A_{\mu} $.
+    This terminates when $ \lambda = \kappa $, so $ \catname A_\kappa $ is the colimit closure and thus small.
+    From the above mentioned fact we know that $ \catname A'  $ consists of $ \kappa $-presentable objects.
+    Since it contains $ \catname A $, the inclusion $ K \colon \catname A' \to \catname C $ is dense.
+    If $ \catname A' $ is dense, then each object in $ \catname C $ is a colimit of $ \catname A'_{/c} $ which is a $ \kappa $-filtered diagram by construction.
+\end{proof}
+\begin{cor}
+    For each finitary monad $ T $ on $ \Set $, the category $ T\mbox{-}\Alg $ is locally finitely presentable.
+    Moreover if $ T $ is a monad of rank $ \kappa $ on a locally $ \kappa $-presentable cateogory, then $ T\mbox{-}\Alg $ is locally $ \kappa $-presentable if and only if it is cocomplete.
+\end{cor}
+\begin{thm}
+    Let $ \catname I $ be a filtered category and
+    \begin{displaymath}
+        X \colon \catname I \to \catname \Set,\quad i \mapsto X_i
+    \end{displaymath}
+    a diagram and $ (X_i \xrightarrow{n_i} X)_i $ a cocone.
+    Then $ (X_i \to X)_i $ is a colimit cocone if and only if
+    \begin{enumerate}[label=\roman*)]
+	\item For all $ x \in X $ there exists an $ i\in\catname I $ and an $ \tilde x \in X_i $ such that $ x = n_i (\tilde x) $.
+	\item If $ x , y \in X_i $ satisfy $ n_i(x) = n_i(y) $, then there is some $ \phi \colon i\to j $ such that $ X_\phi(x) = X_\phi(y) $.
+	    (Informally: ``all equalities that hold in $ X $ hold in some $ X_j $.'')
+    \end{enumerate}
+\end{thm}
+\begin{proof}
+    Given any other cone $ \lambda_i \to X_i $
+    we define $ f \from X \to Y $ by sending $ x \to \lambda_i (\tilde x) $ for any $ \tilde x $ in i).
+    This is well defined by ii) and filteredness.
+    It only remains to who that there exists such a cocone.
+    Take $ X = (\coprod X_i) /\sim $ with $ (x,i) \sim (y,j) $ if there is some some diagram $ i \xrightarrow{\phi} k \xleftarrow{\psi}j $ in $ \catname I $ with $ X_\phi(x) = X_\psi(y) $.
+\end{proof}
+\begin{cor}
+    In $ \Set $ filtered colimits commute with finite limits and $ \kappa $-filtered colimits commute with $ \kappa $-small limits.
+\end{cor}
+\begin{proof}
+    Check that a levelwise equalizer of cones satisfying i) and ii) above still satisfies i) and ii).
+    This can be done by chasing through the following diagram
+    \begin{displaymath}
+        \begin{tikzcd}
+	    X_i \arrow[d,dashed] \arrow[r, hook] & Y_i \arrow[d]\arrow[r, shift right]\arrow[r, shift left]& Z_i\arrow[d]\\
+	    X\arrow[r, hook] & Y \arrow[r, shift right]\arrow[r, shift left]& Z
+        \end{tikzcd}
+    \end{displaymath}
+    For $ < \kappa $-fold products, we use $ \kappa $-filteredness to extend  ii) to any set of pairs of size $ < \kappa $.
+    Then check that the product of cones satisfying i) and ii) of size $ < \kappa $ still satisfies i) and ii).
+\end{proof}
+\begin{cor}
+    In any category, $ \kappa $-presentable objects are closed under $ \kappa $-small colimits.
+\end{cor}
+\begin{proof}
+    Let $ C \from \catname I \to \catname C $, $ i\mapsto C_i $ be a filtered diagram and 
+    $ D\from \catname K \to \catname C $ a $ \kappa $-small diagram of $ \kappa $-presentable objects $ D_k $.
+    \begin{align*}
+	\catname C (\colim D_k, \colim C_i) &\cong \lim \catname C (D_k,\colim C_i)\\
+					    & \cong \lim (\colim \catname C (D_k,C_i))\\
+	\null^{\text{Explicit check in Set}}  & \cong \colim (\lim \catname C (D_k,C_i))\\
+					    &\cong \colim \catname C(\colim D_k, C_i).\qedhere
+    \end{align*}
+\end{proof}
 
-[\dots]
+\begin{prop}
+   Each object in a locally presentable category is $ \lambda $-presentable
+   for $ \lambda \gg 0 $.
+\end{prop}
+\begin{proof}
+    Let $ \catname C $ locally $\kappa $-presentable, choose a small dense subcategory $ \catname A $ of $ \kappa $-presentable objects.
+    So, any object $ c \in \catname C $ we have is a colimit of $ \catname A / c $.
+    Choose $ \lambda $ such that $ \lambda > \kappa $ and $ \lambda > \card{\Arr(\catname A/c)} $.
+\end{proof}
+The characterization of filtered colimits in $ \Set $ gives the following characterization of finitely presentable objects:
+$ a $ is finitely presentable if for all filtered colimits $ k_i \from c_i \to c $ in $ \catname C $ and all $ f\from a \to c $ there exists a factorization
+\begin{displaymath}
+    \begin{tikzcd}[column sep=tiny]
+	& c_i \arrow[dr, "k_i"]&\\
+	a \arrow[ur, dashed, "f'"]\arrow[rr, "f"']&& c
+    \end{tikzcd}
+\end{displaymath}
+and any two such lifts $ f', f''  $ satisfying $ k_i \circ f' = k_i \circ f'' $ become equal after composing with some $ c_\phi \from c_i \to c_j $.
 
 \begin{cor}
-Let $\C$ be a locally $\kappa$-presentable category. We have that $\kappa$-filtered colimits commute with $\kappa$-small limits in $\C$.
+	Let $\C$ be a locally $\kappa$-presentable category. We have that $\kappa$-filtered colimits commute with $\kappa$-small limits in $\C$.
 \end{cor}
 \begin{proof}
 	Choose a small dense subcategory $\A\subset\C$ of $\kappa$-presentable objects. The inclusion $K\colon\A\to\C$ induces a fully faithful functor $\widetilde{K}\colon\C\to\left[\A^{\op},\Set\right]$ with left adjoint $\Lan_\yo K$, hence it preserves all limits. This implies aside that $\C$ is complete as a reflective subcategory of the complete category $\left[\A^{\op}, \Set\right]$. Moreover, $\widetilde{K}$ preserves $\kappa$-filtered colimits, given that $\text{ev}_a\circ\widetilde{K}=\C(Ka,-)$ hence this reduces the problem to limits and $\kappa$-filtered colimits in $\left[\A^{\op}, \Set\right]$, where both are computed levelwise.
 \end{proof}
 \begin{prop}
-Let $\C$, $\D$ be locally $\kappa$-presentable, $\lambda\ge\kappa$ a regular cardinal. Then the category $\left[\C,\D\right]_\lambda$ of $\lambda$-accessible functors and natural transformations is locally small, cocomplete and the inclusion $\left[\C,\D\right]_\lambda\to\left[\C,\D\right]$ preserves colimits. In fact, $\left[\C,\D\right]_\lambda$ is locally presentable.
+	Let $\C$, $\D$ be locally $\kappa$-presentable, $\lambda\ge\kappa$ a regular cardinal. Then the category $\left[\C,\D\right]_\lambda$ of $\lambda$-accessible functors and natural transformations is locally small, cocomplete and the inclusion $\left[\C,\D\right]_\lambda\to\left[\C,\D\right]$ preserves colimits. In fact, $\left[\C,\D\right]_\lambda$ is locally presentable.
 \end{prop}
 \begin{proof}
-The category $\C_\lambda$ of $\lambda$-presentable objects in $\C$ is essentially small and each $\C_\lambda\downarrow c$ is $\lambda$-filtered, so $\C_\lambda\hookrightarrow\C$ is dense with density presentation consisting of $\lambda$-filtered colimits. From a general fact, the left adjoint of 
-\[
-\begin{tikzcd}
-\left[\C_\lambda,\D\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A, below}] & \left[\C,\D\right]\ar[l, shift left=1.5ex, "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
-\end{tikzcd}
-\]
- induces an equivalence onto its essential image, which is precisely $\left[\C,\D\right]_\lambda$. In other words, $\left[\C,\D\right]_\lambda\cong\left[\C_\lambda,\D\right]$ is locally small and the inclusion preserves all colimits. Furthermore, $\left[\C,\D\right]_\lambda$ is locally presentable since  $\left[\C_\lambda,\D\right]$ is locally $\kappa$-presentable.
+	The category $\C_\lambda$ of $\lambda$-presentable objects in $\C$ is essentially small and each $\C_\lambda\downarrow c$ is $\lambda$-filtered, so $\C_\lambda\hookrightarrow\C$ is dense with density presentation consisting of $\lambda$-filtered colimits. From a general fact, the left adjoint of 
+	\[
+	\begin{tikzcd}
+	\left[\C_\lambda,\D\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A, below}] & \left[\C,\D\right]\ar[l, shift left=1.5ex, "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
+	\end{tikzcd}
+	\]
+	induces an equivalence onto its essential image, which is precisely $\left[\C,\D\right]_\lambda$. In other words, $\left[\C,\D\right]_\lambda\cong\left[\C_\lambda,\D\right]$ is locally small and the inclusion preserves all colimits. Furthermore, $\left[\C,\D\right]_\lambda$ is locally presentable since  $\left[\C_\lambda,\D\right]$ is locally $\kappa$-presentable.
 \end{proof}
 \begin{cor}
 	The category of accessible functors $\left[\C,\D\right]_\text{acc}$ is closed under small colimits in $\left[\C,\D\right]$.
@@ -1524,30 +1609,30 @@ The following theorem about dense functor has already been secretly used previou
 	Consider two small categories $\A$ and $\A'$ and two fully faithful functors $\A\xrightarrow{P}\A'\xrightarrow{J}\C$. If the composite $K=JP$ is dense, then both $P$ and $J$ are dense.
 \end{thm}
 \begin{proof}
-It is immediate for $P$, since $\widetilde{P}=\widetilde{K}|_{\A'}$. Let us show $J$ is dense. Note that we have 
-\begin{align*}
-\C(Jd,c)&\xrightarrow[\sim]{\hspace*{4mm}\widetilde{JP}\hspace*{4mm}}\left[\A^{\op}, \Set\right](\C(JP-,Jd),\C(JP-,c))\\
-&\xrightarrow[\sim]{(J_{P-,d})^*}\left[\A^{\op}, \Set\right](\A'(P-,d),\C(JP-,c))
-\end{align*}
-where the first isomorphism holds because $JP$ is dense and the second one because $J$ is fully faithful. Consequently $J$ is the pointwise left Kan extension of $JP$ along $P$:
+	It is immediate for $P$, since $\widetilde{P}=\widetilde{K}|_{\A'}$. Let us show $J$ is dense. Note that we have 
+	\begin{align*}
+	\C(Jd,c)&\xrightarrow[\sim]{\hspace*{4mm}\widetilde{JP}\hspace*{4mm}}\left[\A^{\op}, \Set\right](\C(JP-,Jd),\C(JP-,c))\\
+	&\xrightarrow[\sim]{(J_{P-,d})^*}\left[\A^{\op}, \Set\right](\A'(P-,d),\C(JP-,c))
+	\end{align*}
+	where the first isomorphism holds because $JP$ is dense and the second one because $J$ is fully faithful. Consequently $J$ is the pointwise left Kan extension of $JP$ along $P$:
 	\[
-\begin{tikzcd}[column sep=small]
-\A\ar[rr, "P"]\ar[dr, swap, "JP" near start, ""{name=JP, below}]
-&& \A'\ar[dl, "J" near start, ""{name=J, below}] \\
-& \C
-\ar[Rightarrow, shorten <= .6em, shorten >= .6em, shift left=1.5ex, "\sim", from=JP, to=J] 
-\end{tikzcd}
-\]
-Since the left Kan extension is pointwise, it is preserved by any cocontinuous functor out of $\C$. In particular, for every $c\in\C$ we can apply $\C(-,c)\colon\C\to\Set^{\op}$ and we get
+	\begin{tikzcd}[column sep=small]
+	\A\ar[rr, "P"]\ar[dr, swap, "JP" near start, ""{name=JP, below}]
+	&& \A'\ar[dl, "J" near start, ""{name=J, below}] \\
+	& \C
+	\ar[Rightarrow, shorten <= .6em, shorten >= .6em, shift left=1.5ex, "\sim", from=JP, to=J] 
+	\end{tikzcd}
+	\]
+	Since the left Kan extension is pointwise, it is preserved by any cocontinuous functor out of $\C$. In particular, for every $c\in\C$ we can apply $\C(-,c)\colon\C\to\Set^{\op}$ and we get
 	\[
-\begin{tikzcd}[column sep=tiny]
-\A^{\op}\ar[rr, "P^{\op}"]\ar[dr, swap, "\C(JP-\text{, }\hspace*{-.5mm}c)"near start, ""{name=JP, below}]
-&& (\A')^{\op}\ar[dl, "\C(J-\text{, }\hspace*{-.5mm} c)" near start, ""{name=J, below}] \\
-& \Set
-\ar[Leftarrow, shorten <= .6em, shorten >= .6em, shift left=1.5ex, "\sim", from=JP, to=J] 
-\end{tikzcd}
-\]
-is a right Kan extension for every $c\in\C$. In particular, each $\alpha\colon\C(J-,c)\Rightarrow\C(J-,c')$ is uniquely given by $\alpha P^{\op}\colon\C(JP-,c)\Rightarrow\C(JP-,c')$. By density of $JP=K$, $\alpha P^{\op}$ must be of the form $g_*$ for a unique $g\colon c\to c'$. By uniqueness, $\alpha=\C(J-,g)$, hence $\widetilde{J}$ is full. Moreover, $\widetilde{JP}$ is equal to the composition $\C\xlongrightarrow{\widetilde{J}} \left[(\A')^{\op},\Set\right]\xrightarrow{(P^{\op})^*}\left[\A^{\op},\Set\right]$ and then $\widetilde{J}$ is also faithful.
+	\begin{tikzcd}[column sep=tiny]
+	\A^{\op}\ar[rr, "P^{\op}"]\ar[dr, swap, "\C(JP-\text{, }\hspace*{-.5mm}c)"near start, ""{name=JP, below}]
+	&& (\A')^{\op}\ar[dl, "\C(J-\text{, }\hspace*{-.5mm} c)" near start, ""{name=J, below}] \\
+	& \Set
+	\ar[Leftarrow, shorten <= .6em, shorten >= .6em, shift left=1.5ex, "\sim", from=JP, to=J] 
+	\end{tikzcd}
+	\]
+	is a right Kan extension for every $c\in\C$. In particular, each $\alpha\colon\C(J-,c)\Rightarrow\C(J-,c')$ is uniquely given by $\alpha P^{\op}\colon\C(JP-,c)\Rightarrow\C(JP-,c')$. By density of $JP=K$, $\alpha P^{\op}$ must be of the form $g_*$ for a unique $g\colon c\to c'$. By uniqueness, $\alpha=\C(J-,g)$, hence $\widetilde{J}$ is full. Moreover, $\widetilde{JP}$ is equal to the composition $\C\xlongrightarrow{\widetilde{J}} \left[(\A')^{\op},\Set\right]\xrightarrow{(P^{\op})^*}\left[\A^{\op},\Set\right]$ and then $\widetilde{J}$ is also faithful.
 \end{proof}
 
 \section{Cocompleteness of categories of algebras}
@@ -1574,7 +1659,7 @@ Kelly's main observation is that all obvious constructions can be reduced to the
 \end{defn}
 \begin{defn}
 	Given a pointed endofunctor $(S,\sigma)$, an $(S,\sigma)$-algebra is a pair $(a,\alpha)$, where $\alpha\colon Sa\to a$ is a morphism in $\C$ s.t.\ $\alpha\sigma_a=\id_a$ (basically a monad without multiplication gives an example). A morphism of algebras $(a,\alpha)\to(b,\beta)$ is a morphism $f\colon a\to b$ in $\C$ s.t.\ 
-		\[
+	\[
 	\begin{tikzcd}
 	Sa\arrow["\alpha"']{d}\arrow["Sf"]{r}
 	& Sb\arrow["\beta"]{d} \\
@@ -1585,11 +1670,11 @@ Kelly's main observation is that all obvious constructions can be reduced to the
 	commutes. We write $(S,\sigma)\mbox{-}\Alg$ for the resulting category and $U^S\colon(S,\sigma)\mbox{-}\Alg\to\C$ for the forgetful functor.
 \end{defn}
 \begin{lemma}
-	If $(S,\sigma)$ is a well pointed endofunctor, then there exists at most one algebra structure for any object. It exists if and only if $\sigma_a$ is invertible, in which case $\alpha=\sigma_a^{-1}$. Moreover, $U^S\colon(S,\sigma)\mbox{-}\Alg\to\C$ is fully faithful\footnote{For instance, it is easy to show that if the unit of a monad satisfies the condition of well pointedness, then the monad is idempotent.}. In other words, $(S,\sigma)\mbox{-}\Alg$ is isomorphic to the full subcategory of $\C$ given by $\{a\in\C\ |\ \sigma_a \ \text{is invertible} \}$
+	If $(S,\sigma)$ is a well pointed endofunctor, then there exists at most one algebra structure for any object. It exists if and only if $\sigma_a$ is invertible, in which case $\alpha=\sigma_a^{-1}$. Moreover, $U^S\colon(S,\sigma)\mbox{-}\Alg\to\C$ is fully faithful\footnote{For instance, it is easy to show that if the unit of a monad satisfies the condition of well pointedness, then the monad is idempotent.}. In other words, $(S,\sigma)\mbox{-}\Alg$ is isomorphic to the full subcategory of $\C$ given by $\{a\in\C\ |\ \sigma_a \ \text{is invertible} \}$.
 \end{lemma}
 \begin{proof}
 	For fixed $(a,\alpha)\in(S,\sigma)\mbox{-}\Alg$, the diagram
-		\[
+	\[
 	\begin{tikzcd}
 	Sa\arrow["\alpha"']{d}\arrow["\sigma_{Sa}"]{r}
 	& S^2a\arrow["S\alpha"]{d} \\
@@ -1597,8 +1682,46 @@ Kelly's main observation is that all obvious constructions can be reduced to the
 	& Sa
 	\end{tikzcd}
 	\] 
-	commutes by the naturality of $\sigma$. Since $S$ is well pointed, this implies $\sigma_a \alpha=S\alpha\circ\sigma_{Sa}=S\alpha\circ S\sigma_a=S(\alpha\sigma_a)=S(\id_a)=\id_{Sa}$. Therefore $\alpha=\sigma_a^{-1}$.
+	commutes by the naturality of $\sigma$. Since $S$ is well pointed, this implies $\sigma_a \alpha=S\alpha\circ\sigma_{Sa}=S\alpha\circ S\sigma_a=S(\alpha\sigma_a)=S(\id_a)=\id_{Sa}$ therefore $\alpha=\sigma_a^{-1}$. On the other hand, if $\sigma_a$ is invertible then $(a,\sigma_a^{-1})$ is a $(S,\sigma)$-algebra.
+	
+	If $f\colon a\to b$ is any morphism, and both $\sigma_a$ and $\sigma_b$ are invertible, then 
+		\[
+	\begin{tikzcd}
+	Sa\arrow["\sigma_a^{-1}"']{d}\arrow["Sf"]{r}
+	& Sb\arrow["\sigma_b^{-1}"]{d} \\
+	a\arrow["f"']{r}
+	& b
+	\end{tikzcd}
+	\] 
+	commutes by naturality of $\sigma$, so $U^S$ is full (being faithful by definition). Thus $U^S\colon(S,\sigma)\mbox{-}\Alg\to\{a\in\C\ |\ \sigma_a \ \text{is invertible}\}$ is bijective on objects and fully faithful, so it is an isomorphism.
 \end{proof}
+\begin{lemma}
+	Let $(S,\sigma)$ be a pointed endofunctor, then $U^S\colon(S,\sigma)\mbox{-}\Alg\to\C$ is monadic if and only if it has a left adjoint.
+\end{lemma}
+\begin{proof}
+	$U^S$ is conservative and creates all colimits preserved by $S$. In particular, it preserves coequalizers of $U^S$-split pairs.
+\end{proof}
+\begin{defn}
+	For an endofunctor $F\colon\C\to\C$ (or a pointed endofunctor $(S,\sigma)$), we say that \emph{the algebraically free monad} on $F$ (respectively  $(S,\sigma)$) exists if $U^F\colon F\mbox{-}\Alg\to\C$ (or $U^S\colon(S,\sigma)\mbox{-}\Alg\to\C$) has a left adjoint.
+\end{defn}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
