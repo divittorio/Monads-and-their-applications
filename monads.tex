@@ -99,6 +99,37 @@
 \newcommand{\set}[2]{\left\lbrace\,#1\colon #2 \,\right\rbrace}
 \makeatother                                                   
 
+\ExplSyntaxOn
+    \NewDocumentCommand{\makeabbrev}{mmm}
+    {
+        \yoruk_makeabbrev:nnn { #1 } { #2 } { #3 }
+    }
+
+    \cs_new_protected:Npn \yoruk_makeabbrev:nnn #1 #2 #3
+    {
+        \clist_map_inline:nn { #3 }
+        {
+            \cs_new_protected:cpn { #2 } { #1 { ##1 } }
+        }
+    }
+\ExplSyntaxOff
+
+\makeabbrev{\boldsymbol}{bs#1}{a,b,c,d,e,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
+                               A,B,C,D,E,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+
+\makeabbrev{\mathfrak}{f#1}{a,b,c,d,e,f,g,h,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
+                            A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+
+\makeabbrev{\mathbf}{bf#1}{a,b,c,d,e,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
+                          A,B,C,D,E,G,H,I,J,K,L,M,N,O,P,Q,R,T,U,V,W,X,Y,Z}
+
+\makeabbrev{\mathsf}{sf#1}{a,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
+                           A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+
+\makeabbrev{\mathcal}{c#1}{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+
+\makeabbrev{\mathbb}{bb#1}{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+
 \DeclareFontFamily{U}{min}{}
 \DeclareFontShape{U}{min}{m}{n}{<-> udmj30}{}
 
@@ -128,7 +159,9 @@
 \fancyhead[LE,RO]{\thepage}                           		           
 \fancyhead[LO]{\scshape\nouppercase{\rightmark}}       	          
 \fancyhead[RE]{\scshape\nouppercase{\leftmark}}      	           
-\renewcommand{\headrulewidth}{0pt}                   \usepackage{amsmath,calligra,mathrsfs}
+\renewcommand{\headrulewidth}{0pt}
+\usepackage{amsmath,calligra,mathrsfs}
+
 \DeclareMathOperator{\innerhom}{\mathscr{H}\text{\kern -3pt {\calligra\Large om}}\,}
 \DeclareMathOperator{\Hom}{\text{Hom}}
 \DeclareMathOperator{\End}{\text{End}}
@@ -164,6 +197,7 @@
 \DeclareMathOperator{\Cone}{Cone}
 \DeclareMathOperator{\Cocone}{Cocone}
 \DeclareMathOperator{\Nat}{Nat}
+\DeclareMathOperator{\Mat}{Mat}
 
 \tikzset{shorten <>/.style={shorten >=#1,shorten <=#1}}
 \newcommand{\pullbackcorner}[1][ul]{\save*!/#1+1.5pc/#1(1,-1)@^{|-}\restore}
@@ -2442,7 +2476,7 @@ The previous example is an instance of a more general phenomenon, as shown by th
 
 \begin{exmp}
     Given a homomorphism of commutative rings $R\rightarrow S$, then $S\otimes_R-\dashv U$, where $U$ is the restriction on scalars, and $-\otimes_RS\colon\Mod_R\rightarrow\Mod_S$ is a monoidal adjunction.
-    
+
     The free module functor $\Set\rightarrow\Mod_R$ is strong monoidal by the previous example.
 \end{exmp}
 
@@ -2472,7 +2506,7 @@ The previous example is an instance of a more general phenomenon, as shown by th
     commute.
 
     Morphisms of monoids are maps $f\colon M\rightarrow M'$ such that $m'\circ (f\otimes f)=fm$, $fu=u'$.
-    
+
     We write $\Mon(\V)$ for the category of monoids over $\V$.
 \end{defn}
 
@@ -2480,12 +2514,132 @@ The previous example is an instance of a more general phenomenon, as shown by th
     If $\V$ is additive, monoids are often called algebras as well because     $\Mon(\Mod_R)=\mathbf{Alg}_R$, $\Mon(\dgMod_R)=\mathbf{dgAlg}_R$.
 \end{rmk}
 
-    ~\\
-    
-    --- Placeholder for Peter ---
-    
-    ~\\
-    
+
+\begin{exmp}
+    For $ R $ a commutative ring, $ \Alg_R $ is locally finitely presentable
+\end{exmp}
+
+\begin{prop}
+    If $ F \dashv U \from \catname V \to \catname W $ is a monoidal adjunction ($ F $ strong, $ U $ monoidal), then $ F\dashv U $ lifts to an adjunction of monoids
+\begin{displaymath}
+    \begin{tikzcd}[row sep = 4em]
+        \Mon(\catname V)\arrow[d] \arrow[r,bend left, "\overline F"]\arrow[r,phantom, "\bot"] & \Mon(\catname W) \arrow[l, bend left, "\overline U"] \arrow[d]\\
+        \catname V \arrow[r,bend left, "F"] \arrow[r,phantom, "\bot"]& \catname W \arrow[l, bend left, "U"]
+    \end{tikzcd}
+    \end{displaymath}
+    where $ \overline F(M,m,n) = (FM, Fm \circ \phi_{M,M}^F, Fn \circ \phi_0^F) $
+    and $ \overline U(M',m',n') = (UM, Um'\circ \phi U_{M,M}, Un'\circ \phi U_0) $.
+\end{prop}
+\begin{proof}
+    The axioms for lax monoidal functors show that these are indeed monads,
+    naturality of $ \phi^F, \phi^U $ shows that $ Ff $ is a monoid morphism if $ f $ is.
+    It follows that $ \overline F,\overline U $ are indeed functors.
+    Axioms for monoidal transformations show $ \eta, \epsilon $ are monoid morphisms.
+    Hence $ \overline F \dashv \overline U $.
+\end{proof}
+\begin{exmp}
+    \begin{enumerate}[label=\roman*)]
+        \item A ring homomorpshism $ R \to S $ of commutative rings induces base change functor
+        $\begin{tikzcd}
+        \mathsf{Alg}_R \arrow[r, "S\otimes_R -", bend left] & \mathsf{Alg}_S \arrow[l,"\text{forget}", bend left]
+        \end{tikzcd}$
+        This works equally for commutative algebras, etc.
+    \item Let $ \catname C $ locally $ \kappa $-presentable. Then $ [\catname C,\catname C]_\kappa \to [\catname C,\catname C] $ is strict monoidal and a     left adjoint, so it lifts to a left adjoint $ \Mod_\kappa (\catname C) \to \Mod(\catname C) $.
+        Why is it left adjoint? Let $ K\from \catname C_\kappa \to \catname C $ be the inclusion. Since $ \Phi $ is cocontinuous we have
+        \begin{displaymath}
+            \begin{tikzcd}[row sep = large, column sep = large]
+            \lbrack\catname C,\catname C\rbrack
+            \arrow[r] &
+            \lbrack\catname C,\catname C\rbrack \arrow[dl, "\Lan_K"']\arrow[dl, phantom, "\bot", bend left=15] 
+            \\
+            \lbrack\catname C_\kappa, \catname C\rbrack \arrow[u, "\Lan_K","\simeq"']\arrow[ru, "K^*"', bend right]
+            \end{tikzcd}
+        \end{displaymath}
+        Hence the inclusion is indeed a left adjoint.
+    \end{enumerate}
+\end{exmp}
+\begin{rmk}
+    This completes the proof that $ (-)\Alg \from \Mnd_\kappa(\catname C)^{\text{op}} \to \Cat/\catname C $ is full and faithful and sends colimits of monads to limits of categories.
+\end{rmk}
+Let $ (\catname V,\otimes, I) $ be a monoidal category such that $ x\otimes - $ and $ -\otimes x $ preserve coproducts for all $ x\in \catname V $.
+The category of $ \catname V $-matrices with index set $ S $ is $ [S\times S,\catname V] =\prod_{S\times S}\catname V $ and denoted by $ \Mat(\catname V ,     S) $. There is a natural monoidal structure on $ \Mat(\catname V,S) $ given by matrix multiplication:
+\begin{displaymath}
+    M(x,y)_{(x,y) \in S^2} \otimes N(x,y)_{(x,y) \in S^2} = \Big(\sum_{z\in S} M(z,y)\otimes N(x,z) \Big)_{(x,y)\in S^2}.
+\end{displaymath}
+
+and unit $ (I_{x,y}))_{(x,y) \in S^2} $ where $ I_{x,y}= I $ if $ x = y $ and $ I_{x,y} = \emptyset $, else.
+The $ (\alpha,\lambda,\rho) $ on $ \Mat(\catname V , S) $ are induced by the ones on $ \catname V $ and cia the universal properties coproducts.
+\begin{defn}
+    A $ \catname V $-category $ \catname A $ with object set $ S $ is a monoid in $ \Mat(\catname V,S) $ 
+    i.e. for each pair $ (a,b) \in S^2 $ an object $ \catname A(a,b) \in \catname V $, called the $ \catname V $-object of homomorphisms.
+    Moreover we have units $ I\xrightarrow{\id_a} \catname A(a,a) $ and composition homomorphisms
+    \begin{displaymath}
+    \catname A(b,c) \otimes \catname A(a,b) \xrightarrow{C_{a,b,c}} \catname A(a,c)
+    \end{displaymath}
+    such that the following axioms hold:
+\end{defn}
+
+\begin{displaymath}
+    \begin{tikzcd}
+    (\catname A(c,d)\otimes \catname A(b,c)) \otimes \catname A(a,b)
+    \arrow[d,"{c\otimes \catname A(a,b)}"]\arrow[rr, "\cong"]
+    &&
+    \catname A(c,d) \otimes (\catname A(b,c) \otimes \catname A(a,b) )  
+    \arrow[d,"{\catname A(c,d)\otimes c}"]\\
+    \catname A(b,d)\otimes \catname A(a,b)
+    \arrow[rd, "c"']
+    &&
+    \catname A(c,d)\otimes \catname A(a,c)
+    \arrow[ld, "c"]
+    \\
+    & \catname A(a,d)
+    \end{tikzcd}
+\end{displaymath}
+and the two unit axioms hold.
+This is in fact the definition, if $ \catname V $ does not neccessarily have coproducts or $ x\otimes - $ does not preserve them.
+\begin{exmp}
+    \begin{itemize}
+    \item $ \catname V = \Top \leadsto $ topological categories
+    \item $ \catname V = \Ab \leadsto $ additive categories
+    \item $ \catname V = \Mod_R \leadsto $ linear categories
+    \item $ \catname V = \Mod_R^{\text{d.g.}} \leadsto $ graded categories
+    \item $ \catname V = \Cat \leadsto $ 2-categories
+    \item $ \catname V = n\text{-}\Cat \leadsto $ strict $ (n+1) $-categories
+    \end{itemize}
+\end{exmp}
+\begin{prop}
+    If $ \catname V $ is presentable and both $ x\otimes - $ and $ - \otimes x $ are $ \kappa $-accessible for all $ x\in \catname D $ and preserve coproducts, then the category of $ \catname V $-categories with fixed object set $ S $ is locally $ \kappa $-presentable.
+\end{prop}
+\begin{proof}
+    It suffices to show that the matrices are $ \kappa $-accessible in each variable, which follows from the fact, that colimits commute.
+\end{proof}
+\begin{defn}
+    Let $ \catname V $ be a monoidal category whith coproduct, and such that $
+    x\otimes - $ and $ - \otimes x $ preserve coproducts for each $ x \in \catname V $.
+    Let $ f \from S \to T $ be a map of sets.
+    We write
+    \begin{align*}
+    f^* \from \Mat(\catname V ,T) & \to \Mat(\catname V, S) \\
+    ( T\times T \xrightarrow{M} \catname V) & \mapsto ( S\times S \xrightarrow{f \times  f} T\times T \xrightarrow{M}\catname V)
+    \end{align*}
+    and $ f_* \from \Mat(\catname V,S)\to \Mat(\catname V,T) $ for its left adjoint.
+    It sends $ M $ to 
+    \begin{displaymath}
+        (f_* M)(a,b) = \sum_{\{(x,y)\colon fx = a, fy = b \} }M(x,y).
+    \end{displaymath}
+\end{defn}
+\begin{prop}
+    The left adjoint is strong monoidal.
+\end{prop}
+\begin{defn}
+    A $ \catname V $-functor $ (S,\catname A) \to (T,\catname B) $ is a pair
+    $ (F, (F_{a,b})_{(a,b) \in S^2}) $ where $ F\from S \to T $ is a function and $ (F_{a,b})_{(a,b) \in S^2} $ is a monoid morphism $ \catname A \to F^*     \catname B $, that is $ F_{a,b}\from \catname A (a,b) \to \catname B (Fa,Fb) $ is a morphism in $ \catname V $ for any $ a,b \in S $.
+
+    We denote the resulting category of small $ \catname V $-categories by $ \catname V $-$ \Cat $. We may also define $ \catname V $-$ \CAT $ as the cate    ogry of all $ \catname V$-categories.
+    We may define the category of $ \catname V $-graphs analogously. We have an
+    obvoious forgetful functor from $ \catname V $-categories to $ \catname V$-graphs.
+\end{defn}
+
 \begin{exmp}
    We now want to see, what happens if we take $\V = \Cat$. That is unveiling the data of a $2$-category. First we have a set/class of objects 
    $\Ob(\K)$, called $0$-cells, and for any two $A,B \in \Ob(\K)$, we have a category $\K(A,B)$. We call the objects of $\K(A,B)$ $1$-cells from $A$ 
@@ -2788,7 +2942,6 @@ We get four $2$-categories from $T$: the original $T\Alg$ is called $T\Alg_S$ an
 	\end{tikzcd}
 	\]
 There is a $2$-monad $T$ on $\Cat$ s.t.\ $T\Alg_P=\Mon_{str}(\Cat)$ with strong morphisms. 
-
 
 
 

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  4 JAN 2020 09:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (TeX Live 2018/W32TeX) (preloaded format=pdflatex 2019.3.1)  4 JAN 2020 22:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1160,7 +1160,7 @@ Class scrbook Warning: Usage of package `fancyhdr' together
 (scrbook)              `\addtokomafont' for the page style elements need
 (scrbook)              explicite user intervention to work.
 (scrbook)              Nevertheless, using requested
-(scrbook)              package `fancyhdr' on input line 124.
+(scrbook)              package `fancyhdr' on input line 155.
 
 (c:/texlive/2018/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 Package: fancyhdr 2019/01/31 v3.10 Extensive control of page headers and footer
@@ -1177,11 +1177,11 @@ s
 )
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 128.
+less on input line 159.
 
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 130.
+less on input line 161.
 
 (c:/texlive/2018/texmf-dist/tex/latex/fundus-calligra/calligra.sty
 Package: calligra 2012/04/10 v1.9 LaTeX package calligra
@@ -1417,20 +1417,20 @@ File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))) (./monads.aux)
 \openout1 = `monads.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 231.
-LaTeX Font Info:    ... okay on input line 231.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 231.
-LaTeX Font Info:    ... okay on input line 231.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 231.
-LaTeX Font Info:    ... okay on input line 231.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 231.
-LaTeX Font Info:    ... okay on input line 231.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 231.
-LaTeX Font Info:    ... okay on input line 231.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 231.
-LaTeX Font Info:    ... okay on input line 231.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 231.
-LaTeX Font Info:    ... okay on input line 231.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 265.
+LaTeX Font Info:    ... okay on input line 265.
 (c:/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count328
@@ -1464,7 +1464,7 @@ e
 \AtBeginShipoutBox=\box97
 
 ABD: EveryShipout initializing macros
-Package hyperref Info: Link coloring OFF on input line 231.
+Package hyperref Info: Link coloring OFF on input line 265.
 
 (c:/texlive/2018/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
@@ -1474,9 +1474,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count334
 )
-LaTeX Info: Redefining \ref on input line 231.
-LaTeX Info: Redefining \pageref on input line 231.
-LaTeX Info: Redefining \nameref on input line 231.
+LaTeX Info: Redefining \ref on input line 265.
+LaTeX Info: Redefining \pageref on input line 265.
+LaTeX Info: Redefining \nameref on input line 265.
 
 (./monads.out) (./monads.out)
 \@outlinefile=\write5
@@ -1488,7 +1488,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           You can avoid loading `bookmark' with KOMA-Script option
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message with `\usepackage{bookmark}'
-(scrbook)           before \begin{document} on input line 231.
+(scrbook)           before \begin{document} on input line 265.
 
 (c:/texlive/2018/texmf-dist/tex/latex/oberdiek/bookmark.sty
 Package: bookmark 2016/05/17 v1.26 PDF bookmarks (HO)
@@ -1500,29 +1500,29 @@ Package auxhook Info: \AddLineBeginMainAux comes a little late,
 e 164.
 \BKM@id=\count335
 ))
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 231.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 265.
 
 (c:/texlive/2018/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 231.
+LaTeX Font Info:    Try loading font information for U+msa on input line 265.
 
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 231.
+LaTeX Font Info:    Try loading font information for U+msb on input line 265.
 
 (c:/texlive/2018/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.43799pt on input line 231.
+Package xypdf Info: Line width: 0.43799pt on input line 265.
 <monadsForDinner.jpg, id=7, 661.47125pt x 501.875pt>
 File: monadsForDinner.jpg Graphic file (type jpg)
 <use monadsForDinner.jpg>
-Package pdftex.def Info: monadsForDinner.jpg  used on input line 252.
+Package pdftex.def Info: monadsForDinner.jpg  used on input line 286.
 (pdftex.def)             Requested size: 463.02672pt x 351.31009pt.
 
-Overfull \hbox (10.05876pt too wide) in paragraph at lines 252--252
+Overfull \hbox (10.05876pt too wide) in paragraph at lines 286--286
  [][] 
  []
 
@@ -1534,15 +1534,15 @@ er.jpg>]
 <doclicense-CC-by-nc-sa.pdf, id=17, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc-sa.pdf Graphic file (type pdf)
 <use doclicense-CC-by-nc-sa.pdf>
-Package pdftex.def Info: doclicense-CC-by-nc-sa.pdf  used on input line 262.
+Package pdftex.def Info: doclicense-CC-by-nc-sa.pdf  used on input line 296.
 (pdftex.def)             Requested size: 109.50027pt x 38.91324pt.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 263.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 297.
 
  (c:/texlive/2018/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 263.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 297.
  [1
 
  <c:/texlive/2018/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-nc-sa
@@ -1557,26 +1557,26 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.326 	\chapter
+l.360 	\chapter
                {Monads and algebras} [1
 
 
 ]
 chapter 1.
 
-Overfull \hbox (12.80008pt too wide) in paragraph at lines 389--390
+Overfull \hbox (12.80008pt too wide) in paragraph at lines 423--424
 [][] 
  []
 
 
-Overfull \hbox (12.80008pt too wide) in paragraph at lines 402--403
+Overfull \hbox (12.80008pt too wide) in paragraph at lines 436--437
 [][] 
  []
 
 [2
 
 ] [3] [4]
-Overfull \hbox (1.55658pt too wide) in paragraph at lines 608--609
+Overfull \hbox (1.55658pt too wide) in paragraph at lines 642--643
 [][]\OT1/cmr/bx/n/10.95 Proposition 1.2.5. []\OT1/cmr/m/n/10.95 If $\OML/cmm/m/
 it/10.95 U [] []  [] \OMS/cmsy/m/n/10.95 ! []$ \OT1/cmr/m/n/10.95 has a left ad
 -joint $\OML/cmm/m/it/10.95 F$ \OT1/cmr/m/n/10.95 with unit $\OML/cmm/m/it/10.9
@@ -1585,7 +1585,7 @@ it/10.95 U [] []  [] \OMS/cmsy/m/n/10.95 ! []$ \OT1/cmr/m/n/10.95 has a left ad
  []
 
 [5]
-Overfull \hbox (13.03189pt too wide) in paragraph at lines 649--652
+Overfull \hbox (13.03189pt too wide) in paragraph at lines 683--686
 [][]\OT1/cmr/bx/n/10.95 Example 1.2.6 \OT1/cmr/m/n/10.95 (In-ter-est-ing ad-jun
 c-tion, bor-ing monad)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 Let us con-sid
 er the ad-junc-tion $\OML/cmm/m/it/10.95 U [] [] [] \U/msa/m/n/10.95 ^^]
@@ -1593,18 +1593,18 @@ er the ad-junc-tion $\OML/cmm/m/it/10.95 U [] [] [] \U/msa/m/n/10.95 ^^]
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 668.
+(hyperref)                removing `math shift' on input line 702.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 668.
+(hyperref)                removing `math shift' on input line 702.
 
 [6] [7] [8] [9]
 chapter 2.
 [10
 
 ]
-Overfull \hbox (2.60655pt too wide) in paragraph at lines 893--894
+Overfull \hbox (2.60655pt too wide) in paragraph at lines 927--928
 []\OT1/cmr/m/n/10.95 We have al-ready ob-served that the sec-ond state-ment hol
 ds, so that coeq$(\OML/cmm/m/it/10.95 U[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
 5 T\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; U[]\OT1/cmr/m/n/10.95 (\OML/cmm/m
@@ -1613,28 +1613,28 @@ ds, so that coeq$(\OML/cmm/m/it/10.95 U[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 908.
+(mdframed)              on input line 942.
 [11]
-Overfull \hbox (10.17531pt too wide) in paragraph at lines 924--925
+Overfull \hbox (10.17531pt too wide) in paragraph at lines 958--959
 \OT1/cmr/m/n/10.95 in the func-tor cat-e-gory $[\OML/cmm/m/it/10.95 T []; []\OT
 1/cmr/m/n/10.95 ]$. We claim that this pair has a co-equal-izer and $[] [] [] \
 OML/cmm/m/it/10.95 T [] \OMS/cmsy/m/n/10.95 !
  []
 
 [12] [13]
-Overfull \hbox (37.62383pt too wide) in paragraph at lines 1081--1086
+Overfull \hbox (37.62383pt too wide) in paragraph at lines 1115--1120
 []\OT1/cmr/m/n/10.95 We need to check that, given a re-flex-ive co-equal-izer $
  [] $ in $[]$ and $ [] $
  []
 
 [14] [15] [16]
-Overfull \hbox (51.007pt too wide) in paragraph at lines 1227--1228
+Overfull \hbox (51.007pt too wide) in paragraph at lines 1261--1262
 []$\OML/cmm/m/it/10.95 T []$ \OT1/cmr/m/n/10.95 has al-ways an ini-tial ob-ject
 , namely the free al-ge-bra of the ini-tial ob-ject $[]$.
  []
 
 [17] [18]
-Overfull \hbox (14.05194pt too wide) in paragraph at lines 1309--1310
+Overfull \hbox (14.05194pt too wide) in paragraph at lines 1343--1344
 []\OT1/cmr/m/n/10.95 Let $[]$ be full sub-cat-e-gory spanned by the el-e-ments 
 $\OML/cmm/m/it/10.95 b \OMS/cmsy/m/n/10.95 2 []$ \OT1/cmr/m/n/10.95 such that $
 \OML/cmm/m/it/10.95 ^^O[] [] []  [][] K[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.9
@@ -1647,17 +1647,17 @@ chapter 3.
 [35
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 2151--2152
+Underfull \hbox (badness 10000) in paragraph at lines 2185--2186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2155--2156
+Underfull \hbox (badness 10000) in paragraph at lines 2189--2190
 
  []
 
 [36] [37] [38] [39]
-Overfull \hbox (18.30199pt too wide) in paragraph at lines 2350--2351
+Overfull \hbox (18.30199pt too wide) in paragraph at lines 2384--2385
 [][]\OT1/cmr/bx/n/10.95 Definition 3.2.4. []\OT1/cmr/m/n/10.95 A \OT1/cmr/m/it/
 10.95 lax monoidal func-tor \OT1/cmr/m/n/10.95 from $([]\OML/cmm/m/it/10.95 ; \
 OMS/cmsy/m/n/10.95 
@@ -1666,36 +1666,26 @@ OMS/cmsy/m/n/10.95
 []\OML/cmm/m/it/10.95 ; I[]; []; ^^U[]; ^^Z[]\OT1/cmr/m/n/10.95 )$
  []
 
-[40] [41]
-Underfull \hbox (badness 10000) in paragraph at lines 2483--2484
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 2487--2488
-
- []
-
-[42]
-Overfull \hbox (16.43137pt too wide) in paragraph at lines 2583--2584
+[40] [41] [42] [43] [44]
+Overfull \hbox (16.43137pt too wide) in paragraph at lines 2737--2738
  [] 
  []
 
-[43] [44] [45] [46] [47]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2809.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2809.
+[45] [46] [47] [48] [49]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2962.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2962.
  (./monads.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2809.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2809.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2962.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2962.
 
 Package rerunfilecheck Info: File `monads.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 45395 strings out of 492616
- 917274 string characters out of 6132769
- 1137713 words of memory out of 5000000
- 48351 multiletter control sequences out of 15000+600000
+ 45819 strings out of 492616
+ 922054 string characters out of 6132769
+ 1141556 words of memory out of 5000000
+ 48763 multiletter control sequences out of 15000+600000
  553700 words of font info for 115 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,20n,95p,9112b,1272s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1723,10 +1713,10 @@ pe1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2018/texmf-dist/fonts/type1/public
 cm/cmti10.pfb><c:/texlive/2018/texmf-dist/fonts/type1/wadalab/dmj/dmjhira.pfb><
 c:/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/t
 exlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on monads.pdf (50 pages, 645755 bytes).
+Output written on monads.pdf (52 pages, 659733 bytes).
 PDF statistics:
- 703 PDF objects out of 1000 (max. 8388607)
- 615 compressed objects within 7 object streams
- 278 named destinations out of 1000 (max. 500000)
+ 724 PDF objects out of 1000 (max. 8388607)
+ 634 compressed objects within 7 object streams
+ 290 named destinations out of 1000 (max. 500000)
  143 words of extra memory for PDF output out of 10000 (max. 10000000)
 
