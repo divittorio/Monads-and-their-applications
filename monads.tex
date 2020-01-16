@@ -5,7 +5,8 @@
 \usepackage{amsbsy}
 \usepackage{fontenc}
 \usepackage{amsfonts}
-\usepackage{amsmath} 	
+\usepackage{amsmath} 
+\usepackage{eucal}
 \usepackage{mdframed}
 \usepackage{amsthm}  	
 \usepackage{amssymb}
@@ -183,6 +184,7 @@
 \DeclareMathOperator{\Ord}{\mathbf{Ord}}
 \DeclareMathOperator{\Mnd}{\mathsf{Mnd}}
 \DeclareMathOperator{\Mon}{\mathsf{Mon}}
+\DeclareMathOperator{\CMon}{\mathsf{CMon}}
 \DeclareMathOperator{\Cocts}{-\mathsf{Cocts}}
 \DeclareMathOperator{\N}{\mathbb{N}}
 \DeclareMathOperator{\Z}{\mathbb{Z}}
@@ -198,6 +200,9 @@
 \DeclareMathOperator{\Cocone}{Cocone}
 \DeclareMathOperator{\Nat}{Nat}
 \DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\coev}{coev}
+\DeclareMathOperator{\ev}{ev}
+
 
 \tikzset{shorten <>/.style={shorten >=#1,shorten <=#1}}
 \newcommand{\pullbackcorner}[1][ul]{\save*!/#1+1.5pc/#1(1,-1)@^{|-}\restore}
@@ -244,14 +249,12 @@
 	\begin{defn}Here is a new definition.\end{defn}
 }
 \theoremstyle{definition}
-\newtheorem{defn}[thm]{Definition} % definition numbers are dependent on theor$
-\newtheorem{exmp}[thm]{Example} % same for example numbers
+\newtheorem{defn}[thm]{Definition} % definition numbers are dependent on thm
 \newtheorem{prop}[thm]{Proposition}
 \newtheorem{lemma}[thm]{Lemma}
 \newtheorem{cor}[thm]{Corollary}
-\theoremstyle{remark}
 \newtheorem{rmk}[thm]{Remark}
-\newtheorem{es}[thm]{Example}
+\newtheorem{exmp}[thm]{Example}
 
 \newmdtheoremenv{theo}[thm]{Theorem}
 
@@ -263,6 +266,7 @@
 
 
 \begin{document}
+
 	\begin{titlepage}
 		\begin{center}
 			\Huge \textbf{Monads~and~their~applications}\\
@@ -298,6 +302,8 @@
 	\tableofcontents
 	
 	\mainmatter
+	
+
 	
 	\chapter*{Categorical preliminaries}
 	\begin{defn}[Categories]
@@ -355,7 +361,7 @@
 		
 	\end{proof}
 
-\noindent We will denote by $\yo$  (the hiragana kata for ``Yo") the Yoneda embedding $\C\hookrightarrow\Set^{\C^{\op}}$.
+\noindent We will denote by $\yo$  (the kana for ``Yo") the Yoneda embedding $\C\hookrightarrow\Set^{\C^{\op}}$.
 	
 	\chapter{Monads and algebras}
 	
@@ -2250,7 +2256,7 @@ We will proof the details in use later, but give an idea why the statement holds
       \begin{center}
          \begin{tikzcd}[row sep=small]
             \C \arrow[dd, ""{name=U, above}] & \\
-            & \ast \arrow[Rightarrow, shorten=4mm, from=U] \arrow[lu, "a"'] \arrow[ld, "b"] \\
+            & \ast \arrow[Rightarrow, shorten <= 4mm, shorten >= 4mm, from=U] \arrow[lu, "a"'] \arrow[ld, "b"] \\
             \C &
          \end{tikzcd}
       \end{center}
@@ -2342,14 +2348,14 @@ Now we can use this proposition to construct monads via presentations.
 \section{Symmetric monoidal categories}
 
 \begin{defn}
-    A \emph{monoidal category} is a tuple $(\V,\otimes,I,\alpha,\lambda,\rho)$, where $\V$ is a category, $\otimes\colon\V\times\V\rightarrow\V$ a functor, $I\in\V$ an object, $\alpha\colon\otimes\circ(\otimes\times\id)\Rightarrow\otimes\circ(\otimes\times\id)$, $\lambda\colon I\otimes-\Rightarrow\id$ and $\rho\colon-\otimes I\rightarrow\id$ natural isomorphisms such that for every $W,X,Y,Z\in\V$ the diagrams
+    A \emph{monoidal category} is a tuple $(\V,\otimes,I,\alpha,\lambda,\rho)$, where $\V$ is a category, $\otimes\colon\V\times\V\rightarrow\V$ a functor, $I\in\V$ an object, $\alpha\colon(-\otimes-)\otimes-\Rightarrow-\otimes(-\otimes-)$, $\lambda\colon I\otimes-\Rightarrow\id$ and $\rho\colon-\otimes I\rightarrow\id$ natural isomorphisms such that for every $W,X,Y,Z\in\V$ the diagrams
     \[
     \begin{tikzcd}[column sep = -2.0em]
-    & & (W \otimes X) \otimes (Y \otimes Z) \arrow[drr, "a_{W, X, Y \otimes Z}"] \\ 
-    ((W \otimes X) \otimes Y) \otimes Z \arrow[urr, "a_{W \otimes X, Y, Z}"] \arrow[dr,"a_{W,X,Y} \otimes \id_Z", swap] 
+    & & (W \otimes X) \otimes (Y \otimes Z) \arrow[drr, "\alpha_{W, X, Y \otimes Z}"] \\ 
+    ((W \otimes X) \otimes Y) \otimes Z \arrow[urr, "\alpha_{W \otimes X, Y, Z}"] \arrow[dr,"\alpha_{W,X,Y} \otimes \id_Z", swap] 
     & & & & W \otimes (X \otimes (Y \otimes Z)) \\
-    & (W \otimes (X \otimes Y)) \otimes Z \arrow[rr, "a_{W, X \otimes Y, Z}", swap]
-    & & W \otimes ((X \otimes Y) \otimes Z) \arrow[ur, "\id_{W}\otimes a_{X,Y,Z}", swap]
+    & (W \otimes (X \otimes Y)) \otimes Z \arrow[rr, "\alpha_{W, X \otimes Y, Z}", swap]
+    & & W \otimes ((X \otimes Y) \otimes Z) \arrow[ur, "\id_{W}\otimes\alpha_{X,Y,Z}", swap]
     \end{tikzcd}
     \]
     \[
@@ -2359,7 +2365,7 @@ Now we can use this proposition to construct monads via presentations.
     & X\otimes Y
     \end{tikzcd}
     \]
-    commute.
+    commute. We call $\otimes$ the \emph{tensor product}, $I$ the \emph{unit object} or \emph{tensor unit}, $\alpha$ the \emph{associator}, $\lambda$ the \emph{left unitor} and $\rho$ the \emph{right unitor}.
 \end{defn}
 
 \begin{exmp}
@@ -2381,7 +2387,7 @@ We mention without proof the following fundamental theorem.
     Given a word of objects tensored among them, any two choices of bracketing are uniquely isomorphic. This result is plausible if $\otimes$ is derived from an universal property as in $(1)-(3)$ and clear if $\V$ is strict, like in $(3)$ and $(4)$, while the general proof uses a rewriting argument which can be found in \textit{Categories for the Working Mathematician}.
     
 \begin{defn}
-    A \emph{lax monoidal functor} from $(\V,\otimes_{\V},I_{\V},\alpha^{\V},\lambda^{\V},\rho^{\V})$ to $(\W,\otimes_{\W},I_{\W},\alpha^{\W},\lambda^{\W},\rho^{\W})$ is a triple $(F,\phi_0,\phi)$, where $F\colon\V\rightarrow\W$ is a functor, $\phi_0\colon I_{\W}\rightarrow FI_{\V}$ a morphism and $\phi\colon\otimes_{\W}\circ(F\times F)\Rightarrow F\circ\otimes_{\W}$ a natural transformation such that for all $X,Y,Z\in\V$ the diagrams
+    A \emph{lax monoidal functor} from $\cV$ to $\cW$ is a triple $(F,\phi_0,\phi)$, where $F\colon\V\rightarrow\W$ is a functor, $\phi_0\colon I_{\W}\rightarrow FI_{\V}$ a morphism and $\phi\colon\otimes_{\W}\circ(F\times F)\Rightarrow F\circ\otimes_{\W}$ a natural transformation such that for all $X,Y,Z\in\V$ the diagrams
     \[
     \begin{tikzcd}
         (FX\otimes_{\W}FY)\otimes_{\W}FZ\ar[r, "\alpha^{\W}"]\ar[d, "\phi_{X,Y}\otimes_{\W}FZ"]
@@ -2520,11 +2526,11 @@ The previous example is an instance of a more general phenomenon, as shown by th
 \end{exmp}
 
 \begin{prop}
-    If $ F \dashv U \from \catname V \to \catname W $ is a monoidal adjunction ($ F $ strong, $ U $ monoidal), then $ F\dashv U $ lifts to an adjunction of monoids
+    If $ F \dashv U \from\cV\to \catname W $ is a monoidal adjunction ($ F $ strong, $ U $ monoidal), then $ F\dashv U $ lifts to an adjunction of monoids
 \begin{displaymath}
     \begin{tikzcd}[row sep = 4em]
-        \Mon(\catname V)\arrow[d] \arrow[r,bend left, "\overline F"]\arrow[r,phantom, "\bot"] & \Mon(\catname W) \arrow[l, bend left, "\overline U"] \arrow[d]\\
-        \catname V \arrow[r,bend left, "F"] \arrow[r,phantom, "\bot"]& \catname W \arrow[l, bend left, "U"]
+        \Mon(\cV)\arrow[d] \arrow[r,bend left, "\overline F"]\arrow[r,phantom, "\bot"] & \Mon(\catname W) \arrow[l, bend left, "\overline U"] \arrow[d]\\
+       \cV\arrow[r,bend left, "F"] \arrow[r,phantom, "\bot"]& \catname W \arrow[l, bend left, "U"]
     \end{tikzcd}
     \end{displaymath}
     where $ \overline F(M,m,n) = (FM, Fm \circ \phi_{M,M}^F, Fn \circ \phi_0^F) $
@@ -2561,68 +2567,68 @@ The previous example is an instance of a more general phenomenon, as shown by th
 \begin{rmk}
     This completes the proof that $ (-)\Alg \from \Mnd_\kappa(\catname C)^{\text{op}} \to \Cat/\catname C $ is full and faithful and sends colimits of monads to limits of categories.
 \end{rmk}
-Let $ (\catname V,\otimes, I) $ be a monoidal category such that $ x\otimes - $ and $ -\otimes x $ preserve coproducts for all $ x\in \catname V $.
-The category of $ \catname V $-matrices with index set $ S $ is $ [S\times S,\catname V] =\prod_{S\times S}\catname V $ and denoted by $ \Mat(\catname V ,     S) $. There is a natural monoidal structure on $ \Mat(\catname V,S) $ given by matrix multiplication:
+Let $ (\cV,\otimes, I) $ be a monoidal category such that $ x\otimes - $ and $ -\otimes x $ preserve coproducts for all $ x\in\cV$.
+The category of $\cV$-matrices with index set $ S $ is $ [S\times S,\cV] =\prod_{S\times S}\cV $ and denoted by $ \Mat(\cV ,     S) $. There is a natural monoidal structure on $ \Mat(\cV,S) $ given by matrix multiplication:
 \begin{displaymath}
     M(x,y)_{(x,y) \in S^2} \otimes N(x,y)_{(x,y) \in S^2} = \Big(\sum_{z\in S} M(z,y)\otimes N(x,z) \Big)_{(x,y)\in S^2}.
 \end{displaymath}
 
 and unit $ (I_{x,y}))_{(x,y) \in S^2} $ where $ I_{x,y}= I $ if $ x = y $ and $ I_{x,y} = \emptyset $, else.
-The $ (\alpha,\lambda,\rho) $ on $ \Mat(\catname V , S) $ are induced by the ones on $ \catname V $ and cia the universal properties coproducts.
+The $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ are induced by the ones on $\cV$ and cia the universal properties coproducts.
 \begin{defn}
-    A $ \catname V $-category $ \catname A $ with object set $ S $ is a monoid in $ \Mat(\catname V,S) $ 
-    i.e. for each pair $ (a,b) \in S^2 $ an object $ \catname A(a,b) \in \catname V $, called the $ \catname V $-object of homomorphisms.
-    Moreover we have units $ I\xrightarrow{\id_a} \catname A(a,a) $ and composition homomorphisms
+    A $\cV$-category $ \cA $ with object set $ S $ is a monoid in $ \Mat(\cV,S) $ 
+    i.e. for each pair $ (a,b) \in S^2 $ an object $ \cA(a,b) \in\cV$, called the $\cV$-object of homomorphisms.
+    Moreover we have units $ I\xrightarrow{\id_a} \cA(a,a) $ and composition homomorphisms
     \begin{displaymath}
-    \catname A(b,c) \otimes \catname A(a,b) \xrightarrow{C_{a,b,c}} \catname A(a,c)
+    \cA(b,c) \otimes \cA(a,b) \xrightarrow{C_{a,b,c}} \cA(a,c)
     \end{displaymath}
     such that the following axioms hold:
 \end{defn}
 
 \begin{displaymath}
     \begin{tikzcd}
-    (\catname A(c,d)\otimes \catname A(b,c)) \otimes \catname A(a,b)
-    \arrow[d,"{c\otimes \catname A(a,b)}"]\arrow[rr, "\cong"]
+    (\cA(c,d)\otimes \cA(b,c)) \otimes \cA(a,b)
+    \arrow[d,"{c\otimes \cA(a,b)}"]\arrow[rr, "\cong"]
     &&
-    \catname A(c,d) \otimes (\catname A(b,c) \otimes \catname A(a,b) )  
-    \arrow[d,"{\catname A(c,d)\otimes c}"]\\
-    \catname A(b,d)\otimes \catname A(a,b)
+    \cA(c,d) \otimes (\cA(b,c) \otimes \cA(a,b) )  
+    \arrow[d,"{\cA(c,d)\otimes c}"]\\
+    \cA(b,d)\otimes \cA(a,b)
     \arrow[rd, "c"']
     &&
-    \catname A(c,d)\otimes \catname A(a,c)
+    \cA(c,d)\otimes \cA(a,c)
     \arrow[ld, "c"]
     \\
-    & \catname A(a,d)
+    & \cA(a,d)
     \end{tikzcd}
 \end{displaymath}
 and the two unit axioms hold.
-This is in fact the definition, if $ \catname V $ does not neccessarily have coproducts or $ x\otimes - $ does not preserve them.
+This is in fact the definition if $\cV$ does not have all coproducts or $ x\otimes - $ does not preserve them.
 \begin{exmp}
     \begin{itemize}
-    \item $ \catname V = \Top \leadsto $ topological categories
-    \item $ \catname V = \Ab \leadsto $ additive categories
-    \item $ \catname V = \Mod_R \leadsto $ linear categories
-    \item $ \catname V = \Mod_R^{\text{d.g.}} \leadsto $ graded categories
-    \item $ \catname V = \Cat \leadsto $ 2-categories
-    \item $ \catname V = n\text{-}\Cat \leadsto $ strict $ (n+1) $-categories
+    \item $\cV= \Top \leadsto $ topological categories
+    \item $\cV= \Ab \leadsto $ additive categories
+    \item $\cV= \Mod_R \leadsto $ linear categories
+    \item $\cV= \Mod_R^{\text{d.g.}} \leadsto $ graded categories
+    \item $\cV= \Cat \leadsto $ 2-categories
+    \item $\cV= n\text{-}\Cat \leadsto $ strict $ (n+1) $-categories
     \end{itemize}
 \end{exmp}
 \begin{prop}
-    If $ \catname V $ is presentable and both $ x\otimes - $ and $ - \otimes x $ are $ \kappa $-accessible for all $ x\in \catname D $ and preserve coproducts, then the category of $ \catname V $-categories with fixed object set $ S $ is locally $ \kappa $-presentable.
+    If $\cV$ is presentable and both $ x\otimes - $ and $ - \otimes x $ are $ \kappa $-accessible for all $ x\in \catname D $ and preserve coproducts, then the category of $\cV$-categories with fixed object set $ S $ is locally $ \kappa $-presentable.
 \end{prop}
 \begin{proof}
     It suffices to show that the matrices are $ \kappa $-accessible in each variable, which follows from the fact, that colimits commute.
 \end{proof}
 \begin{defn}
-    Let $ \catname V $ be a monoidal category whith coproduct, and such that $
-    x\otimes - $ and $ - \otimes x $ preserve coproducts for each $ x \in \catname V $.
+    Let $\cV$ be a monoidal category with coproducts, and such that $
+    x\otimes - $ and $ - \otimes x $ preserve coproducts for each $ x \in\cV$.
     Let $ f \from S \to T $ be a map of sets.
     We write
     \begin{align*}
-    f^* \from \Mat(\catname V ,T) & \to \Mat(\catname V, S) \\
-    ( T\times T \xrightarrow{M} \catname V) & \mapsto ( S\times S \xrightarrow{f \times  f} T\times T \xrightarrow{M}\catname V)
+    f^* \from \Mat(\cV ,T) & \to \Mat(\cV, S) \\
+    ( T\times T \xrightarrow{M}\cV) & \mapsto ( S\times S \xrightarrow{f \times  f} T\times T \xrightarrow{M}\cV)
     \end{align*}
-    and $ f_* \from \Mat(\catname V,S)\to \Mat(\catname V,T) $ for its left adjoint.
+    and $ f_* \from \Mat(\cV,S)\to \Mat(\cV,T) $ for its left adjoint.
     It sends $ M $ to 
     \begin{displaymath}
         (f_* M)(a,b) = \sum_{\{(x,y)\colon fx = a, fy = b \} }M(x,y).
@@ -2632,12 +2638,12 @@ This is in fact the definition, if $ \catname V $ does not neccessarily have cop
     The left adjoint is strong monoidal.
 \end{prop}
 \begin{defn}
-    A $ \catname V $-functor $ (S,\catname A) \to (T,\catname B) $ is a pair
-    $ (F, (F_{a,b})_{(a,b) \in S^2}) $ where $ F\from S \to T $ is a function and $ (F_{a,b})_{(a,b) \in S^2} $ is a monoid morphism $ \catname A \to F^*     \catname B $, that is $ F_{a,b}\from \catname A (a,b) \to \catname B (Fa,Fb) $ is a morphism in $ \catname V $ for any $ a,b \in S $.
+    A $\cV$-functor $ (S,\cA) \to (T,\cB) $ is a pair
+    $ (F, (F_{a,b})_{(a,b) \in S^2}) $ where $ F\from S \to T $ is a function and $ (F_{a,b})_{(a,b) \in S^2} $ is a monoid morphism $ \cA \to F^*\cB $, that is $ F_{a,b}\from \cA (a,b) \to \cB (Fa,Fb) $ is a morphism in $\cV$ for any $ a,b \in S $.
 
-    We denote the resulting category of small $ \catname V $-categories by $ \catname V $-$ \Cat $. We may also define $ \catname V $-$ \CAT $ as the cate    ogry of all $ \catname V$-categories.
-    We may define the category of $ \catname V $-graphs analogously. We have an
-    obvoious forgetful functor from $ \catname V $-categories to $ \catname V$-graphs.
+    We denote the resulting category of small $\cV$-categories by $\cV$-$ \Cat $. We may also define $\cV$-$ \CAT $ as the category of all $\cV$-categories.
+    We may define the category of $\cV$-graphs analogously. We have an
+    obvious forgetful functor from $\cV$-categories to $\cV$-graphs.
 \end{defn}
 
 \begin{exmp}
@@ -2730,7 +2736,7 @@ This is in fact the definition, if $ \catname V $ does not neccessarily have cop
    and $(\alpha, K)_{A' \in \A'}$ by $\alpha_{KA'} \from I \to \B(FKA',GKA')$. Clearly $\alpha_{K}$ is a $\V$-natural transformation $FK \Rightarrow GK$. To see 
    this for $L_{\alpha}$ compare the needed diagram with 
       \begin{center}
-         \begin{tikzcd}[column sep=tiny]
+         \begin{tikzcd}[column sep=-1em]
             \B(FB,GB) \otimes \B(FA,FB) \arrow[rd, "\circ"] \arrow[rr, "L\otimes L"] & & \B'(LFB,LGB) \otimes \B'(LFA,LFB) \arrow[rd, "\circ"] & \\
             & \B(FA,GB) \arrow[rr, "L"] & & \B'(LFA,LGB)  \\
             \B(GA,GB) \otimes \B(FA,GA) \arrow[rr, "L \otimes L"'] \arrow[ru, "\circ"'] & & \B'(LGA,LGB) \otimes \B'(LFA,LGA) \arrow[ru, "\circ"']
@@ -2943,11 +2949,533 @@ We get four $2$-categories from $T$: the original $T\Alg$ is called $T\Alg_S$ an
 	\]
 There is a $2$-monad $T$ on $\Cat$ s.t.\ $T\Alg_P=\Mon_{str}(\Cat)$ with strong morphisms. 
 
+Now we want to define opposite $\cV$-categories and $\cV$-functors of several variables using the tensor product of $\cV$-categories. This is similar to the product of categories $\cC\times\cD$, however there $(f,f')\cdot(g,g')=(fg,f'g')$, which changes the order of $f'$ and $g$. The following definition allows us to fix this.
+
+\begin{defn}
+    Let $\cV$ be a monoidal category. A \emph{braiding} on $\cV$ is a natural isomorphism
+    \[
+    \begin{tikzcd}[column sep=tiny]
+        \cV\times\cV\ar[rr, "\tau"]\ar[dr, swap, near start, "\otimes", ""{name=A, anchor=center}]
+        && \cV\times\cV\ar[dl, near start, "\otimes", ""{name=B, anchor=center}] \\
+        & \cV
+        \ar[Rightarrow, shorten <= .8em, shorten >= .8em, "\gamma"', "\sim", from=A, to=B]
+    \end{tikzcd}
+    ,\]
+    where $\tau$ is the switch functor and for all $A,B,C\in\cV$ the diagram
+    \[
+    \begin{tikzcd}
+    & A\otimes(B\otimes C)\ar[r, "\gamma"]
+    & (B\otimes C)\otimes A\ar[dr, "\alpha"] \\
+    (A\otimes B)\otimes C\ar[dr, swap, "\gamma\otimes\id"]\ar[ur, "\alpha"]
+    &&& B\otimes(C\otimes A) \\
+    & (B\otimes A)\otimes C\ar[r, "\alpha"]
+    & B\otimes(A\otimes C)\ar[ur, swap, "\id\otimes\gamma"]
+    \end{tikzcd}
+    \]
+    and the one obtained by inverting the $\alpha$ commute.
+    
+    A braiding is called a \emph{simmetry} if $\gamma_{A,B}\circ\gamma_{B,A}=\id$ for all $A,B\in\cV$.
+\end{defn}
+
+\begin{rmk}
+    If $\gamma$ is a simmetry, then either one of the above hexagons implies the other. Moreover, the diagram
+    \[
+    \begin{tikzcd}[column sep=tiny]
+    I\otimes A\ar[rr, "\gamma_{I,A}"]\ar[dr, swap, "\lambda_A"]
+    && A\otimes I\ar[dl, "\rho_A"] \\
+    & A
+    \end{tikzcd}
+    \]
+    commutes.
+\end{rmk}
+
+\begin{exmp}
+\item[(i)] If $\cE=(\cE,\times,*)$ is cartesian, then the switch $\tau\colon\cE\times\cE\rightarrow\cE$ defines a simmetry. This is the case of $\Set$, categories of presheaves, $\sSet$, $\Top$, $\Cat$, etc.
+
+\item[(ii)] If $R$ is a unital commutative ring, $\Mod_R$ is a symmetric monoidal category with $\gamma\colon M\otimes_RN\rightarrow N\otimes_RM$ the canonical isomorphism.
+
+\item[(iii)] If $A$ is an abelian group, write $A$-$\Mod_R$ for the category of $A$-graded $R$-modules, that is $\Pi_A\Mod_R$. We have a functor $A\text{-}\Mod_R\times A\text{-}\Mod_R\rightarrow A\text{-}\Mod_R$, $((V_i),(W_i))\mapsto (\bigoplus_{i+j=k}V_i\otimes_RW_j)$. This has a monoidal structure with unit $R$ concentrated in degree $0\in A$. There are obvious choices for $\lambda$ and $\rho$.
+
+A \emph{normalized 3-cocycle} on $A$ with values in $R^\times$ is a function $h\colon A\times A\times A\rightarrow R^\times$ such that, for any tuple $(i,j,k,l)\in A^4$
+\begin{align*}
+    h(i,0,j) &=1, \\
+    h(j,k,l)\cdot h(i,j+l,k)\cdot h(i,j,k) &=h(i,j,k+l)\cdot h(i+j,k,l).
+\end{align*}
+
+We define $\alpha^h\colon ((U_\bullet)\otimes(V_\bullet))\otimes (W_\bullet)\rightarrow (U_\bullet)\otimes ((V_\bullet)\otimes(W_\bullet))$ on the component given by the triple $(i,j,k)$ as
+\begin{align*}
+    (U_i\otimes V_j)\otimes W_k &\rightarrow U_i\otimes(V_j\otimes W_k) \\
+    (a\otimes b)\otimes c &\mapsto h(i,j,k)\cdot a\otimes (b\otimes c)
+\end{align*}
+
+The two axioms for normalized 3-cocycles say precisely that this is a monoidal structure on $A\text{-}\Mod_R$. Also, by considering modules concentrated in a single degree, one finds that all associators are of this form.
+
+A \emph{normalized abelian 3-cocycle} is an arrow $h$ as above plus a map $c\colon A\times A\rightarrow R^\times$ such that, for any triple $(i,j,k)\in A^3$,
+\begin{align*}
+    h(j,k,i)\cdot c(i,j+k)\cdot h(i,j,k) &=c(i,k)\cdot h(j,i,k)\cdot c(i,j), \\
+    h(k,i,j)^{-1}\cdot c(i+j,k)\cdot h(i,j,k)^{-1} &=c(i,k)\cdot h(i,j,k)^{-1}\cdot c(j,k).
+\end{align*}
+
+Given such $(h,c)$, we get a braiding defined by
+\begin{align*}
+    V_i\otimes W_j &\rightarrow W_j\otimes V_i \\
+    a\otimes b &\mapsto c(i,j)\cdot b\otimes a
+\end{align*}
+and this is a symmetry if and only if $c(i,j)=c(j,i)=1$ for all $i$, $j$.
+
+If we take the constant map $h\equiv 1$, then the two axioms say exactly that $c$ is bilinear.
+
+For $A=\bbZ$, given any $u\in R^\times$ we can define $c(i,j)=u^{|ij|}$, which gives a symmetry if $u^2=1$. In particular, if $R$ is a domain we have $R^\times=\{\pm 1\}$ and the condition is always satisfied.
+
+There are then only two symmetric monoidal structures on $\bbZ$-$\Mod_R$, the trivial one and the one given by $V_i\otimes W_j\rightarrow W_j\otimes V_i$, $a\otimes b\mapsto (-1)^{|ij|}\cdot b\otimes a$. The latter is the symmetry given by the \emph{Koszul sign rule}.
+
+\item[(iv)] The simmetry given by the Koszul sign rule lifts to a symmetry on $\dgMod_R$, while the trivial one does not.
+\end{exmp}
+
+\begin{rmk}
+    The coherence theorem for braided (symmetric) monoidal categories does not say that ``all diagrams commute'', in particular $\gamma_{X,X}\colon X\otimes X\rightarrow X\otimes X$ in general is not the identity on $X\otimes X$. Instead, it tells us that the morphism is completely given by a labelled braid, for example
+    \[
+    \begin{tikzpicture}
+    \draw[line width=0.5mm, cap=round, rounded corners] (0,3) -- node[pos=0, left] {$A$} (3.75,3) -- (4.5,2.25) -- (5.25,2.25) node[pos=1, right] {$A$}; %% 5
+    \draw[line width=0.5mm, cap=round, rounded corners] (0,2.25) -- node[pos=0, left] {$B$} (2.25,2.25) -- (3,1.5) -- (5.25,1.5) node[pos=1, right] {$B$}; %% 4
+    \draw[line width=2mm, cap=round, rounded corners, color=white] (0,.75) -- (.75,.75) -- (1.5,1.5) -- (2.25,1.5) -- (3,2.25) -- (3.75,2.25) -- (4.5,3) -- (5.25,3) ; %% Shadow 2
+    \draw[line width=0.5mm, cap=round, rounded corners] (0,.75) -- node[pos=0, left] {$C$} (.75,.75) -- (1.5,1.5) -- (2.25,1.5) -- (3,2.25) -- (3.75,2.25) -- (4.5,3) -- (5.25,3) node[pos=1, right] {$C$}; %% 2
+    \draw[line width=0.5mm, cap=round, rounded corners] (0,0) -- node[pos=0, left] {$C$} (2.25,0) -- (3,.75) -- (5.25,.75) node[pos=1, right] {$C$}; %% 1
+    \draw[line width=2mm, cap=round, rounded corners, color=white] (0,1.5) -- (.75,1.5) -- (1.5,.75) -- (2.25,.75) -- (3,0) -- (5.25,0); %% Shadow 3
+    \draw[line width=0.5mm, cap=round, rounded corners] (0,1.5) -- node[pos=0, left] {$C$} (.75,1.5) -- (1.5,.75) -- (2.25,.75) -- (3,0) -- (5.25,0) node[pos=1, right] {$C$}; %% 3
+    \end{tikzpicture}
+    \]
+    completely describes a map $A\otimes B\otimes C\otimes C\otimes C\rightarrow C\otimes A\otimes B\otimes C\otimes C$. If $\gamma$ is a symmetry, then only the permutation of the objects matters, hence the following braids induce the same morphism.
+    \[
+    \begin{tikzpicture}
+    \draw[line width=0.5mm, cap=round, rounded corners] (0,0) -- node[pos=0, left] {$B$} (.75,0) -- (1.5,.75) -- (2.25,.75) node[pos=1, right] {$B$}; %% 2
+    \draw[line width=2mm, cap=round, rounded corners, color=white] (0,.75) -- node[pos=0, left] {$A$} (.75,.75) -- (1.5,0) -- (2.25,0) node[pos=1, right] {$A$}; %% shadow 1
+    \draw[line width=0.5mm, cap=round, rounded corners] (0,.75) -- node[pos=0, left] {$A$} (.75,.75) -- (1.5,0) -- (2.25,0) node[pos=1, right] {$A$}; %% 1
+    \end{tikzpicture}
+    \quad
+    \begin{tikzpicture}
+    \draw[line width=0.5mm, cap=round, rounded corners] (0,.75) -- node[pos=0, left] {$A$} (.75,.75) -- (1.5,0) -- (2.25,0) node[pos=1, right] {$A$}; %% 1
+    \draw[line width=2mm, cap=round, rounded corners, color=white] (0,0) -- node[pos=0, left] {$B$} (.75,0) -- (1.5,.75) -- (2.25,.75) node[pos=1, right] {$B$}; %% 2
+    \draw[line width=0.5mm, cap=round, rounded corners] (0,0) -- node[pos=0, left] {$B$} (.75,0) -- (1.5,.75) -- (2.25,.75) node[pos=1, right] {$B$}; %% 2
+    \end{tikzpicture}
+    \]
+\end{rmk}
+
+\begin{defn}
+    Let $\cV$ and $\cW$ be braided monoidal categories, $F\colon\cV\rightarrow\cW$ a lax/strong/strict monoidal functor. We call $F$ a \emph{braided lax/strong/strict monoidal functor} if the diagram
+    \[
+    \begin{tikzcd}
+        FA\otimes_\cW FB\ar[r, "\gamma_\cW"]\ar[d, "\phi"]
+        & FB\otimes_\cW FA\ar[d, "\phi"] \\
+        F(A\otimes_\cV B)\ar[r, "F\gamma_\cV"]
+        & F(B\otimes_\cV A)
+    \end{tikzcd}
+    \]
+    commutes.
+    
+    A \emph{braided natural transformation} is just a monoidal natural transformation between braided monoidal functors.
+    
+    If $\cV$ and $\cW$ are braided symmetric monoidal categories, then the braided functors and natural transformations are also called symmetric.
+\end{defn}
+
+\begin{exmp}
+\item[(i)] If $\phi\colon R\rightarrow S$ is a map of commutative rings, then $S\otimes_R-\colon\Mod_R\rightarrow\Mod_S$ is a symmetric strong monoidal functor.
+
+\item[(ii)] If $A$ is an abelian group, $(h,c)$ a normalized abelian 3-cocycle on $A$ with values in $R^\times$ and $\phi\colon R\rightarrow S$ a ring homomorphism, we have that $S\otimes_R-\colon A\text{-}\Mod_R^{(h,c)}\rightarrow A\text{-}\Mod_S^{(\phi h,\phi c)}$ is a braided strong monoidal functor. In particular, base change is a symmetric strong monoidal functor for both the trivial and the Koszul symmetry on $\bbZ\text{-}\Mod_R$.
+
+\item[(iii)] If $F$ is a braided strong monoidal left adjoint, then the right adjoint is braided lax monoidal.
+\end{exmp}
+
+\begin{defn}
+    Let $\cV$ be a braided monoidal category. A monoid $(M,\mu,\eta)$ in $\cV$ is \emph{commutative} if
+    \[
+    \begin{tikzcd}[column sep=tiny]
+        M\otimes M\ar[rr, "\gamma_{M,M}"]\ar[dr, swap, "\mu"]
+        && M\otimes M\ar[dl, "\mu"] \\
+        & M
+    \end{tikzcd}
+    \]
+    commutes.
+    
+    A \emph{morphism of commutative monoids} is just a morphism of monoids.
+\end{defn}
+
+\begin{rmk}
+    In general, a lax monoidal functor will not lift to commutative monoids, but a braided lax monoidal functor will. It follows that we have a 2-functor $\CMon\colon\textbf{BrMonCAT}\rightarrow\CAT$, $\cV\mapsto\CMon(\cV)$, sending braided monoidal categories to their categories of commutative monoids.
+\end{rmk}
+
+\begin{thm}
+    If $\cV$ is a locally presentable monoidal category with $-\otimes -$ cocontinuous in both variables, then $\CMon(\cV)\rightarrow\cV$ is monadic and accessible. Also, $\CMon(\cV)$ is locally $\kappa$-presentable if $\cV$ is.
+\end{thm}
+
+\begin{proof}
+    Adapt the one for all monoids with an additional action.
+\end{proof}
+
+\begin{defn}
+    Let $ \cV $ be a braided monoidal category.
+    Define the \emph{opposite} of a $ \cV $-category~$ \cA $ by:
+    \begin{enumerate}[label=$\bullet$]
+	\item $ \Ob(\cA^{\op}) = \Ob(\cA) $,
+	\item $ \cA^{\op}(A,B) = \cA(B,A) $,
+	\item $ \id_A $ the same morphism as for $ \cA $ and
+	\item composition by the diagram
+	    \begin{displaymath}
+	        \begin{tikzcd}
+		    \cA^{\op}(B,C)\otimes \cA^{\op}(A,B)\arrow[r, equal] \arrow[d, dashed, "\circ_{\cA^{\op}}"]& \cA(C,B)\otimes \cA(B,A) \arrow[d, "\gamma"] \\
+		    \cA^{\op}(A,C) = \cA(C,A) & \cA(B,A)\otimes \cA(C,B) \arrow[l, "\circ_\cA"]
+	        \end{tikzcd}
+	    \end{displaymath}
+    \end{enumerate}
+\end{defn}
+We want to talk about $ \cV $-functors of ``several variables.''
+For this we need $ \cA \otimes \cB$.
+\begin{defn}
+    Let $ \cA,\cB $ be $ \cV $-categories.
+    Define the $ \cV $-category $ \cA \otimes \cB $ by
+    \begin{enumerate}[label=$ \bullet $]
+	\item $ \Ob(\cA\otimes \cB) = \Ob(\cA) \times \Ob(\cB) $
+	\item $ (\cA\otimes\cB)((A,B),(A',B')) = \cA(A,A')\otimes \cB(B,B') $
+	\item identities: $ I \iso I\otimes I \xrightarrow{\id_A \otimes \id_B} \cA\otimes\cB((A,B),(A,B)) $ and
+	\item compositions
+	    \begin{displaymath}
+	        \begin{tikzcd}
+		    (\cA(A',A'') \otimes \cB(B',B'')) \otimes (\cA(A,A') \otimes \cB(B,B'))
+		    \arrow[d, "\text{isomorphism built from $ \gamma $'s}"]
+		    \\
+		    \cA(A',A'') \otimes \cA(A,A')\otimes \cB(B',B'')\otimes \cB(B,B')
+		    \arrow[d, "\circ\otimes\circ"]\\
+		    \cA(A,A'')\otimes \cB(B,B'')
+	        \end{tikzcd}
+	    \end{displaymath}
+    \end{enumerate}
+    Note: The first isomoprhism is unique, if $ \cV $ is symmetric.
+\end{defn}
+The final ingredient for Yoneda is enrichment of $ \cV $ over itself.
+For this we need an internal $ \Hom $-functor.
+
+\begin{defn}
+    A monoidal category $ \cV $ is \emph{closed monoidal} if for any $ X \in \cV $ the functors $ X\otimes - $ and $ -\otimes X $ have right adjoints $ [X,-]_l $ and $ [-,X]_r $.
+    We denote the unit and counit by $ \coev $ and $ \ev $ respectively.
+    For example
+    \begin{displaymath}
+	\ev^X \from [X,Y]_r \otimes X \xrightarrow{(\ev^X)_Y} Y.
+    \end{displaymath}
+\end{defn}
+\begin{rmk}
+    If $ \cV $ is braided, we have $ -\otimes X \iso X\otimes - $, so $ [-,-]_l $ exists if and only $ [-,-]_r $ does and they are isomorphic.
+    We simply write $ [-,-] = [-,-]_r $ in this case.
+    In other words $ \cV(X\otimes Y,Z)\iso \cV(X,[Y,Z]) $.
+\end{rmk}
+
+\begin{rmk}
+    If $ -\otimes X $ and $ X\otimes - $ have right adjoints, the monidal natural transformatons may \emph{not} define a braiding $ \gamma $!
+    We need more compatibility.
+\end{rmk}
+
+\begin{prop}
+    Let $ \cV $ be a right-closed (that is $ [-,-]_r $ exists) monoidal category.
+    Then the morphisms
+    \begin{displaymath}
+	([Y,Z]_r \otimes [X,Y]_r ) \to [X,Z]_r \quad \text{and} \quad I \to [X,X]_r
+    \end{displaymath}
+    corrseponding to
+    \begin{displaymath}
+	\begin{tikzcd}
+	([Y,Z]_r \otimes [X,Y]_r) \otimes X \arrow[r]\arrow[d, "\alpha"'] & Z \\
+	\lbrack Y,Z\rbrack_r \otimes ([X,Y]_r \otimes X) \arrow[r, "\id\otimes \ev^X"]  & \lbrack Y,Z\rbrack_r\otimes Y \arrow[u, "\ev^Y"']
+    \end{tikzcd}\quad \text{and}\quad
+    I\otimes X \xrightarrow{\lambda_X} X
+    \end{displaymath}
+    give a $ \cV $-category structure on $ \Ob(\cV) $ with undelying category ismorphic to $ \cV $.
+\end{prop}
+\begin{proof}
+    The proof is slightly tedious; We refer to Kelly's book.
+
+    A more abstract argument is possible if $ \cV $ is locally presentable and biclosed.
+    The we have a monoidal left adjoint
+    \begin{displaymath}
+	\begin{tikzcd}[row sep = tiny]
+	    \cV
+	    \arrow[r, shift left=.5em] \arrow[from=r, shift left=.5em] \arrow[r,phantom, "\top"]
+	    & \lbrack \cV,\cV\rbrack_{\kappa}
+	    \arrow[r, shift left=.5em]
+	    \arrow[from=r, shift left=.5em]
+	    \arrow[r,phantom, "\top"]
+	    & \lbrack \cV ,\cV \rbrack\\
+	    X \arrow[mapsto, r] & -\otimes X
+        \end{tikzcd}
+    \end{displaymath}
+    Use the $ [\cV,\cV] $-enrichment on $ \Ob(\cV) $ given by $ \langle\cV,\cW\rangle $ (previous exercise).
+    Pull this back along the right adjoint and get $ R\langle \cV,\cW\rangle = [V,W]_r $.
+\end{proof}
+
+\begin{exmp}
+    \begin{enumerate}[label=\arabic*)]
+	\item 
+	   If $ \cV $ is a category of ``sets with structure,'' that is if $ V \from \cV \to \Set $ is monadic for example $ \cV = \Mod_R,\Ab $ or $ \cV = \Top_{\mathrm{CGWH}} $, then $ [-,-] $ is just the obvious structure on $ \Hom $-sets of $ \cV $.
+	   Specifically if $ M,N $ are $ R $-modules, then $ \Hom_R(M,N) $ has the natural $ R $-modules structure.
+       \item
+	   For $ \cV = \Cat $, $ [A,B] $ is just the category of functors from $ A $ to $ B $. Note that this is not just structure on the $ \Hom $-sets, we nned the additional data of natural transformations.
+       \item Even more involved: $ \dgMod_R,\sSet $: 
+    \end{enumerate}
+\end{exmp}
+If we have all these structures, that is a symmetric monoidal closed category, we can define a $ \cV $-functor
+\begin{displaymath}
+    \cC(-,-) \from \cC^{\op}\otimes \cC \to \cV
+\end{displaymath}
+as follows.
+In order to do this, we use the following way of constructing functors $ \cA\otimes \cB \to \cC $:
+\begin{prop}
+    To give a $ \cV $-functor $ T\from \cA \otimes \cB \to \cC $ amounts to ginving families of functors $ T(A,-)\from \cB \to \cC)_{A \in \cA} $ and $ (T(-,B) \from \cA \to \cC)_{B\in \cB} $ such that
+    \begin{enumerate}[label=\roman*)]
+	\item
+	    On objects $ T(A,-)(B) = T(-,B)(A) $ which we denote by $ T(A,B) $.
+	\item 
+	    For all $ A,A' \in \cA $ and $ B,B' \in \cB $ the diagram
+	    \begin{displaymath}
+		\begin{tikzcd}%[column sep = 3em]
+		    \cA(A,A')\otimes \cB(B,B')
+		    \arrow[r, "{T(-,B')\otimes T(A,-)}", bend left=18]
+		    \arrow[dd, "\gamma"]
+		    &
+		    \cC(T(A,B') ,T(A',B')) \otimes \cC(T(A,B) ,T(A,B'))
+		    \arrow[d, "\circ"]
+		    \\
+		    & \cC(T(A,B),T(A',B'))
+		    \\
+		    \cB(B,B') \otimes \cA(A,A') 
+		    \arrow[r, "{T(A',-)\otimes T(-,B)}"', bend right=18]
+		    & \cC(T(A',B) ,T(A',B')) \otimes \cC(T(A,B) ,T(A',B))
+		    \arrow[u, "\circ"']
+	        \end{tikzcd}
+	    \end{displaymath}
+	    commutes.
+	    This means that ``it does not matter in which way we compose.''
+	    In this case, $ T_{(A,B),(A',B')}  $ is given by the now well defined composite in the above diagram.
+    \end{enumerate}
+\end{prop}
+\begin{proof}
+    Long exercise.
+\end{proof}
+Now we need to define $ \cC(c,-) \from \cC \to \cV $, $ \cC(-,c)\from \cC^{\op}\to \cV $.
+But $ \cC(-,c) $ is just $ \cC^{\op}(c,-) $, so we only need to prove that the covariant one is a well defined functor.
+On objects we define $ \cC(c,-)(c') = \cC(c,c') \in \cV $.
+The action on morphisms is given by the morphism
+\begin{displaymath}
+    \cC(c,-)_{c',c''} \from \cC(c',c'') \to [\cC(c,c'),\cC(c',c'')]
+\end{displaymath}
+corrseponding under adjunction to the composition
+\begin{displaymath}
+    \cC(c',c'')\otimes \cC(c,c') \xrightarrow{\circ} \cC(c,c'')
+\end{displaymath}
+The diagram in the above proposition commutes by adjunction since composition is associative.
+\begin{exmp}
+    \begin{enumerate}[label=\arabic*)]
+	\item
+	    For $ \cV =  $``sets with structure,'' the functor $ \cC(-,-) $ simply defines a lift 
+	    \begin{displaymath}
+	        \begin{tikzcd}
+	    	& \cV \arrow[dd, "V"]\\
+	    	\cC^{\op}\otimes \cC \arrow[ur, "{\cC(-,-)}"]\arrow[dr, "{\cC_0(-,-)}"'] & \\
+	    	& \Set
+	        \end{tikzcd}
+	    \end{displaymath}
+	    we remember that $ \cC(-,-) $ is an $ R $-module, a topological space, etc.
+	\item
+	    For $ \cC = \Cat $, we get $ \cK(-,-) \from \cK^{\op}\times \cK \to \Cat $, $ (x,y)\mapsto \cK(x,y) $.
+	    a 2-functor, where the action on 1-cells is given by whiskering on either side.
+	\item
+	    For $ \cV $ itself, we get  $ \cV(-,-) \from \cV^{\op}\otimes \cV \to \cV $, $ (V,W)\mapsto [V,W] $.
+	    The underlying set of this is $ \cV(I,[V,W]) \iso \cV(V,W) $.
+	    To avoid confusion, we will write $ \cV_0(V,W) $ for the \emph{set} of morphisms in $ \cV $.
+    \end{enumerate}
+    %What about using $ \underline{\cV} $ for enriched sets?
+    %If we do this add a shortcut.
+\end{exmp}
+\begin{prop}
+    Ther is a $ \cV $-funnctor $ -\otimes -\from \cV \otimes \cV \to \cV $ which on $ \Hom $-objects is the morphism
+    \begin{displaymath}
+        [X,X']\otimes [Y,Y'] \to [X\otimes Y , X'\otimes Y']
+    \end{displaymath}
+    corresponding by adjunction to the morphism
+    \begin{displaymath}
+        ([X,X']\otimes[Y,Y']) \otimes (X\otimes Y)\iso ([X,X']\otimes X)\otimes ([Y,Y']\otimes Y) \xrightarrow{\ev^X \otimes \ev^Y} X'\otimes Y'.
+    \end{displaymath}
+    For this functor, $ \alpha,\lambda,\rho $ are $ \cV $-natural transformations. Moreover for each $ X $, the maps $ \ev^X $ and $ \coev^X $ are $ \cV $-natural, so $ -\otimes X $ is a left adjoint to the functor $ [X,-] $ in $ \cV $-$\CAT$
+\end{prop}
+\begin{proof}
+    By adjunction. Straightforward, but tedious (see Kelley).
+\end{proof}
+\begin{rmk}
+    One can check that all ``reasonable'' morphisms built from the canonical ones are $ \cV $-natural.
+    For example, if $ f \from A \to B $ is a morphism in $ \cA_0 $, we get $ \cV $-natural transformations 
+    \begin{displaymath}
+        \cA(f,-) \from \cA(B,-)\Rightarrow \cA(A,-) \quad \text{and} \quad  \cA(-,f) \from \cA(-,A) \Rightarrow \cA(-,B) 
+    \end{displaymath}defined by applying
+    \begin{displaymath}
+        \cA_0^{\op}\times \cA_0 \to (\cA^{\op} \otimes \cA) \xrightarrow{\cA(-,-)_0} \cV_0
+    \end{displaymath}
+    to $ (f,\id) $ and $ (\id,f) $ respectively.
+    
+    For details---or more precisely---a good list of instructions on hhow to preceed efficiently can be found in Kelley's ``Basic concepts,'' sections 1.7 and 1.8.
+\end{rmk}
 
 
+\section{The weak Yoneda Lemma}
 
+\begin{rmk}
+    With the morphism just defined, we can sxporess $ \cV $-naturality of $ \alpha \from F \Rightarrow G $ where $ F,G\from \cC \to \cD $ by saying that the following diagram commutes for all $ c,c' \in \cC $:
+    \begin{displaymath}
+	\begin{tikzcd}[column sep = huge]
+	    \cC(c,c') \arrow[r, "F"]\arrow[d, "G"]& \cD(Fc, Fc')\arrow[d, "{\cD(Fc,\alpha_{c'})}"] \\
+	    \cD(Gc,Gc') \arrow[r, "{\cD(\alpha_c, Gc')}"' ]& \cD(Fc,Gc')
+        \end{tikzcd}
+    \end{displaymath}
+\end{rmk}
 
+\begin{thm}[Weak Yoneda lemma]
+    Let $\cV$ be a symmetric monoidal category, $\cA$ a $\cV$-category, $F\colon\cA\rightarrow\cV$ a $\cV$-functor, $A\in\cA$ and $\alpha\colon\cA(A,-)\Rightarrow F$ a $\cV$-natural transformation. Consider the map$$\phi(A)\colon I\xrightarrow{\id_A}\cA(A,-)\xrightarrow{\alpha_A}FA.$$
+    The assignment
+    \begin{align*}
+        \phi\colon\cV\text{-}\Nat(\cA(A,-),F) &\rightarrow\cV_0(I,FA) \\
+        A &\mapsto\phi(A)
+    \end{align*}
+    is a bijection, where the inserve map $\psi$ is given by sending $\eta\colon I\rightarrow FA$ to the $\cV$-natural transformation
+    $$\cA(A,B)\xRightarrow{F_{A,B}}[FA,FB]\xRightarrow{[\eta,\id_{FA}]}[I,FA]\cong FA.$$
+\end{thm}
 
+\begin{proof}
+    $\cV$-naturality follows from the general principle previously mentioned that ``all'' morphisms coming from the monoidal structure are $\cV$-natural. Since $F_{A,A}(\id_A)=\id_{FA}$, we get $\phi\psi=\id$ by construction. We still have to prove that $\psi\phi=\id$.
+    
+    Consider the diagram
+    \[
+    \begin{tikzcd}
+        \cA(A,B)\ar[r, "{\cA(A,-)}"]\ar[d, "F"]
+        & {[\cA(A,A),\cA(A,B)]}\ar[r, "{[\id_A,I]}"]\ar[d, "{[I,\alpha_B]}"]
+        & {[I,\cA(A,B)]}\ar[r, "\sim"]\ar[d, "{[I,\alpha_B]}"]
+        & \cA(A,B)\ar[d, "\alpha_B"] \\
+        {[FA,FB]}\ar[r, "{[\alpha_A,I]}"]\ar[rrr, bend right, dotted, "{[\phi(B),I]}"]
+        & {[\cA(A,A),FA]}\ar[r, "{[\id_A,I]}"]
+        & {[I,FB]}\ar[r, "\sim"]
+        & FA
+    \end{tikzcd}
+    ,\]
+    where the left and right squares on extremes commute by $\cV$-naturality, while for the one in the middle we consider the functor $[-,-]\colon\cV^{\op}\otimes\cV\rightarrow\cV$.
+    
+    The claim follows by checking that the composition is the identity.
+\end{proof}
+
+\begin{thm}[Parametrized Yoneda]
+    Let $T\colon\cB^{\op}\otimes\cA\rightarrow\cV$ be a $\cV$-functor and suppose that for all $B\in\cB$ there exists a $KB\in\cA$ and a $\cV$-natural isomorphism $\alpha_B\colon\cA(KB,-)\xRightarrow{\sim} T(B,-)$. Then there is a unique way to define $K_{B,C}\colon\cB(B,C)\rightarrow\cA(KB,KC)$ in $\cV$ such that $K$ is a $\cV$-functor and $(\alpha_B)_A\colon\cA(KB,A)\rightarrow T(B,A)$ is $\cV$-natural in both variables as a $\cV$-functor $\cB^{\op}\otimes\cA\rightarrow\cV$.
+\end{thm}
+
+\begin{proof}
+    One checks that $\cV$-naturality of $(\alpha_A)_B$ amounts to commutativity of the diagram
+    \[
+    \begin{tikzcd}[column sep = 5em]
+        \cB(B,C)\ar[r, dotted, "K_{B,C}"]\ar[d, "{T(-,KC)}"]
+        & \cA(KB,KC)\ar[r, "{T(B,-)}"]\ar[dr, "\sim"', swap, "{(\alpha_B)_{KC}}"]
+        & {[T(B,KB),T(B,KC)]}\ar[d, "{[\eta_B, I]}"] \\
+        {[T(C,KC),T(B,KC)]}\ar[rr, "{[\eta_C,I]}"]
+        && {[I,T(B,KC)]}
+    \end{tikzcd}
+    ,\]
+    where $\eta_B=\phi(\alpha_B)$ and the triangle commutes by Yoneda. Since $(\alpha_B)_{KC}$ is an isomorphism there exists a unique candidate $K_{B,C}$ and one only has to check that it works.
+\end{proof}
+
+\begin{rmk}
+    This is really useful as a way of constructing $\cV$-functors via universal properties and representability results.
+\end{rmk}
+
+\section{Weighted colimits and enriched presheaf categories}
+
+We want to define the $\cV$-category $[\cA^{\op},\cV]$ of $\cV$-presheaves or $\cV$-functors for $\cA$ small. We will do this by defining a suitable $\cV$-monad $T$ such that $[\cA^{\op},\cV]\coloneqq T\Alg$. We want our category to have at least coproducts and equalizers, so from now on we assume that $\cV$ is a (co)complete, symmetric monoidal and closed. Such an object is called \emph{cosmos}, after B\'enabou cosmos.
+
+\begin{defn}
+    Let $\cC$ be a $\cV$-category, $(C_j)_{j\in J}\in\Ob(\cC)^J$ a family of objects in $\cC$. We say that a collection $j_j\colon C_j\rightarrow C$ exhibits $C$ as a $\cV$-coproduct of the $(C_j)_{j\in J}$ if$$\cC(j_j,D)\colon\cC(C,D)\rightarrow\cC(C_j,D)$$is a product diagram in $\cV_0$ for all $D\in\cC$.
+    
+    Similarly, we define a $\cV$-coequalizer$$A\rightrightarrows B\rightarrow C$$ by requiring that $$\cC(C,D)\rightarrow\cC(B,D)\rightrightarrows\cC(A,D)$$is a coequalizer in $\cV_0$.
+    
+    Dualizing the definitions, we find the notions of \emph{product} and \emph{equalizer}.
+\end{defn}
+
+\begin{rmk}
+    If we apply $\cV_0(A,-)\colon\cV_0\rightarrow\Set$, we see that $\cV$-coproducts and $\cV$-coequalizers are in particular coproducts and coequalizers in $\cV_0$.
+\end{rmk}
+
+\begin{exmp}
+    For $\cV=\Cat$, a $\cV$-coequalizer also has a 2-dimensional universal property, that is given one $A\rightrightarrows B\rightarrow C$ and a 2-cell from $B$ to $D$ there is a unique 2-cell from $C$ to $D$ making the following diagram commute.
+    \[
+    \begin{tikzcd}
+    	&& C\ar[dd, dotted, swap, "\bar{b}", ""{name=bbar}]\ar[dd, dotted, bend left=60, "\bar{a}", ""{name=abar}] \\
+        A\ar[r, shift left,]\ar[r, shift right]
+        & B\ar[ur]\ar[dr, "a", ""{name=a}]\ar[dr, bend right=60, swap, "b", ""{name=b}] \\
+        && D
+        \ar[Rightarrow, shorten <= .3em, shorten >= .3em, from=a, to=b, "\alpha"]
+        \ar[Rightarrow, dotted, shorten <= .3em, shorten >= .3em, swap, from=abar, to=bbar, "\overline{\alpha}"]
+    \end{tikzcd}
+    \]
+\end{exmp}
+
+For enriched categories, there is an important third kind of colimit called \emph{copower} or \emph{tensor}.
+
+\begin{defn}
+    Let $\cC$ be a $\cV$-category, $V\in\cV$, $C\in\cC$. We say that the copower of $C$ by $V$ exists if the $\cV$-functor $[V,\cC(C,-)]\colon\cC\rightarrow\cV$ is representable by some object $V\odot C\in\cC$, the copower, that is we have a $\cV$-natural isomorphism $\cC(V\otimes C,-)\Rightarrow [V,\cC(C,-)]$.
+    
+    Dualizing the definition, we find the notion of \emph{power} or \emph{cotensor}.
+\end{defn}
+
+\begin{rmk}
+    By parametrized Yoneda, we get a $\cV$-functor$$-\odot-\colon\cV\otimes\cC\rightarrow\cC$$if all copowers exist. It is associative up to coherent isomorphism, so it defines a kind of weak action of $\cV$ on $\cC$.
+\end{rmk}
+
+\begin{exmp}
+    For $\cV=\cC=\Cat$, $C\times[1]$ is the copower of $C\in\cC$ by $[1]\in\cV$. Indeed, we have a pair of bijective correspondences inducing the one we want as follows:
+    
+    $$C\times[1]\rightarrow D\quad\leftrightarrow\quad
+        \begin{tikzcd}
+        C\ar[r, bend left, ""{name=A}]\ar[r, bend right, swap, ""{name=B}]
+        & C
+        \ar[Rightarrow, shorten <= .3em, shorten >= .3em, from=A, to=B, "\alpha"]
+    \end{tikzcd}
+    \quad\leftrightarrow\quad C\rightarrow D^{[1]}.$$
+\end{exmp}
+
+\begin{prop}
+    A $\cV$-category $\cC$ has $\cV$-coproducts and $\cV$-coequalizers if $\cC_0$ has coproducts and coequalizers and these are preserved by the functor $\cC_0(-,D)\colon\cC_0\rightarrow\cV^{\op}$ for every $D\in\cC$.
+\end{prop}
+
+\begin{proof}
+    It follows from the definition.
+\end{proof}
+
+\begin{cor}
+    The $\cV$-categories $\cV$ and $\cV^{\op}$ have all $\cV$-coproducts and $\cV$-coequalizers.
+\end{cor}
+
+\begin{proof}
+    We need to check that $[-,V]_0\colon\cC_0\rightarrow\cV_0^{\op}$ preserves coproducts and coequalizers, but this is just $[-,V]\colon\cV_0\rightarrow\cV_0^{\op}$ and we have $[-,V]\dashv[-,V]\colon\cV_0^{\op}\rightarrow\cV_0$ because
+    $$\cV_0(X,[Y,Z])\cong\cV_0(X\otimes Y,Z)\cong\cV_0(Y\otimes X,Z)\cong\cV_0(Y,[X,Z]).$$
+    
+    For $\cV^{\op}$, we need to check that $[V,-]_0\colon\cV_0\rightarrow\cV_0^{\op}$ preserves the limits, which follows from $-\otimes V\dashv [V,-]$.
+\end{proof}
+
+\begin{prop}
+    The $\cV$-category $\cV$ has all powers and copowers given by $[V,C]$ and $V\otimes C$ respectively.
+\end{prop}
+
+\begin{proof}
+    We need $\cV$-natural isomorphisms $[V,[C,D]]\cong[V\otimes C,D]$, which follows from the fact that we have a $\cV$-adjunction $-\otimes C\dashv [C,-]$. Similarly, use the symmetry isomorphism to get a $\cV$-natural isomorphism $[D,[V,C]]\cong[V,[D,C]]$.
+\end{proof}
+
+\begin{defn}
+    A $\cV$-category $\cC$ is \emph{$\cV$-cocomplete} if it has all $\cV$-coequalizers, $\cV$-coproducts and copowers. If it satisfies the dual conditions, then it is \emph{$\cV$-complete}.
+\end{defn}
+
+\begin{exmp}
+    If $(\cC_j)_{j\in J}$ is a family of $\cV$-(co)complete $\cV$-categories, then $\Pi_{j\in J}\cC_j$ is a $\cV$-(co)complete $\cV$-category.
+\end{exmp}
 
 
 
@@ -2959,4 +3487,5 @@ There is a $2$-monad $T$ on $\Cat$ s.t.\ $T\Alg_P=\Mon_{str}(\Cat)$ with strong 
 	\backmatter
 	% bibliography, glossary and index would go here.
 	
+
 \end{document}
