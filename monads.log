@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.25)  16 JAN 2020 15:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.10.25)  18 JAN 2020 00:22
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1167,26 +1167,26 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 )
 \XKV@depth=\count330
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-))) (c:/Users/Daniele/Documents/GitHub/Monads-and-their-applications/monads.aux)
+))) (c:\Users\Daniele\Documents\GitHub\Monads-and-their-applications/monads.aux)
 \openout1 = `monads.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-Package scrbase Info: activating english \contentsname on input line 268.
-Package scrbase Info: activating english \listfigurename on input line 268.
-Package scrbase Info: activating english \listtablename on input line 268.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 270.
+LaTeX Font Info:    ... okay on input line 270.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 270.
+LaTeX Font Info:    ... okay on input line 270.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 270.
+LaTeX Font Info:    ... okay on input line 270.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 270.
+LaTeX Font Info:    ... okay on input line 270.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 270.
+LaTeX Font Info:    ... okay on input line 270.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 270.
+LaTeX Font Info:    ... okay on input line 270.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 270.
+LaTeX Font Info:    ... okay on input line 270.
+Package scrbase Info: activating english \contentsname on input line 270.
+Package scrbase Info: activating english \listfigurename on input line 270.
+Package scrbase Info: activating english \listtablename on input line 270.
  (c:/texlive/2019/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count331
@@ -1214,7 +1214,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 \AtBeginShipoutBox=\box98
  ABD: EveryShipout initializing macros
-Package hyperref Info: Link coloring OFF on input line 268.
+Package hyperref Info: Link coloring OFF on input line 270.
  (c:/texlive/2019/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (c:/texlive/2019/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
@@ -1222,10 +1222,10 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count337
 )
-LaTeX Info: Redefining \ref on input line 268.
-LaTeX Info: Redefining \pageref on input line 268.
-LaTeX Info: Redefining \nameref on input line 268.
- (c:/Users/Daniele/Documents/GitHub/Monads-and-their-applications/monads.out) (c:/Users/Daniele/Documents/GitHub/Monads-and-their-applications/monads.out)
+LaTeX Info: Redefining \ref on input line 270.
+LaTeX Info: Redefining \pageref on input line 270.
+LaTeX Info: Redefining \nameref on input line 270.
+ (c:\Users\Daniele\Documents\GitHub\Monads-and-their-applications/monads.out) (c:\Users\Daniele\Documents\GitHub\Monads-and-their-applications/monads.out)
 \@outlinefile=\write5
 \openout5 = `monads.out'.
 
@@ -1236,7 +1236,7 @@ Class scrbook Info: loading recommended package `bookmark'.
 (scrbook)           `bookmarkpackage=false' before \begin{document} and
 (scrbook)           you can avoid this message adding:
 (scrbook)             \usepackage{bookmark}
-(scrbook)           before \begin{document} on input line 268.
+(scrbook)           before \begin{document} on input line 270.
  (c:/texlive/2019/texmf-dist/tex/latex/oberdiek/bookmark.sty
 Package: bookmark 2019/06/04 v1.27 PDF bookmarks (HO)
  (c:/texlive/2019/texmf-dist/tex/latex/oberdiek/bkm-pdftex.def
@@ -1245,26 +1245,26 @@ Package auxhook Info: \AddLineBeginMainAux comes a little late,
 (auxhook)             because the main .aux file is already opened on input line 164.
 \BKM@id=\count338
 ))
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 268.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 270.
  (c:/texlive/2019/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 268.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 270.
  (c:/texlive/2019/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 268.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 270.
  (c:/texlive/2019/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.43799pt on input line 268.
+Package xypdf Info: Line width: 0.43799pt on input line 270.
 <monadsForDinner.jpg, id=7, 661.47125pt x 501.875pt>
 File: monadsForDinner.jpg Graphic file (type jpg)
 <use monadsForDinner.jpg>
-Package pdftex.def Info: monadsForDinner.jpg  used on input line 290.
+Package pdftex.def Info: monadsForDinner.jpg  used on input line 292.
 (pdftex.def)             Requested size: 463.02672pt x 351.31009pt.
 
-Overfull \hbox (10.05876pt too wide) in paragraph at lines 290--290
+Overfull \hbox (10.05876pt too wide) in paragraph at lines 292--292
  [][] 
  []
 
@@ -1275,94 +1275,94 @@ Overfull \hbox (10.05876pt too wide) in paragraph at lines 290--290
 <doclicense-CC-by-nc-sa.pdf, id=17, 121.45375pt x 43.16125pt>
 File: doclicense-CC-by-nc-sa.pdf Graphic file (type pdf)
 <use doclicense-CC-by-nc-sa.pdf>
-Package pdftex.def Info: doclicense-CC-by-nc-sa.pdf  used on input line 300.
+Package pdftex.def Info: doclicense-CC-by-nc-sa.pdf  used on input line 302.
 (pdftex.def)             Requested size: 109.50027pt x 38.91324pt.
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 301.
+LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 303.
  (c:/texlive/2019/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 301.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 303.
  [1
 
- <c:/texlive/2019/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-nc-sa.pdf>] (c:/Users/Daniele/Documents/GitHub/Monads-and-their-applications/monads.toc)
+ <c:/texlive/2019/texmf-dist/tex/latex/doclicense/images/doclicense-CC-by-nc-sa.pdf>] (c:\Users\Daniele\Documents\GitHub\Monads-and-their-applications/monads.toc)
 \tf@toc=\write6
 \openout6 = `monads.toc'.
 
  [2
 
 ]
-LaTeX Font Info:    Trying to load font information for U+eus on input line 310.
+LaTeX Font Info:    Trying to load font information for U+eus on input line 312.
  (c:/texlive/2019/texmf-dist/tex/latex/amsfonts/ueus.fd
 File: ueus.fd 2013/01/14 v3.01 Euler Script
 )pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.366 	\chapter
+l.368 	\chapter
                {Monads and algebras} [1
 
 
 ]
 chapter 1.
 
-Overfull \hbox (13.57462pt too wide) in paragraph at lines 429--430
+Overfull \hbox (13.57462pt too wide) in paragraph at lines 431--432
 [][] 
  []
 
 
-Overfull \hbox (13.57462pt too wide) in paragraph at lines 442--443
+Overfull \hbox (13.57462pt too wide) in paragraph at lines 444--445
 [][] 
  []
 
 [2
 
 ] [3] [4]
-Overfull \hbox (2.09325pt too wide) in paragraph at lines 648--649
+Overfull \hbox (2.09325pt too wide) in paragraph at lines 650--651
 [][]\OT1/cmr/bx/n/10.95 Proposition 1.2.5. []\OT1/cmr/m/n/10.95 If $\OML/cmm/m/it/10.95 U [] []  [] \OMS/cmsy/m/n/10.95 ! []$ \OT1/cmr/m/n/10.95 has a left ad-joint $\OML/cmm/m/it/10.95 F$ \OT1/cmr/m/n/10.95 with unit $\OML/cmm/m/it/10.95 ^^Q$ \OT1/cmr/m/n/10.95 and counit $\OML/cmm/m/it/10.95 ^^O$\OT1/cmr/m/n/10.95 , then $(\OML/cmm/m/it/10.95 UF; U^^OF; ^^Q\OT1/cmr/m/n/10.95 )$
  []
 
 [5]
-Overfull \hbox (13.03189pt too wide) in paragraph at lines 689--692
+Overfull \hbox (13.03189pt too wide) in paragraph at lines 691--694
 [][]\OT1/cmr/bx/n/10.95 Example 1.2.6 \OT1/cmr/m/n/10.95 (In-ter-est-ing ad-junc-tion, bor-ing monad)\OT1/cmr/bx/n/10.95 . []\OT1/cmr/m/n/10.95 Let us con-sider the ad-junc-tion $\OML/cmm/m/it/10.95 U [] [] [] \U/msa/m/n/10.95 ^^]
  []
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 708.
+(hyperref)                removing `math shift' on input line 710.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 708.
+(hyperref)                removing `math shift' on input line 710.
 
 [6] [7] [8] [9]
 chapter 2.
 [10
 
 ]
-Overfull \hbox (2.60655pt too wide) in paragraph at lines 933--934
+Overfull \hbox (2.60655pt too wide) in paragraph at lines 935--936
 []\OT1/cmr/m/n/10.95 We have al-ready ob-served that the sec-ond state-ment holds, so that coeq$(\OML/cmm/m/it/10.95 U[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 T\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ; U[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^V[]\OT1/cmr/m/n/10.95 ))$
  []
 
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 948.
+(mdframed)              on input line 950.
 [11]
-Overfull \hbox (10.51833pt too wide) in paragraph at lines 964--965
+Overfull \hbox (10.51833pt too wide) in paragraph at lines 966--967
 \OT1/cmr/m/n/10.95 in the func-tor cat-e-gory $[\OML/cmm/m/it/10.95 T []; []\OT1/cmr/m/n/10.95 ]$. We claim that this pair has a co-equal-izer and $[] [] [] \OML/cmm/m/it/10.95 T [] \OMS/cmsy/m/n/10.95 !
  []
 
 [12] [13]
-Overfull \hbox (37.31798pt too wide) in paragraph at lines 1121--1126
+Overfull \hbox (37.31798pt too wide) in paragraph at lines 1123--1128
 []\OT1/cmr/m/n/10.95 We need to check that, given a re-flex-ive co-equal-izer $ [] $ in $[]$ and $ [] $
  []
 
 [14] [15] [16]
-Overfull \hbox (51.007pt too wide) in paragraph at lines 1267--1268
+Overfull \hbox (51.007pt too wide) in paragraph at lines 1269--1270
 []$\OML/cmm/m/it/10.95 T []$ \OT1/cmr/m/n/10.95 has al-ways an ini-tial ob-ject, namely the free al-ge-bra of the ini-tial ob-ject $[]$.
  []
 
 [17] [18]
-Overfull \hbox (15.05441pt too wide) in paragraph at lines 1349--1350
+Overfull \hbox (15.05441pt too wide) in paragraph at lines 1351--1352
 []\OT1/cmr/m/n/10.95 Let $[]$ be full sub-cat-e-gory spanned by the el-e-ments $\OML/cmm/m/it/10.95 b \OMS/cmsy/m/n/10.95 2 []$ \OT1/cmr/m/n/10.95 such that $\OML/cmm/m/it/10.95 ^^O[] [] []  [][] K[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 b\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.95 !
  []
 
@@ -1371,42 +1371,47 @@ chapter 3.
 [35
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 2191--2192
+Underfull \hbox (badness 10000) in paragraph at lines 2193--2194
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2195--2196
+Underfull \hbox (badness 10000) in paragraph at lines 2197--2198
 
  []
 
 [36] [37] [38] [39] [40] [41]
-Overfull \hbox (9.1317pt too wide) in paragraph at lines 2520--2521
+Overfull \hbox (9.1317pt too wide) in paragraph at lines 2522--2523
 [][]\OT1/cmr/bx/n/10.95 Remark 3.2.12. []\OT1/cmr/m/n/10.95 If $[]$ is ad-di-tive, monoids are of-ten called al-ge-bras as well be-cause $[]([][]) =
  []
 
 [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55] [56] [57] [58]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3491.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3491.
- (c:/Users/Daniele/Documents/GitHub/Monads-and-their-applications/monads.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3491.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3491.
+Overfull \hbox (13.83844pt too wide) in paragraph at lines 3525--3526
+[]\OT1/cmr/m/n/10.95 To talk about preser-va-tion of copow-ers, we need a canon-i-cal com-par-i-son mor-phism $[] [] [] \OML/cmm/m/it/10.95 V [] FC \OMS/cmsy/m/n/10.95 !
+ []
+
+[59] [60] [61]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3676.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3676.
+ (c:\Users\Daniele\Documents\GitHub\Monads-and-their-applications/monads.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3676.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3676.
 Package rerunfilecheck Info: File `monads.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 49153 strings out of 492167
- 1002218 string characters out of 6129158
- 1196381 words of memory out of 5000000
- 52468 multiletter control sequences out of 15000+600000
+ 49531 strings out of 492167
+ 1011957 string characters out of 6129158
+ 1204915 words of memory out of 5000000
+ 52829 multiletter control sequences out of 15000+600000
  555300 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  64i,20n,98p,10156b,1273s stack positions out of 5000i,500n,10000p,200000b,80000s
 <c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/wadalab/dmj/dmjhira.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/euler/eusm7.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on c:/Users/Daniele/Documents/GitHub/Monads-and-their-applications/monads.pdf (61 pages, 710060 bytes).
+Output written on c:\Users\Daniele\Documents\GitHub\Monads-and-their-applications/monads.pdf (64 pages, 724590 bytes).
 PDF statistics:
- 843 PDF objects out of 1000 (max. 8388607)
- 741 compressed objects within 8 object streams
- 352 named destinations out of 1000 (max. 500000)
+ 872 PDF objects out of 1000 (max. 8388607)
+ 767 compressed objects within 8 object streams
+ 368 named destinations out of 1000 (max. 500000)
  159 words of extra memory for PDF output out of 10000 (max. 10000000)
 
