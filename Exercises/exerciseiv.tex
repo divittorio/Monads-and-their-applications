@@ -1,0 +1,270 @@
+\documentclass[12pt, a4paper]{article}
+
+\pdfoutput=1
+
+\usepackage{exsheets}
+
+\usepackage{mathrsfs, amsmath, amsthm, amssymb, stmaryrd, enumerate}%
+\usepackage{tikz}%
+\usepackage[linktocpage]{hyperref}%
+%\usepackage{cleveref}
+\usepackage[all]{xy}%
+\xyoption{2cell}%
+\UseAllTwocells%
+
+\newdir{t>}{{\UseTips\dir{>}}}
+
+%\creflabelformat{enumi}{(#2#1#3)}
+
+%\hypersetup{
+% pdfauthor={Daniel Schaeppi},
+% pdfkeywords={Pushouts} {algebraic stacks} {Quasi-coherent sheaves} {weakly Tannakian categories}
+%}
+
+
+%********************************* MACROS ************************************%
+
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\el}{el}
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\Lan}{Lan}
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\Mod}{\mathbf{Mod}}
+\DeclareMathOperator{\Rep}{Rep}
+\DeclareMathOperator{\Vect}{\mathbf{Vect}}
+\DeclareMathOperator{\Coalg}{\mathbf{Coalg}}
+\DeclareMathOperator{\fgp}{fgp}
+\DeclareMathOperator{\fp}{fp}
+\DeclareMathOperator{\fd}{fd}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Spec}{Spec}
+
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\reg}{reg}
+\DeclareMathOperator{\flt}{flat}
+
+
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\coev}{coev}
+\DeclareMathOperator{\ev}{ev}
+
+\DeclareMathOperator{\fl}{fin. \ell}
+
+\DeclareMathOperator{\fin}{fin}
+\DeclareMathOperator{\fg}{fg}
+\DeclareMathOperator{\idem}{idem}
+\DeclareMathOperator{\Modtwo}{\mathcal{M}}
+
+\DeclareMathOperator{\iso}{iso}
+
+\DeclareMathOperator{\LFdi}{\LF^{\rk d}_{\iso}}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Sh}{Sh}
+\DeclareMathOperator{\Rex}{\mathbf{Rex}}
+
+\DeclareMathOperator{\SymMonCat}{SymMonCat}
+
+
+\DeclareMathOperator{\PsCone}{PsCone}
+
+
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Span}{\mathbf{Span}}
+\DeclareMathOperator{\Cospan}{\mathbf{Cospan}}
+\DeclareMathOperator{\EM}{EM}
+
+\DeclareMathOperator{\Aff}{\mathbf{Aff}}
+\DeclareMathOperator{\Alg}{\mathbf{Alg}}
+\DeclareMathOperator{\Coh}{\mathbf{Coh}}
+\DeclareMathOperator{\QCoh}{\mathbf{QCoh}}
+\DeclareMathOperator{\VB}{\mathbf{VB}}
+
+\DeclareMathOperator{\BGL}{\mathrm{BGL}}
+
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\fpqc}{\mathit{fpqc}}
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\lax}{lax}
+\DeclareMathOperator{\Tors}{Tors}
+
+
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\target}{target}
+\DeclareMathOperator{\cospan}{Cospan}
+\DeclareMathOperator{\CommAlg}{\mathbf{CommAlg}}
+\DeclareMathOperator{\coop}{coop}
+\DeclareMathOperator{\Coact}{Coact}
+\DeclareMathOperator{\Gray}{\mathbf{Gray}}
+\DeclareMathOperator{\PsMon}{\mathbf{PsMon}}
+\DeclareMathOperator{\BrPsMon}{\mathbf{BrPsMon}}
+\DeclareMathOperator{\SymPsMon}{\mathbf{SymPsMon}}
+\DeclareMathOperator{\MonComon}{\mathbf{MonComon}}
+\DeclareMathOperator{\BrMonComon}{\mathbf{BrMonComon}}
+\DeclareMathOperator{\SymMonComon}{\mathbf{SymMonComon}}
+\DeclareMathOperator{\Psa}{\mathbf{Psa}}
+
+\DeclareMathOperator{\pr}{pr}
+
+\DeclareMathOperator{\len}{\ell}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\Fil}{Fil}
+\DeclareMathOperator{\MF}{MF}
+\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator{\Er}{Er}
+
+\DeclareMathOperator{\Ps}{\mathbf{Ps}}
+
+\DeclareMathOperator{\Cocts}{\mathbf{Cocts}}
+\DeclareMathOperator{\Lex}{\mathbf{Lex}}
+\DeclareMathOperator{\cat}{\mathbf{cat}}
+\DeclareMathOperator{\Cat}{\mathbf{Cat}}
+\DeclareMathOperator{\Bicat}{\mathbf{Bicat}}
+\DeclareMathOperator{\Tricat}{\mathbf{Tricat}}
+\DeclareMathOperator{\Gpd}{\mathbf{Gpd}}
+\DeclareMathOperator{\Mky}{\mathbf{Mky}}
+\DeclareMathOperator{\CAT}{\mathbf{CAT}}
+\DeclareMathOperator{\Set}{\mathbf{Set}}
+\DeclareMathOperator{\Ab}{\mathbf{Ab}}
+\DeclareMathOperator{\CGTop}{\mathbf{CGTop}}
+\DeclareMathOperator{\Mon}{\mathbf{Mon}}
+\DeclareMathOperator{\Comon}{\mathbf{Comon}}
+\DeclareMathOperator{\Comod}{\mathbf{Comod}}
+
+\DeclareMathOperator{\Nat}{\mathrm{Nat}}
+\DeclareMathOperator{\Fun}{\mathrm{Fun}}
+\DeclareMathOperator{\LF}{\mathrm{LF}}
+
+\DeclareMathOperator{\CAlg}{\mathrm{CAlg}}
+
+\newcommand{\ca}[1]{\mathscr{#1}}
+\newcommand{\VNat}{\ca{V}\mbox{-}\Nat}
+\newcommand{\Vcat}{\ca{V}\mbox{-}\Cat}
+\newcommand{\VCAT}{\ca{V}\mbox{-}\CAT}
+\newcommand{\VCATlp}{\ca{V}\mbox{-}\CAT_{\mathrm{lp}}}
+\newcommand{\VCATc}{\ca{V}^{\prime}\mbox{-}\Cat_{\mathrm{c}}}
+
+\newcommand{\Catfc}{\Cat_{\mathrm{fc}}}
+\newcommand{\VCatfc}{\ca{V}\mbox{-}\Cat_{\mathrm{fc}}}
+\newcommand{\kten}{\mathop{\boxtimes_{\mathrm{fc}}}}
+
+\newcommand{\Prs}[1]{\mathcal{P}\ca{#1}}
+\newcommand{\Bimod}[1]{{_\ca{#1}}{\mathcal{M}}{_\ca{#1}}}
+\newcommand{\modules}[2]{{_\ca{#1}}{\mathcal{M}}{_\ca{#2}}}
+\newcommand{\CC}[1]{\mathbf{Comon}\left(\Bimod{#1}\right)}
+
+\DeclareMathOperator{\U}{O}
+
+\newcommand{\ubar}[1]{\underline{#1\mkern-4mu}\mkern4mu }
+
+\newcommand{\dual}[1]{{#1}^{\circ}}
+\newcommand{\ldual}[1]{{#1}^{\vee}}
+
+
+\newcommand{\ten}[1]{\mathop{{\otimes}_{#1}}}
+\newcommand{\tenl}[1]{\mathop{{}_{#1}{\otimes}}}
+\newcommand{\tenlr}[2]{\mathop{{}_{#1}{\otimes}_{#2}}}
+
+\newcommand{\boxten}[1]{\mathop{{\boxtimes}_{#1}}}
+
+\newcommand{\pb}[1]{\mathop{{\times}_{#1}}}
+\newcommand{\po}[1]{\mathop{{+}_{#1}}}
+
+
+\newcommand{\defl}{\mathrel{\mathop:}=}
+
+
+% THEOREM ENVIRONMENTS
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[subsection]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{notation}[thm]{Notation}
+
+\newtheoremstyle{citing}{}{}{\itshape}{}{\bfseries}{.}{ }{\thmnote{#3}}
+\theoremstyle{citing}
+\newtheorem{cit}{}
+
+\newtheoremstyle{citingdfn}{}{}{}{}{\bfseries}{.}{ }{\thmnote{#3}}
+\theoremstyle{citingdfn}
+\newtheorem{citdfn}{}
+
+
+\numberwithin{equation}{section}
+
+%\keywords{Fiber functors, Tannakian categories}
+%\subjclass[2010]{14A20, 18D10}
+
+%\author{Daniel Sch\"appi}
+%\thanks{This research was supported by the DFG grant: SFB 1085 ``Higher invariants.''}
+%\address{Fakult{\"a}t f{\"u}r Mathematik,
+%Universit{\"a}t Regensburg,
+%93040 Regensburg,
+%Germany}
+%\email{daniel.schaeppi@ur.de}
+\date{}
+
+
+\title{Monads and their applications -- Sheet 1}
+
+
+
+
+\begin{document}
+
+\SetupExSheets{
+ headings=block-subtitle,
+}
+
+\pagestyle{empty}
+%\maketitle
+\section*{Monads and their applications 4}
+
+\begin{question} 
+ Let $F \colon \ca{A} \rightarrow \ca{C}$, $K \colon \ca{A} \rightarrow \ca{B}$ be two functors where $\ca{A}$ is essentially small. Note that $K$ is not assumed to be full and faithful.
+\begin{enumerate}
+\item[(a)]
+ Show that $[\ca{A}^{\op},\Set](\widetilde{K} c, \widetilde{F} -) \colon \ca{D} \rightarrow \Set$ is representable if and only if the colimit of the diagram $K \slash c \rightarrow \ca{D}$ which sends $(a,\varphi \colon Ka \rightarrow c)$ to $Fa \in \ca{D}$ has a colimit.
+ \item[(a)]
+ Assume that the colimit of part (a) always exist. By Yoneda, there exists a functor $L \colon \ca{C} \rightarrow \ca{D}$ with bijections
+ \[
+ \ca{D}(Lc,d) \cong [\ca{A}^{\op},\Set](\widetilde{K}c,\widetilde{F}d)
+ \]
+ which are natural in $c$ and $d$. Show that, in this case, there exists a natural transformation $\eta \colon F \Rightarrow LK$ which exhibits $L$ as left Kan extension of $F$ along $K$.
+\end{enumerate} 
+\end{question}
+
+\begin{question}
+\begin{enumerate}
+\item[(a)] Let $(\ca{C}_i)_{i \in I}$ be a family of locally finitely presentable categories. Show that the product $\prod_{i \in I } \ca{C}_i$ is locally finitely presentable.
+\item[(b)] Let $\ca{A}$ be a small category and $\ca{C}$ locally finitely presentable. Show that $[\ca{A},\ca{C}]$ is locally finitely presentable.
+\end{enumerate}
+\end{question}
+
+\begin{question}
+ Let $\ca{C}$ be a cocomplete category. An object $a \in \ca{C}$ is called \emph{small projective} if $\ca{C}(a,-)$ preserves \emph{all} small colimits. Suppose there exists a small subcategory $\ca{A} \subseteq \ca{C}$ such that the closure of $\ca{A}$ under colimits is all of $\ca{C}$. Show that $\ca{C} \simeq [\ca{A}^{\op},\Set]$. (Hint: start by showing that the inclusion $K \colon \ca{A} \rightarrow \ca{C}$) is dense.
+\end{question}
+
+
+\begin{question}
+ Let $\ca{C}$ be locally finitely presentable, $\ca{A}$ a small dense subcategory consisting of finitely presentable objects. Let $\ca{A}^{\prime}$ be the closure of $\ca{A}$ under finite colimits. Let $\ca{C}_{\fp}$ denote the full subcategory consisting of finitely presentable objects. From the lecture, we know that $\ca{A}^{\prime} \subseteq \ca{C}_{\fp}$. Show that this in fact an equality: every finitely presentable object lies in the closure of $\ca{A}$ under finite colimits. 
+\end{question}
+
+\begin{question}[subtitle=(bonus)]
+ Show that the finitely presentable objects in the category of topological spaces are precisely the finite discrete spaces, and that they do not form a dense generator. Thus $\mathbf{Top}$ is not finitely presentable.
+\end{question}
+
+\end{document}
