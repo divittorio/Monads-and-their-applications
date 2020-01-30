@@ -681,7 +681,7 @@ Unit laws:
 \C\arrow[r, "F"] \arrow[rru, bend left, equal] &\D  \arrow[ru, "U"] \arrow[rr, equal] &  \phantom{.}           &\D  \arrow[r, "U"] & \C
 \end{tikzcd}
 \]
-is equal to $1_{UF}$, since $\epsilon F\cdot F\eta=1_F$ by one of the triangular identities of the adjunction $F\dashv U$. SImilarly,
+is equal to $1_{UF}$, since $\epsilon F\cdot F\eta=1_F$ by one of the triangular identities of the adjunction $F\dashv U$. Similarly,
 \[
 \begin{tikzcd}
 &            &\C \arrow[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']  \arrow[rd, "F"]\arrow[rrd, bend left, equal] &  \arrow[d, Rightarrow, yshift=1ex, shorten <= .5em, shorten >= .01em, "\eta"']           &  \\
@@ -3316,7 +3316,7 @@ The diagram in the above proposition commutes by adjunction since composition is
     For this functor, $ \alpha,\lambda,\rho $ are $ \cV $-natural transformations. Moreover for each $ X $, the maps $ \ev^X $ and $ \coev^X $ are $ \cV $-natural, so $ -\otimes X $ is a left adjoint to the functor $ [X,-] $ in $ \cV $-$\CAT$
 \end{prop}
 \begin{proof}
-    By adjunction. Straightforward, but tedious (see Kelley).
+    By adjunction. Straightforward, but tedious (see Kelly).
 \end{proof}
 \begin{rmk}
     One can check that all ``reasonable'' morphisms built from the canonical ones are $ \cV $-natural.
@@ -3329,7 +3329,7 @@ The diagram in the above proposition commutes by adjunction since composition is
     \end{displaymath}
     to $ (f,\id) $ and $ (\id,f) $ respectively.
     
-    For details---or more precisely---a good list of instructions on hhow to preceed efficiently can be found in Kelley's ``Basic concepts,'' sections 1.7 and 1.8.
+    Further details---or more precisely---a good list of instructions on how to preceed efficiently can be found in Kelly's ``Basic concepts,'' sections 1.7 and 1.8.
 \end{rmk}
 
 
@@ -3988,7 +3988,80 @@ So, finitely presentable in $ \cV $ is equivalent to finitely presentable in $ \
     Every object $ C \in\cC_0 $ is a filtered colimit of $ (\cC_0)_\kappa / C $.
     Since we have powers, these are actually $ \cV $-colimits.
 \end{proof}
-
+\begin{cor}
+    Let $\C$ be a locally $\kappa$-presentable $\V$-category and $T$ a $\kappa$-accessible $\V$-monad on $\C$. Then $T\Alg$ is a locally $\kappa$-presentable $\V$-category.
+\end{cor}
+\begin{proof}
+We have powers in $T\Alg$ since $\C$ has powers. It also has copowers. Indeed, this is clear for free algebras since left adjoints preserve copowers. Using coequalizers we find that all objects have copowers. The category $(T\Alg)_0\cong T_0\Alg$ is locally $\kappa$-presentable by previous results. We only need to check that $(T_0\Alg)_{\kappa}$ is closed under $V\copw-$ for all $V\in(\V_0)_{\text{fp}}=\V_{\text{fp}}$. This is again trivial for free algebras on $\kappa$-presentable objects $A\in\C_\kappa$. The general case follows since $(T_0\Alg)_\kappa$ is closed under coequalizers. 
+\end{proof}
+\begin{cor}
+If $\C$ is a locally $\kappa$-presentable $\V$-category and $\A$ is small, then $[\A,\C]$ is a locally $\kappa$-presentable $\V$-category. In particular, $[\C_\kappa, \C]$ is locally $\kappa$-presentable. Moreover, since  $[\C_\kappa, \C]_0 = \V\mbox{-}\CAT(\C_\kappa,\C)$, this category is locally $\kappa$-presentable (as a $\Set$-category). Thus, $\V\mbox{-}\CAT_\kappa(\C,\C)$, the category of $\kappa$-accessible $\V$-endofunctors and $\V$-natural transformations, is locally $\kappa$-presentable.
+\end{cor}
+\begin{proof}
+$\V\mbox{-}\CAT_\kappa(\C,\C)=\Phi\Cocts_0(\C,\C)$, where $\Phi$ is the class of conical filtered weights. The category of functors with a small domain is the category of algebras for a cocontinuous, in particular $\kappa$-accessible, $\V$-monad on $\prod_{A\in\A}\C$.
+\end{proof}
+\begin{thm}
+Let $\V$ be a lfp cosmos, $\C$ a locally presentable $\V$-category. Then $$\V\mbox{-}\Mnd_{\kappa}(\C)\xrightarrow{\text{forget}}\V\mbox{-}\CAT_\kappa(\C,\C)$$ is $\kappa$-accessible and monadic. Moreover, the inclusion $\V\mbox{-}\Mnd_{\kappa}(\C)\to\V\mbox{-}\Mnd(\C)$ preserves colimits.
+\end{thm}
+\begin{proof}
+The composition functor $-\circ-$ preserves $\kappa$-filtered colimits in each variable, so that the endofunctor $F\mapsto F\circ F$ is $\kappa$-accessible. Thus we can write down a presentation for the ``monad for $\kappa$-accessible monads''. The second part follows again as in the unenriched case: we are lifting the monoidal adjunction$\begin{tikzcd}\V\mbox{-}\CAT_\kappa(\C,\C)\ar[r, shift left = .4em, above, ""{name=F}] &\V\mbox{-}\CAT(\C,\C)\ar[l, shift left = .4em, below, ""{name=U}]\ar[from=F, to=U, symbol=\dashv]\end{tikzcd}$to an adjunction of categories of monoids, as in the following diagram
+\begin{center}
+      \begin{tikzcd}
+        \V\mbox{-}\CAT_\kappa(\C,\C) \ar[r, hook, shift left = .4em, above, ""{name=F}]  & \V\mbox{-}\CAT(\C,\C) \ar[l, dashed, shift left = .4em, below, ""{name=U}]\arrow[ld, bend left=45, "K^*"description, ""{name=K}] \\
+         \lbrack \C_\kappa,\C\rbrack_0\arrow[u, "\cong"]\arrow[ru, "\Lan_K"description, ""{name=Lan}]
+         \ar[from=F, to=U, symbol=\dashv]
+          \ar[from=Lan, to=K, symbol=\dashv]
+      \end{tikzcd}
+   \end{center}
+hence the inclusion of $\kappa$-accessible monoids is a left adjoint.
+\end{proof}
+\begin{rmk}
+   These are ``just'' ordinary categories. In general $\V\mbox{-}\Mnd_{\kappa}(\C)$ in \textbf{not} a $\V$-category in a natural way. 
+\end{rmk}
+\begin{cor}
+Take $\V$ a lfp cosmos and $\C$ locally $\kappa$-presentable. The functor $$\V\mbox{-}\Mnd_{\kappa}(\C)^{\op}\xrightarrow{(-)\Alg}\V\mbox{-}\CAT/\C$$ sends colimits to limits.
+\end{cor}
+\begin{proof}
+We combine the above with the semantics-structure adjunction$\begin{tikzcd}\K'/\C\ar[r, shift left = .5em, above, ""{name=F}] &\Mnd(\C)^{\op}\ar[l, shift left = .2em, below, ""{name=U}]\ar[from=F, to=U, symbol=\dashv]\end{tikzcd}$ for arbitrary $2$-categories with Eilenberg-Mac Lane objects (do it as an exercise). Since $\C$ is complete, $\Ran_FF$ exists for all $F$ with \emph{small} domain. Therefore\footnote{$\V\mbox{-}\Cat/\C$ is a generating set for $\V\mbox{-}\CAT'/\C$, so if it's a limit from its perspective it still is in $\V\mbox{-}\Cat/\C.$} $\V\mbox{-}\Cat/\C\subseteq\V\mbox{-}\CAT'/\C$ and thus $\V\mbox{-}\CAT'/\C\hookrightarrow\V\mbox{-}\CAT/\C$ preserves limits.
+\end{proof}
+We will apply this to the case $\V=\Cat$, that is to the theory of $2$-monads. For this, we would like to have lots of examples of locally presentable $2$-categories.
+\begin{thm}\label{lkp}
+If $\V$ is a locally $\kappa$-presentable symmetric monoidal closed category and $(\V_0)_\kappa$ is closed under finite $\otimes$, then $\V\mbox{-}\Cat$ is locally $\kappa$-presentable and $(\V\mbox{-}\Cat)_\kappa$ is closed under finite $\otimes$ (this construction is stable under enrichment).
+\end{thm}
+\begin{rmk}
+   It follows that $\V\mbox{-}\Cat$ is a lfp $2$-category whenever $\V$ is a lfp cosmos. We need to check that for $\A\in(\V\mbox{-}\Cat_0)_{\text{fp}}$, $\C\in(\Cat_0)_{\text{fp}}$, we have $\C\copw\A\in(\V\mbox{-}\Cat)_{\text{fp}}$. This immediately reduces to the case $\C=[1]$. We will prove by inspection that $F_*[1]\in\V\mbox{-}\Cat$ is finitely presentable only if $\C\copw\A=F_*\C\otimes\A$.
+\end{rmk}
+We prove the theorem in two steps. First we prove that $\V\mbox{-}\Cat$ is finitary monadic over $\V\mbox{-}\mathbf{Grph}$ and then that $\V\mbox{-}\mathbf{Grph}$ is locally $\kappa$-presentable.
+\par
+Recall that a $\V$-matrix on a set $S$ is an object of $\V\mbox{-}\Mat(S)=\prod_{S\times S}\V=\V^{S\times S}$ and a $\V$-graph is a pair $(S,M)$ of a set $S$ and $M\in\V^{S\times S}$. A morphism of $\V$-graphs is a pair composed of a morphism $f\from S\rightarrow T$ and a collection $(f_{a,b}\colon M(a,b)\to N(fa,fb))\iff f_{-,-}\colon M\rightarrow f^*N$. If $\V$ is symmetric monoidal closed and cocomplete, this is equivalent to a morphism $f_*M\to N$ in $\V^{T\times T}$.
+\begin{thm}
+If $\V$ is symmetric monoidal closed and locally $\kappa$-presentable, then 
+\begin{align*}
+    U\colon\V\mbox{-}\Cat&\to\V\mbox{-}\mathbf{Grph}\\
+    \A&\mapsto(\Ob(\A),\A)
+\end{align*}
+is monadic and preserves sifted colimits.
+\end{thm}
+\begin{proof}
+We first prove the claim about sifted colimits. Recall that we have a tensor product on $\V^{S\times S}$ s.t.\ $\Mon(\V^{S\times S})=\V\mbox{-}\Cat(S)$, the category of $\V$-categories with object set $S$ and morphisms identity-on-objects $\V$-functors. Moreover, $f\colon S\to T$ induces an adjunction
+\[
+\begin{tikzcd}
+\Mon(\V^{S\times S})\ar[r,bend left,"f^*",""{name=A, below}] & \Mon(\V^{T\times T})\ar[l,bend left,"f_*",""{name=B,above}] \ar[from=A, to=B, symbol=\dashv]
+\end{tikzcd}
+\]
+where 
+ \begin{displaymath}
+        f_*(\A)_{x,y} = \sum_{\{(a,b)\colon fa = x, fb = y \} }\A(a,b)\in\V.
+    \end{displaymath}
+Note that $\Mon(\V^{S\times S})$ is a locally $\kappa$-presentable category because the tensor of matrices preserves filtered colimits in each variable. In fact, $\Mon(\V^{S\times S})\to\V^{S\times S}$ is \emph{monadic}. 
+\par
+The left adjoint of $U$ sends $(S,M)$ to the free monoid for the matrix tensor product, that is it doesn't change the set of objects (check it as an exercise). The functor $U$ is conservative since a $\V$-functor is an isomorphism if and only if it is bijective on objects and $\forall a,b\ f_{a,b}\colon\A(a,b)\to\B(fa,fb)$ is an isomorphism in $\V$ if and only if it is an isomorphism of $\V$-graphs. To apply Beck, we only need that certain reflexive coequalizers are preserved. This follows from the claim on sifted colimits. We can compute colimits of $\V$-categories $(S_i,\A_i)$, where $S_i=\Ob(\A_i)$, as follows.
+\par
+First, let $S=\colim S_i$ with universal cocone $\iota_i\from S_i\to S$ in $\Set$. Then $(\iota_i)_*\A_i$ defines a diagonal of the same shape in $\Mon(\V^{S\times S})$. Let $\A=\colim_i(\iota_i)_*\A_i$. Then $\colim(S_i,\A_i)=(S,\A)$. The same recipe works for colimits of $\V$-graphs $\colim(S_i, M_i)=(S,\colim_{\V^{S\times S}}(\iota_i)_*M_i)$. It follows that $U\colon\V\mbox{-}\Cat\to\V\mbox{-}\mathbf{Grph}$ preserves all the colimits that are preserved by each forgetful functor $\Mon(\V^{S\times S})\to\V^{S\times S}, \ S\in\Set$. Now we use the fact that the tensor product of matrices preserves sifted colimits in each variable. Hence sifted colimits of monoids are preserved by $\Mon(\V^{S\times S})\xrightarrow{\text{forget}}\V^{S\times S}$.
+\end{proof}
+\begin{rmk}
+   We don't really need locally $\kappa$-presentable here: $\V$ any cosmos suffices by Kelly's  ``transfinite construction''.
+\end{rmk}
 		\backmatter
 	% bibliography, glossary and index would go here.
 	
