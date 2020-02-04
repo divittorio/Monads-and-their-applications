@@ -691,7 +691,7 @@ is equal to $1_{UF}$, since $\epsilon F\cdot F\eta=1_F$ by one of the triangular
 is equal to $1_{UF}$.
 
 The rest follows from the explicit description of unit and counit of the adjunction $F^T\dashv U^T$, in fact 
-$U^T\epsilon F^Tc=U^T\epsilon_{(Tc, \eta_c)}=\mu_c$.
+$U^T\epsilon F^Tc=U^T\epsilon_{(Tc, \mu_c)}=\mu_c$.
 \end{proof}
 
 \begin{exmp}[Interesting adjunction, boring monad] Let us consider the adjunction $U\colon\mathbf{Top}\rightleftarrows\Set\colon\mathsf{Disc}\eqqcolon F$, whose left adjoint assigns to every set $X$ the discrete topological space $FX=(X, 2^X)$.
@@ -1265,7 +1265,7 @@ Before proving this theorem, we present some consequences.
 	A category $\C$ with sifted colimits is cocomplete if and only if it has an initial object and binary coproducts.
 \end{prop}
 \begin{proof}
-One implication is obvious. For the other one, notice that we get finitary coproducts immediately and an infinite coproduct can be written as a filtered colimit of finite coproducts. We are only missing coequalizers. If $f,g\colon a\rightrightarrows b$ is a pair, then $f+\id,g+\id\colon\hspace{-1.5mm}$\begin{tikzcd}
+One implication is obvious. For the other one, notice that we get finite coproducts immediately and an infinite coproduct can be written as a filtered colimit of finite coproducts. We are only missing coequalizers. If $f,g\colon a\rightrightarrows b$ is a pair, then $f+\id,g+\id\colon\hspace{-1.5mm}$\begin{tikzcd}
 a+b\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}b\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]
 \end{tikzcd}$\hspace{-1.5mm}\colon\text{in}_b$ (where in$_b$ is the inclusion of $b$ in the coproduct) is a reflexive pair hence the coequalizer $k=\text{coeq}(a+b\rightrightarrows b)$ exists and coequalizes the original pair. The universal $h\colon b\rightarrow k$ is also a coequalizer of $f,g\colon a\rightrightarrows b$.
 \end{proof}
@@ -1273,7 +1273,14 @@ a+b\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em] 
 Let $X$ be a finite set, $T\colon\prod_{x\in X}\Set\to\prod_{x\in X}\Set$ a finitary monad. Then $T\Alg$ is cocomplete.
 \end{thm}
 \begin{proof}
-$T\Alg$ has always an initial object, namely the free algebra of the initial object $\left(T\prod_{x\in X}\emptyset,\mu_{\prod_{x\in X}\emptyset}\right)$. Similarly, for $a,b\in\prod_{x\in X}\Set$, using that $F^T$ is a left adjoint (hence it preserves colimits) we find that $\left(T\left(a\coprod b\right),\mu_{a\coprod b}\right)$ is a coproduct of $(Ta,\mu_a)$ and $(Tb,\mu_b)$. Therefore $T\Alg$ has coproducts of free algebras. We want to check that we have binary coproducts of $T$-algebras $(a,\alpha)$ and $(b,\beta)$. We have reflective coequalizers
+$T\Alg$ has always an initial object, namely the free algebra of the initial
+    object $\left(T\prod_{x\in X}\emptyset,\mu_{\prod_{x\in
+    X}\emptyset}\right)$. Similarly, for $a,b\in\prod_{x\in X}\Set$, using that
+    $F^T$ is a left adjoint (hence it preserves colimits) we find that
+    $\left(T\left(a\coprod b\right),\mu_{a\coprod b}\right)$ is a coproduct of
+    $(Ta,\mu_a)$ and $(Tb,\mu_b)$. Therefore $T\Alg$ has coproducts of free
+    algebras. We want to check that we have binary coproducts of $T$-algebras
+    $(a,\alpha)$ and $(b,\beta)$. We have reflexive coequalizers
 \[
 \begin{tikzcd}[column sep=1.5cm]
 (T^2a,\mu_{Ta})\hspace{-1.5mm}\arrow[r, shift right=1.5ex, "\mu_a"']  \arrow[r, shift left=2ex, "T\alpha"] & (Ta,\mu_a)\arrow[l, shift right=.25ex, "T\eta_a"description]\arrow[r,"\alpha"]&(a,\alpha)
@@ -1284,7 +1291,7 @@ $T\Alg$ has always an initial object, namely the free algebra of the initial obj
 (T^2b,\mu_{Tb})\hspace{-1.5mm}\arrow[r, shift right=1.5ex, "\mu_b"']  \arrow[r, shift left=2ex, "T\beta"] & (Tb,\mu_b)\arrow[l, shift right=.25ex, "T\eta_b"description]\arrow[r,"\beta"]&(b,\beta)
 \end{tikzcd}
 \]
-so we get a new reflective pair by taking coproducts of the free algebras
+so we get a new reflexive pair by taking coproducts of the free algebras
 \[
 \begin{tikzcd}[column sep=1.5cm]
 (T^2a,\mu_{Ta})+(T^2b,\mu_{Tb})\hspace{-1.5mm}\arrow[r, shift right=1.5ex, "\mu_a+\mu_b"']  \arrow[r, shift left=2ex, "T\alpha+T\beta"] & (Ta,\mu_a)+(Tb,\mu_b)\arrow[l, shift right=.25ex, "T\eta_b"description]
@@ -1392,7 +1399,16 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	    Let $K\colon\A\to\C$ be fully faithful and $F\colon\A\to\D$ any functor. Suppose there exists $L\colon\C\to\D$ and bijections $\D(Lc,d)\to\left[\A^{\op},\Set\right](\C(K-,c),\D(F-,d))$ natural both in $c$ and $d$. Then there is an isomorphism $\eta\colon F\xRightarrow{\sim}L\circ K$ exibiting $L$ as left Kan extension of $F$ along $K$.
 	\end{prop}
 	\begin{proof}
-	    The presheaf $\C(K-,c)$ is the colimit of the canonical cone on $(\yo\downarrow\C(K-,c)).$ By Yoneda, this is equivalent to $(K\downarrow c)$ with objects $(a\in\A,\varphi\colon Ka\to c)$ and the evident morphisms. If $c\cong Ka$, this has $(a,\id_a)$ as terminal object. Therefore the colimit is $\C(K-,Ka)\cong\A(-,a)$. Moreover, the formula above in this case gives $$\D(LKa,d)\cong\left[\A^{\op},\Set\right](\A(-,c),\D(F-,d))\cong\D(Fa,d).$$ This shows that $L\circ K\cong F$ naturally. Then $\displaystyle Lc=\colim_{(K\downarrow c)}Fa$, by the classical formula for left Kan extensions.
+	    The presheaf $\C(K-,c)$ is the colimit of the canonical cocone on
+        $(\yo\downarrow\C(K-,c)).$ By Yoneda, this is equivalent to
+        $(K\downarrow c)$ with objects $(a\in\A,\varphi\colon Ka\to c)$ and the
+        evident morphisms. If $c\cong Ka$, this has $(a,\id_a)$ as terminal
+        object. Therefore the colimit is $\C(K-,Ka)\cong\A(-,a)$. Moreover, the
+        formula above in this case gives
+        $$\D(LKa,d)\cong\left[\A^{\op},\Set\right](\A(-,a),\D(F-,d))\cong\D(Fa,d).$$
+        This shows that $L\circ K\cong F$ naturally. Then $\displaystyle
+        Lc=\colim_{(K\downarrow c)}Fa$, which is the classical formula for left
+        Kan extensions.
 	\end{proof}
 	\begin{defn}
 	    Any such Kan extension is called pointwise.
@@ -1470,7 +1486,7 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
      \[
      \C(\Lan_\yo F(G), c')\cong\left[\A^{\op},\Set\right](\widetilde{\yo}(G), \widetilde{F}c')\cong\left[\A^{\op},\Set\right](G, \widetilde{F}c')
      \]
-     since $\Lan_\yo\Delta_\bullet\colon F$ is pointwise.
+     since $\Lan_\yo\colon F$ is pointwise.
   \end{proof}
   \begin{exmp}
       Let $\Delta$ be the category of finite non-empty ordinals $[0], [1], \dots$ and order preserving maps. We have a functor $\Delta_\bullet\colon\Delta\to\Top$, sending $[n]$ to the standard (geometric) $n$-simplex $\Delta_n$ so we get and adjunction $\Lan_\yo\Delta_\bullet\colon\left[\A^{\op},\Set\right]\rightleftarrows\Top\colon\Delta_\bullet^*$. $\Lan_\yo\Delta_\bullet$ is called the \emph{geometric realization} and $\Delta_\bullet^*\eqqcolon\text{Sing}(-)$ is called the \emph{singular complex}. In pictures:
@@ -1590,10 +1606,11 @@ Recall that the category of $T$-algebras of a finitary monad $T\colon\Set\to\Set
     \end{enumerate}
 \end{thm}
 \begin{proof}
-    Given any other cone $ \lambda_i \to X_i $
-    we define $ f \from X \to Y $ by sending $ x \to \lambda_i (\tilde x) $ for any $ \tilde x $ in i).
-    This is well defined by ii) and filteredness.
-    It only remains to who that there exists such a cocone.
+    Given any other cocone $ \lambda_i\colon X_i\to Y $
+    we define $ f \from X \to Y $ as $ x \mapsto \lambda_i (\tilde x) $ for any,
+    with $\tilde x$ constructed as in (i).
+    This is well defined by (ii) and filteredness.
+    It only remains to show that there exists such a cocone.
     Take $ X = (\coprod X_i) /\sim $ with $ (x,i) \sim (y,j) $ if there is some some diagram $ i \xrightarrow{\phi} k \xleftarrow{\psi}j $ in $ \I $ with $ X_\phi(x) = X_\psi(y) $.
 \end{proof}
 \begin{cor}
@@ -1936,7 +1953,7 @@ Now use exercise 5.1.
 \end{prop}
 \begin{thm}
     Let $ \C $ be a cocomplete category, $ (T,\tau) $ a well-pointed endofunctor on $ \C $ with $ T $ $ \kappa $-accesible.
-    Then $ (T,\tau)\Alg $ is a reflexive subcategory of $ (T\downarrow\C)$ and the algebraically free monad on $ (T,\tau) $ exists. In particular, by reflexiveness, $ (T,\tau)\Alg $ is cocomplete.
+    Then $ (T,\tau)\Alg $ is a reflective subcategory of $ (T\downarrow\C)$ and the algebraically free monad on $ (T,\tau) $ exists. In particular, by reflexiveness, $ (T,\tau)\Alg $ is cocomplete.
 \end{thm}
 \begin{proof}
     Notice that the functor 
@@ -1993,8 +2010,9 @@ Now use exercise 5.1.
 \end{proof}
 For example, we can easily prove the following
 \begin{prop}
-    Let $ \C $ a $ \kappa $-presentable category and $ T \from \C \to \C $ $ \kappa $-accessible.
-    Then $ (T\downarrow\C) $ is locally $ \kappa $-presentable.
+    Let $ \cC $ be a locally $ \kappa $-presentable category and $ T \from \C
+    \to \C $ $ \kappa $-accessible. Then $ (T\downarrow\C) $ is locally $ \kappa
+    $-presentable.
 \end{prop}
 \begin{proof}
     Consider the functor $ \C \times \C \xrightarrow{F} \C \times \C $, $ (a,b)\mapsto (\emptyset, Ta) $.
@@ -2009,11 +2027,13 @@ For example, we can easily prove the following
         \end{tikzcd}
     \end{displaymath}
     is a coequalizer diagram in $ \C $.
-    Notice that $ \gamma $ is a coequalizer of $ Ta \cdot T\tau_a $ and $ T\alpha \cdot \tau_{Ta} $ (see the exercises for more details).
+    Notice that $ \gamma $ is a coequalizer of $ T\alpha \cdot T\tau_a $ and $
+    T\alpha \cdot \tau_{Ta} $ (see the exercises for more details).
 \end{rmk}
 \begin{prop}
     Let $ (S,\sigma) $ be a well-pointed endofunctor on $ \C $ and let $ L\from \C \to \C $ be a functor.
-    If $ \pi \from S \to L $ is a natural transforamtion such that $ \pi_c \from Sc \to Lc $ is epic for all $ c\in\C $, htne $ (L,\pi\cdot \sigma) $ is a well-pointed endofunctor and $ (L,\pi\sigma)\Alg $ is equivalent to the full subcategory of $ (S,\sigma)\Alg $ on objects $ (a,\alpha) $ such that $ \pi_a\colon Sa \to La $ is an isomorphism.
+    If $ \pi \from S \to L $ is a natural transformation such that $ \pi_c \from
+    Sc \to Lc $ is epic for all $ c\in\C $, the $ (L,\pi\cdot \sigma) $ is a well-pointed endofunctor and $ (L,\pi\sigma)\Alg $ is equivalent to the full subcategory of $ (S,\sigma)\Alg $ on objects $ (a,\alpha) $ such that $ \pi_a\colon Sa \to La $ is an isomorphism.
 \end{prop}
 \begin{proof}
     Exercise.
@@ -3745,8 +3765,8 @@ Take $\A=\hspace{-1.5mm}\begin{tikzcd}[row sep=1cm, column sep=1.3cm]
 as objects, while morphisms are modifications. A priori, these are two natural transformations 
 \[
 \begin{tikzcd}[row sep=1cm, column sep=1cm]
-         W_i\arrow[r, bend right, "{(d,\delta)}"', ""{name=D, anchor=center}] \arrow[r, bend left,"{(c,\gamma)}", ""{name=U, anchor=center}] & \C(c,F-) 
-          \ar[Rightarrow, shorten <= .3em, shorten >= .3em, "\varphi_i"', from=U, to=D]
+         W_i^{\phantom{p}}\arrow[r, bend right, "{(d,\delta)}"', ""{name=D, anchor=center}] \arrow[r, bend left,"{(c,\gamma)}", ""{name=U, anchor=center}] & \hspace*{5mm}\C(c,F-) 
+          \ar[Rightarrow, shorten <= .5em, shorten >= .5em, "\varphi_i"', from=U, to=D]
          \end{tikzcd}
          \]
 but $\varphi_i$ is determined by $\varphi_0$, so we are left with a single equation.
