@@ -1,0 +1,275 @@
+\documentclass[12pt, a4paper]{article}
+
+\pdfoutput=1
+
+\usepackage{exsheets}
+
+\usepackage{mathrsfs, amsmath, amsthm, amssymb, stmaryrd, enumerate}%
+\usepackage{tikz}%
+\usepackage[linktocpage]{hyperref}%
+%\usepackage{cleveref}
+\usepackage[all]{xy}%
+\xyoption{2cell}%
+\UseAllTwocells%
+
+\newdir{t>}{{\UseTips\dir{>}}}
+
+%\creflabelformat{enumi}{(#2#1#3)}
+
+%\hypersetup{
+% pdfauthor={Daniel Schaeppi},
+% pdfkeywords={Pushouts} {algebraic stacks} {Quasi-coherent sheaves} {weakly Tannakian categories}
+%}
+
+
+%********************************* MACROS ************************************%
+
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\el}{el}
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\Lan}{Lan}
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\Mod}{\mathbf{Mod}}
+\DeclareMathOperator{\Rep}{Rep}
+\DeclareMathOperator{\Vect}{\mathbf{Vect}}
+\DeclareMathOperator{\Coalg}{\mathbf{Coalg}}
+\DeclareMathOperator{\fgp}{fgp}
+\DeclareMathOperator{\fp}{fp}
+\DeclareMathOperator{\fd}{fd}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Spec}{Spec}
+
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\reg}{reg}
+\DeclareMathOperator{\flt}{flat}
+
+
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\coev}{coev}
+\DeclareMathOperator{\ev}{ev}
+
+\DeclareMathOperator{\fl}{fin. \ell}
+
+\DeclareMathOperator{\fin}{fin}
+\DeclareMathOperator{\fg}{fg}
+\DeclareMathOperator{\idem}{idem}
+\DeclareMathOperator{\Modtwo}{\mathcal{M}}
+
+\DeclareMathOperator{\iso}{iso}
+
+\DeclareMathOperator{\LFdi}{\LF^{\rk d}_{\iso}}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Sh}{Sh}
+\DeclareMathOperator{\Rex}{\mathbf{Rex}}
+
+\DeclareMathOperator{\SymMonCat}{SymMonCat}
+
+
+\DeclareMathOperator{\PsCone}{PsCone}
+
+
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Span}{\mathbf{Span}}
+\DeclareMathOperator{\Cospan}{\mathbf{Cospan}}
+\DeclareMathOperator{\EM}{EM}
+
+\DeclareMathOperator{\Aff}{\mathbf{Aff}}
+\DeclareMathOperator{\Alg}{\mathbf{Alg}}
+\DeclareMathOperator{\Coh}{\mathbf{Coh}}
+\DeclareMathOperator{\QCoh}{\mathbf{QCoh}}
+\DeclareMathOperator{\VB}{\mathbf{VB}}
+
+\DeclareMathOperator{\BGL}{\mathrm{BGL}}
+
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\fpqc}{\mathit{fpqc}}
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\lax}{lax}
+\DeclareMathOperator{\Tors}{Tors}
+
+
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\target}{target}
+\DeclareMathOperator{\cospan}{Cospan}
+\DeclareMathOperator{\CommAlg}{\mathbf{CommAlg}}
+\DeclareMathOperator{\coop}{coop}
+\DeclareMathOperator{\Coact}{Coact}
+\DeclareMathOperator{\Gray}{\mathbf{Gray}}
+\DeclareMathOperator{\PsMon}{\mathbf{PsMon}}
+\DeclareMathOperator{\BrPsMon}{\mathbf{BrPsMon}}
+\DeclareMathOperator{\SymPsMon}{\mathbf{SymPsMon}}
+\DeclareMathOperator{\MonComon}{\mathbf{MonComon}}
+\DeclareMathOperator{\BrMonComon}{\mathbf{BrMonComon}}
+\DeclareMathOperator{\SymMonComon}{\mathbf{SymMonComon}}
+\DeclareMathOperator{\Psa}{\mathbf{Psa}}
+
+\DeclareMathOperator{\pr}{pr}
+
+\DeclareMathOperator{\len}{\ell}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\Fil}{Fil}
+\DeclareMathOperator{\MF}{MF}
+\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator{\Er}{Er}
+
+\DeclareMathOperator{\Ps}{\mathbf{Ps}}
+
+\DeclareMathOperator{\Cocts}{\mathbf{Cocts}}
+\DeclareMathOperator{\Lex}{\mathbf{Lex}}
+\DeclareMathOperator{\cat}{\mathbf{cat}}
+\DeclareMathOperator{\Cat}{\mathbf{Cat}}
+\DeclareMathOperator{\Bicat}{\mathbf{Bicat}}
+\DeclareMathOperator{\Tricat}{\mathbf{Tricat}}
+\DeclareMathOperator{\Gpd}{\mathbf{Gpd}}
+\DeclareMathOperator{\Mky}{\mathbf{Mky}}
+\DeclareMathOperator{\CAT}{\mathbf{CAT}}
+\DeclareMathOperator{\Set}{\mathbf{Set}}
+\DeclareMathOperator{\Ab}{\mathbf{Ab}}
+\DeclareMathOperator{\CGTop}{\mathbf{CGTop}}
+\DeclareMathOperator{\Mon}{\mathbf{Mon}}
+\DeclareMathOperator{\Comon}{\mathbf{Comon}}
+\DeclareMathOperator{\Comod}{\mathbf{Comod}}
+
+\DeclareMathOperator{\Nat}{\mathrm{Nat}}
+\DeclareMathOperator{\Fun}{\mathrm{Fun}}
+\DeclareMathOperator{\LF}{\mathrm{LF}}
+
+\DeclareMathOperator{\CAlg}{\mathrm{CAlg}}
+
+\newcommand{\ca}[1]{\mathscr{#1}}
+\newcommand{\VNat}{\ca{V}\mbox{-}\Nat}
+\newcommand{\Vcat}{\ca{V}\mbox{-}\Cat}
+\newcommand{\VCAT}{\ca{V}\mbox{-}\CAT}
+\newcommand{\VCATlp}{\ca{V}\mbox{-}\CAT_{\mathrm{lp}}}
+\newcommand{\VCATc}{\ca{V}^{\prime}\mbox{-}\Cat_{\mathrm{c}}}
+
+\newcommand{\Catfc}{\Cat_{\mathrm{fc}}}
+\newcommand{\VCatfc}{\ca{V}\mbox{-}\Cat_{\mathrm{fc}}}
+\newcommand{\kten}{\mathop{\boxtimes_{\mathrm{fc}}}}
+
+\newcommand{\Prs}[1]{\mathcal{P}\ca{#1}}
+\newcommand{\Bimod}[1]{{_\ca{#1}}{\mathcal{M}}{_\ca{#1}}}
+\newcommand{\modules}[2]{{_\ca{#1}}{\mathcal{M}}{_\ca{#2}}}
+\newcommand{\CC}[1]{\mathbf{Comon}\left(\Bimod{#1}\right)}
+
+\DeclareMathOperator{\U}{O}
+
+\newcommand{\ubar}[1]{\underline{#1\mkern-4mu}\mkern4mu }
+
+\newcommand{\dual}[1]{{#1}^{\circ}}
+\newcommand{\ldual}[1]{{#1}^{\vee}}
+
+
+\newcommand{\ten}[1]{\mathop{{\otimes}_{#1}}}
+\newcommand{\tenl}[1]{\mathop{{}_{#1}{\otimes}}}
+\newcommand{\tenlr}[2]{\mathop{{}_{#1}{\otimes}_{#2}}}
+
+\newcommand{\boxten}[1]{\mathop{{\boxtimes}_{#1}}}
+
+\newcommand{\pb}[1]{\mathop{{\times}_{#1}}}
+\newcommand{\po}[1]{\mathop{{+}_{#1}}}
+
+
+\newcommand{\defl}{\mathrel{\mathop:}=}
+
+
+% THEOREM ENVIRONMENTS
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[subsection]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{notation}[thm]{Notation}
+
+\newtheoremstyle{citing}{}{}{\itshape}{}{\bfseries}{.}{ }{\thmnote{#3}}
+\theoremstyle{citing}
+\newtheorem{cit}{}
+
+\newtheoremstyle{citingdfn}{}{}{}{}{\bfseries}{.}{ }{\thmnote{#3}}
+\theoremstyle{citingdfn}
+\newtheorem{citdfn}{}
+
+
+\numberwithin{equation}{section}
+
+%\keywords{Fiber functors, Tannakian categories}
+%\subjclass[2010]{14A20, 18D10}
+
+%\author{Daniel Sch\"appi}
+%\thanks{This research was supported by the DFG grant: SFB 1085 ``Higher invariants.''}
+%\address{Fakult{\"a}t f{\"u}r Mathematik,
+%Universit{\"a}t Regensburg,
+%93040 Regensburg,
+%Germany}
+%\email{daniel.schaeppi@ur.de}
+\date{}
+
+
+\title{Monads and their applications -- Sheet 1}
+
+
+
+
+\begin{document}
+
+\SetupExSheets{
+ headings=block-subtitle,
+}
+
+\pagestyle{empty}
+%\maketitle
+\section*{Monads and their applications 12}
+
+\begin{question} 
+ Let $\ca{V}$ be a cosmos, $A$ and $B$ monoids in $\ca{V}$. The category $\ca{V}_A$ of left $A$-modules is precisely the functor category $[A,\ca{V}]$. Show that the category of left $\ca{V}$-adjoints $\ca{V}_A \rightarrow \ca{V}_B$ is equivalent to the category of $A$-$B$-bimodules (Hint: use the theory of free cocompletions). Apply this to the case of equivalences to show that the module categories are equivalent as $\ca{V}$-categories if and only if there exists an $A$-$B$ bimodule $M$ and a $B$-$A$-bimodule $N$ with $N\ten{B}M \cong A$ and $M \ten{A} N \cong B$ (this is called \emph{Morita equivalence} of monoids).
+ \end{question}
+
+\begin{question}
+ Recall that an Eilenberg--Moore object (EM-object for short) represents actions of a monoad in a 2-category $\ca{K}$. A \emph{Kleisli-object} is the dual notion, that is, an EM-object in $\ca{K}^{\op}$: given a monad $t \colon C \rightarrow C$, the Kleisli-object is the universal morphism $f \colon C \rightarrow C^t$ with an action $ft \Rightarrow f$.
+ 
+ Show that $\CAT$ has Kleisli-objects, described as follows: for a monad $T \colon \ca{C} \rightarrow \ca{C}$, the category $\ca{C}^{T}$ has the same objects as $\ca{C}$ and $\ca{C}^{T}(A,B)\defl \ca{C}(A,TB)$. The composition is defined using the monad multiplication. Show that $\ca{C}^{T}$ is equivalent to the full subcategory of $T\mbox{-}\Alg$ consisting of the free algebras. 
+\end{question}
+
+\begin{question}
+ Let $\ca{K}$ be a 2-category with EM-objects and let $C \in \ca{K}$. Write $\mathrm{Mnd}(C)$ for the category of monads on $C$. Call a 1-cell $g \colon A \rightarrow C$ \emph{tractable} if the right Kan extension of $g$ along itself exists. Write $\ca{K}_0^{\prime} \slash C$ for the full subcategory of the slice (1-)category consisting of tractable 1-cells. Show that the functor
+ \[
+(-)\mbox{-}\Alg \colon \mathrm{Mnd}(C)^{\op} \rightarrow \ca{K}_0^{\prime} \slash C
+ \]
+which sends $t$ to its EM-object is right adjoint to the functor which sends $g$ to the density monad $\Ran_g g$.
+\end{question}
+
+
+\begin{question}
+ Let $\ca{C}$ be an unenriched cocomplete category. Let $\ca{G}$ be a full subcategory consisting of $\kappa$-presentable objects and suppose that $\ca{G}$ is a \emph{strong} generator: the functor 
+ \[
+ \widetilde{K}=\mathrm{Hom}_{\ca{G}}(K,-) \colon \ca{C} \rightarrow [\ca{G}^{\op},\Set]
+ \]
+ is conservative. The goal of this exercise is to show that $\ca{C}$ is locally $\kappa$-presentable, that is, there automatically exists a \emph{dense} generator of $\kappa$-small  objects. More precisely, let $\ca{A}$ be the closure of $\ca{G}$ under $\kappa$-small colimits. Show that $\ca{A}$ is dense using the following steps.
+ 
+ \begin{enumerate}
+ \item[(a)] Show that the category $\ca{A} \slash C$ is $\kappa$-filtered and that the canonical diagram $\ca{A} \slash C \rightarrow \ca{C}$ is sent to a colimit diagram by the functor $\widetilde{K}$.
+ \item[(b)] Show the following fact about conservative functors $F \colon \ca{A} \rightarrow \ca{B}$: if $\ca{A}$ has colimits of a given shape, $F$ preserves colimits of that shape, and a specific cocone is sent to a colimit cocone by $F$, then the cocone in question is already a colimit cocone. In other words, a conservative functor \emph{detects} all the colimits that exist in the domain and that it preserves.
+ \item[(c)] Conclude that $\ca{A}$ is dense and thus that $\ca{C}$ is locally $\kappa$-presentable.
+ \end{enumerate}
+ \end{question}
+
+\begin{question}[subtitle=(bonus)]
+ Let $\ca{V}$ be a cosmos. Given two \emph{small} $\ca{V}$-categories, show that there exists a $\ca{V}$-category $[\ca{A},\ca{B}]$ whose underlying category is $\Vcat(\ca{A},\ca{B})$. The hom-object can be defined using the usual equalizer in $\ca{V}$ which would give natural transformations for $\ca{V}=\Set$. Show that this  defines an internal hom-object in the monoidal category $\Vcat$, that is, $- \otimes \ca{A} \dashv [\ca{A},-]$.
+\end{question}
+
+
+
+\end{document}

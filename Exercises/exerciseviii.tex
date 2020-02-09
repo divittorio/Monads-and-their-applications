@@ -1,0 +1,277 @@
+\documentclass[12pt, a4paper]{article}
+
+\pdfoutput=1
+
+\usepackage{exsheets}
+
+\usepackage{mathrsfs, amsmath, amsthm, amssymb, stmaryrd, enumerate}%
+\usepackage{tikz}%
+\usepackage[linktocpage]{hyperref}%
+%\usepackage{cleveref}
+\usepackage[all]{xy}%
+\xyoption{2cell}%
+\UseAllTwocells%
+
+\newdir{t>}{{\UseTips\dir{>}}}
+
+%\creflabelformat{enumi}{(#2#1#3)}
+
+%\hypersetup{
+% pdfauthor={Daniel Schaeppi},
+% pdfkeywords={Pushouts} {algebraic stacks} {Quasi-coherent sheaves} {weakly Tannakian categories}
+%}
+
+
+%********************************* MACROS ************************************%
+
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\el}{el}
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\Lan}{Lan}
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\Mod}{\mathbf{Mod}}
+\DeclareMathOperator{\Rep}{Rep}
+\DeclareMathOperator{\Vect}{\mathbf{Vect}}
+\DeclareMathOperator{\Coalg}{\mathbf{Coalg}}
+\DeclareMathOperator{\fgp}{fgp}
+\DeclareMathOperator{\fp}{fp}
+\DeclareMathOperator{\fd}{fd}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Spec}{Spec}
+
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\reg}{reg}
+\DeclareMathOperator{\flt}{flat}
+
+
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\coev}{coev}
+\DeclareMathOperator{\ev}{ev}
+
+\DeclareMathOperator{\fl}{fin. \ell}
+
+\DeclareMathOperator{\fin}{fin}
+\DeclareMathOperator{\fg}{fg}
+\DeclareMathOperator{\idem}{idem}
+\DeclareMathOperator{\Modtwo}{\mathcal{M}}
+
+\DeclareMathOperator{\iso}{iso}
+
+\DeclareMathOperator{\LFdi}{\LF^{\rk d}_{\iso}}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Sh}{Sh}
+\DeclareMathOperator{\Rex}{\mathbf{Rex}}
+
+\DeclareMathOperator{\SymMonCat}{SymMonCat}
+
+
+\DeclareMathOperator{\PsCone}{PsCone}
+
+
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Span}{\mathbf{Span}}
+\DeclareMathOperator{\Cospan}{\mathbf{Cospan}}
+\DeclareMathOperator{\EM}{EM}
+
+\DeclareMathOperator{\Aff}{\mathbf{Aff}}
+\DeclareMathOperator{\Alg}{\mathbf{Alg}}
+\DeclareMathOperator{\Coh}{\mathbf{Coh}}
+\DeclareMathOperator{\QCoh}{\mathbf{QCoh}}
+\DeclareMathOperator{\VB}{\mathbf{VB}}
+
+\DeclareMathOperator{\BGL}{\mathrm{BGL}}
+
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\fpqc}{\mathit{fpqc}}
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\lax}{lax}
+\DeclareMathOperator{\Tors}{Tors}
+
+
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\target}{target}
+\DeclareMathOperator{\cospan}{Cospan}
+\DeclareMathOperator{\CommAlg}{\mathbf{CommAlg}}
+\DeclareMathOperator{\coop}{coop}
+\DeclareMathOperator{\Coact}{Coact}
+\DeclareMathOperator{\Gray}{\mathbf{Gray}}
+\DeclareMathOperator{\PsMon}{\mathbf{PsMon}}
+\DeclareMathOperator{\BrPsMon}{\mathbf{BrPsMon}}
+\DeclareMathOperator{\SymPsMon}{\mathbf{SymPsMon}}
+\DeclareMathOperator{\MonComon}{\mathbf{MonComon}}
+\DeclareMathOperator{\BrMonComon}{\mathbf{BrMonComon}}
+\DeclareMathOperator{\SymMonComon}{\mathbf{SymMonComon}}
+\DeclareMathOperator{\Psa}{\mathbf{Psa}}
+
+\DeclareMathOperator{\pr}{pr}
+
+\DeclareMathOperator{\len}{\ell}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\Fil}{Fil}
+\DeclareMathOperator{\MF}{MF}
+\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator{\Er}{Er}
+
+\DeclareMathOperator{\Ps}{\mathbf{Ps}}
+
+\DeclareMathOperator{\Cocts}{\mathbf{Cocts}}
+\DeclareMathOperator{\Lex}{\mathbf{Lex}}
+\DeclareMathOperator{\cat}{\mathbf{cat}}
+\DeclareMathOperator{\Cat}{\mathbf{Cat}}
+\DeclareMathOperator{\Bicat}{\mathbf{Bicat}}
+\DeclareMathOperator{\Tricat}{\mathbf{Tricat}}
+\DeclareMathOperator{\Gpd}{\mathbf{Gpd}}
+\DeclareMathOperator{\Mky}{\mathbf{Mky}}
+\DeclareMathOperator{\CAT}{\mathbf{CAT}}
+\DeclareMathOperator{\Set}{\mathbf{Set}}
+\DeclareMathOperator{\Ab}{\mathbf{Ab}}
+\DeclareMathOperator{\CGTop}{\mathbf{CGTop}}
+\DeclareMathOperator{\Mon}{\mathbf{Mon}}
+\DeclareMathOperator{\Comon}{\mathbf{Comon}}
+\DeclareMathOperator{\Comod}{\mathbf{Comod}}
+
+\DeclareMathOperator{\Nat}{\mathrm{Nat}}
+\DeclareMathOperator{\Fun}{\mathrm{Fun}}
+\DeclareMathOperator{\LF}{\mathrm{LF}}
+
+\DeclareMathOperator{\CAlg}{\mathrm{CAlg}}
+
+\newcommand{\ca}[1]{\mathscr{#1}}
+\newcommand{\VNat}{\ca{V}\mbox{-}\Nat}
+\newcommand{\Vcat}{\ca{V}\mbox{-}\Cat}
+\newcommand{\VCAT}{\ca{V}\mbox{-}\CAT}
+\newcommand{\VCATlp}{\ca{V}\mbox{-}\CAT_{\mathrm{lp}}}
+\newcommand{\VCATc}{\ca{V}^{\prime}\mbox{-}\Cat_{\mathrm{c}}}
+
+\newcommand{\Catfc}{\Cat_{\mathrm{fc}}}
+\newcommand{\VCatfc}{\ca{V}\mbox{-}\Cat_{\mathrm{fc}}}
+\newcommand{\kten}{\mathop{\boxtimes_{\mathrm{fc}}}}
+
+\newcommand{\Prs}[1]{\mathcal{P}\ca{#1}}
+\newcommand{\Bimod}[1]{{_\ca{#1}}{\mathcal{M}}{_\ca{#1}}}
+\newcommand{\modules}[2]{{_\ca{#1}}{\mathcal{M}}{_\ca{#2}}}
+\newcommand{\CC}[1]{\mathbf{Comon}\left(\Bimod{#1}\right)}
+
+\DeclareMathOperator{\U}{O}
+
+\newcommand{\ubar}[1]{\underline{#1\mkern-4mu}\mkern4mu }
+
+\newcommand{\dual}[1]{{#1}^{\circ}}
+\newcommand{\ldual}[1]{{#1}^{\vee}}
+
+
+\newcommand{\ten}[1]{\mathop{{\otimes}_{#1}}}
+\newcommand{\tenl}[1]{\mathop{{}_{#1}{\otimes}}}
+\newcommand{\tenlr}[2]{\mathop{{}_{#1}{\otimes}_{#2}}}
+
+\newcommand{\boxten}[1]{\mathop{{\boxtimes}_{#1}}}
+
+\newcommand{\pb}[1]{\mathop{{\times}_{#1}}}
+\newcommand{\po}[1]{\mathop{{+}_{#1}}}
+
+
+\newcommand{\defl}{\mathrel{\mathop:}=}
+
+
+% THEOREM ENVIRONMENTS
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[subsection]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{notation}[thm]{Notation}
+
+\newtheoremstyle{citing}{}{}{\itshape}{}{\bfseries}{.}{ }{\thmnote{#3}}
+\theoremstyle{citing}
+\newtheorem{cit}{}
+
+\newtheoremstyle{citingdfn}{}{}{}{}{\bfseries}{.}{ }{\thmnote{#3}}
+\theoremstyle{citingdfn}
+\newtheorem{citdfn}{}
+
+
+\numberwithin{equation}{section}
+
+%\keywords{Fiber functors, Tannakian categories}
+%\subjclass[2010]{14A20, 18D10}
+
+%\author{Daniel Sch\"appi}
+%\thanks{This research was supported by the DFG grant: SFB 1085 ``Higher invariants.''}
+%\address{Fakult{\"a}t f{\"u}r Mathematik,
+%Universit{\"a}t Regensburg,
+%93040 Regensburg,
+%Germany}
+%\email{daniel.schaeppi@ur.de}
+\date{}
+
+
+\title{Monads and their applications -- Sheet 1}
+
+
+
+
+\begin{document}
+
+\SetupExSheets{
+ headings=block-subtitle,
+}
+
+\pagestyle{empty}
+%\maketitle
+\section*{Monads and their applications 8}
+
+\begin{question} 
+ Let $\ca{V}$, $\ca{W}$, $\ca{U}$ be monoidal categories and let $(F,\varphi_0,\varphi) \colon \ca{V} \rightarrow \ca{W}$ and $(G,\psi_0,\psi) \colon \ca{W} \rightarrow \ca{U}$ is lax monoidal with structure morphisms $\gamma_0=G(\varphi_0)\cdot \psi_0$ and $\gamma_{X,Y}=G(\varphi_{X,Y}) \cdot \psi_{FX,FY}$. Show that monoidal natural transformations can be whiskered on either side with lax monoidal functors.
+ \end{question}
+
+\begin{question}
+ Let $(F,\varphi_0,\varphi) \colon \ca{V} \rightarrow \ca{W}$ be strong monoidal and suppose that the underlying functor $F$ has a right adjoint $U$. Show that the composites
+ \[
+ \xymatrix{I_{\ca{V}} \ar[r]^-{\eta_{I_{\ca{V}}}} & UF(I) \ar[r]^-{U(\varphi_0^{-1})} & U(I_{\ca{W}}) }
+ \]
+ and
+ \[
+ \xymatrix@C=70pt{UX \ten{\ca{V}} UY \ar@{-->}[d] \ar[r]^-{\eta_{UX \ten{\ca{V}} UY }} & UF(UX \ten{\ca{V}} UY) \ar[d]^-{U\varphi_{UX,UY}^{-1}} \\ 
+  U(X \ten{\ca{W}}  Y) & \ar[l]^{U(\varepsilon_X \ten{\ca{W}} \varepsilon_Y)} U(FUX \ten{\ca{W}} FUY) }
+ \]
+ endow $U$ with the structure of a lax monoidal functor, and that $\eta$, $\varepsilon$ are monoidal natural transformations for this structure if the composites $UF$ and $FU$ are given the lax monoidal structure of Exercise 1.
+\end{question}
+
+\begin{question}
+  Let $\ca{V}$, $\ca{W}$, be monoidal categories, $(F,\varphi_0,\varphi) \colon \ca{V} \rightarrow \ca{W}$ a strong monoidal left adjoint, and $f \colon S \rightarrow T$ a function of sets.
+ \begin{enumerate}
+ \item[(a)] Show that $f$ induces a strong monoidal $f_{\ast} \colon \mathbf{Mat}(\ca{V},S) \rightarrow \mathbf{Mat}(\ca{W},T)$.
+ \item[(b)] Show that $F$ induces a strong monoidal $F \colon \mathbf{Mat}(\ca{V},S) \rightarrow \mathbf{Mat}(\ca{V},S)$.
+ \item[(c)] Use Exercise~2 to show that these are both monoidal adjunctions.
+\end{enumerate}  
+\end{question}
+
+
+\begin{question}
+ Let $\ca{C}$ be a complete category, $a$, $b$ objects of $\ca{C}$. Recall that $\langle a,b\rangle$ is defined to be the right Kan extension of $b\colon \ast \rightarrow \ca{C}$ along $a \colon \ast \rightarrow \ca{C}$. Show that
+ \[
+ \bigl ( \Ob(\ca{C}), (\langle a,b \rangle)_{(a,b) \in \Ob{\ca{C}}\times \Ob(\ca{C})  } \bigr) 
+ \]
+ defines a category enriched in the monoidal category $[\ca{C},\ca{C}]$ of endofunctors.
+ \end{question}
+
+\begin{question}[subtitle=(bonus)]
+ There are two natural monoidal functors $\ca{V} \rightarrow [\ca{V},\ca{V}]$ given by tensoring in either side. Under what conditions do these have a right adjoint? (For example, is locally presentable enough?) Applying Exercise~3(b) to the enriched category of Exercise~4, we get two $\ca{V}$-category structures on $\ca{V}$. Describe them explicitly. (Hint: you only need to know what the right adjoint does to functors of the form $\langle V,W \rangle$).
+\end{question}
+
+
+
+\end{document}

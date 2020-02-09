@@ -1,0 +1,277 @@
+\documentclass[12pt, a4paper]{article}
+
+\pdfoutput=1
+
+\usepackage{exsheets}
+
+\usepackage{mathrsfs, amsmath, amsthm, amssymb, stmaryrd, enumerate}%
+\usepackage{tikz}%
+\usepackage[linktocpage]{hyperref}%
+%\usepackage{cleveref}
+\usepackage[all]{xy}%
+\xyoption{2cell}%
+\UseAllTwocells%
+
+\newdir{t>}{{\UseTips\dir{>}}}
+
+%\creflabelformat{enumi}{(#2#1#3)}
+
+%\hypersetup{
+% pdfauthor={Daniel Schaeppi},
+% pdfkeywords={Pushouts} {algebraic stacks} {Quasi-coherent sheaves} {weakly Tannakian categories}
+%}
+
+
+%********************************* MACROS ************************************%
+
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\el}{el}
+\DeclareMathOperator{\op}{op}
+\DeclareMathOperator{\Lan}{Lan}
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\Mod}{\mathbf{Mod}}
+\DeclareMathOperator{\Rep}{Rep}
+\DeclareMathOperator{\Vect}{\mathbf{Vect}}
+\DeclareMathOperator{\Coalg}{\mathbf{Coalg}}
+\DeclareMathOperator{\fgp}{fgp}
+\DeclareMathOperator{\fp}{fp}
+\DeclareMathOperator{\fd}{fd}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Spec}{Spec}
+
+\DeclareMathOperator{\Tor}{Tor}
+\DeclareMathOperator{\reg}{reg}
+\DeclareMathOperator{\flt}{flat}
+
+
+\DeclareMathOperator{\rk}{rk}
+\DeclareMathOperator{\Sym}{Sym}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\coev}{coev}
+\DeclareMathOperator{\ev}{ev}
+
+\DeclareMathOperator{\fl}{fin. \ell}
+
+\DeclareMathOperator{\fin}{fin}
+\DeclareMathOperator{\fg}{fg}
+\DeclareMathOperator{\idem}{idem}
+\DeclareMathOperator{\Modtwo}{\mathcal{M}}
+
+\DeclareMathOperator{\iso}{iso}
+
+\DeclareMathOperator{\LFdi}{\LF^{\rk d}_{\iso}}
+
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Sh}{Sh}
+\DeclareMathOperator{\Rex}{\mathbf{Rex}}
+
+\DeclareMathOperator{\SymMonCat}{SymMonCat}
+
+
+\DeclareMathOperator{\PsCone}{PsCone}
+
+
+\DeclareMathOperator{\Ind}{Ind}
+\DeclareMathOperator{\Span}{\mathbf{Span}}
+\DeclareMathOperator{\Cospan}{\mathbf{Cospan}}
+\DeclareMathOperator{\EM}{EM}
+
+\DeclareMathOperator{\Aff}{\mathbf{Aff}}
+\DeclareMathOperator{\Alg}{\mathbf{Alg}}
+\DeclareMathOperator{\Coh}{\mathbf{Coh}}
+\DeclareMathOperator{\QCoh}{\mathbf{QCoh}}
+\DeclareMathOperator{\VB}{\mathbf{VB}}
+
+\DeclareMathOperator{\BGL}{\mathrm{BGL}}
+
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\fpqc}{\mathit{fpqc}}
+
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\lax}{lax}
+\DeclareMathOperator{\Tors}{Tors}
+
+
+\DeclareMathOperator{\Map}{Map}
+\DeclareMathOperator{\target}{target}
+\DeclareMathOperator{\cospan}{Cospan}
+\DeclareMathOperator{\CommAlg}{\mathbf{CommAlg}}
+\DeclareMathOperator{\coop}{coop}
+\DeclareMathOperator{\Coact}{Coact}
+\DeclareMathOperator{\Gray}{\mathbf{Gray}}
+\DeclareMathOperator{\PsMon}{\mathbf{PsMon}}
+\DeclareMathOperator{\BrPsMon}{\mathbf{BrPsMon}}
+\DeclareMathOperator{\SymPsMon}{\mathbf{SymPsMon}}
+\DeclareMathOperator{\MonComon}{\mathbf{MonComon}}
+\DeclareMathOperator{\BrMonComon}{\mathbf{BrMonComon}}
+\DeclareMathOperator{\SymMonComon}{\mathbf{SymMonComon}}
+\DeclareMathOperator{\Psa}{\mathbf{Psa}}
+
+\DeclareMathOperator{\pr}{pr}
+
+\DeclareMathOperator{\len}{\ell}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\Fil}{Fil}
+\DeclareMathOperator{\MF}{MF}
+\DeclareMathOperator{\colim}{colim}
+\DeclareMathOperator{\Er}{Er}
+
+\DeclareMathOperator{\Ps}{\mathbf{Ps}}
+
+\DeclareMathOperator{\Cocts}{\mathbf{Cocts}}
+\DeclareMathOperator{\Lex}{\mathbf{Lex}}
+\DeclareMathOperator{\cat}{\mathbf{cat}}
+\DeclareMathOperator{\Cat}{\mathbf{Cat}}
+\DeclareMathOperator{\Bicat}{\mathbf{Bicat}}
+\DeclareMathOperator{\Tricat}{\mathbf{Tricat}}
+\DeclareMathOperator{\Gpd}{\mathbf{Gpd}}
+\DeclareMathOperator{\Mky}{\mathbf{Mky}}
+\DeclareMathOperator{\CAT}{\mathbf{CAT}}
+\DeclareMathOperator{\Set}{\mathbf{Set}}
+\DeclareMathOperator{\Ab}{\mathbf{Ab}}
+\DeclareMathOperator{\CGTop}{\mathbf{CGTop}}
+\DeclareMathOperator{\Mon}{\mathbf{Mon}}
+\DeclareMathOperator{\Comon}{\mathbf{Comon}}
+\DeclareMathOperator{\Comod}{\mathbf{Comod}}
+
+\DeclareMathOperator{\Nat}{\mathrm{Nat}}
+\DeclareMathOperator{\Fun}{\mathrm{Fun}}
+\DeclareMathOperator{\LF}{\mathrm{LF}}
+
+\DeclareMathOperator{\CAlg}{\mathrm{CAlg}}
+
+\newcommand{\ca}[1]{\mathscr{#1}}
+\newcommand{\VNat}{\ca{V}\mbox{-}\Nat}
+\newcommand{\Vcat}{\ca{V}\mbox{-}\Cat}
+\newcommand{\VCAT}{\ca{V}\mbox{-}\CAT}
+\newcommand{\VCATlp}{\ca{V}\mbox{-}\CAT_{\mathrm{lp}}}
+\newcommand{\VCATc}{\ca{V}^{\prime}\mbox{-}\Cat_{\mathrm{c}}}
+
+\newcommand{\Catfc}{\Cat_{\mathrm{fc}}}
+\newcommand{\VCatfc}{\ca{V}\mbox{-}\Cat_{\mathrm{fc}}}
+\newcommand{\kten}{\mathop{\boxtimes_{\mathrm{fc}}}}
+
+\newcommand{\Prs}[1]{\mathcal{P}\ca{#1}}
+\newcommand{\Bimod}[1]{{_\ca{#1}}{\mathcal{M}}{_\ca{#1}}}
+\newcommand{\modules}[2]{{_\ca{#1}}{\mathcal{M}}{_\ca{#2}}}
+\newcommand{\CC}[1]{\mathbf{Comon}\left(\Bimod{#1}\right)}
+
+\DeclareMathOperator{\U}{O}
+
+\newcommand{\ubar}[1]{\underline{#1\mkern-4mu}\mkern4mu }
+
+\newcommand{\dual}[1]{{#1}^{\circ}}
+\newcommand{\ldual}[1]{{#1}^{\vee}}
+
+
+\newcommand{\ten}[1]{\mathop{{\otimes}_{#1}}}
+\newcommand{\tenl}[1]{\mathop{{}_{#1}{\otimes}}}
+\newcommand{\tenlr}[2]{\mathop{{}_{#1}{\otimes}_{#2}}}
+
+\newcommand{\boxten}[1]{\mathop{{\boxtimes}_{#1}}}
+
+\newcommand{\pb}[1]{\mathop{{\times}_{#1}}}
+\newcommand{\po}[1]{\mathop{{+}_{#1}}}
+
+
+\newcommand{\defl}{\mathrel{\mathop:}=}
+
+
+% THEOREM ENVIRONMENTS
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[subsection]
+\newtheorem*{thm*}{Theorem}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{example}[thm]{Example}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{dfn}[thm]{Definition}
+\newtheorem{notation}[thm]{Notation}
+
+\newtheoremstyle{citing}{}{}{\itshape}{}{\bfseries}{.}{ }{\thmnote{#3}}
+\theoremstyle{citing}
+\newtheorem{cit}{}
+
+\newtheoremstyle{citingdfn}{}{}{}{}{\bfseries}{.}{ }{\thmnote{#3}}
+\theoremstyle{citingdfn}
+\newtheorem{citdfn}{}
+
+
+\numberwithin{equation}{section}
+
+%\keywords{Fiber functors, Tannakian categories}
+%\subjclass[2010]{14A20, 18D10}
+
+%\author{Daniel Sch\"appi}
+%\thanks{This research was supported by the DFG grant: SFB 1085 ``Higher invariants.''}
+%\address{Fakult{\"a}t f{\"u}r Mathematik,
+%Universit{\"a}t Regensburg,
+%93040 Regensburg,
+%Germany}
+%\email{daniel.schaeppi@ur.de}
+\date{}
+
+
+\title{Monads and their applications -- Sheet 1}
+
+
+
+
+\begin{document}
+
+\SetupExSheets{
+ headings=block-subtitle,
+}
+
+\pagestyle{empty}
+%\maketitle
+\section*{Monads and their applications 6}
+
+\begin{question} 
+ Let $(S, \sigma)$ be a well-pointed endofunctor of $\ca{C}$. Let $L \colon \ca{C} \rightarrow \ca{C}$ be an endofunctor of $\ca{C}$ and $\pi \colon S \Rightarrow L$ a natural transformation such that $\pi_c \colon Sc \rightarrow Lc$ is an epimorphism for all $c \in \ca{C}$. Show that $(L,\pi \sigma)$ is a well-pointed endofunctor and that $(L,\pi\sigma)\mbox{-}\Alg$ is equivalent to the full subcategory of $(S,\sigma)\mbox{-}\Alg$ consisting of objects $(a,\alpha)$ such that $\pi_a \colon Sa \rightarrow La$ is an isomorphism.
+ \end{question}
+
+\begin{question}
+ Let $\ca{C}$ be a cocomplete category and let $(T,\tau)$ be a pointed endofunctor of $\ca{C}$. Let $(S,\sigma)$ be the well-pointed endofunctor of the arrow category $\ca{C}^{[1]}$ whose algebras are the isomorphisms: $S(c \rightarrow c^{\prime})=\id_{c^{\prime}}$. Recall that we defined a well-pointed endofunctor $(S^{\prime},\sigma^{\prime})$ on the slice category $T \slash \ca{C}$ by the pushout
+ \[
+ \xymatrix{\tau_{!} \tau^{\ast} \ar[d]_{\varepsilon} \ar[r]^{\tau_{!} \sigma \tau^{\ast} } & \tau_{!} S \tau^{\ast} \ar[d] \\ \id \ar[r]_-{\sigma^{\prime}} & S^{\prime} }
+ \]
+ in $[T \slash \ca{C},T \slash \ca{C}]$. Show that $S^{\prime}$ sends $(a,b,\alpha \colon Ta \rightarrow b)$ to $(b,c,\beta \colon Tb \rightarrow c)$, where $\beta$ denotes the coequalizer
+ \[
+ \xymatrix{T^2 a \ar@<0.5ex>[r]^{T\tau_a} \ar@<-0.5ex>[r]_{\tau_{Ta}} & T^2 a \ar[r]^-{T\alpha} & Tb \ar[r]^-{\beta} & c }
+ \]
+ in $\ca{C}$. (Hint: if you get stuck, this is discussed in Kelly's ``transfinite constructions,'' \S 17).
+\end{question}
+
+\begin{question}
+ Let $\ca{C}$ be a locally $\lambda$-presentable category, $F \colon \ca{C} \rightarrow \ca{D}$ $\lambda$-accessible, and let $G \colon \ca{C} \rightarrow \ca{D}$ be a right adjoint. Recall that the slice category $F \slash G$ has objects the triples $(a,b,\gamma \colon Fa \rightarrow Gb)$, with morphisms given by pairs of morphisms in $\ca{C}$ making the evident square commutative.
+ \begin{enumerate}
+ \item[(a)] Show that the slice category $F \slash G$ is locally $\lambda$-presentable.
+ \item[(b)] Suppose that $G$ is also $\lambda$-accessible. Show that, in this case, both the domain functor and the codomain functor $F \slash G \rightarrow \ca{C}$ which send $(a,b,\gamma)$ to $a$ respectively $b$ are $\lambda$-accessible. 
+ \end{enumerate}
+\end{question}
+
+
+\begin{question}
+ Let $\ca{C}$, $\ca{D}$ be locally $\lambda$-presentable, $F \colon \ca{C} \rightarrow \ca{D}$ left adjoint to $U \colon \ca{D} \rightarrow \ca{C}$. Let $\kappa \geq \lambda$ be a regular cardinal.
+ \begin{enumerate}
+ \item[(a)]
+  Show that if $U$ is $\kappa$-accessible, then $F(\ca{C}_{\kappa}) \subseteq \ca{D}_{\kappa}$. (Recall that $\ca{C}_{\kappa}$ denotes the full subcategory of $\kappa$-presentable objects in $\ca{C}$.)
+ \item[(b)]
+ Show that there exists a regular cardinal $\mu \geq \lambda$ such that $U$ is $\mu$-accessible. (Hint: consider the composite of $U$ with the full and faithful $\widetilde{K} \colon \ca{C} \rightarrow [\ca{C}_{\lambda}^{\op},\Set]$, where $K \colon \ca{C}_{\lambda} \rightarrow \ca{C}$ denotes the inclusion.)
+ \item[(c)]
+ Conclude that for any left adjoint $F$ between locally $\lambda$-presentable categories, there exists a regular cardinal $\mu \geq \lambda$ such that $F(\ca{C}_\mu) \subseteq \ca{D}_{\mu}$.
+ \end{enumerate}
+\end{question}
+
+\begin{question}[subtitle=(bonus)]
+ Show that left adjoint functors between locally presentable categories are precisely the cocontinuous functors and that right adjoints between locally presentable categories are precisely the continuous functors which are also accessible. 
+\end{question}
+
+\end{document}
