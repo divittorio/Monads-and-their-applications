@@ -5,10 +5,10 @@
 \usepackage{amsbsy}
 \usepackage{fontenc}
 \usepackage{amsfonts}
-\usepackage{amsmath} 
+\usepackage{amsmath}
 \usepackage{eucal}
 \usepackage{mdframed}
-\usepackage{amsthm}  	
+\usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amscd}
 \usepackage{faktor}
@@ -23,7 +23,7 @@
 \usepackage{indentfirst}
 \usepackage{hyperref}
 \usepackage{xspace}
-\hypersetup{colorlinks=false, pdfborder={0 0 0}}                                 
+\hypersetup{colorlinks=false, pdfborder={0 0 0}}
 \usepackage{enumitem}
 \setdescription{font=\normalfont}
 \usepackage[type={CC}, modifier={by-nc-sa}, version={4.0}]{doclicense}
@@ -31,7 +31,7 @@
 \usepackage[normalem]{ulem}
 \usepackage{contour}
 \usepackage{fullpage}
-\makeatletter        
+\makeatletter
 \newcommand*{\doublerightarrow}[2]{\mathrel{
 		\settowidth{\@tempdima}{$\scriptstyle#1$}
 		\settowidth{\@tempdimb}{$\scriptstyle#2$}
@@ -4080,7 +4080,8 @@ The left adjoint of $U$ sends $(S,M)$ to the free monoid for the matrix tensor p
 First, let $S=\colim S_i$ with universal cocone $\iota_i\from S_i\to S$ in $\Set$. Then $(\iota_i)_*\A_i$ defines a diagonal of the same shape in $\Mon(\V^{S\times S})$. Let $\A=\colim_i(\iota_i)_*\A_i$. Then $\colim(S_i,\A_i)=(S,\A)$. The same recipe works for colimits of $\V$-graphs $\colim(S_i, M_i)=(S,\colim_{\V^{S\times S}}(\iota_i)_*M_i)$. It follows that $U\colon\V\mbox{-}\Cat\to\V\mbox{-}\mathbf{Grph}$ preserves all the colimits that are preserved by each forgetful functor $\Mon(\V^{S\times S})\to\V^{S\times S}, \ S\in\Set$. Now we use the fact that the tensor product of matrices preserves sifted colimits in each variable. Hence sifted colimits of monoids are preserved by $\Mon(\V^{S\times S})\xrightarrow{\text{forget}}\V^{S\times S}$.
 \end{proof}
 \begin{rmk}
-   We don't really need locally $\kappa$-presentable here: $\V$ any cosmos suffices by Kelly's  ``transfinite construction''.
+   We don't really need $\cV$ to be locally $\kappa$-presentable here since any
+   cosmos suffices by Kelly's  ``transfinite construction''.
 \end{rmk}
 		\backmatter
 	% bibliography, glossary and index would go here.
