@@ -5,10 +5,10 @@
 \usepackage{amsbsy}
 \usepackage{fontenc}
 \usepackage{amsfonts}
-\usepackage{amsmath}
+\usepackage{amsmath} 
 \usepackage{eucal}
 \usepackage{mdframed}
-\usepackage{amsthm}
+\usepackage{amsthm}  	
 \usepackage{amssymb}
 \usepackage{amscd}
 \usepackage{faktor}
@@ -23,7 +23,7 @@
 \usepackage{indentfirst}
 \usepackage{hyperref}
 \usepackage{xspace}
-\hypersetup{colorlinks=false, pdfborder={0 0 0}}
+\hypersetup{colorlinks=false, pdfborder={0 0 0}}                                 
 \usepackage{enumitem}
 \setdescription{font=\normalfont}
 \usepackage[type={CC}, modifier={by-nc-sa}, version={4.0}]{doclicense}
@@ -31,7 +31,7 @@
 \usepackage[normalem]{ulem}
 \usepackage{contour}
 \usepackage{fullpage}
-\makeatletter
+\makeatletter        
 \newcommand*{\doublerightarrow}[2]{\mathrel{
 		\settowidth{\@tempdima}{$\scriptstyle#1$}
 		\settowidth{\@tempdimb}{$\scriptstyle#2$}
@@ -80,6 +80,7 @@
 \DeclareMathOperator{\QCoh}{\mathbf{QCoh}}
 \DeclareMathOperator{\VB}{\mathbf{VB}}
 \DeclareMathOperator{\Arr}{Arr}
+\DeclareMathOperator{\Graph}{-\catname{Graph}}
 
 \newcommand{\Set}{\catname{Set}}
 \newcommand{\Top}{\catname{Top}}
@@ -181,6 +182,9 @@
 \DeclareMathOperator{\I}{\mathcal{I}}
 \DeclareMathOperator{\J}{\mathcal{J}}
 \DeclareMathOperator{\W}{\mathcal{W}}
+\DeclareMathOperator{\Rf}{\mathcal{R}}
+\DeclareMathOperator{\Lf}{\mathcal{L}}
+\DeclareMathOperator{\M}{\mathcal{M}}
 \DeclareMathOperator{\Ord}{\mathbf{Ord}}
 \DeclareMathOperator{\Mnd}{\mathsf{Mnd}}
 \DeclareMathOperator{\Mon}{\mathsf{Mon}}
@@ -4080,9 +4084,162 @@ The left adjoint of $U$ sends $(S,M)$ to the free monoid for the matrix tensor p
 First, let $S=\colim S_i$ with universal cocone $\iota_i\from S_i\to S$ in $\Set$. Then $(\iota_i)_*\A_i$ defines a diagonal of the same shape in $\Mon(\V^{S\times S})$. Let $\A=\colim_i(\iota_i)_*\A_i$. Then $\colim(S_i,\A_i)=(S,\A)$. The same recipe works for colimits of $\V$-graphs $\colim(S_i, M_i)=(S,\colim_{\V^{S\times S}}(\iota_i)_*M_i)$. It follows that $U\colon\V\mbox{-}\Cat\to\V\mbox{-}\mathbf{Grph}$ preserves all the colimits that are preserved by each forgetful functor $\Mon(\V^{S\times S})\to\V^{S\times S}, \ S\in\Set$. Now we use the fact that the tensor product of matrices preserves sifted colimits in each variable. Hence sifted colimits of monoids are preserved by $\Mon(\V^{S\times S})\xrightarrow{\text{forget}}\V^{S\times S}$.
 \end{proof}
 \begin{rmk}
-   We don't really need $\cV$ to be locally $\kappa$-presentable here since any
-   cosmos suffices by Kelly's  ``transfinite construction''.
+   We don't really need locally $\kappa$-presentable here: $\V$ any cosmos suffices by Kelly's  ``transfinite construction''.
 \end{rmk}
+
+It remains to show that $\V\Graph$ is locally $\kappa$-presentable if $\V$ is. We consider the $\V$-graph $(2, \bar{V})$, for $V \in \V$ denoted as follows:
+The set is given by $\{0,1\}$ and $\bar{V}(i,j) = V$ if $(i,j) = (0,1)$ and $\bar{V}(i,j) = \emptyset$ else. Note that this is a strong generator of 
+$\V\Graph$, if we let $\V$ sum through objects of $\V_{\kappa}$. Then to give a $(2,\bar{V}) \to (S,M)$ is equivalent to picking $x,y \in S$ and 
+$\varphi \from V \to M(x,y)$. 
+
+\begin{prop}
+   Let $\V$ be locally $\kappa$-presentable. Then for all $V \in (\V_{0})_{\kappa}$ the object $(2,\bar{V})$ is $\kappa$-presentable in $\V$-graph. 
+\end{prop}
+
+\begin{proof}
+   Consider a $\kappa$-filtered colimit $(X,M) = \colim_{i}(X_{i},M_{i})$ in $\V\Graph$ with universal cocone $\iota_{i} \from X_{i} \to X$ in $\Set$. Then 
+   we have $M = \colim (\iota_{i})_{\ast}M_{i}$ in $\V^{X\times X}$. We have to show, that $\V\Graph((2,\bar{V}),-)$ preserves this $\kappa$-filtered colimit. That 
+   is for any $f \from (2,\bar{V}) \to (X,M)$, we find a factorisation 
+      \begin{center}
+         \begin{tikzcd}
+            & (X_{i},M_{i}) \arrow[d] \\
+            (2,\bar{V}) \arrow[ur, dashed, "f'"] \arrow[r, "f"'] & (X,M)
+         \end{tikzcd}
+      \end{center}
+    and any two such morphisms, which become equal in the colimit become already equal at a common stage in the diagram. 
+    Recall that 
+       \begin{align*}
+          (\iota_{i})_{\ast}M_{i}(x,y) = \sum_{\set{(a,b)}{\iota_{i}(a)=x,\iota_{i}(b)=y}}M_{i}(a,b)
+       \end{align*}
+    Our $f \from (2,\bar{V}) \to (X,M)$ is given by the elements $x,y \in X$ and $\varphi \from V \to (\colim(\iota_{i})_{\ast})(x,y)$. Both $x,y$ are in the image 
+    of $\iota_{i} \from X_{i} \to X$ for some $i$. Since $V$ is $\kappa$-presentable $\varphi$ factors through one of the inclusions 
+    $(\iota_{i})_{\ast}M_{i}(x,y) \to \colim(\iota_{i})_{\ast} M_{i}(x,y)$. Thus we obtain a morphism 
+       \begin{align*}
+          \varphi \from V \to \sum_{\set{(a,b)}{\iota_{i}(a)=x,\iota_{i}(b)=y}}M_{i}(a,b)
+       \end{align*}
+    Since $V$ is $\kappa$-presentable, there exist sets $A \subset \iota_{i}^{-1}(x)$ and $B \subset \iota_{i}^{-1}(y)$ with $\mid A \mid,\mid B \mid \prec \kappa$, 
+    such that $\varphi$ factors through $\sum_{(a,b)\in A \times B}M_{i}(a,b)$. But the diagram $X_{i} \to X$ is a $\kappa$-filtered colimit diagram in $\Set$. So 
+    we can finde a stage $j$ 
+       \begin{center}
+          \begin{tikzcd}
+             X_{i} \arrow[r, "X_{\varphi}"] \arrow[rd] & X_{j} \arrow[d] \\
+             & X 
+          \end{tikzcd}
+       \end{center}
+    such that $X_{\varphi}(A) = \{x_{0}\}$ and $X_{\varphi}(B)=\{y_{0}\}$. Now by picking $x_{0},y_{0}$, we get the desired lift $f' \from (2,\bar{V}) \to (X_{j},M_{j})$.
+    It remains to check, that given a other commutative square 
+       \begin{center}
+          \begin{tikzcd}
+             & (X_{i},M_{i}) \arrow[rd, dashed] \arrow[rrd] & & \\
+             (2,\bar{V}) \arrow[ru] \arrow[rd] & & (X_{k},M_{k}) \arrow[r] & (X,M) \\
+             & (X_{j},M_{j}) \arrow[ru, dashed] \arrow[rru] & &
+          \end{tikzcd}
+       \end{center}
+    we find a stage $k$ and dashed arrows making the inner square commute. Without loss of generality we can assume $i=j$ and that $0$ and $1$ go 
+    to the same element in $X_{i}$ (since $2$ is finitely presentable in $\Set$). The remaining data are morphisms  
+       \begin{center}
+          \begin{tikzcd}
+             V \arrow[r, shift left, "\varphi"] \arrow[r, shift right, "\psi"'] & M_{i}(a,b)
+          \end{tikzcd}
+       \end{center}
+    such that they become equal when comparing with $(X_{i},M_{i}) \to (X,M)$. 
+       \begin{center}
+           \begin{tikzcd}[row sep=tiny]
+               & M_{i}(a,b) \arrow[r] & \sum_{\set{(a,b)}{\iota_{i}(a)=x,\iota_{i}(b)=y}}M_{i}(a,b) \arrow[rd] & \\
+               V \arrow[ru, "\varphi"] \arrow[rd, "\psi"'] & & & \colim(\iota_{i})_{\ast}M_{i}(x,y) \\
+               & M_{i}(a,b) \arrow[r] & \sum_{\set{(a,b)}{\iota_{i}(a)=x,\iota_{i}(b)=y}}M_{i}(a,b) \arrow[ru] &
+           \end{tikzcd}
+       \end{center}
+    But the colimit in the target is a filtered colimit in $\V$ and $V$ is
+    $\kappa$-presentable. So they factor through some $(\iota_{j})_{\ast}M_{i} \to \colim$. This $j$ gives the desired diagram by looking at composition 
+    of maps in $\V\Graph$. 
+\end{proof}
+
+This now proves the theorem, that $\V\text{-}\Cat$ is locally $\kappa$-presentable if $\V$ is so. It remains to check, that if $I \in (\V_{0})_{\kappa}$ and 
+$(\V_{0})_{\kappa}$ is closed under $-\otimes -$, then the same is true in $\V\text{-}\Cat$. 
+
+\begin{prop}
+   Under the above assumptions, $\I \in \V\text{-}\Cat$ is locally finitely presentable and for $V,W \in (\V_{0})_{\kappa}$, $\Rf[V] \otimes \Rf[W]$ is locally 
+   $\kappa$-presentable, where $\Rf[V]$ is the free $\V\text{-}\Cat$ on $(2,\bar{V})$. 
+\end{prop}
+
+\begin{proof}
+   The tensor product has four objects $\set{(i,j)}{i,j \in \{0,1\}}$ and looks like 
+      \begin{center}
+         \begin{tikzcd}
+             (0,0) \arrow[r, squiggly, "V"] \arrow[d, squiggly, "W"'] & (0,1) \arrow[d, squiggly, "W"] \\
+             (1,0) \arrow[r, squiggly, "V"'] & (1,1)
+         \end{tikzcd}
+      \end{center}
+   Now let $\B[V,W]$ be the pushout 
+      \begin{center}
+         \begin{tikzcd}
+            \I \arrow[r] \arrow[d] & \Rf[V] \arrow[d] \\
+            \Rf[W] \arrow[r] & \B[V,W]  
+         \end{tikzcd}
+      \end{center}
+   Then one checks, that $\Rf[V] \otimes \Rf[W]$ is precisely the pushout 
+      \begin{center}
+         \begin{tikzcd}
+            \Rf[V \otimes W] \arrow[r] \arrow[d] & \B[V,W] \arrow[d] \\
+            \B[W,V] \arrow[r] & \Rf[V] \otimes \Rf[W] 
+         \end{tikzcd}
+      \end{center}
+   So since $\Rf[V]$ and $\Rf[W]$ are free on $V,W$ the are locally $\kappa$-presentable. It only remains to show, that $\I$ is locally $\kappa$-presentable. But 
+   we have $\V\text{-}\Cat(\I,-) \iso \Ob(-) \from \V\text{-}\Cat \to \Set$ so this preserves all small colimits. 
+\end{proof}
+
+\begin{exmp}
+   $2\text{-}\Cat$, simplicial categories and dg-categories form locally finitely presentable cosmoi. 
+\end{exmp}
+
+\begin{rmk}
+   Since $F_{\ast}[1] = \Rf[I]$ we get $\V\text{-}\Cat$ is a locally $\kappa$-presentable $2$-category. 
+\end{rmk}
+
+\section{Two-dimensional monad theory}
+
+In the case $\V=\Cat$ the (large) categories $\V\text{-}\CAT(\K,\Lf)$ are again $2$-categories (modifications can be defined as for small $\K$). We denote 
+this by $[\K,\Lf]$. Moreover, we have $2$-functors $[\Lf,\M] \times [\K,\Lf] \to [\K,\M]$. Since $\Cat$ is cartesian, we also have a diagonal 
+$[\K,\K] \to [\K,\K] \times [\K,\K]$ given by the assignment $F \mapsto (F,F)$. This allows us to present the $2$-monad for $\kappa$-accessible $2$-monads on
+a locally $\kappa$-presentable $2$-cat $\K$. This way we can study $2$-monads by studying the algebras of $2$-monads. Moreover $2\text{-}\Cat_{/\K}$ is 
+a $2$-category and $(-)\Alg \from 2\text{-}\Mnd_{\kappa}(\K) \to 2\text{-}\Cat_{/\K}$ preserves all weighted limits (sends $\Cat$-weighted colimits to limits). 
+This can be seen via the following construction. Given a $c \in \K$ we have the $2$-monad $\langle c,c \rangle \from \K \to \K$, which satisfies the property, that 
+giving $T \to \langle c,c \rangle$ is the same as defining a $T$-algebra structure on $c$. Now given a $1$-cell $f \from c \to d$, we can form the pullback
+   \begin{center}
+      \begin{tikzcd}
+         \{f,f\} \arrow[r] \arrow[d] & \langle c,c \rangle \arrow[d] \\
+         \langle d,d \rangle \arrow[r] & \langle c,d \rangle
+      \end{tikzcd}
+   \end{center}
+Then given a $2$-cell $\sigma \from f \Rightarrow g \from c \to d$ we form the pullback 
+   \begin{center}
+      \begin{tikzcd}
+        \Arrowvert \sigma, \sigma \Arrowvert \arrow[r] \arrow[d] & \{f,f\} \arrow[d] \\
+         \{g,g\} \arrow[r] & \{f,g\} 
+      \end{tikzcd}
+   \end{center}
+By construction giving $T \to \Arrowvert \sigma,\sigma \Arrowvert$ amounts to lifting $\sigma$ to a $2$-cell in $T\Alg$
+   \begin{center}
+      \begin{tikzcd}
+          (A,\alpha) \arrow[r, bend left, ""{name=a, below}, "f"] \arrow[r, bend right, ""{name=b}, "g"'] & (B,\beta) \arrow[Rightarrow, from=a, to=b, "\sigma"]
+      \end{tikzcd}
+   \end{center}
+   
+\begin{exmp}
+   We can present the $2$-monad on $\V\text{-}\Cat$ for a monoidal (small) $\V$-category by starting with the endo-$2$-functor given by the assignment 
+   $\A \mapsto \A \otimes \A$. $F\Alg$ then has objects $(\A,\A \otimes \A \to \A)$ and the use inserts to get  
+      \begin{center}
+         \begin{tikzcd}[row sep=small]
+            (\A \otimes \A) \otimes \A \arrow[r, bend left, "m \otimes 1"] \arrow[dd, "\iso"'] & \A \otimes \A \arrow[dd, Rightarrow, shorten=4mm, "\alpha"] 
+               \arrow[rd, bend left, "m"] & \\
+            & & \A \\
+            \A \otimes (\A \otimes \A) \arrow[r, bend right, "1 \otimes m"'] & \A \otimes \A \arrow[ru, bend right, "m"'] 
+         \end{tikzcd}
+      \end{center}
+   and then equifier for the pentagon and also add limits etc. The resulting category $T\Alg$ has the right objects, but the $1$-cells preserve the structure strictly. 
+\end{exmp}
+
 		\backmatter
 	% bibliography, glossary and index would go here.
 	
