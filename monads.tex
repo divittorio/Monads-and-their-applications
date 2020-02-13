@@ -1456,7 +1456,7 @@ There exists a single construction which admits the following as special cases:
 	\item cocompletion of $T\Alg$ for suitable monads $T$,
 	\item existence of colimits of diagrams of accessible monads.
 \end{itemize}
-This was observed by G.\ M.\ Kelly in \emph{A unified treatment of transfinite constructions for free algebras, free monoids, colimits, associated sheaves, and so on} (1980), which is ``hard to read" but simplifies greatly in the context of locally presentable categories.
+This was observed by G.\ M.\ Kelly in \cite{kelly1980unified}, which is ``hard to read" but simplifies greatly in the context of locally presentable categories.
 
 Throughout this section we will work with locally presentable categories and accessible functors.
 
@@ -2166,7 +2166,7 @@ We mention without proof the following fundamental theorem.
     Any diagram built from $\otimes$, $I$, $\alpha$, $\lambda$, $\rho$ and their iterations is commutative.
 \end{thm}
 
-    Given a word of objects tensored among them, any two choices of bracketing are uniquely isomorphic. This result is plausible if $\otimes$ is derived from an universal property as in $(1)-(3)$ and clear if $\V$ is strict, like in $(3)$ and $(4)$, while the general proof uses a rewriting argument which can be found in \textit{Categories for the Working Mathematician}.
+    Given a word of objects tensored among them, any two choices of bracketing are uniquely isomorphic. This result is plausible if $\otimes$ is derived from an universal property as in $(1)-(3)$ and clear if $\V$ is strict, like in $(3)$ and $(4)$, while the general proof uses a rewriting argument which can be found in \cite{MacLane2}.
     
 \begin{defn}
     A \emph{lax monoidal functor} from $\cV$ to $\cW$ is a triple $(F,\phi_0,\phi)$, where $F\colon\V\rightarrow\W$ is a functor, $\phi_0\colon I_{\W}\rightarrow FI_{\V}$ a morphism and $\phi\colon\otimes_{\W}\circ(F\times F)\Rightarrow F\circ\otimes_{\W}$ a natural transformation such that for all $X,Y,Z\in\V$ the diagrams
@@ -3100,7 +3100,7 @@ The diagram in the above proposition commutes by adjunction since composition is
     \end{displaymath}
     to $ (f,\id) $ and $ (\id,f) $ respectively.
     
-    Further details---or more precisely---a good list of instructions on how to preceed efficiently can be found in Kelly's ``Basic concepts,'' sections 1.7 and 1.8.
+    Further details---or more precisely---a good list of instructions on how to preceed efficiently can be found in \cite[\S 1.7 and 1.8]{Kelly}.
 \end{rmk}
 
 
@@ -3990,5 +3990,8 @@ By construction giving $T \to \Arrowvert \sigma,\sigma \Arrowvert$ amounts to li
 		\backmatter
 	% bibliography, glossary and index would go here.
 	
+	\nocite{*}
+\bibliographystyle{alpha}
+\bibliography{bibliography}
 
 \end{document}
