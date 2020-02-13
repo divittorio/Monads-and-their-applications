@@ -1,277 +1,5 @@
 \documentclass[a4paper,11pt,oneside,openany]{scrbook}
-\usepackage[utf8]{inputenc}
-\usepackage{graphicx}
-\usepackage{mathrsfs}
-\usepackage{amsbsy}
-\usepackage{fontenc}
-\usepackage{amsfonts}
-\usepackage{amsmath} 
-\usepackage{eucal}
-\usepackage{mdframed}
-\usepackage{amsthm}  	
-\usepackage{amssymb}
-\usepackage{amscd}
-\usepackage{faktor}
-\usepackage{mathtools}
-\usepackage{epigraph}
-\usepackage{tikz}
-\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
-\usepackage{tikz-cd}
-\usepackage[titletoc]{appendix}
-\usepackage{centernot}
-\usepackage{bbding}
-\usepackage{indentfirst}
-\usepackage{hyperref}
-\usepackage{xspace}
-\hypersetup{colorlinks=false, pdfborder={0 0 0}}                                 
-\usepackage{enumitem}
-\setdescription{font=\normalfont}
-\usepackage[type={CC}, modifier={by-nc-sa}, version={4.0}]{doclicense}
-%\usepackage[style=alphabetic, backend=bibtex]{biblatex}
-\usepackage[normalem]{ulem}
-\usepackage{contour}
-\usepackage{fullpage}
-\makeatletter        
-\newcommand*{\doublerightarrow}[2]{\mathrel{
-		\settowidth{\@tempdima}{$\scriptstyle#1$}
-		\settowidth{\@tempdimb}{$\scriptstyle#2$}
-		\ifdim\@tempdimb>\@tempdima \@tempdima=\@tempdimb\fi
-		\mathop{\vcenter{
-				\offinterlineskip\ialign{\hbox to\dimexpr\@tempdima+1em{##}\cr
-					\rightarrowfill\cr\noalign{\kern.5ex}
-					\rightarrowfill\cr}}}\limits^{\!#1}_{\!#2}}}
-\newcommand*{\triplerightarrow}[1]{\mathrel{
-		\settowidth{\@tempdima}{$\scriptstyle#1$}
-		\mathop{\vcenter{
-				\offinterlineskip\ialign{\hbox to\dimexpr\@tempdima+1em{##}\cr
-					\rightarrowfill\cr\noalign{\kern.5ex}
-					\rightarrowfill\cr\noalign{\kern.5ex}
-					\rightarrowfill\cr}}}\limits^{\!#1}}}
-\makeatother
-
-\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else  		
-	\hbox{}                                                        					
-	\vspace*{\fill}                                                					
-	\begin{center}                                                 					
-		\*                                                             					
-	\end{center}                                                   					
-	\vspace{\fill}                                                 					 
-	\thispagestyle{empty}                                          				
-	\newpage                                                       					
-	\if@twocolumn\hbox{}\newpage\fi\fi\fi}                        
-
-\makeatletter
-\newcommand{\colim@}[2]{%
-	\vtop{\m@th\ialign{##\cr
-			\hfil$#1\operator@font colim$\hfil\cr
-			\noalign{\nointerlineskip\kern-\ex@}\cr}}%
-}
-\newcommand{\colim}{%
-	\mathop{\mathpalette\colim@{\rightarrowfill@\scriptscriptstyle}}\nmlimits@
-}
-
-\newcommand\Yoneda{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily Yoneda}}}{\cong}}}
-
-\newcommand{\catname}[1]{{\normalfont\textbf{#1}}}
-
-\DeclareMathOperator{\Aff}{\mathbf{Aff}}
-\DeclareMathOperator{\Alg}{-\mathsf{Alg}}
-\DeclareMathOperator{\Coh}{\mathbf{Coh}}
-\DeclareMathOperator{\QCoh}{\mathbf{QCoh}}
-\DeclareMathOperator{\VB}{\mathbf{VB}}
-\DeclareMathOperator{\Arr}{Arr}
-
-\newcommand{\Set}{\catname{Set}}
-\newcommand{\Top}{\catname{Top}}
-\newcommand{\CHTop}{\catname{CHTop}}
-\newcommand{\Grp}{\catname{Grp}}
-\newcommand{\Ab}{\catname{Ab}}
-\newcommand{\Mod}{\catname{Mod}}
-\newcommand{\dgMod}{\catname{dgMod}}
-\newcommand{\sSet}{\catname{sSet}}
-\newcommand{\Rel}{\catname{Rel}}
-\newcommand{\Cat}{\catname{Cat}}
-\newcommand{\CAT}{\catname{CAT}}	
-\newcommand{\qCat}{\catname{qCat}}	
-\newcommand{\yo}{\text{\usefont{U}{min}{m}{n}\symbol{'210}}}
-\newcommand{\from}{\colon}
-\newcommand{\iso}{\cong}
-\newcommand{\card}[1]{\left\lvert #1 \right\rvert}
-\newcommand{\set}[2]{\left\lbrace\,#1\colon #2 \,\right\rbrace}
-\makeatother                                                   
-
-\ExplSyntaxOn
-    \NewDocumentCommand{\makeabbrev}{mmm}
-    {
-        \yoruk_makeabbrev:nnn { #1 } { #2 } { #3 }
-    }
-
-    \cs_new_protected:Npn \yoruk_makeabbrev:nnn #1 #2 #3
-    {
-        \clist_map_inline:nn { #3 }
-        {
-            \cs_new_protected:cpn { #2 } { #1 { ##1 } }
-        }
-    }
-\ExplSyntaxOff
-
-\makeabbrev{\boldsymbol}{bs#1}{a,b,c,d,e,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
-                               A,B,C,D,E,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
-
-\makeabbrev{\mathfrak}{f#1}{a,b,c,d,e,f,g,h,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
-                            A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
-
-\makeabbrev{\mathbf}{bf#1}{a,b,c,d,e,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
-                          A,B,C,D,E,G,H,I,J,K,L,M,N,O,P,Q,R,T,U,V,W,X,Y,Z}
-
-\makeabbrev{\mathsf}{sf#1}{a,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
-                           A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
-
-\makeabbrev{\mathcal}{c#1}{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
-
-\makeabbrev{\mathbb}{bb#1}{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
-
-\DeclareFontFamily{U}{min}{}
-\DeclareFontShape{U}{min}{m}{n}{<-> udmj30}{}
-
-\makeatletter
-\renewcommand\part{%
-	\if@openright
-	\cleardoublepage
-	\else
-	\clearpage
-	\fi
-	\thispagestyle{empty}%  				 
-	\if@twocolumn
-	\onecolumn
-	\@tempswatrue
-	\else
-	\@tempswafalse
-	\fi
-	\null\vfil
-	\secdef\@part\@spart}
-\makeatother
-\usepackage{bbm}
-\usepackage{fancyhdr}                                   	
-
-\renewcommand{\sectionmark}[1]{\markright{#1}}         	         
-\pagestyle{fancy}                                       				
-\fancyhf{}                                              				
-\fancyhead[LE,RO]{\thepage}                           		           
-\fancyhead[LO]{\scshape\nouppercase{\rightmark}}       	          
-\fancyhead[RE]{\scshape\nouppercase{\leftmark}}      	           
-\renewcommand{\headrulewidth}{0pt}
-\usepackage{amsmath,calligra,mathrsfs}
-
-\DeclareMathOperator{\innerhom}{\mathscr{H}\text{\kern -3pt {\calligra\Large om}}\,}
-\DeclareMathOperator{\Hom}{\text{Hom}}
-\DeclareMathOperator{\End}{\text{End}}
-\DeclareMathOperator{\op}{\text{op}}
-\DeclareMathOperator{\co}{\text{co}}
-\DeclareMathOperator{\coop}{\text{coop}}
-\DeclareMathOperator{\Fib}{\text{Fib}}
-\DeclareMathOperator{\Cof}{\text{Cof}}
-\DeclareMathOperator{\K}{\mathcal{K}}
-\DeclareMathOperator{\V}{\mathcal{V}}
-\DeclareMathOperator{\A}{\mathcal{A}}
-\DeclareMathOperator{\B}{\mathcal{B}}
-\DeclareMathOperator{\C}{\mathcal{C}}
-\DeclareMathOperator{\D}{\mathcal{D}}
-\DeclareMathOperator{\E}{\mathcal{E}}
-\DeclareMathOperator{\I}{\mathcal{I}}
-\DeclareMathOperator{\J}{\mathcal{J}}
-\DeclareMathOperator{\W}{\mathcal{W}}
-\DeclareMathOperator{\Ord}{\mathbf{Ord}}
-\DeclareMathOperator{\Mnd}{\mathsf{Mnd}}
-\DeclareMathOperator{\Mon}{\mathsf{Mon}}
-\DeclareMathOperator{\CMon}{\mathsf{CMon}}
-\DeclareMathOperator{\Cocts}{-\mathsf{Cocts}}
-\DeclareMathOperator{\N}{\mathbb{N}}
-\DeclareMathOperator{\Z}{\mathbb{Z}}
-\DeclareMathOperator{\R}{\mathbb{R}}
-\DeclareMathOperator{\id}{id}
-\DeclareMathOperator{\dom}{dom}
-\DeclareMathOperator{\cod}{cod}
-\DeclareMathOperator{\Ob}{Ob}
-\DeclareMathOperator{\Ar}{Ar}
-\DeclareMathOperator{\Lan}{Lan}
-\DeclareMathOperator{\Ran}{Ran}
-\DeclareMathOperator{\Cone}{Cone}
-\DeclareMathOperator{\Cocone}{Cocone}
-\DeclareMathOperator{\Nat}{Nat}
-\DeclareMathOperator{\Mat}{Mat}
-\DeclareMathOperator{\coev}{coev}
-\DeclareMathOperator{\ev}{ev}
-\DeclareMathOperator{\Eq}{Eq}
-\DeclareMathOperator{\copw}{\odot}
-
-\tikzset{shorten <>/.style={shorten >=#1,shorten <=#1}}
-\tikzset{%
-    symbol/.style={%
-        draw=none,
-        every to/.append style={%
-            edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
-    }
-}
-
-\newcommand{\pullbackcorner}[1][ul]{\save*!/#1+1.5pc/#1(1,-1)@^{|-}\restore}
-\newcommand{\pushoutcorner}[1][ul]{\save*!/#1-1.5pc/#1:(-1,1)@^{|-}\restore}
-\usetikzlibrary{shapes}
-\usepackage{xcolor}
-\usepackage{url}
-\usepackage{attachfile} 							
-\makeatletter                        						
-\g@addto@macro{\UrlBreaks}{\UrlOrds} 				
-\makeatother                        						 
-\usepackage{xcolor}
-\usepackage{url}
-\usepackage{attachfile} 							
-
-
-\makeatletter                        						
-
-\g@addto@macro{\UrlBreaks}{\UrlOrds} 				
-
-\makeatother                        						 
-
-\newsavebox\MBox
-
-\newcommand\Cline[2][red]{{\sbox\MBox{$#2$}%
-		
-		\rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{1pt}}}
-
-\theoremstyle{definition}
-
-\newtheorem{thm}{Theorem}[section] % reset theorem numbering for each chapter
-
-\newcommand{\chaptercontent}{
-	\section{Basics}
-	\begin{defn}Here is a new definition.\end{defn}
-	\begin{thm}Here is a new theorem.\end{thm}
-	\begin{exmp}Here is a good example.\end{exmp}
-	\subsection{Some tips}
-	\begin{defn}Here is a new definition.\end{defn}
-	\section{Advanced stuff}
-	\begin{defn}Here is a new definition.\end{defn}
-	\subsection{Warnings}
-	\begin{defn}Here is a new definition.\end{defn}
-}
-\theoremstyle{definition}
-\newtheorem{defn}[thm]{Definition} % definition numbers are dependent on thm
-\newtheorem{prop}[thm]{Proposition}
-\newtheorem{lemma}[thm]{Lemma}
-\newtheorem{cor}[thm]{Corollary}
-\newtheorem{rmk}[thm]{Remark}
-\newtheorem{exmp}[thm]{Example}
-
-\newmdtheoremenv{theo}[thm]{Theorem}
-
-\newmdtheoremenv{teo}{Theorem}
-
-\setlength{\headheight}{15pt} 					  
-\usepackage[all]{xy}
-\usepackage{extarrows}
-
+\usepackage{monads}
 
 \begin{document}
 
@@ -658,8 +386,8 @@ Let us check the axioms. First of all, the associativity holds due to the follow
 \flushleft
 \begin{center}
 	\begin{tikzcd}[row sep=.55cm, column sep=.55cm]
-		&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']&&&&&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"'] &&\\
-		\C\arrow[r, "F"]&\D\arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}& \D \arrow[r, "U"] & \C \arrow[r, "F"] & \D \arrow[r, "U"] & \C  \arrow[r, "F"] &\D\arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}& \D \arrow[r, "U"] & \C
+		&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']&&&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"'] &&\\
+		\C\arrow[r, "F"]&\D\arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}& \D \arrow[r, "U"] & \C  \arrow[r, "F"] &\D\arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}& \D \arrow[r, "U"] & \C
 		\end{tikzcd}\\
 		\vspace{5mm}
 				=				
@@ -670,8 +398,8 @@ Let us check the axioms. First of all, the associativity holds due to the follow
 		\vspace{5mm}
 		    =
 		\begin{tikzcd}[row sep=.55cm, column sep=.55cm]
-		&            &            &                                    &\C  \arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"'] &            &            &                                    &  \C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"'] &            &  \\
-		\C\arrow[r, "F"] & \D \arrow[r, "U"] & \C  \arrow[r, "F"] &  \D\arrow[ru, "U"] \arrow[rr, equal] &  \phantom{.}           &\D  \arrow[r, "U"] &\C  \arrow[r, "F"] & \D \arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}             &\D  \arrow[r, "U"] & \C
+		&            &            &                                    &\C  \arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']            &                                    &  \C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"'] &            &  \\
+		\C\arrow[r, "F"] & \D \arrow[r, "U"] & \C  \arrow[r, "F"] &  \D\arrow[ru, "U"] \arrow[rr, equal] &  \phantom{.}           & \D \arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}             &\D  \arrow[r, "U"] & \C
 		\end{tikzcd}
 \end{center}
 Unit laws:
@@ -719,7 +447,7 @@ commutes. We set $\overline{U}f=(Ud,UFUd\xrightarrow{U\epsilon_d}Ud)=(Ud, U\epsi
 Just like a monad $(T,\mu,\eta)$ defines a category $T\Alg$, it also allows us to construct another category from functors $\D\rightarrow\C$.
 
 \begin{defn}
-	Given a monad $(T,\mu,\eta)$ on a category $\C$ and fixed another category $\D$, a \emph{$T$-action} on a functor $G\colon\D\to\C$ is a natural transformation $\gamma\colon TG\Rightarrow G$ such that the diagrams
+	Given a monad $(T,\mu,\eta)$ on a category $\C$ and fix another category $\D$, a \emph{$T$-action} on a functor $G\colon\D\to\C$ is a natural transformation $\gamma\colon TG\Rightarrow G$ such that the diagrams
 	\[
 		\begin{tikzcd}
 			T^2G\ar["\mu G"', Rightarrow]{d}\ar["T\gamma", 	Rightarrow]{r}
@@ -1446,16 +1174,16 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	   \end{align*}
   	\end{proof}
   	\begin{thm} 
-  	    Let $K\colon\A\to\C$ be fully faithful, $\varphi$ a class of colimit shapes and assume there exists a density presentation for $K$ with colimits of shape $\I_j\in\varphi$. Let $\D$ be a category with colimits of shape $\varphi$. We write $\varphi\mbox{-}\mathbf{Cocts}(\C,\D)$ for the category of functors $\C\to\D$ which preserve $\varphi$-colimits. If all colimits of shape $\varphi$ are $K$-absolute, then 
+  	    Let $K\colon\A\to\C$ be fully faithful, $\Phi$ a class of colimit shapes and assume there exists a density presentation for $K$ with colimits of shape $\I_j\in\Phi$. Let $\D$ be a category with colimits of shape $\Phi$. We write $\Phi\mbox{-}\mathbf{Cocts}(\C,\D)$ for the category of functors $\C\to\D$ which preserve $\Phi$-colimits. If all colimits of shape $\Phi$ are $K$-absolute, then 
   	    \[
 \begin{tikzcd}
-\left[\A,\D\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A, below}] & \varphi\mbox{-}\mathbf{Cocts}(\C,\D)\ar[l, shift left=1.5ex, "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
+\left[\A,\D\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A, below}] & \Phi\mbox{-}\mathbf{Cocts}(\C,\D)\ar[l, shift left=1.5ex, "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
 \end{tikzcd}
       \]
       is an equivalence.
   	\end{thm}
   \begin{proof}
-    The existence of $\Lan_K$ is guaranteed by the fact that $\D$ has $\varphi$-colimits and $K$ has density presentation with colimits of shape $\I_j\in\varphi$. By definition, $\Lan_K$ is left adjoint to $K^*\colon\left[\C,\D\right]\to\left[\A,\D\right]$ and by the lemma it lands in $\varphi\mbox{-}\mathbf{Cocts}(\C,\D)$. Then $\Lan_K$ is a left adjoint to the restriction. The unit is an isomorphism since $\Lan_KF$ is pointwise, so it suffice to check that $K^*$ is conservative. Let $G,H\colon\C\to\D$ be $\varphi$-cocts, $\alpha\colon G\Rightarrow H$ natural transformation such that $\alpha K$ is an isomorphism. Then, $\{c\ |\ \alpha_c \ \text{is an isomorphism}\}$ contains $Ka$ for every $a$ and is closed under colimits of density presentations. Hence $\alpha$ is an isomorphism.
+    The existence of $\Lan_K$ is guaranteed by the fact that $\D$ has $\Phi$-colimits and $K$ has density presentation with colimits of shape $\I_j\in\Phi$. By definition, $\Lan_K$ is left adjoint to $K^*\colon\left[\C,\D\right]\to\left[\A,\D\right]$ and by the lemma it lands in $\Phi\mbox{-}\mathbf{Cocts}(\C,\D)$. Then $\Lan_K$ is a left adjoint to the restriction. The unit is an isomorphism since $\Lan_KF$ is pointwise, so it suffice to check that $K^*$ is conservative. Let $G,H\colon\C\to\D$ be $\Phi$-cocts, $\alpha\colon G\Rightarrow H$ natural transformation such that $\alpha K$ is an isomorphism. Then, $\{c\ |\ \alpha_c \ \text{is an isomorphism}\}$ contains $Ka$ for every $a$ and is closed under colimits of density presentations. Hence $\alpha$ is an isomorphism.
   \end{proof}
   \begin{cor}
       For $K\colon\Set_\text{fin}\hookrightarrow\Set$, we get that
@@ -2216,13 +1944,36 @@ Given an endofunctor $F\colon\C\rightarrow\C$, an algebraically free monad on $F
 
 \begin{proof}
     Consider the following commutative diagram. We want to prove that the horizontal arrows and the one on the right are bijection, which will give us the thesis.
-    
-    ~\\
-    
-    --- Placeholder ---
-    
-    ~\\
-    
+ \begin{center}
+ \begin{tikzcd}
+\Mnd(\C)(T(F),T)\ar[r, "\cong"]\ar[d, "\psi^*"'] & {\left\{
+\begin{tikzpicture}[x=4mm,y=4mm,baseline={([yshift=-.5ex]current bounding box.center)}]
+\node (C) {$\mathcal C$};
+\node[above left=5mm and 5mm of C] (TAlg) {$T\Alg$};
+\node[above right=5mm and 5mm of C] (TFAlg) {$T(F)\Alg$};
+\draw[->] (TAlg) -- (TFAlg);
+\draw[->] (TAlg) -- (C);
+\draw[->] (TFAlg) -- (C);
+\end{tikzpicture}
+\right\}}\ar[d, "\cong"',"\text{compose with } \psi^*\colon T(F)\Alg\xrightarrow{\sim} F\Alg"] \\
+\lbrack\C,\C\rbrack(F,T) \ar[r] & {\left\{
+\begin{tikzpicture}[x=4mm,y=4mm,baseline={([yshift=-.5ex]current bounding box.center)}]
+\node (C) {$\mathcal C$};
+\node[above left=5mm and 5mm of C] (TAlg) {$T\Alg$};
+\node[above right=5mm and 5mm of C] (FAlg) {$F\Alg$};
+\draw[->] (TAlg) -- (FAlg);
+\draw[->] (TAlg) -- (C) node[midway, left, xshift=-3pt, yshift=-3pt] {$U^T$};
+\draw[->] (FAlg) -- (C) node[midway, right, xshift=2pt,yshift=-3pt] {$U^F$};
+\end{tikzpicture}
+\right\}}\\
+\beta\colon F\Rightarrow T \ar[r,mapsto]&
+{\begin{aligned}
+    T\Alg &\longrightarrow F\Alg\\
+    (a,\alpha)&\mapsto (a,\alpha\beta_a)
+\end{aligned}}
+\end{tikzcd}
+\end{center}
+
     The diagram commutes by Yoneda, while the top map is a bijection by the previous proposition and the one on the right is a bijection given by composing with $\psi^*\colon T(F)\Alg\xrightarrow{\sim}F\Alg$.
 
     Notice that giving the following commutative diagram amounts to giving a natural transformation $\rho\colon FG\Rightarrow G$ without requiring any additional property.
@@ -4082,6 +3833,160 @@ First, let $S=\colim S_i$ with universal cocone $\iota_i\from S_i\to S$ in $\Set
 \begin{rmk}
    We don't really need locally $\kappa$-presentable here: $\V$ any cosmos suffices by Kelly's  ``transfinite construction''.
 \end{rmk}
+
+It remains to show that $\V\Graph$ is locally $\kappa$-presentable if $\V$ is. We consider the $\V$-graph $(2, \bar{V})$, for $V \in \V$ denoted as follows:
+The set is given by $\{0,1\}$ and $\bar{V}(i,j) = V$ if $(i,j) = (0,1)$ and $\bar{V}(i,j) = \emptyset$ else. Note that this is a strong generator of 
+$\V\Graph$, if we let $\V$ sum through objects of $\V_{\kappa}$. Then to give a $(2,\bar{V}) \to (S,M)$ is equivalent to picking $x,y \in S$ and 
+$\varphi \from V \to M(x,y)$. 
+
+\begin{prop}
+   Let $\V$ be locally $\kappa$-presentable. Then for all $V \in (\V_{0})_{\kappa}$ the object $(2,\bar{V})$ is $\kappa$-presentable in $\V$-graph. 
+\end{prop}
+
+\begin{proof}
+   Consider a $\kappa$-filtered colimit $(X,M) = \colim_{i}(X_{i},M_{i})$ in $\V\Graph$ with universal cocone $\iota_{i} \from X_{i} \to X$ in $\Set$. Then 
+   we have $M = \colim (\iota_{i})_{\ast}M_{i}$ in $\V^{X\times X}$. We have to show, that $\V\Graph((2,\bar{V}),-)$ preserves this $\kappa$-filtered colimit. That 
+   is for any $f \from (2,\bar{V}) \to (X,M)$, we find a factorisation 
+      \begin{center}
+         \begin{tikzcd}
+            & (X_{i},M_{i}) \arrow[d] \\
+            (2,\bar{V}) \arrow[ur, dashed, "f'"] \arrow[r, "f"'] & (X,M)
+         \end{tikzcd}
+      \end{center}
+    and any two such morphisms, which become equal in the colimit become already equal at a common stage in the diagram. 
+    Recall that 
+       \begin{align*}
+          (\iota_{i})_{\ast}M_{i}(x,y) = \sum_{\set{(a,b)}{\iota_{i}(a)=x,\iota_{i}(b)=y}}M_{i}(a,b)
+       \end{align*}
+    Our $f \from (2,\bar{V}) \to (X,M)$ is given by the elements $x,y \in X$ and $\varphi \from V \to (\colim(\iota_{i})_{\ast})(x,y)$. Both $x,y$ are in the image 
+    of $\iota_{i} \from X_{i} \to X$ for some $i$. Since $V$ is $\kappa$-presentable $\varphi$ factors through one of the inclusions 
+    $(\iota_{i})_{\ast}M_{i}(x,y) \to \colim(\iota_{i})_{\ast} M_{i}(x,y)$. Thus we obtain a morphism 
+       \begin{align*}
+          \varphi \from V \to \sum_{\set{(a,b)}{\iota_{i}(a)=x,\iota_{i}(b)=y}}M_{i}(a,b)
+       \end{align*}
+    Since $V$ is $\kappa$-presentable, there exist sets $A \subset \iota_{i}^{-1}(x)$ and $B \subset \iota_{i}^{-1}(y)$ with $\mid A \mid,\mid B \mid \prec \kappa$, 
+    such that $\varphi$ factors through $\sum_{(a,b)\in A \times B}M_{i}(a,b)$. But the diagram $X_{i} \to X$ is a $\kappa$-filtered colimit diagram in $\Set$. So 
+    we can finde a stage $j$ 
+       \begin{center}
+          \begin{tikzcd}
+             X_{i} \arrow[r, "X_{\varphi}"] \arrow[rd] & X_{j} \arrow[d] \\
+             & X 
+          \end{tikzcd}
+       \end{center}
+    such that $X_{\varphi}(A) = \{x_{0}\}$ and $X_{\varphi}(B)=\{y_{0}\}$. Now by picking $x_{0},y_{0}$, we get the desired lift $f' \from (2,\bar{V}) \to (X_{j},M_{j})$.
+    It remains to check, that given a other commutative square 
+       \begin{center}
+          \begin{tikzcd}
+             & (X_{i},M_{i}) \arrow[rd, dashed] \arrow[rrd] & & \\
+             (2,\bar{V}) \arrow[ru] \arrow[rd] & & (X_{k},M_{k}) \arrow[r] & (X,M) \\
+             & (X_{j},M_{j}) \arrow[ru, dashed] \arrow[rru] & &
+          \end{tikzcd}
+       \end{center}
+    we find a stage $k$ and dashed arrows making the inner square commute. Without loss of generality we can assume $i=j$ and that $0$ and $1$ go 
+    to the same element in $X_{i}$ (since $2$ is finitely presentable in $\Set$). The remaining data are morphisms  
+       \begin{center}
+          \begin{tikzcd}
+             V \arrow[r, shift left, "\varphi"] \arrow[r, shift right, "\psi"'] & M_{i}(a,b)
+          \end{tikzcd}
+       \end{center}
+    such that they become equal when comparing with $(X_{i},M_{i}) \to (X,M)$. 
+       \begin{center}
+           \begin{tikzcd}[row sep=tiny]
+               & M_{i}(a,b) \arrow[r] & \sum_{\set{(a,b)}{\iota_{i}(a)=x,\iota_{i}(b)=y}}M_{i}(a,b) \arrow[rd] & \\
+               V \arrow[ru, "\varphi"] \arrow[rd, "\psi"'] & & & \colim(\iota_{i})_{\ast}M_{i}(x,y) \\
+               & M_{i}(a,b) \arrow[r] & \sum_{\set{(a,b)}{\iota_{i}(a)=x,\iota_{i}(b)=y}}M_{i}(a,b) \arrow[ru] &
+           \end{tikzcd}
+       \end{center}
+    But the colimit in the target is a filtered colimit in $\V$ and $V$ is
+    $\kappa$-presentable. So they factor through some $(\iota_{j})_{\ast}M_{i} \to \colim$. This $j$ gives the desired diagram by looking at composition 
+    of maps in $\V\Graph$. 
+\end{proof}
+
+This now proves the theorem, that $\V\text{-}\Cat$ is locally $\kappa$-presentable if $\V$ is so. It remains to check, that if $I \in (\V_{0})_{\kappa}$ and 
+$(\V_{0})_{\kappa}$ is closed under $-\otimes -$, then the same is true in $\V\text{-}\Cat$. 
+
+\begin{prop}
+   Under the above assumptions, $\I \in \V\text{-}\Cat$ is locally finitely presentable and for $V,W \in (\V_{0})_{\kappa}$, $\Rf[V] \otimes \Rf[W]$ is locally 
+   $\kappa$-presentable, where $\Rf[V]$ is the free $\V\text{-}\Cat$ on $(2,\bar{V})$. 
+\end{prop}
+
+\begin{proof}
+   The tensor product has four objects $\set{(i,j)}{i,j \in \{0,1\}}$ and looks like 
+      \begin{center}
+         \begin{tikzcd}
+             (0,0) \arrow[r, squiggly, "V"] \arrow[d, squiggly, "W"'] & (0,1) \arrow[d, squiggly, "W"] \\
+             (1,0) \arrow[r, squiggly, "V"'] & (1,1)
+         \end{tikzcd}
+      \end{center}
+   Now let $\B[V,W]$ be the pushout 
+      \begin{center}
+         \begin{tikzcd}
+            \I \arrow[r] \arrow[d] & \Rf[V] \arrow[d] \\
+            \Rf[W] \arrow[r] & \B[V,W]  
+         \end{tikzcd}
+      \end{center}
+   Then one checks, that $\Rf[V] \otimes \Rf[W]$ is precisely the pushout 
+      \begin{center}
+         \begin{tikzcd}
+            \Rf[V \otimes W] \arrow[r] \arrow[d] & \B[V,W] \arrow[d] \\
+            \B[W,V] \arrow[r] & \Rf[V] \otimes \Rf[W] 
+         \end{tikzcd}
+      \end{center}
+   So since $\Rf[V]$ and $\Rf[W]$ are free on $V,W$ the are locally $\kappa$-presentable. It only remains to show, that $\I$ is locally $\kappa$-presentable. But 
+   we have $\V\text{-}\Cat(\I,-) \iso \Ob(-) \from \V\text{-}\Cat \to \Set$ so this preserves all small colimits. 
+\end{proof}
+
+\begin{exmp}
+   $2\text{-}\Cat$, simplicial categories and dg-categories form locally finitely presentable cosmoi. 
+\end{exmp}
+
+\begin{rmk}
+   Since $F_{\ast}[1] = \Rf[I]$ we get $\V\text{-}\Cat$ is a locally $\kappa$-presentable $2$-category. 
+\end{rmk}
+
+\section{Two-dimensional monad theory}
+
+In the case $\V=\Cat$ the (large) categories $\V\text{-}\CAT(\K,\Lf)$ are again $2$-categories (modifications can be defined as for small $\K$). We denote 
+this by $[\K,\Lf]$. Moreover, we have $2$-functors $[\Lf,\M] \times [\K,\Lf] \to [\K,\M]$. Since $\Cat$ is cartesian, we also have a diagonal 
+$[\K,\K] \to [\K,\K] \times [\K,\K]$ given by the assignment $F \mapsto (F,F)$. This allows us to present the $2$-monad for $\kappa$-accessible $2$-monads on
+a locally $\kappa$-presentable $2$-cat $\K$. This way we can study $2$-monads by studying the algebras of $2$-monads. Moreover $2\text{-}\Cat_{/\K}$ is 
+a $2$-category and $(-)\Alg \from 2\text{-}\Mnd_{\kappa}(\K) \to 2\text{-}\Cat_{/\K}$ preserves all weighted limits (sends $\Cat$-weighted colimits to limits). 
+This can be seen via the following construction. Given a $c \in \K$ we have the $2$-monad $\langle c,c \rangle \from \K \to \K$, which satisfies the property, that 
+giving $T \to \langle c,c \rangle$ is the same as defining a $T$-algebra structure on $c$. Now given a $1$-cell $f \from c \to d$, we can form the pullback
+   \begin{center}
+      \begin{tikzcd}
+         \{f,f\} \arrow[r] \arrow[d] & \langle c,c \rangle \arrow[d] \\
+         \langle d,d \rangle \arrow[r] & \langle c,d \rangle
+      \end{tikzcd}
+   \end{center}
+Then given a $2$-cell $\sigma \from f \Rightarrow g \from c \to d$ we form the pullback 
+   \begin{center}
+      \begin{tikzcd}
+        \Arrowvert \sigma, \sigma \Arrowvert \arrow[r] \arrow[d] & \{f,f\} \arrow[d] \\
+         \{g,g\} \arrow[r] & \{f,g\} 
+      \end{tikzcd}
+   \end{center}
+By construction giving $T \to \Arrowvert \sigma,\sigma \Arrowvert$ amounts to lifting $\sigma$ to a $2$-cell in $T\Alg$
+   \begin{center}
+      \begin{tikzcd}
+          (A,\alpha) \arrow[r, bend left, ""{name=a, below}, "f"] \arrow[r, bend right, ""{name=b}, "g"'] & (B,\beta) \arrow[Rightarrow, from=a, to=b, "\sigma"]
+      \end{tikzcd}
+   \end{center}
+   
+\begin{exmp}
+   We can present the $2$-monad on $\V\text{-}\Cat$ for a monoidal (small) $\V$-category by starting with the endo-$2$-functor given by the assignment 
+   $\A \mapsto \A \otimes \A$. $F\Alg$ then has objects $(\A,\A \otimes \A \to \A)$ and the use inserts to get  
+      \begin{center}
+         \begin{tikzcd}[row sep=small]
+            (\A \otimes \A) \otimes \A \arrow[r, bend left, "m \otimes 1"] \arrow[dd, "\iso"'] & \A \otimes \A \arrow[dd, Rightarrow, shorten=4mm, "\alpha"] 
+               \arrow[rd, bend left, "m"] & \\
+            & & \A \\
+            \A \otimes (\A \otimes \A) \arrow[r, bend right, "1 \otimes m"'] & \A \otimes \A \arrow[ru, bend right, "m"'] 
+         \end{tikzcd}
+      \end{center}
+   and then equifier for the pentagon and also add limits etc. The resulting category $T\Alg$ has the right objects, but the $1$-cells preserve the structure strictly. 
+\end{exmp}
+
 		\backmatter
 	% bibliography, glossary and index would go here.
 	
