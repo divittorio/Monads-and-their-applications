@@ -1,0 +1,364 @@
+\documentclass[a4paper,11pt,oneside,openany]{scrbook}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{amsbsy}
+\usepackage{fontenc}
+\usepackage{amsfonts}
+\usepackage{amsmath} 
+\usepackage{eucal}
+\usepackage{mdframed}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{amscd}
+\usepackage{faktor}
+\usepackage{mathtools}
+\usepackage{epigraph}
+\usepackage{tikz}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage{tikz-cd}
+\usepackage[titletoc]{appendix}
+\usepackage{centernot}
+\usepackage{bbding}
+\usepackage{indentfirst}
+\usepackage{hyperref}
+\usepackage{xspace}
+\hypersetup{colorlinks=false, pdfborder={0 0 0}}                                 
+\usepackage{enumitem}
+\setdescription{font=\normalfont}
+\usepackage[type={CC}, modifier={by-nc-sa}, version={4.0}]{doclicense}
+%\usepackage[style=alphabetic, backend=bibtex]{biblatex}
+\usepackage[normalem]{ulem}
+\usepackage{contour}
+\usepackage{fullpage}
+\makeatletter        
+\newcommand*{\doublerightarrow}[2]{\mathrel{
+		\settowidth{\@tempdima}{$\scriptstyle#1$}
+		\settowidth{\@tempdimb}{$\scriptstyle#2$}
+		\ifdim\@tempdimb>\@tempdima \@tempdima=\@tempdimb\fi
+		\mathop{\vcenter{
+				\offinterlineskip\ialign{\hbox to\dimexpr\@tempdima+1em{##}\cr
+					\rightarrowfill\cr\noalign{\kern.5ex}
+					\rightarrowfill\cr}}}\limits^{\!#1}_{\!#2}}}
+\newcommand*{\triplerightarrow}[1]{\mathrel{
+		\settowidth{\@tempdima}{$\scriptstyle#1$}
+		\mathop{\vcenter{
+				\offinterlineskip\ialign{\hbox to\dimexpr\@tempdima+1em{##}\cr
+					\rightarrowfill\cr\noalign{\kern.5ex}
+					\rightarrowfill\cr\noalign{\kern.5ex}
+					\rightarrowfill\cr}}}\limits^{\!#1}}}
+\makeatother
+
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else  		
+	\hbox{}                                                        					
+	\vspace*{\fill}                                                					
+	\begin{center}                                                 					
+		\*                                                             					
+	\end{center}                                                   					
+	\vspace{\fill}                                                 					 
+	\thispagestyle{empty}                                          				
+	\newpage                                                       					
+	\if@twocolumn\hbox{}\newpage\fi\fi\fi}                        
+
+\makeatletter
+\newcommand{\colim@}[2]{%
+	\vtop{\m@th\ialign{##\cr
+			\hfil$#1\operator@font colim$\hfil\cr
+			\noalign{\nointerlineskip\kern-\ex@}\cr}}%
+}
+\newcommand{\colim}{%
+	\mathop{\mathpalette\colim@{\rightarrowfill@\scriptscriptstyle}}\nmlimits@
+}
+
+\newcommand\Yoneda{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily Yoneda}}}{\cong}}}
+
+\newcommand{\catname}[1]{{\normalfont\textbf{#1}}}
+
+\DeclareMathOperator{\Aff}{\mathbf{Aff}}
+\DeclareMathOperator{\Alg}{-\mathsf{Alg}}
+\DeclareMathOperator{\Coh}{\mathbf{Coh}}
+\DeclareMathOperator{\QCoh}{\mathbf{QCoh}}
+\DeclareMathOperator{\VB}{\mathbf{VB}}
+\DeclareMathOperator{\Arr}{Arr}
+\DeclareMathOperator{\Graph}{-\catname{Graph}}
+
+\newcommand{\Set}{\catname{Set}}
+\newcommand{\Top}{\catname{Top}}
+\newcommand{\CHTop}{\catname{CHTop}}
+\newcommand{\Grp}{\catname{Grp}}
+\newcommand{\Ab}{\catname{Ab}}
+\newcommand{\Mod}{\catname{Mod}}
+\newcommand{\dgMod}{\catname{dgMod}}
+\newcommand{\sSet}{\catname{sSet}}
+\newcommand{\Rel}{\catname{Rel}}
+\newcommand{\Cat}{\catname{Cat}}
+\newcommand{\CAT}{\catname{CAT}}	
+\newcommand{\qCat}{\catname{qCat}}	
+\newcommand{\yo}{\text{\usefont{U}{min}{m}{n}\symbol{'210}}}
+\newcommand{\from}{\colon}
+\newcommand{\iso}{\cong}
+\newcommand{\card}[1]{\left\lvert #1 \right\rvert}
+\newcommand{\set}[2]{\left\lbrace\,#1\colon #2 \,\right\rbrace}
+\makeatother                                                   
+
+\ExplSyntaxOn
+    \NewDocumentCommand{\makeabbrev}{mmm}
+    {
+        \yoruk_makeabbrev:nnn { #1 } { #2 } { #3 }
+    }
+
+    \cs_new_protected:Npn \yoruk_makeabbrev:nnn #1 #2 #3
+    {
+        \clist_map_inline:nn { #3 }
+        {
+            \cs_new_protected:cpn { #2 } { #1 { ##1 } }
+        }
+    }
+\ExplSyntaxOff
+
+\makeabbrev{\boldsymbol}{bs#1}{a,b,c,d,e,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
+                               A,B,C,D,E,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+
+\makeabbrev{\mathfrak}{f#1}{a,b,c,d,e,f,g,h,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
+                            A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+
+\makeabbrev{\mathbf}{bf#1}{a,b,c,d,e,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
+                          A,B,C,D,E,G,H,I,J,K,L,M,N,O,P,Q,R,T,U,V,W,X,Y,Z}
+
+\makeabbrev{\mathsf}{sf#1}{a,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
+                           A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+
+\makeabbrev{\mathcal}{c#1}{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+
+\makeabbrev{\mathbb}{bb#1}{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+
+\DeclareFontFamily{U}{min}{}
+\DeclareFontShape{U}{min}{m}{n}{<-> udmj30}{}
+
+\makeatletter
+\renewcommand\part{%
+	\if@openright
+	\cleardoublepage
+	\else
+	\clearpage
+	\fi
+	\thispagestyle{empty}%  				 
+	\if@twocolumn
+	\onecolumn
+	\@tempswatrue
+	\else
+	\@tempswafalse
+	\fi
+	\null\vfil
+	\secdef\@part\@spart}
+\makeatother
+\usepackage{bbm}
+\usepackage{fancyhdr}                                   	
+
+\renewcommand{\sectionmark}[1]{\markright{#1}}         	         
+\pagestyle{fancy}                                       				
+\fancyhf{}                                              				
+\fancyhead[LE,RO]{\thepage}                           		           
+\fancyhead[LO]{\scshape\nouppercase{\rightmark}}       	          
+\fancyhead[RE]{\scshape\nouppercase{\leftmark}}      	           
+\renewcommand{\headrulewidth}{0pt}
+\usepackage{amsmath,calligra,mathrsfs}
+
+\DeclareMathOperator{\innerhom}{\mathscr{H}\text{\kern -3pt {\calligra\Large om}}\,}
+\DeclareMathOperator{\Hom}{\text{Hom}}
+\DeclareMathOperator{\End}{\text{End}}
+\DeclareMathOperator{\op}{\text{op}}
+\DeclareMathOperator{\co}{\text{co}}
+\DeclareMathOperator{\coop}{\text{coop}}
+\DeclareMathOperator{\Fib}{\text{Fib}}
+\DeclareMathOperator{\Cof}{\text{Cof}}
+\DeclareMathOperator{\K}{\mathcal{K}}
+\DeclareMathOperator{\V}{\mathcal{V}}
+\DeclareMathOperator{\A}{\mathcal{A}}
+\DeclareMathOperator{\B}{\mathcal{B}}
+\DeclareMathOperator{\C}{\mathcal{C}}
+\DeclareMathOperator{\D}{\mathcal{D}}
+\DeclareMathOperator{\E}{\mathcal{E}}
+\DeclareMathOperator{\I}{\mathcal{I}}
+\DeclareMathOperator{\J}{\mathcal{J}}
+\DeclareMathOperator{\W}{\mathcal{W}}
+\DeclareMathOperator{\Rf}{\mathcal{R}}
+\DeclareMathOperator{\Lf}{\mathcal{L}}
+\DeclareMathOperator{\M}{\mathcal{M}}
+\DeclareMathOperator{\Ord}{\mathbf{Ord}}
+\DeclareMathOperator{\Mnd}{\mathsf{Mnd}}
+\DeclareMathOperator{\Mon}{\mathsf{Mon}}
+\DeclareMathOperator{\CMon}{\mathsf{CMon}}
+\DeclareMathOperator{\Cocts}{-\mathsf{Cocts}}
+\DeclareMathOperator{\N}{\mathbb{N}}
+\DeclareMathOperator{\Z}{\mathbb{Z}}
+\DeclareMathOperator{\R}{\mathbb{R}}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\cod}{cod}
+\DeclareMathOperator{\Ob}{Ob}
+\DeclareMathOperator{\Ar}{Ar}
+\DeclareMathOperator{\Lan}{Lan}
+\DeclareMathOperator{\Ran}{Ran}
+\DeclareMathOperator{\Cone}{Cone}
+\DeclareMathOperator{\Cocone}{Cocone}
+\DeclareMathOperator{\Nat}{Nat}
+\DeclareMathOperator{\Mat}{Mat}
+\DeclareMathOperator{\coev}{coev}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\Eq}{Eq}
+\DeclareMathOperator{\copw}{\odot}
+
+\tikzset{shorten <>/.style={shorten >=#1,shorten <=#1}}
+\tikzset{%
+    symbol/.style={%
+        draw=none,
+        every to/.append style={%
+            edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+    }
+}
+
+\newcommand{\pullbackcorner}[1][ul]{\save*!/#1+1.5pc/#1(1,-1)@^{|-}\restore}
+\newcommand{\pushoutcorner}[1][ul]{\save*!/#1-1.5pc/#1:(-1,1)@^{|-}\restore}
+\usetikzlibrary{shapes}
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{attachfile} 							
+\makeatletter                        						
+\g@addto@macro{\UrlBreaks}{\UrlOrds} 				
+\makeatother                        						 
+\usepackage{xcolor}
+\usepackage{url}
+\usepackage{attachfile} 							
+
+
+\makeatletter                        						
+
+\g@addto@macro{\UrlBreaks}{\UrlOrds} 				
+
+\makeatother                        						 
+
+\newsavebox\MBox
+
+\newcommand\Cline[2][red]{{\sbox\MBox{$#2$}%
+		
+		\rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{1pt}}}
+
+\theoremstyle{definition}
+
+\newtheorem{thm}{Theorem}[section] % reset theorem numbering for each chapter
+
+\newcommand{\chaptercontent}{
+	\section{Basics}
+	\begin{defn}Here is a new definition.\end{defn}
+	\begin{thm}Here is a new theorem.\end{thm}
+	\begin{exmp}Here is a good example.\end{exmp}
+	\subsection{Some tips}
+	\begin{defn}Here is a new definition.\end{defn}
+	\section{Advanced stuff}
+	\begin{defn}Here is a new definition.\end{defn}
+	\subsection{Warnings}
+	\begin{defn}Here is a new definition.\end{defn}
+}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition} % definition numbers are dependent on thm
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{exmp}[thm]{Example}
+
+\newmdtheoremenv{theo}[thm]{Theorem}
+
+\newmdtheoremenv{teo}{Theorem}
+
+\setlength{\headheight}{15pt} 					  
+\usepackage[all]{xy}
+\usepackage{extarrows}
+
+
+\begin{document}
+
+	\begin{titlepage}
+		\begin{center}
+			\Huge \textbf{Monads~and~their~applications}\\
+			\vspace{1cm}
+			\Large Dr.\ Daniel Schäppi's course exercise solutions\\
+		\end{center}
+
+		\vspace{1cm}
+
+			\begin{center}
+			\Large	by\\
+				\vspace{.2cm}
+			\Large	Nicola Di Vittorio\\
+			\Large	Matteo Durante\\
+			\Large  Peter Hanukaev\\
+			\Large  Niklas Kipp
+        \end{center}
+
+	\end{titlepage}
+
+
+\frontmatter
+	\thispagestyle{empty}\doclicenseThis
+	\tableofcontents
+	
+	\mainmatter
+
+\chapter{Week 1}
+
+\begin{proof}
+    Consider the morphism $\beta=g^{-1}\alpha Tg\colon TB\rightarrow B$. We have
+    to verify that it is a $T$-algebra structure on $B$, which follows from
+    $\beta\mu_B=g^{-1}\alpha Tg\cdot\mu_B=g^{-1}\alpha\mu_A T^2g=g^{-1}\alpha
+    T\alpha\cdot
+    T^2g=g^{-1}\alpha Tg\cdot Tg^{-1}\cdot T\alpha\cdot T^2g=\beta T\beta$ and
+    $\beta\eta_B=g^{-1}\alpha Tg\cdot\eta_{TB}=g^{-1}\alpha\eta_B
+    g=g^{-1}g=\id_B$.
+    
+    By
+    construction, the diagram
+    \[
+    \begin{tikzcd}
+        TB\ar[r, "Tg"]\ar[d, "g^{-1}\alpha g"]
+        & TA\ar[d, "\alpha"] \\
+        B\ar[r, "g"]
+        & A
+    \end{tikzcd}
+    \] 
+    commutes, hence $g\colon (A,\alpha)\rightarrow (B,\beta)$ is a morphism of
+    $T$-algebras. Notice that the diagram also shows that $\beta$ is the only
+    $T$-algebra structure on $B$ which does the job.
+\end{proof}
+
+\begin{proof}
+    Let $\alpha\colon Ta\rightarrow a$ be a $T$-algebra structure on $a$. We
+    want to prove that $\eta_a$ is invertible and $\alpha_a=\eta_a^{-1}$, which
+    will give us the thesis. From the monad axioms, we have that
+    $\mu_a\eta_{Ta}=\id_a=\mu_a T\eta_a$, hence $\eta_{Ta}=\mu_a^{-1}=T\eta_a$.
+    Also, the diagram
+    \[
+    \begin{tikzcd}
+        Ta\ar[r, "\eta_{Ta}"]\ar[d, "\alpha"]
+        & T^2a\ar[d, "T\alpha"] \\
+        a\ar[r, "\eta_a"]
+        & Ta
+    \end{tikzcd}
+    \]
+    commutes by naturality. It follows that
+    $\eta_a\alpha=T\alpha\cdot\eta_{Ta}=T\alpha\cdot
+    T\eta_a=T(\alpha\eta_a)=T\id_a=\id_{Ta}$, thus $\alpha=\eta_a^{-1}$.
+
+    Consider a morphism $f\colon a\rightarrow b$ in $\cC$, where $a$ and $b$
+    induce $T$-algebras $(a,\alpha)$, $(b,\beta)$. We have that
+    $f\alpha=f\eta_a=\eta_b Tf=\beta Tf$ by naturality, hence $f$ defines a
+    morphism of $T$-algebras $(a,\alpha)\rightarrow(b,\beta)$ and the forgetful
+    functor $U^T\colon T\Alg\rightarrow\cC$ is fully faithful.
+\end{proof}
+
+
+~\\
+\chapter{Week 2}
+
+\end{document}
