@@ -1236,8 +1236,9 @@ $\left[\Delta^{\op},\Set\right]$ is called the category of \emph{simplicial sets
   \end{exmp}
   
 \section{Locally presentable categories}
+From now on we fix a regular cardinal $\kappa$\footnote{Namely, a union of $<\kappa$ sets of cardinality $<\kappa$ has cardinality $<\kappa$.}.
 \begin{defn}
-    Let $\kappa$ be a regular cardinal\footnote{Namely, a union of $<\kappa$ sets of cardinality $<\kappa$ has cardinality $<\kappa$.}. A category $\C$ is \emph{$\kappa$-filtered} if any diagram in $\C$ of size $<\kappa$ has a cocone. Equivalently, if it is non-empty and for any set of objects $\{x_i\}$ of cardinality $<\kappa$ there exists $x\in\C$ and $x_i\to x$ such that
+ A category $\C$ is \emph{$\kappa$-filtered} if any diagram in $\C$ of size $<\kappa$ has a cocone. Equivalently, if it is non-empty and for any set of objects $\{x_i\}$ of cardinality $<\kappa$ there exists $x\in\C$ and $x_i\to x$ such that
     \[
     \begin{tikzcd}
  x_i\arrow[r,shift left=2.2ex] \arrow[r,shift left=1.2ex,""{name=A}] \arrow[r, shift right=1.5ex,"<\kappa"',""{name=B}]\ar[from=A, to=B, phantom, "\vdots"]&x_j \arrow[r]&x 
@@ -1460,10 +1461,10 @@ This was observed by G.\ M.\ Kelly in \cite{kelly1980unified}, which is ``hard t
 
 Throughout this section we will work with locally presentable categories and accessible functors.
 
-Kelly's main observation is that all obvious constructions can be reduced to the case of algebras for a well pointed endofunctor.
+Kelly's main observation is that all above constructions can be reduced to the case of algebras for a well pointed endofunctor.
 
 \begin{defn}
-	Let $S\colon\C\to\C$ be a functor. We call $S$ \emph{pointed} if there exists $\sigma\colon\id_{\C}\Rightarrow S$. The pair $(S,\sigma)$ is \emph{well pointed} if $S\sigma=\sigma S\colon S\Rightarrow S^2$.
+	Let $S\colon\C\to\C$ be a functor. We call $S$ \emph{pointed} if there exists $\sigma\colon\id_{\C}\Rightarrow S$. The pair $(S,\sigma)$ is \emph{well pointed}\footnote{Note that, as soon as one defines a monad to be idempotent if the multiplication is an isomorphism, being idempotent is equivalent to being well pointed.} if $S\sigma=\sigma S\colon S\Rightarrow S^2$.
 \end{defn}
 \begin{defn}
 	Given a pointed endofunctor $(S,\sigma)$, a $(S,\sigma)$-algebra is a pair $(a,\alpha)$, where $\alpha\colon Sa\to a$ is a morphism in $\C$ s.t.\ $\alpha\sigma_a=\id_a$ (basically a monad without multiplication gives an example). A morphism of algebras $(a,\alpha)\to(b,\beta)$ is a morphism $f\colon a\to b$ in $\C$ such that
@@ -1478,7 +1479,7 @@ Kelly's main observation is that all obvious constructions can be reduced to the
 	commutes. We write $(S,\sigma)\Alg$ for the resulting category and $U^S\colon(S,\sigma)\Alg\to\C$ for the forgetful functor.
 \end{defn}
 \begin{lemma}
-	If $(S,\sigma)$ is a well pointed endofunctor, then there exists at most one algebra structure for any object and it exists if and only if $\sigma_a$ is invertible, in which case $\alpha=\sigma_a^{-1}$. Moreover, $U^S\colon(S,\sigma)\Alg\to\C$ is fully faithful\footnote{For instance, it is easy to show that if the unit of a monad satisfies the condition of well pointedness, then the monad is idempotent.}. In other words, $(S,\sigma)\Alg$ is isomorphic to the full subcategory of $\C$ given by $\{a\in\C\ |\ \sigma_a \ \text{is invertible} \}$.
+	If $(S,\sigma)$ is a well pointed endofunctor, then there exists at most one algebra structure for any object and it exists if and only if $\sigma_a$ is invertible, in which case $\alpha=\sigma_a^{-1}$. Moreover, $U^S\colon(S,\sigma)\Alg\to\C$ is fully faithful. In other words, $(S,\sigma)\Alg$ is isomorphic to the full subcategory of $\C$ given by $\{a\in\C\ |\ \sigma_a \ \text{is invertible} \}$.
 \end{lemma}
 \begin{proof}
 	For fixed $(a,\alpha)\in(S,\sigma)\Alg$, the diagram
@@ -1513,7 +1514,10 @@ Kelly's main observation is that all obvious constructions can be reduced to the
 	For an endofunctor $F\colon\C\to\C$ (or a pointed endofunctor $(S,\sigma)$), we say that the \emph{algebraically free monad} on $F$ (respectively  $(S,\sigma)$) exists if $U^F\colon F\Alg\to\C$ (or $U^S\colon(S,\sigma)\Alg\to\C$) has a left adjoint.
 \end{defn}
 
-We will denote by $\Ord$ the category of ordinals.
+We will denote by $\Ord$ the category of ordinals. Furthermore, using 
+the well-ordering principal, we can associate an ordinal to any cardinal. 
+Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
+(which also will be denoted by $\kappa$) will be a limit ordinal. 
 
 \begin{thm}
     Let $\C$ be a category with colimits of chains (that is the domain of the diagram is an ordinal). Let $(S,\sigma)$ be a well pointed endofunctor such that $S$ preserves $\kappa$-filtered colimits. Then, the algebraically free monad on $(S,\sigma)$ exists. In particular, $\{c\in\C\ |\ \sigma_c\text{ is an isomorphism}\}$ is a reflective subcategory.
@@ -1710,7 +1714,7 @@ Now use exercise 5.1.
 	    (a,b,\gamma)\arrow[r, mapsto] & \gamma\tau_a
         \end{tikzcd}
     \end{displaymath}	
-    and the well-pointed endofunctor $ S\from C^{[1]} \to C^{[1]} $ given by $ S(c\to d) = \id_{d} $ with $ (S,\sigma)\Alg = \operatorname{Iso}(\C) $.
+    and the well-pointed endofunctor $ S\from \C^{[1]} \to \C^{[1]} $ given by $ S(c\to d) = \id_{d} $ with $ (S,\sigma)\Alg = \operatorname{Iso}(\C) $.
     We obtain $ (S',\sigma') $ such that $ (T,\tau)\Alg \cong (S',\sigma')\Alg $.
     Since the pushout from the previous proposition consists of $ \kappa $-accessible functors (here we use that $ \tau^* $ is $ \kappa $-accessible), $ (S',\sigma') $ is $ \kappa $-accessible.
     It follows that $ (S',\sigma')\Alg $ is reflexive in $ (T\downarrow\C) $, as claimed.
@@ -1781,7 +1785,7 @@ Using this construction we can finally prove the following.
 \end{thm}
 
 \begin{proof}
-    Recall that $(T,\eta)\Alg$ is reflexive in $(T\downarrow\C)$ and we have a well-pointed endofunctor given by $S'$ described in~\ref{fork1}. Remember the functor $L$ just defined.
+    Recall that $(T,\eta)\Alg$ is reflexive in $(T\downarrow\C)$ and we have a well-pointed endofunctor given by $S'$ described in (\ref{fork1}). Remember the functor $L$ just defined.
     
     Since $\mu_a$ has a section $T\eta_a$, it is the coequalizer of $\id_a$ and $T\eta_a\cdot\mu_a$.
     \[
@@ -1804,7 +1808,7 @@ Using this construction we can finally prove the following.
     \end{tikzcd}
     \]
     
-    This defines a natural transformation $(\id,\pi)\colon S(a,b,\alpha)\rightarrow L(a,b,\alpha)$, where the components are epimorphisms because $\gamma$ is a coequalizer of the diagram in~\ref{fork1} and therefore an epimorphism.
+    This defines a natural transformation $(\id,\pi)\colon S(a,b,\alpha)\rightarrow L(a,b,\alpha)$, where the components are epimorphisms because $\gamma$ is a coequalizer of the diagram in (\ref{fork1}) and therefore an epimorphism.
     
     We get then a well-pointed endofunctor $(L,\pi\sigma')$ over $(T\downarrow\C)$ with $(L,\pi\sigma')\Alg$ equivalent to the full subcategory of $(S',\sigma')\Alg$ given by the objects $b$ such that $(\id_b,\pi)$ is an isomorphism. We also have an equivalence $(T,\eta)\Alg\rightarrow (S',\sigma')\Alg$, $(a,\alpha)\mapsto (a,a,\alpha)$, hence we get that $(S',\sigma')\Alg$ is isomorphic to the full subcategory of $(T,\eta)\Alg$ given by $\{(a,\alpha)\in (T,\eta)\Alg\ |\ (\id_a,\pi)\colon S'(a,a,\alpha)\rightarrow L(a,a,\alpha)\text{ is an isomorphism}\}$.
     
@@ -1818,7 +1822,7 @@ Using this construction we can finally prove the following.
     \end{tikzcd}
     \]
     
-    Having $\pi$ invertible is then equivalent to $\alpha$ being the coequalizer of~\ref{fork2}, where $b=a$. If it is a coequalizer diagram, $\alpha\mu_a=\alpha T\alpha$, which implies that $(a,\alpha)$ is a $T$-algebra. Conversely, if $(a,\alpha)$ is a $T$-algebra, then this is a split coequalizer in $\C$. It follows that $T\Alg$ is equivalent to $(L,\pi\sigma')\Alg$.
+    Having $\pi$ invertible is then equivalent to $\alpha$ being the coequalizer of (\ref{fork2}), where $b=a$. If it is a coequalizer diagram, $\alpha\mu_a=\alpha T\alpha$, which implies that $(a,\alpha)$ is a $T$-algebra. Conversely, if $(a,\alpha)$ is a $T$-algebra, then this is a split coequalizer in $\C$. It follows that $T\Alg$ is equivalent to $(L,\pi\sigma')\Alg$.
     
     $L$ is accessible since $T$ is and $\kappa$-filtered colimits in $(T\downarrow\C)$ are computed as in $\C$, thus $(L,\pi\sigma')\Alg\rightarrow(T\downarrow\C)$ has a left adjoint and therefore $T\Alg\rightarrow (T\downarrow\C)$, $(a,\alpha)\mapsto(a,a,\alpha)$ is fully faithful and has a left adjoint.
 \end{proof}
