@@ -4,10 +4,10 @@
 \usepackage{amsbsy}
 \usepackage{fontenc}
 \usepackage{amsfonts}
-\usepackage{amsmath} 
+\usepackage{amsmath}
 \usepackage{eucal}
 \usepackage{mdframed}
-\usepackage{amsthm}  	
+\usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{amscd}
 \usepackage{faktor}
@@ -22,15 +22,17 @@
 \usepackage{indentfirst}
 \usepackage{hyperref}
 \usepackage{xspace}
-\hypersetup{colorlinks=false, pdfborder={0 0 0}}                                 
+\hypersetup{colorlinks=false, pdfborder={0 0 0}}
 \usepackage{enumitem}
 \setdescription{font=\normalfont}
 \usepackage[type={CC}, modifier={by-nc-sa}, version={4.0}]{doclicense}
-%\usepackage[style=alphabetic, backend=bibtex]{biblatex}
+\usepackage[backend=biber, style=alphabetic]{biblatex}
+\addbibresource{bibliography.bib}
+
 \usepackage[normalem]{ulem}
 \usepackage{contour}
 \usepackage{fullpage}
-\makeatletter        
+\makeatletter
 \newcommand*{\doublerightarrow}[2]{\mathrel{
 		\settowidth{\@tempdima}{$\scriptstyle#1$}
 		\settowidth{\@tempdimb}{$\scriptstyle#2$}
@@ -48,16 +50,16 @@
 					\rightarrowfill\cr}}}\limits^{\!#1}}}
 \makeatother
 
-\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else  		
-	\hbox{}                                                        					
-	\vspace*{\fill}                                                					
-	\begin{center}                                                 					
-		\*                                                             					
-	\end{center}                                                   					
-	\vspace{\fill}                                                 					 
-	\thispagestyle{empty}                                          				
-	\newpage                                                       					
-	\if@twocolumn\hbox{}\newpage\fi\fi\fi}                        
+\def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else
+			\hbox{}
+			\vspace*{\fill}
+			\begin{center}
+				\*
+			\end{center}
+			\vspace{\fill}
+			\thispagestyle{empty}
+			\newpage
+			\if@twocolumn\hbox{}\newpage\fi\fi\fi}
 
 \makeatletter
 \newcommand{\colim@}[2]{%
@@ -75,6 +77,8 @@
 
 \DeclareMathOperator{\Aff}{\mathbf{Aff}}
 \DeclareMathOperator{\Alg}{-\mathsf{Alg}}
+\DeclareMathOperator{\Act}{\mbox{-}\mathsf{Act}}
+\DeclareMathOperator{\Kl}{\mathsf{Kl}}
 \DeclareMathOperator{\Coh}{\mathbf{Coh}}
 \DeclareMathOperator{\QCoh}{\mathbf{QCoh}}
 \DeclareMathOperator{\VB}{\mathbf{VB}}
@@ -91,41 +95,41 @@
 \newcommand{\sSet}{\catname{sSet}}
 \newcommand{\Rel}{\catname{Rel}}
 \newcommand{\Cat}{\catname{Cat}}
-\newcommand{\CAT}{\catname{CAT}}	
-\newcommand{\qCat}{\catname{qCat}}	
+\newcommand{\CAT}{\catname{CAT}}
+\newcommand{\qCat}{\catname{qCat}}
 \newcommand{\yo}{\text{\usefont{U}{min}{m}{n}\symbol{'210}}}
 \newcommand{\from}{\colon}
 \newcommand{\iso}{\cong}
 \newcommand{\card}[1]{\left\lvert #1 \right\rvert}
 \newcommand{\set}[2]{\left\lbrace\,#1\colon #2 \,\right\rbrace}
-\makeatother                                                   
+\makeatother
 
 \ExplSyntaxOn
-    \NewDocumentCommand{\makeabbrev}{mmm}
-    {
-        \yoruk_makeabbrev:nnn { #1 } { #2 } { #3 }
-    }
+\NewDocumentCommand{\makeabbrev}{mmm}
+{
+	\yoruk_makeabbrev:nnn { #1 } { #2 } { #3 }
+}
 
-    \cs_new_protected:Npn \yoruk_makeabbrev:nnn #1 #2 #3
-    {
-        \clist_map_inline:nn { #3 }
-        {
-            \cs_new_protected:cpn { #2 } { #1 { ##1 } }
-        }
-    }
+\cs_new_protected:Npn \yoruk_makeabbrev:nnn #1 #2 #3
+{
+	\clist_map_inline:nn { #3 }
+	{
+		\cs_new_protected:cpn { #2 } { #1 { ##1 } }
+	}
+}
 \ExplSyntaxOff
 
 \makeabbrev{\boldsymbol}{bs#1}{a,b,c,d,e,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
-                               A,B,C,D,E,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+	A,B,C,D,E,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
 
 \makeabbrev{\mathfrak}{f#1}{a,b,c,d,e,f,g,h,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
-                            A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+	A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
 
 \makeabbrev{\mathbf}{bf#1}{a,b,c,d,e,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
-                          A,B,C,D,E,G,H,I,J,K,L,M,N,O,P,Q,R,T,U,V,W,X,Y,Z}
+	A,B,C,D,E,G,H,I,J,K,L,M,N,O,P,Q,R,T,U,V,W,X,Y,Z}
 
 \makeabbrev{\mathsf}{sf#1}{a,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z,%
-                           A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
+	A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
 
 \makeabbrev{\mathcal}{c#1}{A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z}
 
@@ -137,29 +141,29 @@
 \makeatletter
 \renewcommand\part{%
 	\if@openright
-	\cleardoublepage
+		\cleardoublepage
 	\else
-	\clearpage
+		\clearpage
 	\fi
-	\thispagestyle{empty}%  				 
+	\thispagestyle{empty}%
 	\if@twocolumn
-	\onecolumn
-	\@tempswatrue
+		\onecolumn
+		\@tempswatrue
 	\else
-	\@tempswafalse
+		\@tempswafalse
 	\fi
 	\null\vfil
 	\secdef\@part\@spart}
 \makeatother
 \usepackage{bbm}
-\usepackage{fancyhdr}                                   	
+\usepackage{fancyhdr}
 
-\renewcommand{\sectionmark}[1]{\markright{#1}}         	         
-\pagestyle{fancy}                                       				
-\fancyhf{}                                              				
-\fancyhead[LE,RO]{\thepage}                           		           
-\fancyhead[LO]{\scshape\nouppercase{\rightmark}}       	          
-\fancyhead[RE]{\scshape\nouppercase{\leftmark}}      	           
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[LO]{\scshape\nouppercase{\rightmark}}
+\fancyhead[RE]{\scshape\nouppercase{\leftmark}}
 \renewcommand{\headrulewidth}{0pt}
 \usepackage{amsmath,calligra,mathrsfs}
 
@@ -210,11 +214,11 @@
 
 \tikzset{shorten <>/.style={shorten >=#1,shorten <=#1}}
 \tikzset{%
-    symbol/.style={%
-        draw=none,
-        every to/.append style={%
-            edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
-    }
+	symbol/.style={%
+			draw=none,
+			every to/.append style={%
+					edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+		}
 }
 
 \newcommand{\pullbackcorner}[1][ul]{\save*!/#1+1.5pc/#1(1,-1)@^{|-}\restore}
@@ -222,26 +226,26 @@
 \usetikzlibrary{shapes}
 \usepackage{xcolor}
 \usepackage{url}
-\usepackage{attachfile} 							
-\makeatletter                        						
-\g@addto@macro{\UrlBreaks}{\UrlOrds} 				
-\makeatother                        						 
+\usepackage{attachfile}
+\makeatletter
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
+\makeatother
 \usepackage{xcolor}
 \usepackage{url}
-\usepackage{attachfile} 							
+\usepackage{attachfile}
 
 
-\makeatletter                        						
+\makeatletter
 
-\g@addto@macro{\UrlBreaks}{\UrlOrds} 				
+\g@addto@macro{\UrlBreaks}{\UrlOrds}
 
-\makeatother                        						 
+\makeatother
 
 \newsavebox\MBox
 
 \newcommand\Cline[2][red]{{\sbox\MBox{$#2$}%
-		
-		\rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{1pt}}}
+
+			\rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{1pt}}}
 
 \theoremstyle{definition}
 
@@ -271,6 +275,6 @@
 
 \newmdtheoremenv{teo}{Theorem}
 
-\setlength{\headheight}{15pt} 					  
+\setlength{\headheight}{15pt}
 \usepackage[all]{xy}
 \usepackage{extarrows}
