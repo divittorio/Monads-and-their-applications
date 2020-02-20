@@ -384,44 +384,27 @@ Thanks to the proposition above we can prove that, given a monad $T$, we can alw
 	If $U\colon\D\to\C$ has a left adjoint $F$ with unit $\eta$ and counit $\epsilon$, then $(UF,U\epsilon F,\eta)$ is a monad on $\C$. Also, if $(T,\mu,\eta)$ is a monad on $\C$, then $(U^TF^T,U^T\epsilon F^T,\eta)=(T,\mu,\eta)$.
 \end{prop}
 \begin{proof}
-	Let us check the axioms. First of all, the associativity holds due to the following equations.
-	\flushleft
-	\begin{center}
-		\begin{tikzcd}[row sep=.55cm, column sep=.55cm]
-			&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']&&&&&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"'] &&\\
-			\C\arrow[r, "F"]&\D\arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}& \D \arrow[r, "U"] & \C \arrow[r, "F"] & \D \arrow[r, "U"] & \C  \arrow[r, "F"] &\D\arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}& \D \arrow[r, "U"] & \C
-		\end{tikzcd}\\
-		\vspace{5mm}
-		=
-		\begin{tikzcd}
-			&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']&&\C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']\\
-			\C\arrow[r, "F"]&\D\arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}& \D\arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}& \D\arrow[r, "U"]&\C
-		\end{tikzcd}\\
-		\vspace{5mm}
-		=
-		\begin{tikzcd}[row sep=.55cm, column sep=.55cm]
-			&            &            &                                    &\C  \arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"'] &            &            &                                    &  \C\arrow[rd, "F"]\ar[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"'] &            &  \\
-			\C\arrow[r, "F"] & \D \arrow[r, "U"] & \C  \arrow[r, "F"] &  \D\arrow[ru, "U"] \arrow[rr, equal] &  \phantom{.}           &\D  \arrow[r, "U"] &\C  \arrow[r, "F"] & \D \arrow[ru, "U"] \arrow[rr, equal] &\phantom{.}             &\D  \arrow[r, "U"] & \C
-		\end{tikzcd}
-	\end{center}
-	Unit laws:
-	\[
-		\begin{tikzcd}
-			&         \arrow[d, Rightarrow, yshift=1ex, shorten <= .5em, shorten >= .01em, "\eta"']    &\C \arrow[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']  \arrow[rd, "F"] &            &  \\
-			\C\arrow[r, "F"] \arrow[rru, bend left, equal] &\D  \arrow[ru, "U"] \arrow[rr, equal] &  \phantom{.}           &\D  \arrow[r, "U"] & \C
-		\end{tikzcd}
-	\]
-	is equal to $1_{UF}$, since $\epsilon F\cdot F\eta=1_F$ by one of the triangular identities of the adjunction $F\dashv U$. Similarly,
-	\[
-		\begin{tikzcd}
-			&            &\C \arrow[d, Rightarrow, shorten <= .5em, shorten >= .5em, "\epsilon"']  \arrow[rd, "F"]\arrow[rrd, bend left, equal] &  \arrow[d, Rightarrow, yshift=1ex, shorten <= .5em, shorten >= .01em, "\eta"']           &  \\
-			\C\arrow[r, "F"]  &\D  \arrow[ru, "U"] \arrow[rr, equal] &  \phantom{.}           &\D  \arrow[r, "U"] & \C
-		\end{tikzcd}
-	\]
-	is equal to $1_{UF}$.
+	Let us check the axioms. First of all, associativity holds due to the naturality of the vertical natural transformation $U\epsilon\colon UFU\Rightarrow U$.
 
-	The rest follows from the explicit description of unit and counit of the adjunction $F^T\dashv U^T$, in fact
-	$U^T\epsilon F^Tc=U^T\epsilon_{(Tc, \mu_c)}=\mu_c$.
+    \[
+    \begin{tikzcd}[column sep=3.5em]
+    UFUFUF\ar[r, Rightarrow, "UFU\epsilon F"]\ar[d, Rightarrow, "U\epsilon FUF"]
+    & UFUF\ar[d, Rightarrow, "U\epsilon F"] \\
+    UFUF\ar[r, Rightarrow, "U\epsilon F"]
+    & UF
+    \end{tikzcd}
+    \]
+    
+    On the other end, the unit laws hold by the triangular identities of the adjunction.
+    
+    \[
+    \begin{tikzcd}
+    UF\ar[r, Rightarrow, "\eta UF"]\ar[dr, equal]
+    & UFUF\ar[d, Rightarrow, "U\epsilon F"]
+    & UF\ar[l, Rightarrow, swap, "UF\eta"]\ar[dl, Rightarrow, equal] \\
+    & UF
+    \end{tikzcd}
+    \]
 \end{proof}
 
 \begin{exmp}[Interesting adjunction, boring monad] Let us consider the adjunction $U\colon\mathbf{Top}\rightleftarrows\Set\colon\mathsf{Disc}\eqqcolon F$, whose left adjoint assigns to every set $X$ the discrete topological space $FX=(X, 2^X)$.
