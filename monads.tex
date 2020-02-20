@@ -4087,7 +4087,7 @@ We thus have $2$-categories and $2$-functors
 		& \K &
 	\end{tikzcd}
 \end{center}
-Where $T\Alg$ denotes the category of algebras of a $\Cat$ enriched monad, $s$ stands for strict, $p$ for pseudo, $l$ for lax and $c$ for colax.
+Where $T\Alg$ denotes the category of algebras of a $\Cat$-enriched monad, $s$ stands for strict, $p$ for pseudo, $l$ for lax and $c$ for colax.
 As we saw in the examples we often care about $T\Alg_{l}$ or $T\Alg_{p}$ but we know a lot about $T\Alg_{s}$. For example $T\Alg_{s}$ is a locally
 presentable $2$-category if $\K$ is such and $T$ is accessible. In this case the inclusions $T\Alg_{s} \to T\Alg_{p,l}$ have left adjoint $2$-functors.
 These are sometimes denoted by $(-)'$, $Q$ or $Q_{l}$. It turns out, that $T\Alg_{p}$ is biequivalent to a certain subcategory of $T\Alg_{s}$ consisting
@@ -4095,14 +4095,14 @@ of the \emph{flexible} algebras (i.e. those such that the counit $Q(A.a) \to (A,
 to show that $T\Alg_{p}$ is bicategorically complete and cocomplete if $\K$ is a locally presentable $2$-category and $T$ is accessible. \\
 To summarize: The philosophy is that enriched things are easy, weak things are hard, so use strictly enriched categories to study
 weakly enriched categories, to study weak things. To illustrate this, we consider one definition of monads and algebras in higher categories. Before we do
-that, we need to monad in $2$-categories. We have shown that $2\text{-}\Cat$ is a locally finitely presentable cosmoi. This means in particular
-that we can talk about the "free $2$-category" with a monad $\M$: \\
+that, we need to monad in $2$-categories. We have shown that $2\text{-}\Cat$ is a locally finitely presentable cosmos. This means in particular
+that we can talk about the ``free $2$-category" with a monad $\M$: \\
 Start with a single object $\ast$,  a $1$-cell $t \from \ast \to \ast$ and two $2$-cells $\mu \from t^{2} \Rightarrow t$, $\eta \from \id_{\ast} \Rightarrow t$ and
 impose the monad axioms. Then a $2$-functor $\M \to \K$ is precisely given by pairs of an object $C \in \Ob(\K)$ and a monad $t \from C \to C$. Since
 $\M$ clearly has a single object, it is simply a monoid in $\Cat$.
 
 \begin{prop}
-	The monoid $(\M(\ast,\ast), \circ)$ is isomorphic to $(\Delta_{+}, +)$ the category of finite posets and $+$ the ordinal sum (i.e. the join).
+	The monoid $(\M(\ast,\ast), \circ)$ is isomorphic to $(\Delta_{+}, +)$ the category of finite posets and $+$ the ordinal sum (i.e.\ the join).
 \end{prop}
 
 \begin{proof}
@@ -4183,8 +4183,8 @@ $\M$ clearly has a single object, it is simply a monoid in $\Cat$.
 \end{proof}
 From the defining isomorphism $\K(X,[W,F]) \iso [\A^{\op},\Cat](W, \K(X,F-))$ we see that $[-,F]$ sends colimits to limits. From the isomorphism
 $[\A(a,-),F] \iso F(a)$ it follows that we have to compute the corresponding colimit of the Yoneda diagram $\A^{\op} \to [\A,\Cat]$. So
-$W \iso Y \copw_{\A} W$. For this we need to compute the Klinski object of the monad in $[\Delta_{+}, \Cat]$. If it really is a weighted colimit,
-this would be computed pointwise in $\Cat$. So we need to compute the Klinski object of $\_+[0] \from \Delta_{+} \to \Delta_{+}$ in $\Cat$.
+$W \iso Y \copw_{\A} W$. For this we need to compute the Kleisli object of the monad in $[\Delta_{+}, \Cat]$. If it really is a weighted colimit,
+this would be computed pointwise in $\Cat$. So we need to compute the Kleisli object of $\_+[0] \from \Delta_{+} \to \Delta_{+}$ in $\Cat$.
 
 By an exercise, the collection of objects of the category $\Kl(-+[0])$ is
 $\{[n]\ |\ n\geq -1\}$ and the morphisms $[m]\rightarrow[n]$ are morphisms
@@ -4224,7 +4224,7 @@ the nerve and preserves products, hence it is strong monoidal. We get then
 $\tau_*\colon\sSet\mbox{-}\Cat\rightarrow 2\mbox{-}\Cat$. This defines the
 homoropy 2-$\Cat$ of a simplicial category, that is $\qCat$, and can be used to
 define categorical structures. In this context, adjoints are those which are
-mapped to adjoints nuder $\tau_*$ or something like that (wtf does this mean?).
+mapped to adjoints under $\tau_*$ or something like that (wtf does this mean?).
 
 The nerve functor $N\colon\Cat\rightarrow\sSet$ is also strong monoidal and
 defines $N_*\colon 2\mbox{-}\Cat\rightarrow\sSet\mbox{-}\Cat$.
@@ -4263,7 +4263,7 @@ structure, we can also talk about $\cV$-model categories, like:
 	      is an abelian category (often $\Ab$);
 	\item $\cV=\Cat\leadsto$ 2-category theory (instead of plain
 	      $\Cat$-enriched category theory);
-	\item $\cV=\sSet_{\text{Segal}}$, Segal categories, Resz dg, cosimplicial
+	\item $\cV=\sSet_{\text{Joyal}}$, Segal categories, Rezk’s complete Segal spaces, complicial
 	      sets, etc $\leadsto$ higher category theory.
 \end{itemize}
 
