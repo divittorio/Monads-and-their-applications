@@ -385,7 +385,6 @@ Thanks to the proposition above we can prove that, given a monad $T$, we can alw
 \end{prop}
 \begin{proof}
 	Let us check the axioms. First of all, associativity holds due to the naturality of the vertical natural transformation $U\epsilon\colon UFU\Rightarrow U$.
-
     \[
     \begin{tikzcd}[column sep=3.5em]
     UFUFUF\ar[r, Rightarrow, "UFU\epsilon F"]\ar[d, Rightarrow, "U\epsilon FUF"]
@@ -394,9 +393,9 @@ Thanks to the proposition above we can prove that, given a monad $T$, we can alw
     & UF
     \end{tikzcd}
     \]
+    One could also write down the 2-cells and check that they are equal by making use of the explicit definition of the horizontal composition.
     
     On the other end, the unit laws hold by the triangular identities of the adjunction.
-    
     \[
     \begin{tikzcd}
     UF\ar[r, Rightarrow, "\eta UF"]\ar[dr, equal]
