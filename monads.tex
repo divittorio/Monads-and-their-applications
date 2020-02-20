@@ -450,17 +450,16 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\Alg$, it also allows us t
 	\]
 	commutes.
 
-	Up to size, $T$-actions and their morphisms assemble into a category $T\Act(\D)$.
+	Up to size issues, $T$-actions and their morphisms assemble into a category $T\Act(\D)$.
 \end{defn}
 
-
-
 \begin{exmp}
+    \begin{enumerate}
+        \item
 	The functor $U^T\colon T\Alg\rightarrow\C$ has a $T$-action given by $\alpha\colon TU^T\Rightarrow U^T$, where $\alpha_{(b,\beta)}\coloneqq\beta\colon Tb\rightarrow b$.
-\end{exmp}
-
-\begin{exmp}
+        \item
 	Given an adjunction$\begin{tikzcd}F\colon\cC\ar[r, shift left = .4em, above, ""{name=F}] &\cD\colon U\ar[l, shift left = .4em, below, ""{name=U}]\ar[from=F, to=U, symbol=\dashv]\end{tikzcd}$with unit $\eta\colon\id_{\C}\Rightarrow UF$ and counit $\epsilon\colon FU\Rightarrow\id_{\D}$, we get a monad on $(UF,U\epsilon F,\eta)$ on $\C$. We have then a $UF$-action $U\epsilon\colon UFU\Rightarrow U$, where the axioms follow from the triangular identities and the naturality of $U\epsilon$.
+    \end{enumerate}
 \end{exmp}
 
 \begin{prop}
@@ -485,18 +484,30 @@ Following the construction in this proof, from the last example we get the compa
 
 \section{Limits and colimits in the category of algebras}
 
-We have shown that the forgetful functor $U^T\colon T\Alg\rightarrow\C$ is a right adjoint and as such it preserves limits. However, more is true.
+We have shown that the forgetful functor $U^T\colon T\Alg\rightarrow\C$ is a
+right adjoint and as such it preserves limits. However, more is true.
 
 \begin{prop}\label{create lims}
 	For any monad $(T,\mu,\eta)$ on $\C$, the forgetful functor $U^T\colon T\Alg\rightarrow\C$ strictly creates limits.
 \end{prop}
 
 \begin{proof}
-	This statement means that, for any diagram $D\colon\cI\rightarrow T\Alg$ such that $U^TD\colon\cI\rightarrow\C$ has a limit $(l,\kappa_i)$ in $\C$, there is a unique $T$-algebra structure $\lambda\colon Tl\rightarrow l$ such that $\kappa_i$ is a morphism of $T$-algebras for all $i\in\cI$ and this makes $((l,\lambda),\kappa_i)$ into a limit of $D$.
+	This statement means that, for any diagram $D\colon\cI\rightarrow T\Alg$
+    such that $U^TD\colon\cI\rightarrow\C$ has a limit $(l,\kappa_i)$ in $\C$,
+    there is a unique $T$-algebra structure $\lambda\colon Tl\rightarrow l$ such
+    that $\kappa_i$ is a morphism of $T$-algebras for all $i\in\cI$ and this
+    makes $((l,\lambda),\kappa_i)$ into a limit of $D$.
 
 	Now we begin the proof.
 
-	First of all, remember that $D\phi\colon D_i\rightarrow D_j$ is a morphism of $T$-algebras for all $\phi\colon i\rightarrow j$ by assumption, hence the morphisms $\delta_i T\kappa_i\colon Tl\rightarrow D_i$ define a cone over $D$, where $\delta_i$ is the $T$-algebra structure on $D_i$. By the universal property of the limit, there is a unique morphism $\lambda\colon Tl\rightarrow l$ making the following diagram commute for all $i$.
+	First of all, remember that $D\phi\colon D_i\rightarrow D_j$ is a morphism
+    of $T$-algebras for all $\phi\colon i\rightarrow j$ by assumption, hence the
+    morphisms $\delta_i\cdot T\kappa_i\colon Tl\rightarrow D_i$ define a cone
+    over $D$, where $\delta_i$ is the $T$-algebra structure on $D_i$ (notice
+    that here we are abusing the notation since our cone is in $\cC$ and over
+    $U^TD$). By the
+    universal property of the limit, there is a unique morphism $\lambda\colon
+    Tl\rightarrow l$ making the following diagram commute for all $i$.
 	\[
 		\begin{tikzcd}
 			Tl\ar[d, dashed, "\lambda"'] \ar[r, "T\kappa_i"]
@@ -505,9 +516,11 @@ We have shown that the forgetful functor $U^T\colon T\Alg\rightarrow\C$ is a rig
 			& D_i
 		\end{tikzcd}
 	\]
-	This tells us that, if the limit $((l,\lambda),\kappa_i)$ of $D$ exists, it is unique. We have to check that $(l,\lambda)$ is a $T$-algebra.
+	This tells us that, if the limit $((l,\lambda),\kappa_i)$ of $D$ exists, it
+    is unique. We have to check that $(l,\lambda)$ is a $T$-algebra.
 
-	Notice that for all $i$ all of the faces of the following diagrams, except for possibly the top ones, commute.
+	Notice that for all $i$ all of the faces of the following diagrams, except
+    for possibly the top ones, commute.
 
 	\[
 		\begin{tikzcd}
@@ -559,7 +572,9 @@ A similar statement holds for colimits.
 \begin{proof}
 	Similarly to the dual situation, this means that for any diagram $D\colon I\rightarrow T\Alg$ such that $U^TD\colon I\rightarrow\C$ has a colimit $(c,\kappa_i)$ preserved by both $T$ and $T^2$, there is a unique $T$-algebra structure $\lambda\colon Tc\rightarrow c$ such that $\kappa_i$ is a morphism of $T$-algebras for all $i\in I$. This makes $((c,\lambda),\kappa_i)$ into a colimit of $D$.
 
-	The proof is essentially dual to the one given earlier, in the sense that we find again a unique $\lambda\colon Tc\rightarrow c$ using the universal property of the colimit $(Tc,T\kappa_i)$ of $TD$.
+	The proof is essentially dual to the one given earlier, in the sense that we
+    find again a unique $\lambda\colon Tc\rightarrow c$ using the universal
+    property of the colimit $(Tc,T\kappa_i)$ of $TU^TD$.
 	\[
 		\begin{tikzcd}
 			TD_i\ar[r, "T\kappa_i"]\ar[d, "\delta_i"']
@@ -600,14 +615,22 @@ It is natural to ask if we can do this systematically for general $T$-algebras. 
 \[
 	(T^2a,\mu_{Ta}) \doublerightarrow{T\alpha}{\mu_a}(Ta,\mu_a)\xrightarrow{\alpha}(a,\alpha)
 \]
-is a well defined diagram in $T\Alg$, with $\alpha\mu_a=\alpha T\alpha$. Moreover, this is a coequalizer. In order to use Proposition~\ref{create colims} to prove it that we need to check whether $U^T$ sends the diagram above into a coequalizer preserved by $T$ and $T^2$. In $\C$, we extend the diagram to
+is a well defined diagram in $T\Alg$, with $\alpha\cdot\mu_a=\alpha\cdot
+T\alpha$. Moreover, this is a coequalizer. In order to prove it using
+Proposition~\ref{create colims} we need to check whether $U^T$
+sends the diagram above into a coequalizer preserved by $T$ and $T^2$. In $\C$,
+we extend the diagram to
 \[
 	\begin{tikzcd}
 		T^2a\arrow[r, shift left, "T\alpha"] \arrow[r, shift right, "\mu_a"']
 		&Ta  \arrow[r, "\alpha"] \arrow[l, bend left=49, swap, "\eta_{Ta}"'] & a \arrow[l, bend left=49, swap, "\eta_a"']
 	\end{tikzcd}
 	,\]
-where the following equations hold true: $\alpha T\alpha=\alpha\mu_a$, $\alpha\eta_a=\id_a$, $\mu_a\eta_{Ta}=\id_{Ta}$ and $\eta_a\alpha=T\alpha\hspace{1mm}\eta_{Ta}$ by naturality. It is a particular case of a more general concept.
+where the following equations hold true by naturality or axioms: $\alpha\cdot
+T\alpha=\alpha\cdot\mu_a$, $\alpha\cdot\eta_a=\id_a$,
+$\mu_a\cdot\eta_{Ta}=\id_{Ta}$ and
+$\eta_a\cdot\alpha=T\alpha\hspace{1mm}\eta_{Ta}$. It is a particular case of a
+more general concept.
 \begin{defn}
 	A \emph{split coequalizer} is a diagram of the form
 	\vspace*{-2.4mm}
@@ -634,7 +657,7 @@ where the following equations hold true: $\alpha T\alpha=\alpha\mu_a$, $\alpha\e
 	$$\overline{k}h=ksh=kft=kgt=k.$$
 	Uniqueness is clear since $h$ is a (split) epimorphism.
 \end{proof}
-$T$ and $T^2$ preserve split coequalizers, so they preserve our coequalizer.
+$T$ and $T^2$ preserve split coequalizers, hence they preserve our coequalizer.
 \begin{cor}
 	Let $T$ be a monad on $\C$ and $(a,\alpha)$ a $T$-algebra. Then
 	\[
@@ -643,22 +666,36 @@ $T$ and $T^2$ preserve split coequalizers, so they preserve our coequalizer.
 	is a coequalizer in $T\Alg$, which $U^T\colon T\Alg\to\C$ sends to a split coequalizer in $\C$.
 \end{cor}
 \begin{proof}
-	We have already observed that the second statement holds, so that coeq$(U^T(T\alpha), U^T(\mu_a))$ is preserved by $T$ and $T^2$. Hence there exists a unique lift of the (split) coequalizer in $\C$ to a coequalizer in $T\Alg$.
+	We have already observed that the second statement holds, so that
+    coeq$(U^T(T\alpha), U^T(\mu_a))$ is preserved by $T$ and $T^2$, hence there
+    exists a unique lift of the (split) coequalizer in $\C$ to a coequalizer in
+    $T\Alg$.
 \end{proof}
-Results like the previous one inspire us to look at the parallel pairs of morphisms in a category which are sent to split coequalizers or, to say it better, to a parallel pair of morphisms that can be extended to a split coequalizer diagram. This kind of pairs will be of crucial importance in the following.
+Results like the previous one inspire us to look at the parallel pairs of
+morphisms in a category which are sent to split coequalizers or, to say it
+better, to a parallel pair of morphisms that can be extended to a split
+coequalizer diagram. This kind of pairs will be of crucial importance when
+characterizing monadic functors.
 \begin{defn}
 	Let $U\colon\D\to\C$ be a functor. A pair of morphisms $f,g\colon d\rightrightarrows d'$ in $\D$ is \emph{$U$-split} if $Uf,Ug\colon Ud\rightrightarrows Ud'$ is part of a split coequalizer in $\C$.
 \end{defn}
 \begin{rmk}
-	$T\alpha,\mu_a\colon(T^2a,\mu_{Ta})\rightrightarrows(Ta,\mu_a)$ is a $U^T$-split pair. Moreover, $T\Alg$ has coequalizers of $U^T$-split pairs and $U^T$ preserves them. Hence, functors equivalent to $U^T$ satisfy three conditions:
+    Given a $T$-algebra $(a,\alpha)$, the morphisms
+    $T\alpha,\mu_a\colon(T^2a,\mu_{Ta})\rightrightarrows(Ta,\mu_a)$ form a
+    $U^T$-split pair. Moreover, $T\Alg$ has coequalizers of $U^T$-split pairs
+    and $U^T$ preserves them. This implies that functors equivalent to $U^T$
+    satisfy three conditions:
 	\begin{enumerate}
 		\item they have a left adjoint;
 		\item they are conservative;
 		\item $U$-split pairs have coequalizers which are preserved by $U$.
 	\end{enumerate}
+    As it turns out, these properties are enough for $U$ to be monadic.
 \end{rmk}
 
-\begin{teo}[Beck]\label{Beck} Let $U\colon\D\to\C$ be a right adjoint to $F\colon\C\to\D$. Let $(T=UF, U\epsilon F, \eta)$ be the induced monad and $\overline{U}\colon\D\to T\Alg$ be the comparison functor.
+\begin{teo}[Beck]\label{Beck} Let $U\colon\D\to\C$ be a right adjoint to $F$.
+    Let $(T=UF, U\epsilon F, \eta)$ be the induced monad and
+    $\overline{U}\colon\D\to T\Alg$ be the comparison functor.
 	\begin{enumerate}
 		\item If $\D$ has coequalizers of $U$-split pairs, then $\overline{U}$ has a left adjoint $\overline{F}\colon T\Alg\to\D$;
 		\item if, in addition, $U$ preserves coequalizers of $U$-split pairs, the unit $\overline{\eta}\colon\id_{T\Alg}\Rightarrow\overline{U}\hspace{.5mm} \overline{F}$ is an isomorphism;
