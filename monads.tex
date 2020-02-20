@@ -104,25 +104,25 @@ Throughout mathematics we encounter structures defined by some action morphisms.
 
 
 \begin{exmp}
-    \begin{enumerate}
-        \item Given a group $G$, we may consider a $G$-set $X$ described by an action map $G\times X\rightarrow X$.
-        \item Given an abelian group $M$ and a ring $R$, we can get an $R$-module $M$ by fixing a group homomorphism $R\otimes_{\Z} M\rightarrow M$.
-        \item Given a monoid $M$ in $\Set$, we get a map $\Pi_{k=1}^n M\rightarrow M$, $(m_1,\ldots,m_n)\mapsto ((\ldots ((m_1m_2)m_3)\ldots )m_{n-1}) m_n$. This induces an action map from $W(M)=\amalg_{n\in\N}\Pi_{k=1}^n M$, the set of words on $M$, to $M$.
-        \item\label{ultrafilters}
-	Given a set $X$, let $\mathcal{U}X$ be the set of ultrafilters on it. Any compact T2 topology on $X$ allows us to see each ultrafilter as a system of neighborhoods of a unique point in $X$, hence it gives us a unique map $\mathcal{U}X\rightarrow X$ sending each ultrafilter to the respective point.
-        \item Given a directed graph $D=(V,E,\hspace{-1.5mm}\begin{tikzcd}
-			E\hspace{-1.5mm}\arrow[r, "t" description,  shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, "s" description, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}V
-		\end{tikzcd}\hspace{-1.5mm})$, we can create its free category $FD$, where the objects are the vertices and $FD(v,w)=\{\text{finite paths } v\rightarrow\ldots\rightarrow w\}$. We set $\id_v$ to be the path of length 0, while composition is just the concatenation of paths.
+	\begin{enumerate}
+		\item Given a group $G$, we may consider a $G$-set $X$ described by an action map $G\times X\rightarrow X$.
+		\item Given an abelian group $M$ and a ring $R$, we can get an $R$-module $M$ by fixing a group homomorphism $R\otimes_{\Z} M\rightarrow M$.
+		\item Given a monoid $M$ in $\Set$, we get a map $\Pi_{k=1}^n M\rightarrow M$, $(m_1,\ldots,m_n)\mapsto ((\ldots ((m_1m_2)m_3)\ldots )m_{n-1}) m_n$. This induces an action map from $W(M)=\amalg_{n\in\N}\Pi_{k=1}^n M$, the set of words on $M$, to $M$.
+		\item\label{ultrafilters}
+		      Given a set $X$, let $\mathcal{U}X$ be the set of ultrafilters on it. Any compact T2 topology on $X$ allows us to see each ultrafilter as a system of neighborhoods of a unique point in $X$, hence it gives us a unique map $\mathcal{U}X\rightarrow X$ sending each ultrafilter to the respective point.
+		\item Given a directed graph $D=(V,E,\hspace{-1.5mm}\begin{tikzcd}
+				      E\hspace{-1.5mm}\arrow[r, "t" description,  shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, "s" description, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}V
+			      \end{tikzcd}\hspace{-1.5mm})$, we can create its free category $FD$, where the objects are the vertices and $FD(v,w)=\{\text{finite paths } v\rightarrow\ldots\rightarrow w\}$. We set $\id_v$ to be the path of length 0, while composition is just the concatenation of paths.
 
-	In particular, if $D$ is the directed graph with $V=\{0,\ldots,n\}$ and an edge $j\rightarrow k$ if and only if $k=j+1$, we have $FD\cong [n]$.
+		      In particular, if $D$ is the directed graph with $V=\{0,\ldots,n\}$ and an edge $j\rightarrow k$ if and only if $k=j+1$, we have $FD\cong [n]$.
 
-	If $D=\{*\}$ and $E=\{*\rightarrow *\}$, then $FD(*,*)\cong\N$.
+		      If $D=\{*\}$ and $E=\{*\rightarrow *\}$, then $FD(*,*)\cong\N$.
 
-	Given a small category $\C$, we may consider the underlying graph $U\C=D$
-            with $V=\Ob(\C)$, $E=\Ar(\C)$, $s=\dom$ and $t=\cod$. We get then an
-            action map $UFU\C\rightarrow U\C$ sending a finite path to its
-            composite. This map is a morphism of directed graphs.
-    \end{enumerate}
+		      Given a small category $\C$, we may consider the underlying graph $U\C=D$
+		      with $V=\Ob(\C)$, $E=\Ar(\C)$, $s=\dom$ and $t=\cod$. We get then an
+		      action map $UFU\C\rightarrow U\C$ sending a finite path to its
+		      composite. This map is a morphism of directed graphs.
+	\end{enumerate}
 \end{exmp}
 
 Notice that we always have a category $\C$ and some functor $T\colon\C\rightarrow\C$ with an action map $T\C\rightarrow\C$. How can we see all of these examples as specific instances of a general phenomenon?
@@ -245,26 +245,26 @@ $T$-algebras form a category $T\Alg$, which has a natural forgetful functor $U^T
 We now show how to recover the examples previously given with this language.
 
 \begin{exmp}
-    \begin{enumerate}
-        \item
-	\begin{align*}
-		T=G\times - \colon & \ \Set \rightarrow\Set                      \\
-		\mu_A\colon        & \ G\times (G\times A) \rightarrow G\times A \\
-		                   & \ (g,(h,a)) \mapsto (gh,a)                  \\
-		\eta_A\colon       & \ A \rightarrow G\times A                   \\
-		                   & \ a \mapsto (e,a)
-	\end{align*}
-	is a monad and $(A,\alpha)$ is a $T$-algebra if and only if $A$ is a $G$-set. It follows that $T\Alg\cong G\mbox{-}\Set$.
-\item Given a ring $R$, $T=R\otimes_{\Z}-\colon \Ab\rightarrow \Ab$ is a monad when considered with the following natural transformations:
-	\begin{align*}
-		\mu_{-}\colon & \ R\otimes_{\Z}(R\otimes_{\Z}-)\cong (R\otimes_{\Z}R)\otimes_{\Z}-\Rightarrow R\otimes_{\Z}- \\
-		\eta_-\colon  & \ -\cong\Z\otimes_{\Z}-\Rightarrow R\otimes_{\Z}-
-	\end{align*}
-	We have that $(R\otimes_{\Z}-)\Alg\cong\Mod_R$.
-\item Consider $W\colon\Set\rightarrow\Set$ given by $WX=\amalg_{n\in\N}\Pi_{k=1}^n X$. Multiplication $\mu_X\colon WWX\rightarrow WX$ is given by concatenation of words, while the unit $\eta_X\colon X\rightarrow WX$ is just $x\mapsto (x)$. With this, $W\Alg\cong \text{Mon}(\Set)$.
-\item The functor $\mathcal{U}$ defined in Example \ref{ultrafilters}, equipped with suitable natural transformations, is a monad on $\Set$ and $\mathcal{U}\Alg\cong \CHTop$, the category of compact T2 spaces.
-\item The free-forgetful adjunction $F\dashv U$ between categories and directed graphs induces a monad on the latter, with $UF\Alg\cong\Cat$.
-    \end{enumerate}
+	\begin{enumerate}
+		\item
+		      \begin{align*}
+			      T=G\times - \colon & \ \Set \rightarrow\Set                      \\
+			      \mu_A\colon        & \ G\times (G\times A) \rightarrow G\times A \\
+			                         & \ (g,(h,a)) \mapsto (gh,a)                  \\
+			      \eta_A\colon       & \ A \rightarrow G\times A                   \\
+			                         & \ a \mapsto (e,a)
+		      \end{align*}
+		      is a monad and $(A,\alpha)$ is a $T$-algebra if and only if $A$ is a $G$-set. It follows that $T\Alg\cong G\mbox{-}\Set$.
+		\item Given a ring $R$, $T=R\otimes_{\Z}-\colon \Ab\rightarrow \Ab$ is a monad when considered with the following natural transformations:
+		      \begin{align*}
+			      \mu_{-}\colon & \ R\otimes_{\Z}(R\otimes_{\Z}-)\cong (R\otimes_{\Z}R)\otimes_{\Z}-\Rightarrow R\otimes_{\Z}- \\
+			      \eta_-\colon  & \ -\cong\Z\otimes_{\Z}-\Rightarrow R\otimes_{\Z}-
+		      \end{align*}
+		      We have that $(R\otimes_{\Z}-)\Alg\cong\Mod_R$.
+		\item Consider $W\colon\Set\rightarrow\Set$ given by $WX=\amalg_{n\in\N}\Pi_{k=1}^n X$. Multiplication $\mu_X\colon WWX\rightarrow WX$ is given by concatenation of words, while the unit $\eta_X\colon X\rightarrow WX$ is just $x\mapsto (x)$. With this, $W\Alg\cong \text{Mon}(\Set)$.
+		\item The functor $\mathcal{U}$ defined in Example \ref{ultrafilters}, equipped with suitable natural transformations, is a monad on $\Set$ and $\mathcal{U}\Alg\cong \CHTop$, the category of compact T2 spaces.
+		\item The free-forgetful adjunction $F\dashv U$ between categories and directed graphs induces a monad on the latter, with $UF\Alg\cong\Cat$.
+	\end{enumerate}
 \end{exmp}
 
 Now that we have introduced these structures, our aim is to characterize \emph{monadic functors}, that is functors $U\colon\A\rightarrow\C$ which are equivalent to $U^T\colon T\Alg\rightarrow\C$ for some monad $(T,\mu,\eta)$ on $\C$.
