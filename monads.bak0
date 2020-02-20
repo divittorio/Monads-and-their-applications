@@ -102,15 +102,20 @@ Cover image \copyright \href{http://existentialcomics.com/comic/other/10}{\ Exis
 
 Throughout mathematics we encounter structures defined by some action morphisms. Here we give some examples.
 
-
 \begin{exmp}
-    \begin{enumerate}
-        \item Given a group $G$, we may consider a $G$-set $X$ described by an action map $G\times X\rightarrow X$.
-        \item Given an abelian group $M$ and a ring $R$, we can get an $R$-module $M$ by fixing a group homomorphism $R\otimes_{\Z} M\rightarrow M$.
-        \item Given a monoid $M$ in $\Set$, we get a map $\Pi_{k=1}^n M\rightarrow M$, $(m_1,\ldots,m_n)\mapsto ((\ldots ((m_1m_2)m_3)\ldots )m_{n-1}) m_n$. This induces an action map from $W(M)=\amalg_{n\in\N}\Pi_{k=1}^n M$, the set of words on $M$, to $M$.
-        \item\label{ultrafilters}
+	Given a group $G$, we may consider a $G$-set $X$ described by an action map $G\times X\rightarrow X$.
+\end{exmp}
+\begin{exmp}
+	Given an abelian group $M$ and a ring $R$, we can get an $R$-module $M$ by fixing a group homomorphism $R\otimes_{\Z} M\rightarrow M$.
+\end{exmp}
+\begin{exmp}
+	Given a monoid $M$ in $\Set$, we get a map $\Pi_{k=1}^n M\rightarrow M$, $(m_1,\ldots,m_n)\mapsto ((\ldots ((m_1m_2)m_3)\ldots )m_{n-1}) m_n$. This induces an action map from $W(M)=\amalg_{n\in\N}\Pi_{k=1}^n M$, the set of words on $M$, to $M$.
+\end{exmp}
+\begin{exmp}\label{ultrafilters}
 	Given a set $X$, let $\mathcal{U}X$ be the set of ultrafilters on it. Any compact T2 topology on $X$ allows us to see each ultrafilter as a system of neighborhoods of a unique point in $X$, hence it gives us a unique map $\mathcal{U}X\rightarrow X$ sending each ultrafilter to the respective point.
-        \item Given a directed graph $D=(V,E,\hspace{-1.5mm}\begin{tikzcd}
+\end{exmp}
+\begin{exmp}
+	Given a directed graph $D=(V,E,\hspace{-1.5mm}\begin{tikzcd}
 			E\hspace{-1.5mm}\arrow[r, "t" description,  shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, "s" description, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}V
 		\end{tikzcd}\hspace{-1.5mm})$, we can create its free category $FD$, where the objects are the vertices and $FD(v,w)=\{\text{finite paths } v\rightarrow\ldots\rightarrow w\}$. We set $\id_v$ to be the path of length 0, while composition is just the concatenation of paths.
 
@@ -118,11 +123,7 @@ Throughout mathematics we encounter structures defined by some action morphisms.
 
 	If $D=\{*\}$ and $E=\{*\rightarrow *\}$, then $FD(*,*)\cong\N$.
 
-	Given a small category $\C$, we may consider the underlying graph $U\C=D$
-            with $V=\Ob(\C)$, $E=\Ar(\C)$, $s=\dom$ and $t=\cod$. We get then an
-            action map $UFU\C\rightarrow U\C$ sending a finite path to its
-            composite. This map is a morphism of directed graphs.
-    \end{enumerate}
+	Given a small category $\C$, we may consider the underlying graph $U\C=D$ with $V=\Ob(\C)$, $E=\Ar(\C)$, $s=\dom$ and $t=\cod$. We get then an action map $UFU\C\rightarrow U\C$ sending a finite path to its composite. This map is a morphism of directed graphs.
 \end{exmp}
 
 Notice that we always have a category $\C$ and some functor $T\colon\C\rightarrow\C$ with an action map $T\C\rightarrow\C$. How can we see all of these examples as specific instances of a general phenomenon?
@@ -245,8 +246,6 @@ $T$-algebras form a category $T\Alg$, which has a natural forgetful functor $U^T
 We now show how to recover the examples previously given with this language.
 
 \begin{exmp}
-    \begin{enumerate}
-        \item
 	\begin{align*}
 		T=G\times - \colon & \ \Set \rightarrow\Set                      \\
 		\mu_A\colon        & \ G\times (G\times A) \rightarrow G\times A \\
@@ -255,17 +254,30 @@ We now show how to recover the examples previously given with this language.
 		                   & \ a \mapsto (e,a)
 	\end{align*}
 	is a monad and $(A,\alpha)$ is a $T$-algebra if and only if $A$ is a $G$-set. It follows that $T\Alg\cong G\mbox{-}\Set$.
-\item Given a ring $R$, $T=R\otimes_{\Z}-\colon \Ab\rightarrow \Ab$ is a monad when considered with the following natural transformations:
+\end{exmp}
+
+\begin{exmp}
+	Given a ring $R$, $T=R\otimes_{\Z}-\colon \Ab\rightarrow \Ab$ is a monad when considered with the following natural transformations:
 	\begin{align*}
 		\mu_{-}\colon & \ R\otimes_{\Z}(R\otimes_{\Z}-)\cong (R\otimes_{\Z}R)\otimes_{\Z}-\Rightarrow R\otimes_{\Z}- \\
 		\eta_-\colon  & \ -\cong\Z\otimes_{\Z}-\Rightarrow R\otimes_{\Z}-
 	\end{align*}
 	We have that $(R\otimes_{\Z}-)\Alg\cong\Mod_R$.
-\item Consider $W\colon\Set\rightarrow\Set$ given by $WX=\amalg_{n\in\N}\Pi_{k=1}^n X$. Multiplication $\mu_X\colon WWX\rightarrow WX$ is given by concatenation of words, while the unit $\eta_X\colon X\rightarrow WX$ is just $x\mapsto (x)$. With this, $W\Alg\cong \text{Mon}(\Set)$.
-\item The functor $\mathcal{U}$ defined in Example \ref{ultrafilters}, equipped with suitable natural transformations, is a monad on $\Set$ and $\mathcal{U}\Alg\cong \CHTop$, the category of compact T2 spaces.
-\item The free-forgetful adjunction $F\dashv U$ between categories and directed graphs induces a monad on the latter, with $UF\Alg\cong\Cat$.
-    \end{enumerate}
 \end{exmp}
+
+\begin{exmp}
+	Consider $W\colon\Set\rightarrow\Set$ given by $WX=\amalg_{n\in\N}\Pi_{k=1}^n X$. Multiplication $\mu_X\colon WWX\rightarrow WX$ is given by concatenation of words, while the unit $\eta_X\colon X\rightarrow WX$ is just $x\mapsto (x)$. With this, $W\Alg\cong \text{Mon}(\Set)$.
+\end{exmp}
+
+\begin{exmp}
+	The functor $\mathcal{U}$ defined in Example \ref{ultrafilters}, equipped with suitable natural transformations, is a monad on $\Set$ and $\mathcal{U}\Alg\cong \CHTop$, the category of compact T2 spaces.
+\end{exmp}
+
+\begin{exmp}
+	The free-forgetful adjunction $F\dashv U$ between categories and directed graphs induces a monad on the latter, with $UF\Alg\cong\Cat$.
+\end{exmp}
+
+\section{Monadic functors}
 
 Now that we have introduced these structures, our aim is to characterize \emph{monadic functors}, that is functors $U\colon\A\rightarrow\C$ which are equivalent to $U^T\colon T\Alg\rightarrow\C$ for some monad $(T,\mu,\eta)$ on $\C$.
 
@@ -373,37 +385,37 @@ Thanks to the proposition above we can prove that, given a monad $T$, we can alw
 \end{prop}
 \begin{proof}
 	Let us check the axioms. First of all, associativity holds due to the naturality of the vertical natural transformation $U\epsilon\colon UFU\Rightarrow U$.
-	\[
-		\begin{tikzcd}[column sep=3.5em]
-			UFUFUF\ar[r, Rightarrow, "UFU\epsilon F"]\ar[d, Rightarrow, "U\epsilon FUF"]
-			& UFUF\ar[d, Rightarrow, "U\epsilon F"] \\
-			UFUF\ar[r, Rightarrow, "U\epsilon F"]
-			& UF
-		\end{tikzcd}
-	\]
-	One could also write down the 2-cells and check that they are equal by making use of the explicit definition of the horizontal composition.
-
-	On the other end, the unit laws hold by the triangular identities of the adjunction.
-	\[
-		\begin{tikzcd}
-			UF\ar[r, Rightarrow, "\eta UF"]\ar[dr, equal]
-			& UFUF\ar[d, Rightarrow, "U\epsilon F"]
-			& UF\ar[l, Rightarrow, swap, "UF\eta"]\ar[dl, Rightarrow, equal] \\
-			& UF
-		\end{tikzcd}
-	\]
+    \[
+    \begin{tikzcd}[column sep=3.5em]
+    UFUFUF\ar[r, Rightarrow, "UFU\epsilon F"]\ar[d, Rightarrow, "U\epsilon FUF"]
+    & UFUF\ar[d, Rightarrow, "U\epsilon F"] \\
+    UFUF\ar[r, Rightarrow, "U\epsilon F"]
+    & UF
+    \end{tikzcd}
+    \]
+    One could also write down the 2-cells and check that they are equal by making use of the explicit definition of the horizontal composition.
+    
+    On the other end, the unit laws hold by the triangular identities of the adjunction.
+    \[
+    \begin{tikzcd}
+    UF\ar[r, Rightarrow, "\eta UF"]\ar[dr, equal]
+    & UFUF\ar[d, Rightarrow, "U\epsilon F"]
+    & UF\ar[l, Rightarrow, swap, "UF\eta"]\ar[dl, Rightarrow, equal] \\
+    & UF
+    \end{tikzcd}
+    \]
 \end{proof}
 
 \begin{exmp}
-	\begin{enumerate}
-		\item Let us consider the adjunction $U\colon\mathbf{Top}\rightleftarrows\Set\colon\mathsf{Disc}\eqqcolon F$, whose left adjoint assigns to every set $X$ the discrete topological space $FX=(X, 2^X)$.
-		      It's immediate to see that $UFX=X$, hence $UF=\id_\Set$. How many natural transformations $\id_\Set=UF\xRightarrow{\alpha} UF=\id_\Set$ are there?
-		      We know that $\id_\Set\cong\Hom(*,-)$, so $\text{Nat}(\id_\Set,
-			      \id_\Set)\cong\text{Nat}(\Hom(*,-),\Hom(*,-))\cong\Hom(*,*)=\{\id_*\}$ by
-		      Yoneda, hence $\alpha=\id$. It follows that $(UF,U\epsilon F,
-			      \eta)=(\id_\Set, \id, \id)$.
-		\item If $S$ is a set, then $\Set(S,-)\colon\Set\to\Set$ is right adjoint to $S\times-\colon\Set\to\Set$, so we get a monad $X\mapsto\Set(S,S\times X)$. This is called the \emph{state monad} and it is important in Computer Science.
-	\end{enumerate}
+    \begin{enumerate}
+        \item Let us consider the adjunction $U\colon\mathbf{Top}\rightleftarrows\Set\colon\mathsf{Disc}\eqqcolon F$, whose left adjoint assigns to every set $X$ the discrete topological space $FX=(X, 2^X)$.
+	It's immediate to see that $UFX=X$, hence $UF=\id_\Set$. How many natural transformations $\id_\Set=UF\xRightarrow{\alpha} UF=\id_\Set$ are there?
+	We know that $\id_\Set\cong\Hom(*,-)$, so $\text{Nat}(\id_\Set,
+    \id_\Set)\cong\text{Nat}(\Hom(*,-),\Hom(*,-))\cong\Hom(*,*)=\{\id_*\}$ by
+    Yoneda, hence $\alpha=\id$. It follows that $(UF,U\epsilon F,
+            \eta)=(\id_\Set, \id, \id)$.
+        \item If $S$ is a set, then $\Set(S,-)\colon\Set\to\Set$ is right adjoint to $S\times-\colon\Set\to\Set$, so we get a monad $X\mapsto\Set(S,S\times X)$. This is called the \emph{state monad} and it is important in Computer Science.
+    \end{enumerate}
 \end{exmp}
 
 
@@ -418,7 +430,7 @@ Given an adjunction$\begin{tikzcd}F\colon\cC\ar[r, shift left = .4em, above, ""{
 		& \C
 	\end{tikzcd}
 \]
-commutes. We set $\overline{U}d=(Ud,UFUd\xrightarrow{U\epsilon_d}Ud)=(Ud, U\epsilon_d)$. More generally, for a given functor $G\colon\D\rightarrow\C$ we can ask what do we need to get a lift $\overline{G}\colon\D\to T\Alg$. To get there, we will need a few more definitions and lemmas.
+commutes. We set $\overline{U}f=(Ud,UFUd\xrightarrow{U\epsilon_d}Ud)=(Ud, U\epsilon_d)$. More generally, for a given functor $G\colon\D\rightarrow\C$ we can ask what do we need to get a lift $\overline{G}\colon\D\to T\Alg$. To get there, we will need a few more definitions and lemmas.
 
 Just like a monad $(T,\mu,\eta)$ defines a category $T\Alg$, it also allows us to construct another category from functors $\D\rightarrow\C$.
 
