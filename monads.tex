@@ -2364,7 +2364,7 @@ The previous example is an instance of a more general phenomenon, as shown by th
 	\end{enumerate}
 \end{exmp}
 \begin{rmk}
-	This completes the proof that $ (-)\Alg \from \Mnd_\kappa(\cC)^{\text{op}} \to \Cat/\cC$ is full and faithful and sends colimits of monads to limits of categories.
+	This completes the proof that $ (-)\Alg \from \Mnd_\kappa(\cC)^{\text{op}} \to (\Cat\downarrow\cC)$ is full and faithful and sends colimits of monads to limits of categories.
 \end{rmk}
 Let $ (\cV,\otimes, I) $ be a monoidal category such that $ x\otimes - $ and $ -\otimes x $ preserve coproducts for all $ x\in\cV$.
 The category of $\cV$-matrices with index set $ S $ is $ [S\times S,\cV] =\prod_{S\times S}\cV $ and denoted by $ \Mat(\cV ,     S) $. There is a natural monoidal structure on $ \Mat(\cV,S) $ given by matrix multiplication:
@@ -2376,7 +2376,7 @@ and unit $ (I_{x,y})_{(x,y) \in S^2} $ where $ I_{x,y}= I $ if $ x = y $ and $ I
 The $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ are induced by the ones on $\cV$ via the universal properties of coproducts.
 
 \begin{defn}
-	A $\cV$-category $ \cA $ with object set $ S $ is a monoid in $ \Mat(\cV,S) $
+	A $\cV$\emph{-category} $ \cA $ with object set $ S $ is a monoid in $ \Mat(\cV,S) $
 	i.e. for each pair $ (a,b) \in S^2 $ an object $ \cA(a,b) \in\cV$, called the $\cV$-object of homomorphisms.
 	Moreover we have units $ I\xrightarrow{\id_a} \cA(a,a) $ and composition homomorphisms
 	\begin{displaymath}
@@ -2386,15 +2386,15 @@ The $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ are induced by the ones on $\
 	\begin{displaymath}
 		\begin{tikzcd}[column sep=tiny]
 			(\cA(c,d)\otimes \cA(b,c)) \otimes \cA(a,b)
-			\arrow[d,"{c\otimes \cA(a,b)}"]\arrow[rr, "\cong"]
+			\arrow[d,"{C\otimes \cA(a,b)}"]\arrow[rr, "\cong"]
 			&&
 			\cA(c,d) \otimes (\cA(b,c) \otimes \cA(a,b) )
-			\arrow[d,"{\cA(c,d)\otimes c}"]\\
+			\arrow[d,"{\cA(c,d)\otimes C}"]\\
 			\cA(b,d)\otimes \cA(a,b)
-			\arrow[rd, "c"']
+			\arrow[rd, "C"']
 			&&
 			\cA(c,d)\otimes \cA(a,c)
-			\arrow[ld, "c"]
+			\arrow[ld, "C"]
 			\\
 			& \cA(a,d)
 		\end{tikzcd}
@@ -2438,7 +2438,7 @@ The $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ are induced by the ones on $\
 	The left adjoint is strong monoidal.
 \end{prop}
 \begin{defn}
-	A $\cV$-functor $ (S,\cA) \to (T,\cB) $ is a pair
+	A $\cV$\emph{-functor} $ (S,\cA) \to (T,\cB) $ is a pair
 	$ (F, (F_{a,b})_{(a,b) \in S^2}) $ where $ F\from S \to T $ is a function and $ (F_{a,b})_{(a,b) \in S^2} $ is a monoid morphism $ \cA \to F^*\cB $, that is $ F_{a,b}\from \cA (a,b) \to \cB (Fa,Fb) $ is a morphism in $\cV$ for any $ a,b \in S $.
 
 	We denote the resulting category of small $\cV$-categories by $\cV$-$ \Cat $. We may also define $\cV$-$ \CAT $ as the category of all $\cV$-categories.
@@ -2510,7 +2510,7 @@ The $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ are induced by the ones on $\
 \end{exmp}
 
 \begin{defn}
-	Let $\A$ and $\B$ be two $\V$-categories and $F,G \from \A \to \B$ be two $\V$-functors. Then a $\V$-natural transformation $F \Rightarrow G$ is a
+	Let $\A$ and $\B$ be two $\V$-categories and $F,G \from \A \to \B$ be two $\V$-functors. Then a $\V$\emph{-natural transformation} $F \Rightarrow G$ is a
 	collection of morphisms $(\alpha_{A} \from I \to \B(FA,GA))_{A \in \A}$ in $\V$ (note that this collection can be indexes by a class of objects), such that for
 	all objects $A,B$ in $\A$ the diagram
 	\begin{center}
@@ -2592,7 +2592,7 @@ The $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ are induced by the ones on $\
 			& \K'(GA,GB) \times \K'(FA,GA) \arrow[ru, "\circ"'] &
 		\end{tikzcd}
 	\end{center}
-	commutes. On objects that say, that for any $1$-cell $f \from A \to B$ the diagram
+	commutes. On objects that says, that for any $1$-cell $f \from A \to B$ the diagram
 	\begin{center}
 		\begin{tikzcd}
 			FA \arrow[r, "Ff"] \arrow[d, "\alpha_{A}"'] & FB \arrow[d, "\alpha_{B}"] \\
@@ -2613,7 +2613,7 @@ The $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ are induced by the ones on $\
 \end{exmp}
 
 \begin{defn}
-	Let $\V$ be a monoidal category. A $\V$-monad is a monad in $\V\mbox{-}\Cat$ or $\V\mbox{-}\CAT$%, so that in particular a $2$-monad is a monad in $2\mbox{-}\Cat$ or $2\mbox{-}\CAT$
+	Let $\V$ be a monoidal category. A $\V$\emph{-monad} is a monad in $\V\mbox{-}\Cat$ or $\V\mbox{-}\CAT$%, so that in particular a $2$-monad is a monad in $2\mbox{-}\Cat$ or $2\mbox{-}\CAT$
 	. In other words, a $\V$-monad on a $\V$-category $\C$ (a $0$-cell in $\V\mbox{-}\CAT$) is a $\V$-functor $T\colon\C\to\C$ equipped with $\V$-natural transformations $\mu$ and $\eta$ filling the usual pasting diagrams.
 \end{defn}
 
@@ -2673,7 +2673,7 @@ and similarly $\alpha^*=\circ \cdot \id\otimes\alpha$. Then there is a unique wa
 	\begin{enumerate}
 		\item If $G$ is a topological group then $G\times-\colon\Top\to\Top$ is a $\Top$-monad if $\Top$ is a cartesian closed category of topological spaces such as compactly generated weak hausdorff spaces. From that we get the topological category of $G$-spaces.
 		\item If $\V=\Ab$ and $R$ is a ring, then $\Ab$ is an $\Ab$-category since we can add morphisms of abelian groups and this is $\mathbb{Z}$-bilinear. Moreover $R\otimes_\mathbb{Z}-\colon\Ab\to\Ab$ is an additive monad. $T\Alg$ is simply $\Mod_R$ with addition of $R$-module homomorphisms.
-		\item For $\V=\Cat$ we have $2$-monads $T$ in $2$-$\CAT$. From a $2$-category $K$ with a $2$-monad $T\colon K\to K$ we get a new $2$-category $T\Alg$.
+		\item For $\V=\Cat$ we have $2$-monads $T$ in $2$-$\CAT$. From a $2$-category $\K$ with a $2$-monad $T\colon \K\to \K$ we get a new $2$-category $T\Alg$.
 		      $0$-cells are elements of $T_0\Alg$, namely pairs $(A,\alpha)$ s.t.
 		      \[
 			      \begin{tikzcd}
@@ -2710,7 +2710,7 @@ and similarly $\alpha^*=\circ \cdot \id\otimes\alpha$. Then there is a unique wa
 		      \[
 			      \begin{minipage}{0.3\linewidth}
 				      \begin{tikzcd}[row sep=1cm, column sep=1cm]
-					      TA\arrow[d, "\alpha"] \arrow[r, bend right, ""{name=D, anchor=center}] \arrow[r, bend left, ""{name=U, anchor=center}] & TB \arrow[d] \\
+					      TA\arrow[d, "\alpha"'] \arrow[r, bend right, ""{name=D, anchor=center}] \arrow[r, bend left, ""{name=U, anchor=center}] & TB \arrow[d, "\beta"] \\
 					      A\arrow[r, "g"]            &B
 					      \ar[Rightarrow, shorten <= .3em, shorten >= .3em, "T\varphi"', from=U, to=D]
 				      \end{tikzcd}
@@ -2720,7 +2720,7 @@ and similarly $\alpha^*=\circ \cdot \id\otimes\alpha$. Then there is a unique wa
 			      \hspace{.4cm}
 			      \begin{minipage}{0.3\linewidth}
 				      \begin{tikzcd}[row sep=1cm, column sep=1cm]
-					      TA\arrow[d] \arrow[r]                        &  TB\arrow[d] \\
+					      TA\arrow[d, "\alpha"'] \arrow[r]                        &  TB\arrow[d, "\beta"] \\
 					      A\arrow[r, bend right, ""{name=D, anchor=center}] \arrow[r, bend left, ""{name=U, anchor=center}] &      B
 					      \ar[Rightarrow, shorten <= .3em, shorten >= .3em, "\varphi"', from=U, to=D]
 				      \end{tikzcd}
@@ -2955,7 +2955,7 @@ The final ingredient for Yoneda is enrichment of $ \cV $ over itself.
 For this we need an internal $ \Hom $-functor.
 
 \begin{defn}
-	A monoidal category $ \cV $ is \emph{closed monoidal} if for any $ X \in \cV $ the functors $ X\otimes - $ and $ -\otimes X $ have right adjoints $ [X,-]_l $ and $ [-,X]_r $.
+	A monoidal category $ \cV $ is \emph{closed monoidal} if for any $ X \in \cV $ the functors $ X\otimes - $ and $ -\otimes X $ have right adjoints $ [X,-]_l $ and $ [X,-]_r $.
 	We denote the unit and counit by $ \coev $ and $ \ev $ respectively.
 	For example
 	\begin{displaymath}
@@ -2993,7 +2993,7 @@ For this we need an internal $ \Hom $-functor.
 	The proof is slightly tedious; We refer to Kelly's book.
 
 	A more abstract argument is possible if $ \cV $ is locally presentable and biclosed.
-	The we have a monoidal left adjoint
+	Then we have a monoidal left adjoint
 	\begin{displaymath}
 		\begin{tikzcd}[row sep = tiny]
 			\cV
@@ -3016,7 +3016,7 @@ For this we need an internal $ \Hom $-functor.
 		      If $ \cV $ is a category of ``sets with structure,'' that is if $ V \from \cV \to \Set $ is monadic for example $ \cV = \Mod_R,\Ab $ or $ \cV = \Top_{\mathrm{CGWH}} $, then $ [-,-] $ is just the obvious structure on $ \Hom $-sets of $ \cV $.
 		      Specifically if $ M,N $ are $ R $-modules, then $ \Hom_R(M,N) $ has the natural $ R $-modules structure.
 		\item
-		      For $ \cV = \Cat $, $ [A,B] $ is just the category of functors from $ A $ to $ B $. Note that this is not just structure on the $ \Hom $-sets, we nned the additional data of natural transformations.
+		      For $ \cV = \Cat $, $ [A,B] $ is just the category of functors from $ A $ to $ B $. Note that this is not just structure on the $ \Hom $-sets, we need the additional data of natural transformations.
 		\item Even more involved: $ \dgMod_R$, $\sSet $:
 	\end{enumerate}
 \end{exmp}
@@ -3135,14 +3135,14 @@ The diagram in the above proposition commutes by adjunction since composition is
 \end{rmk}
 
 \begin{thm}[Weak Yoneda lemma]
-	Let $\cV$ be a symmetric monoidal category, $\cA$ a $\cV$-category, $F\colon\cA\rightarrow\cV$ a $\cV$-functor, $A\in\cA$ and $\alpha\colon\cA(A,-)\Rightarrow F$ a $\cV$-natural transformation. Consider the map$$\phi(A)\colon I\xrightarrow{\id_A}\cA(A,-)\xrightarrow{\alpha_A}FA.$$
+	Let $\cV$ be a symmetric monoidal category, $\cA$ a $\cV$-category, $F\colon\cA\rightarrow\cV$ a $\cV$-functor, $A\in\cA$ and $\alpha\colon\cA(A,-)\Rightarrow F$ a $\cV$-natural transformation. Consider the map$$\phi(A)\colon I\xrightarrow{\id_A}\cA(A,A)\xrightarrow{\alpha_A}FA.$$
 	The assignment
 	\begin{align*}
 		\phi\colon\cV\text{-}\Nat(\cA(A,-),F) & \rightarrow\cV_0(I,FA) \\
 		A                                     & \mapsto\phi(A)
 	\end{align*}
 	is a bijection, where the inserve map $\psi$ is given by sending $\eta\colon I\rightarrow FA$ to the $\cV$-natural transformation
-	$$\cA(A,B)\xRightarrow{F_{A,B}}[FA,FB]\xRightarrow{[\eta,\id_{FA}]}[I,FA]\cong FA.$$
+	$$\cA(A,B)\xRightarrow{F_{A,B}}[FA,FB]\xRightarrow{[\eta,\id_{FB}]}[I,FB]\cong FB$$
 \end{thm}
 
 \begin{proof}
@@ -3156,9 +3156,9 @@ The diagram in the above proposition commutes by adjunction since composition is
 			& {[I,\cA(A,B)]}\ar[r, "\sim"]\ar[d, "{[I,\alpha_B]}"]
 			& \cA(A,B)\ar[d, "\alpha_B"] \\
 			{[FA,FB]}\ar[r, "{[\alpha_A,I]}"]\ar[rrr, bend right, dotted, "{[\phi(B),I]}"]
-			& {[\cA(A,A),FA]}\ar[r, "{[\id_A,I]}"]
+			& {[\cA(A,A),FB]}\ar[r, "{[\id_A,I]}"]
 			& {[I,FB]}\ar[r, "\sim"]
-			& FA
+			& FB
 		\end{tikzcd}
 		,\]
 	where the left and right squares on extremes commute by $\cV$-naturality, while for the one in the middle we consider the functor $[-,-]\colon\cV^{\op}\otimes\cV\rightarrow\cV$.
@@ -3380,7 +3380,7 @@ where the lower horizontal morphism is $[V,F]$ and $\eta$ corresponds via weak Y
 	and we thus get the claim for $\V$-equalizers and $\V$-products, since equalizers and products commute with equalizers in $\V_{0}$. We will leave the
 	claim for powers as an exercise. But once we have the powers, we get from the cocompleteness of $T_{0}\Alg$, that $T\Alg$ has $\V$-coequalizers and
 	$\V$-coproducts. So it remains to show, that $T\Alg$ has copowers. For this we use the lemma above. Since every object is a coequalizer of free
-	algebras, hence a $\V$-coequalizer, it suffices to check this for free algebras, i.e. algebras is the image of the left $\V$-adjoint
+	algebras, hence a $\V$-coequalizer, it suffices to check this for free algebras, i.e. algebras in the image of the left $\V$-adjoint
 	$F \from \C \to T\Alg$. So we are done if we can show, that left $\V$-adjoints preserve copowers. This follows from the next proposition.
 \end{proof}
 
@@ -3393,7 +3393,7 @@ where the lower horizontal morphism is $[V,F]$ and $\eta$ corresponds via weak Y
 	\begin{align*}
 		\D(F(V\copw C),D) \iso \C(V\copw C,UD) \iso \lbrack V,\C(C,UD) \rbrack \iso \lbrack V,\D(FC,D) \rbrack
 	\end{align*}
-	and one checks, that this is the coup morphism it the target has copowers.
+	and one checks, that this is the coup morphism if the target has copowers.
 \end{proof}
 
 We are now ready to define enriched presheaf categories. Let $\A$ be a small $\V$-category. Then $\prod_{A \in \Ob(\A)}\V$ is clearly a complete and
