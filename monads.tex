@@ -857,7 +857,7 @@ In this chapter we are going to show how various categories emerging from algebr
 \end{exmp}
 
 \begin{exmp}
-	Coproducts and initial objects are not sifted, for their slice categories may be either empty or have several connected components.
+	Initial objects and coproducts are not sifted, for their slice categories are either empty or have several connected components.
 \end{exmp}
 
 \begin{exmp}
@@ -929,9 +929,9 @@ We can construct categories whose objects are sets paired with operations fullfi
 	Notice that the $n$-fold product $\Set\xrightarrow{(-)^n}\Set$ factors as $\Set\xrightarrow{\Delta}\Set^n\xrightarrow{-\times\cdots\times-}\Set$, hence it preserves sifted colimits. This gives us unique candidates for operations on the colimit such that the cocone in $\Set$ is a morphism of models. These operations satisfy the axioms because the domain is in each case again of the form $\colim^n$.
 	\[
 		\begin{tikzcd}
-			X^n\ar[r, shift right=.5ex]\ar[r, shift left=1ex]\ar[d, "m_i"]
-			& Y^n\ar[l, shift right=.25ex]\ar[d, "m_i"]\ar[r]
-			& Z^n\ar[d, dotted, "\exists!m_i"] \\
+			X^{n_i}\ar[r, shift right=.5ex]\ar[r, shift left=1ex]\ar[d, "m_i"]
+			& Y^{n_i}\ar[l, shift right=.25ex]\ar[d, "m_i"]\ar[r]
+			& Z^{n_i}\ar[d, dotted, "\exists!m_i"] \\
 			X\ar[r, shift right=.5ex]\ar[r, shift left=1ex]
 			& Y\ar[l, shift right=.25ex]\ar[r]
 			& Z
@@ -940,11 +940,11 @@ We can construct categories whose objects are sets paired with operations fullfi
 \end{proof}
 
 \begin{cor}
-	Let $\C,\D$ be categories of models of single sorted finitary theories. Any functor $U\colon\C\rightarrow\D$ which commutes with the forgetful functor to $\Set$ preserves reflexive coequalizers. If $U$ has a left adjoint, then it is monadic.
+	Let $\C,\D$ be categories of models of single sorted finitary theories. Any functor $F\colon\C\rightarrow\D$ which commutes with the forgetful functor to $\Set$ preserves reflexive coequalizers. If $F$ has a left adjoint, then it is monadic.
 \end{cor}
 
 \begin{proof}
-	The forgetful functors $\C\rightarrow\Set$, $\D\rightarrow\Set$ are both conservative, hence $U$ is as well. The statement about reflexive coequalizers was just proved and the last claim follows from Beck's theorem.
+	The forgetful functors $\C\rightarrow\Set$, $\D\rightarrow\Set$ are both conservative, hence $F$ is as well. The statement about reflexive coequalizers was just proved and the last claim follows from Beck's theorem.
 \end{proof}
 
 \begin{exmp}
@@ -1000,7 +1000,7 @@ Before proving this theorem, we present some consequences.
 
 	A natural transformation $\Lan_K\Set_\text{fin}(X,-)\Rightarrow G$ by definition is equivalent to a natural transformation $\Set_\text{fin}(X,-)\Rightarrow GK$, which by Yoneda is equivalent to a map $*\rightarrow GKX$, which again by Yoneda corresponds to a natural transformation $\Set(KX,-)\Rightarrow G$, hence $\Lan_K\Set_\text{fin}(X,-)\cong\Set(KX,-)$.
 
-	We only have to check now that $\Set(KX,-)\cong\Pi_{x\in X}\Set(*,-)$ preserves sifted colimits, but this is just the functor $Y\mapsto \Pi_{x\in X}Y$, which as we know commutes with sifted colimits.
+	We only have to check now that $\Set(KX,-)\cong\Pi_{x\in X}\Set(*,-)$ preserves sifted colimits, but this is just the functor $Y\mapsto\Pi_{x\in X}Y$, which as we know commutes with sifted colimits.
 \end{proof}
 \begin{prop}
 	A category $\C$ with sifted colimits is cocomplete if and only if it has an initial object and binary coproducts.
@@ -1034,20 +1034,17 @@ Before proving this theorem, we present some consequences.
 	\]
 	so we get a new reflexive pair by taking coproducts of the free algebras
 	\[
-		\begin{tikzcd}[column sep=1.5cm]
-			(T^2a,\mu_{Ta})+(T^2b,\mu_{Tb})\hspace{-1.5mm}\arrow[r, shift right=1.5ex, "\mu_a+\mu_b"']  \arrow[r, shift left=2ex, "T\alpha+T\beta"] & (Ta,\mu_a)+(Tb,\mu_b)\arrow[l, shift right=.25ex, "T\eta_b"description]
+		\begin{tikzcd}[column sep=2.0cm]
+			(T^2a,\mu_{Ta})+(T^2b,\mu_{Tb})\hspace{-1.5mm}\arrow[r, shift right=1.5ex, "\mu_a+\mu_b"']  \arrow[r, shift left=2ex, "T\alpha+T\beta"] & (Ta,\mu_a)+(Tb,\mu_b)\arrow[l, shift right=.25ex, "T\eta_a+T\eta_b" description]
 		\end{tikzcd}
 	\]
 	From the corollary, $T$ preserves sifted colimits, hence $T\Alg$ has reflexive coequalizers. Then the diagram above has a coequalizer, which is a coproduct of $(a,\alpha)$ and $(b,\beta)$.
 \end{proof}
 \begin{rmk}
-	This shows that $\Ab,\mathbf{Grp},\mathbf{Rng}$ etc.\ are cocomplete.
+	This shows that $\Ab,\ \mathbf{Grp},\ \mathbf{Rng}$, etc.\ are cocomplete.
 \end{rmk}
 \begin{rmk}
-	We only used the fact that $T$ preserves sifted colimits, hence a monad on a cocomplete category $\C$ preserving sifted colimits has a cocomplete category of algebras.
-\end{rmk}
-\begin{rmk}
-	In fact, we only need that reflexive coequalizers and filtered colimits exist in $T\Alg$.
+	We only used the fact that $T$ preserves sifted colimits, hence a monad on a cocomplete category $\C$ preserving sifted colimits has a cocomplete category of algebras. In fact, we only need that reflexive coequalizers and filtered colimits exist in $T\Alg$.
 \end{rmk}
 \section{Dense generators}
 The aim of this section is to prove the theorem about finitary endofunctors of $\Set$. We want to identify ``nice" generating subcategories like $\Set_\text{fin}\to\Set$.
@@ -1078,8 +1075,8 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	Moreover, the following conditions are equivalent:
 	\begin{enumerate}
 		\item $\widetilde{K}$ is fully faithful;
-		\item for every $c\in\C$, the canonical cocone on $\dom\colon (\A\downarrow c)\to\C$ exhibits $c$ as colimit of the diagram $\dom\colon(K\downarrow c)\to\C$;
-		\item every object is a $K$-absolute colimit of a diagram of the form $\I\xrightarrow{D}\A\xrightarrow{K}\C$;
+		\item for every $c\in\C$, the canonical cocone on $\dom\colon (K\downarrow c)\to\C$ exhibits $c$ as colimit of the diagram $\dom\colon(K\downarrow c)\to\C$;
+		\item every object $c\in\cC$ is a $K$-absolute colimit of a diagram of the form $\I\xrightarrow{D}\A\xrightarrow{K}\C$;
 		\item there exists some family of diagrams $D_i\colon\I_i\to\C$ which have $K$-absolute colimits and $\C$ is the closure\footnote{That is, the smallest full subcategory $\B$ of $\C$ which contains $\A$ and which satisfies the following
 
 			      \begin{center}
@@ -1103,7 +1100,7 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 		\item[(1)$\implies$(2)] If $\widetilde{K}$ is fully faithful, it suffices to check that the image of the canonical cocone under $\widetilde{K}$ is a colimit. Since $K$ is fully faithful, this image is precisely the diagram $\A(-,a)\cong\C(K-,Ka)\Rightarrow\C(K-,c)$. Then $$\colim_{(K\downarrow c)}\widetilde{K}\dom=\displaystyle\colim_{(\yo\downarrow\C(K-,c))}\A(-,a)\cong\C(K-,c).$$This proves $(2)$ and the fact that the colimit of $(K\downarrow c)\to\C$ is preserved by $\widetilde{K}\colon\C\to\left[\A^{\op},\Set\right]$.
 		\item[(2)$\implies$(3)] As we just observed, $\displaystyle\colim_{(K\downarrow c)}\dom$ is $\widetilde{K}$-absolute and $\dom\colon(K\downarrow c)\to\C$ factors through $\A$.
 		\item[(3)$\implies$(4)] Clear.
-		\item[(4)$\implies$(5)] Let $\B$ be full subcategory spanned by the elements $b\in\C$ such that\ $\epsilon_b\colon\Lan_\yo K\widetilde{K}(b)\to b$ is an isomorphism. It is closed under $K$-absolute colimits since they are preserved by $\widetilde{K}$ (by definition), by the left adjoint $\Lan_\yo K$ and by $\id_{\C}$. It remains to check that the counit at $a\in\A$ is an isomorphism. But $\widetilde{K}a=\C(K-,Ka)\cong\A(-,a)$, so $\Lan_\yo K(\A(-,a))\cong a$, where the last isomorphism is a consequence of the fact that $(\yo\downarrow\A(-,a))$ has a terminal object $\id\colon\A(-,a)\Rightarrow\A(-,a)$.
+		\item[(4)$\implies$(5)] Let $\B$ be full subcategory spanned by the elements $b\in\C$ such that\ $\epsilon_b\colon\Lan_\yo K\widetilde{K}(b)\to b$ is an isomorphism. It is closed under $K$-absolute colimits since they are preserved by $\widetilde{K}$ (by definition), by the left adjoint $\Lan_\yo K$ and by $\id_{\C}$. It remains to check that the counit at $a\in\A$ is an isomorphism. But $\widetilde{K}a=\C(K-,Ka)\cong\A(-,a)$, so $\Lan_\yo K(\A(-,a))\cong a$, where the last isomorphism is a consequence of the fact that $(\yo\downarrow\A(-,a))$ has a terminal object $\id_{\cA(-,a)}$.
 		\item[(5)$\implies$(1)] Any right adjoint whose counit is an isomorphism is fully faithful.\qedhere
 	\end{itemize}
 \end{proof}
@@ -1113,12 +1110,12 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 \begin{proof}
 	We give an alternative proof of the implication $(4)\implies(1)$.
 
-	Consider the (full) subcategory $\B$ of $\C$ with objects $$\{b \ | \ \widetilde{K}_{Ka,b}\colon\C(Ka,b)\to\left[\A^{\op},\Set\right](\widetilde{K}Ka,\widetilde{K}b) \ \text{is bijective}\ \forall a\in \A\}$$
+	Consider the full subcategory $\B$ of $\C$ with objects $$\{b\in\cC \ | \ \widetilde{K}_{Ka,b}\colon\C(Ka,b)\to\left[\A^{\op},\Set\right](\widetilde{K}Ka,\widetilde{K}b) \ \text{is bijective}\ \forall a\in \A\}$$
 	Since $\widetilde{K}Ka=\A(-,a)$, by Yoneda, the target is given by $\text{ev}_a\circ\widetilde{K}(b)$. Therefore it preserves $K$-absolute colimits. The domain is also equal to $\text{ev}_a\circ\widetilde{K}(b)$, by definition. Hence it preserves $K$-absolute colimits and contains $Ka'$ for every $a'$, therefore $\B=\C$. Consider now $$\B'=\{b'\ | \ \C(b',b)\xrightarrow{\widetilde{K}}\left[\A^{\op},\Set\right](\widetilde{K}b',\widetilde{K}b) \ \text{is bijective}\}$$
 	This is closed under all $K$-absolute colimits and contains $Ka$ by the above argument, hence it is all of $\C$.
 \end{proof}
 \begin{defn}
-	A fully faithful $K\colon\A\to\C$ is \emph{dense} if $\widetilde{K}$ is fully faithful. A collection of diagrams $\{D_j\colon\I_j\to\C\}$ s.t.\ $\C$ is the closure of $K$ under colimits of $D_j$ and $\colim D_j$ is $K$-absolute is a \emph{density presentation}.
+	A fully faithful $K\colon\A\to\C$ is \emph{dense} if $\widetilde{K}$ is fully faithful. A collection of diagrams $\{D_j\colon\I_j\to\C\}$ such that $\C$ is the closure of $K$ under colimits of $D_j$ and the $\colim D_j$ are $K$-absolute is a \emph{density presentation}.
 \end{defn}
 \begin{rmk}
 	The definition of density makes sense for arbitrary $K$, but the implication $(4)\implies(1)$ does not work in general.
@@ -1126,9 +1123,9 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 \begin{exmp}
 	\begin{enumerate}
 		\item $\yo\colon\A\to\left[\A^{\op},\Set\right]$ is dense. In fact, we have $$\widetilde{\yo}(G)=\left[\A^{\op},\Set\right](\yo-,G)\Yoneda G,$$ thus $\widetilde{\yo}\cong\id$ preserves all colimits. The colimit indexed by the slice $(\yo\downarrow F)$ gives a density presentation.
-		\item $K\colon\Set_\text{fin}\hookrightarrow\Set$ is dense: $S$ finite implies $\Set(S,-)$ preserves sifted, hence filtered, colimits. Filtered (and sifted) colimits are $K$-absolute, and a density presentation for $K$ can be found once one writes an arbitrary set as union of its finite subset.
+		\item $K\colon\Set_\text{fin}\hookrightarrow\Set$ is dense: $S$ finite implies $\Set(S,-)$ preserves sifted, hence filtered, colimits. Filtered (and sifted) colimits are $K$-absolute and a density presentation for $K$ can be found once one writes an arbitrary set as union of its finite subset.
 		\item
-		      $K\colon\{*\}\subseteq\Set$ is dense: $\widetilde{K}\colon\Set\to\left[*,\Set\right]\cong\Set$, $X\mapsto\Set(*,S)\cong S$, hence we find that $\widetilde{K}$ preserves all colimits. We can use coproducts for density presentation.
+		      $K\colon\{*\}\subseteq\Set$ is dense: $\widetilde{K}\colon\Set\to\left[*,\Set\right]\cong\Set$, $X\mapsto\Set(*,S)\cong S$, hence we find that $\widetilde{K}$ preserves all colimits. We can use coproducts to get a density presentation.
 		\item
 		      $\{k\}\subset \mathbf{Vect}_k$ is not dense even though every vector space is a coproduct of copies of $k$.
 	\end{enumerate}
