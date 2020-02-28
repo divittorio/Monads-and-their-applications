@@ -1184,16 +1184,16 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	\end{align*}
 \end{proof}
 \begin{thm}
-	Let $K\colon\A\to\C$ be fully faithful, $\varphi$ a class of colimit shapes and assume there exists a density presentation for $K$ with colimits of shape $\I_j\in\varphi$. Let $\D$ be a category with colimits of shape $\varphi$. We write $\varphi\mbox{-}\mathbf{Cocts}(\C,\D)$ for the category of functors $\C\to\D$ which preserve $\varphi$-colimits. If all colimits of shape $\varphi$ are $K$-absolute, then
+	Let $K\colon\A\to\C$ be fully faithful, $\Phi$ a class of colimit shapes and assume there exists a density presentation for $K$ with colimits of shape $\I_j\in\Phi$. Let $\D$ be a category with colimits of shape $\Phi$. We write $\Phi\mbox{-}\mathbf{Cocts}(\C,\D)$ for the category of functors $\C\to\D$ which preserve $\Phi$-colimits. If all colimits of shape $\Phi$ are $K$-absolute, then
 	\[
 		\begin{tikzcd}
-			\left[\A,\D\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A, below}] & \varphi\mbox{-}\mathbf{Cocts}(\C,\D)\ar[l, shift left=1.5ex, "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
+			\left[\A,\D\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A, below}] & \Phi\mbox{-}\mathbf{Cocts}(\C,\D)\ar[l, shift left=1.5ex, "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
 		\end{tikzcd}
 	\]
 	is an equivalence.
 \end{thm}
 \begin{proof}
-	The existence of $\Lan_K$ is guaranteed by the fact that $\D$ has $\varphi$-colimits and $K$ has density presentation with colimits of shape $\I_j\in\varphi$. By definition, $\Lan_K$ is left adjoint to $K^*\colon\left[\C,\D\right]\to\left[\A,\D\right]$ and by the lemma it lands in $\varphi\mbox{-}\mathbf{Cocts}(\C,\D)$. Then $\Lan_K$ is a left adjoint to the restriction. The unit is an isomorphism since $\Lan_KF$ is pointwise, so it suffice to check that $K^*$ is conservative. Let $G,H\colon\C\to\D$ be $\varphi$-cocts, $\alpha\colon G\Rightarrow H$ natural transformation such that $\alpha K$ is an isomorphism. Then, $\{c\ |\ \alpha_c \ \text{is an isomorphism}\}$ contains $Ka$ for every $a$ and is closed under colimits of density presentations. Hence $\alpha$ is an isomorphism.
+	The existence of $\Lan_K$ is guaranteed by the fact that $\D$ has $\Phi$-colimits and $K$ has density presentation with colimits of shape $\I_j\in\Phi$. By definition, $\Lan_K$ is left adjoint to $K^*\colon\left[\C,\D\right]\to\left[\A,\D\right]$ and by the lemma it lands in $\Phi\mbox{-}\mathbf{Cocts}(\C,\D)$. Then $\Lan_K$ is a left adjoint to the restriction. The unit is an isomorphism since $\Lan_KF$ is pointwise, so it suffice to check that $K^*$ is conservative. Let $G,H\colon\C\to\D$ be $\Phi$-cocts, $\alpha\colon G\Rightarrow H$ natural transformation such that $\alpha K$ is an isomorphism. Then, $\{c\ |\ \alpha_c \ \text{is an isomorphism}\}$ contains $Ka$ for every $a$ and is closed under colimits of density presentations. Hence $\alpha$ is an isomorphism.
 \end{proof}
 \begin{cor}
 	For $K\colon\Set_\text{fin}\hookrightarrow\Set$, we get that
@@ -1404,7 +1404,7 @@ and any two such lifts $ f', f"  $ satisfying $ k_i \circ f' = k_i \circ f" $ be
 	Let $\C$ be a locally $\kappa$-presentable category. We have that $\kappa$-filtered colimits commute with $\kappa$-small limits in $\C$.
 \end{cor}
 \begin{proof}
-	Choose a small dense subcategory $\A\subset\C$ of $\kappa$-presentable objects. The inclusion $K\colon\A\to\C$ induces a fully faithful functor $\widetilde{K}\colon\C\to\left[\A^{\op},\Set\right]$ with left adjoint $\Lan_\yo K$, hence it preserves all limits. This implies that $\C$ is complete as a reflective subcategory of the complete category $\left[\A^{\op}, \Set\right]$. Moreover, $\widetilde{K}$ preserves $\kappa$-filtered colimits, given that $\text{ev}_a\circ\widetilde{K}=\C(Ka,-)$ hence this reduces the problem to limits and $\kappa$-filtered colimits in $\left[\A^{\op}, \Set\right]$, where both are computed levelwise.
+	Choose a small dense subcategory $\A\subset\C$ of $\kappa$-presentable objects. The inclusion $K\colon\A\to\C$ induces a fully faithful functor $\widetilde{K}\colon\C\to\left[\A^{\op},\Set\right]$ with left adjoint $\Lan_\yo K$, hence it preserves all limits. This implies that $\C$ is complete as a reflective subcategory of the complete category $\left[\A^{\op}, \Set\right]$\footnote{Note, that one also could define a locally $\kappa$-presentable category to be a reflexive subcategory of a presheaf category, such that the inclusion commutes with $\kappa$-filtered colimits}. Moreover, $\widetilde{K}$ preserves $\kappa$-filtered colimits, given that $\text{ev}_a\circ\widetilde{K}=\C(Ka,-)$ hence this reduces the problem to limits and $\kappa$-filtered colimits in $\left[\A^{\op}, \Set\right]$, where both are computed levelwise.
 \end{proof}
 \begin{prop}
 	Let $\C$, $\D$ be locally $\kappa$-presentable, $\lambda\ge\kappa$ a regular cardinal. Then the category $\left[\C,\D\right]_\lambda$ of $\lambda$-accessible functors and natural transformations is locally small, cocomplete and the inclusion $\left[\C,\D\right]_\lambda\to\left[\C,\D\right]$ preserves colimits. In fact, $\left[\C,\D\right]_\lambda$ is locally presentable.
@@ -1600,7 +1600,7 @@ Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
 		\end{tikzcd}
 	\]
 
-	We have then the colimit $(\colim_{\I}a_i,p,F(\colim_{\I}\alpha_i)\rightarrow p)$ in $(F\downarrow\C)$. In particular, if $F$ preserves this colimit, then the top map $F(\colim_{\I}a_i)\rightarrow Fc$ is an isomorphism, in which case we may take $p=d$ and the identity as the map from $p$ to $d$.
+	We have then the colimit $(\colim_{\I}a_i,p,F(\colim_{\I}\alpha_i)\rightarrow p)$ in $(F\downarrow\C)$. In particular, if $F$ preserves this colimit, then the top map $\colim_{\I}F(a_{i})\to F(\colim_{\I}a_i)$ is an isomorphism, in which case we may take $p=\colim_{\I}b_{i}$ and the identity as the map from $\colim_{\I}b_{i}$ to $p$.
 \end{proof}
 
 \begin{prop}
@@ -1669,10 +1669,10 @@ Now use exercise 5.1.
 	If
 	\begin{displaymath}
 		\begin{tikzcd}
-			\C \arrow[r, "U", bend left=20]
-			\arrow[from=r, "F", bend left=20]
-			\arrow[r, phantom, "\top"]
-			& \D
+			\D \arrow[r, "F", bend left=20]
+			\arrow[from=r, "U", bend left=20]
+			\arrow[r, phantom, "\bot"]
+			& \C
 		\end{tikzcd}
 	\end{displaymath}
 	is an adjunction, $ (S,\sigma) $ is a well-pointed endofunctor on $ \D $
@@ -1694,7 +1694,7 @@ Now use exercise 5.1.
 	is a pullback.\hfill\qedsymbol
 \end{prop}
 \begin{thm}
-	Let $ \C $ be a cocomplete category, $ (T,\tau) $ a well-pointed endofunctor on $ \C $ with $ T $ $ \kappa $-accesible.
+	Let $ \C $ be a cocomplete category, $ (T,\tau) $ a pointed endofunctor on $ \C $ with $ T $ $ \kappa $-accesible.
 	Then $ (T,\tau)\Alg $ is a reflective subcategory of $ (T\downarrow\C)$ and the algebraically free monad on $ (T,\tau) $ exists. In particular, by reflexiveness, $ (T,\tau)\Alg $ is cocomplete.
 \end{thm}
 \begin{proof}
@@ -1765,11 +1765,11 @@ For example, we can easily prove the following
 	An analysis of the construction of $ (S',\sigma') $ in the proof of the previous theorem shows that $ S' \from (T\downarrow\C) \to (T\downarrow\C) $ sends $ (a,b,\alpha \from Ta \to b) $ to $ (b,c, \gamma \from Tb \to c) $ where
 	\begin{displaymath}\tag{1}\label{fork1}
 		\begin{tikzcd}
-			T^2 a \arrow[r,shift left, "T \tau_a"]\arrow[r,shift right, "\tau_{Ta}"']& T^2 a \arrow[r, "T\alpha" ] & Tb \arrow[r, "\gamma"]  & c
+			T a \arrow[r,shift left, "T \tau_a"]\arrow[r,shift right, "\tau_{Ta}"']& T^2 a \arrow[r, "T\alpha" ] & Tb \arrow[r, "\beta"]  & c
 		\end{tikzcd}
 	\end{displaymath}
 	is a coequalizer diagram in $ \C $.
-	Notice that $ \gamma $ is a coequalizer of $ T\alpha \cdot T\tau_a $ and $
+	Notice that $ \beta $ is a coequalizer of $ T\alpha \cdot T\tau_a $ and $
 		T\alpha \cdot \tau_{Ta} $ (see the exercises for more details).
 \end{rmk}
 \begin{prop}
@@ -1798,7 +1798,7 @@ Using this construction we can finally prove the following.
 \begin{proof}
 	Recall that $(T,\eta)\Alg$ is reflexive in $(T\downarrow\C)$ and we have a well-pointed endofunctor given by $S'$ described in (\ref{fork1}). Remember the functor $L$ just defined.
 
-	Since $\mu_a$ has a section $T\eta_a$, it is the coequalizer of $\id_a$ and $T\eta_a\cdot\mu_a$.
+	Since $\mu_a$ has a section $T\eta_a$, it is the coequalizer of $\id_a$ and $T\eta_a\cdot\mu_a$. For that reason one also could define $\gamma$ to be given by the following coequalizer.
 	\[
 		\tag{2}\label{fork2}
 		\begin{tikzcd}
@@ -1819,11 +1819,11 @@ Using this construction we can finally prove the following.
 		\end{tikzcd}
 	\]
 
-	This defines a natural transformation $(\id,\pi)\colon S(a,b,\alpha)\rightarrow L(a,b,\alpha)$, where the components are epimorphisms because $\gamma$ is a coequalizer of the diagram in (\ref{fork1}) and therefore an epimorphism.
+	This defines a natural transformation $(\id,\pi)\colon S'(a,b,\alpha)\rightarrow L(a,b,\alpha)$, where the components are epimorphisms because $\gamma$ is a coequalizer of the diagram in (\ref{fork1}) and therefore an epimorphism.
 
 	We get then a well-pointed endofunctor $(L,\pi\sigma')$ over $(T\downarrow\C)$ with $(L,\pi\sigma')\Alg$ equivalent to the full subcategory of $(S',\sigma')\Alg$ given by the objects $b$ such that $(\id_b,\pi)$ is an isomorphism. We also have an equivalence $(T,\eta)\Alg\rightarrow (S',\sigma')\Alg$, $(a,\alpha)\mapsto (a,a,\alpha)$, hence we get that $(S',\sigma')\Alg$ is isomorphic to the full subcategory of $(T,\eta)\Alg$ given by $\{(a,\alpha)\in (T,\eta)\Alg\ |\ (\id_a,\pi)\colon S'(a,a,\alpha)\rightarrow L(a,a,\alpha)\text{ is an isomorphism}\}$.
 
-	In this case, the coequalizer of~\ref{fork1} is actually $\alpha\colon Ta\rightarrow a$, hence our $\pi$ looks as follows.
+	In this case, the coequalizer of (\ref{fork1}) is actually $\alpha\colon Ta\rightarrow a$ (we have a split given by $\eta_{a}$ and $\id_{Ta}$), hence our $\pi$ looks as follows.
 	\[
 		\begin{tikzcd}
 			Ta\ar[d, equal]\ar[r, "\alpha"]
@@ -4202,8 +4202,7 @@ $[m]\rightarrow[n]+[0]$ in $\Delta_+$.
 
 We write $\Delta_\infty$ for this category.
 
-The structure of $\Delta_+$-module is given by ordinal sum
-
+The structure of $\Delta_+$-module is given by ordinal 
 ----- Insert pic -----
 
 $W$ is $\Delta_\infty$ with this $\Delta_+$-action. By construction, we get
