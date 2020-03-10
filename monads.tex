@@ -27,7 +27,6 @@
 			%\includegraphics[scale=.3]{intbn}
 		\end{figure}
 	\end{center}
-
 \end{titlepage}
 
 
@@ -118,7 +117,8 @@ Throughout mathematics we encounter structures defined by some action morphisms.
 
 		      If $D=\{*\}$ and $E=\{*\rightarrow *\}$, then $FD(*,*)\cong\N$.
 
-		      Given a small category $\C$, we may consider the underlying graph $U\C=D$
+		      Given a small category $\C$, we may consider the underlying
+		      directed graph $U\C=D$
 		      with $V=\Ob(\C)$, $E=\Ar(\C)$, $s=\dom$ and $t=\cod$. We get then an
 		      action map $UFU\C\rightarrow U\C$ sending a finite path to its
 		      composite. This map is a morphism of directed graphs.
@@ -128,7 +128,10 @@ Throughout mathematics we encounter structures defined by some action morphisms.
 Notice that we always have a category $\C$ and some functor $T\colon\C\rightarrow\C$ with an action map $T\C\rightarrow\C$. How can we see all of these examples as specific instances of a general phenomenon?
 
 \begin{defn}
-	A \emph{monad} on a category $\C$ is a triple $(T,\mu,\eta)$ where $T\colon\C\rightarrow\C$ is a functor, while $\mu\colon T^2\Rightarrow T$ and $\eta\colon\id_{\C}\Rightarrow T$ are natural transformations such that the following diagrams commute.
+	A \emph{monad} on a category $\C$ is a triple $(T,\mu,\eta)$ where
+	$T\colon\C\rightarrow\C$ is a functor, while $\mu\colon T^2\Rightarrow T$
+	and $\eta\colon\id_{\C}\Rightarrow T$ are natural transformations such that
+	the diagrams
 
 	\[
 		\begin{tikzcd}
@@ -146,7 +149,7 @@ Notice that we always have a category $\C$ and some functor $T\colon\C\rightarro
 		\end{tikzcd}
 	\]
 
-	$\mu$ is called the \emph{multiplicative map}, while $\eta$ is the \emph{unit} of $T$.
+	commute. $\mu$ is called the \emph{multiplicative map}, while $\eta$ is the \emph{unit} of $T$.
 
 	The commutativity of the first diagram is equivalent to stating that the following two diagrams are equal.
 	\begin{center}
@@ -261,7 +264,7 @@ We now show how to recover the examples previously given with this language.
 			      \eta_-\colon  & \ -\cong\Z\otimes_{\Z}-\Rightarrow R\otimes_{\Z}-
 		      \end{align*}
 		      We have that $(R\otimes_{\Z}-)\Alg\cong\Mod_R$.
-		\item Consider $W\colon\Set\rightarrow\Set$ given by $WX=\amalg_{n\in\N}\Pi_{k=1}^n X$. Multiplication $\mu_X\colon WWX\rightarrow WX$ is given by concatenation of words, while the unit $\eta_X\colon X\rightarrow WX$ is just $x\mapsto (x)$. With this, $W\Alg\cong \text{Mon}(\Set)$.
+		\item Consider $W\colon\Set\rightarrow\Set$ given by $WX=\amalg_{n\in\N}\Pi_{k=1}^n X$. Multiplication $\mu_X\colon WWX\rightarrow WX$ is given by concatenation of words, while the unit $\eta_X\colon X\rightarrow WX$ is just $x\mapsto (x)$. With this, $W\Alg\cong \Mon(\Set)$.
 		\item The functor $\mathcal{U}$ defined in Example \ref{ultrafilters}, equipped with suitable natural transformations, is a monad on $\Set$ and $\mathcal{U}\Alg\cong \CHTop$, the category of compact T2 spaces.
 		\item The free-forgetful adjunction $F\dashv U$ between categories and directed graphs induces a monad on the latter, with $UF\Alg\cong\Cat$.
 	\end{enumerate}
@@ -275,7 +278,9 @@ First of all, notice that $U^T$ is faithful by construction, hence $U$ must be f
 	The functor $U^T$ is conservative, that is if $U^Tf$ is an isomorphism then $f$ is an isomorphism of $T$-algebras.
 \end{lemma}
 \begin{proof}
-	Suppose that $g$ is the inverse of $f\colon a\rightarrow b$ and $f$ is a morphism $(a,\alpha)\rightarrow (b,\beta)$. We only need to prove that the square on the left commutes, that is $g\beta=\alpha Tg$:
+	Suppose that $g$ is the inverse of $f\colon a\rightarrow b$ and $f$ induces
+	a morphism $(a,\alpha)\rightarrow (b,\beta)$. We only need to prove that in
+	the diagram
 	\[
 		\begin{tikzcd}
 			Tb\arrow["\beta"']{d}\arrow["Tg"]{r}
@@ -286,8 +291,9 @@ First of all, notice that $U^T$ is faithful by construction, hence $U$ must be f
 			& b
 		\end{tikzcd}
 	\]
-
-	We see that $fg\beta=\beta$ and $f\alpha Tg=\beta Tf Tg=\beta T(fg)=\beta T\id_b=\beta$, hence the thesis.
+	the square on the left commutes, that is $g\beta=\alpha\cdot Tg$.
+	We see that $fg\beta=\beta$ and $f\cdot\alpha\cdot Tg=\beta\cdot Tf\cdot
+		Tg=\beta\cdot T(fg)=\beta\cdot T\id_b=\beta$, hence the thesis.
 \end{proof}
 \begin{rmk}
 	Notice that the forgetful functor $U\colon\Top\to\Set$ can't be monadic
@@ -418,7 +424,7 @@ Given an adjunction$\begin{tikzcd}F\colon\cC\ar[r, shift left = .4em, above, ""{
 		& \C
 	\end{tikzcd}
 \]
-commutes. We set $\overline{U}d=(Ud,UFUd\xrightarrow{U\epsilon_d}Ud)=(Ud, U\epsilon_d)$. More generally, for a given functor $G\colon\D\rightarrow\C$ we can ask what do we need to get a lift $\overline{G}\colon\D\to T\Alg$. To get there, we will need a few more definitions and lemmas.
+commutes. We set $\overline{U}d=(Ud,UFUd\xrightarrow{U\epsilon_d}Ud)=(Ud, U\epsilon_d)$. More generally, for a given functor $G\colon\D\rightarrow\C$ we can ask what do we need to get a lift $\overline{G}\colon\D\to T\Alg$. To get there, we will need a few more definitions.
 
 Just like a monad $(T,\mu,\eta)$ defines a category $T\Alg$, it also allows us to construct another category from functors $\D\rightarrow\C$.
 
@@ -454,12 +460,12 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\Alg$, it also allows us t
 \end{defn}
 
 \begin{exmp}
-    \begin{enumerate}
-        \item
-	The functor $U^T\colon T\Alg\rightarrow\C$ has a $T$-action given by $\alpha\colon TU^T\Rightarrow U^T$, where $\alpha_{(b,\beta)}\coloneqq\beta\colon Tb\rightarrow b$.
-        \item
-	Given an adjunction$\begin{tikzcd}F\colon\cC\ar[r, shift left = .4em, above, ""{name=F}] &\cD\colon U\ar[l, shift left = .4em, below, ""{name=U}]\ar[from=F, to=U, symbol=\dashv]\end{tikzcd}$with unit $\eta\colon\id_{\C}\Rightarrow UF$ and counit $\epsilon\colon FU\Rightarrow\id_{\D}$, we get a monad on $(UF,U\epsilon F,\eta)$ on $\C$. We have then a $UF$-action $U\epsilon\colon UFU\Rightarrow U$, where the axioms follow from the triangular identities and the naturality of $U\epsilon$.
-    \end{enumerate}
+	\begin{enumerate}
+		\item
+		      The functor $U^T\colon T\Alg\rightarrow\C$ has a $T$-action given by $\alpha\colon TU^T\Rightarrow U^T$, where $\alpha_{(b,\beta)}\coloneqq\beta\colon Tb\rightarrow b$.
+		\item
+		      Given an adjunction$\begin{tikzcd}F\colon\cC\ar[r, shift left = .4em, above, ""{name=F}] &\cD\colon U\ar[l, shift left = .4em, below, ""{name=U}]\ar[from=F, to=U, symbol=\dashv]\end{tikzcd}$with unit $\eta\colon\id_{\C}\Rightarrow UF$ and counit $\epsilon\colon FU\Rightarrow\id_{\D}$, we get a monad on $(UF,U\epsilon F,\eta)$ on $\C$. We have then a $UF$-action $U\epsilon\colon UFU\Rightarrow U$, where the axioms follow from the triangular identities and the naturality of $U\epsilon$.
+	\end{enumerate}
 \end{exmp}
 
 \begin{prop}
@@ -493,21 +499,21 @@ right adjoint and as such it preserves limits. However, more is true.
 
 \begin{proof}
 	This statement means that, for any diagram $D\colon\cI\rightarrow T\Alg$
-    such that $U^TD\colon\cI\rightarrow\C$ has a limit $(l,\kappa_i)$ in $\C$,
-    there is a unique $T$-algebra structure $\lambda\colon Tl\rightarrow l$ such
-    that $\kappa_i$ is a morphism of $T$-algebras for all $i\in\cI$ and this
-    makes $((l,\lambda),\kappa_i)$ into a limit of $D$.
+	such that $U^TD\colon\cI\rightarrow\C$ has a limit $(l,\kappa_i)$ in $\C$,
+	there is a unique $T$-algebra structure $\lambda\colon Tl\rightarrow l$ such
+	that $\kappa_i$ is a morphism of $T$-algebras for all $i\in\cI$ and this
+	makes $((l,\lambda),\kappa_i)$ into a limit of $D$.
 
 	Now we begin the proof.
 
 	First of all, remember that $D\phi\colon D_i\rightarrow D_j$ is a morphism
-    of $T$-algebras for all $\phi\colon i\rightarrow j$ by assumption, hence the
-    morphisms $\delta_i\cdot T\kappa_i\colon Tl\rightarrow D_i$ define a cone
-    over $D$, where $\delta_i$ is the $T$-algebra structure on $D_i$ (notice
-    that here we are abusing the notation since our cone is in $\cC$ and over
-    $U^TD$). By the
-    universal property of the limit, there is a unique morphism $\lambda\colon
-    Tl\rightarrow l$ making the following diagram commute for all $i$.
+	of $T$-algebras for all $\phi\colon i\rightarrow j$ by assumption, hence the
+	morphisms $\delta_i\cdot T\kappa_i\colon Tl\rightarrow D_i$ define a cone
+	over $D$, where $\delta_i$ is the $T$-algebra structure on $D_i$ (notice
+	that here we are abusing the notation since our cone is in $\cC$ and over
+	$U^TD$). By the
+	universal property of the limit, there is a unique morphism $\lambda\colon
+		Tl\rightarrow l$ making the following diagram commute for all $i$.
 	\[
 		\begin{tikzcd}
 			Tl\ar[d, dashed, "\lambda"'] \ar[r, "T\kappa_i"]
@@ -517,10 +523,10 @@ right adjoint and as such it preserves limits. However, more is true.
 		\end{tikzcd}
 	\]
 	This tells us that, if the limit $((l,\lambda),\kappa_i)$ of $D$ exists, it
-    is unique. We have to check that $(l,\lambda)$ is a $T$-algebra.
+	is unique. We have to check that $(l,\lambda)$ is a $T$-algebra.
 
 	Notice that for all $i$ all of the faces of the following diagrams, except
-    for possibly the top ones, commute.
+	for possibly the top ones, commute.
 
 	\[
 		\begin{tikzcd}
@@ -573,8 +579,8 @@ A similar statement holds for colimits.
 	Similarly to the dual situation, this means that for any diagram $D\colon I\rightarrow T\Alg$ such that $U^TD\colon I\rightarrow\C$ has a colimit $(c,\kappa_i)$ preserved by both $T$ and $T^2$, there is a unique $T$-algebra structure $\lambda\colon Tc\rightarrow c$ such that $\kappa_i$ is a morphism of $T$-algebras for all $i\in I$. This makes $((c,\lambda),\kappa_i)$ into a colimit of $D$.
 
 	The proof is essentially dual to the one given earlier, in the sense that we
-    find again a unique $\lambda\colon Tc\rightarrow c$ using the universal
-    property of the colimit $(Tc,T\kappa_i)$ of $TU^TD$.
+	find again a unique $\lambda\colon Tc\rightarrow c$ using the universal
+	property of the colimit $(Tc,T\kappa_i)$ of $TU^TD$.
 	\[
 		\begin{tikzcd}
 			TD_i\ar[r, "T\kappa_i"]\ar[d, "\delta_i"']
@@ -616,7 +622,7 @@ It is natural to ask if we can do this systematically for general $T$-algebras. 
 	(T^2a,\mu_{Ta}) \doublerightarrow{T\alpha}{\mu_a}(Ta,\mu_a)\xrightarrow{\alpha}(a,\alpha)
 \]
 is a well defined diagram in $T\Alg$, with $\alpha\cdot\mu_a=\alpha\cdot
-T\alpha$. Moreover, this is a coequalizer. In order to prove it using
+	T\alpha$. Moreover, this is a coequalizer. In order to prove it using
 Proposition~\ref{create colims} we need to check whether $U^T$
 sends the diagram above into a coequalizer preserved by $T$ and $T^2$. In $\C$,
 we extend the diagram to
@@ -627,9 +633,9 @@ we extend the diagram to
 	\end{tikzcd}
 	,\]
 where the following equations hold true by naturality or axioms: $\alpha\cdot
-T\alpha=\alpha\cdot\mu_a$, $\alpha\cdot\eta_a=\id_a$,
+	T\alpha=\alpha\cdot\mu_a$, $\alpha\cdot\eta_a=\id_a$,
 $\mu_a\cdot\eta_{Ta}=\id_{Ta}$ and
-$\eta_a\cdot\alpha=T\alpha\hspace{1mm}\eta_{Ta}$. It is a particular case of a
+$\eta_a\cdot\alpha=T\alpha\cdot\eta_{Ta}$. It is a particular case of a
 more general concept.
 \begin{defn}
 	A \emph{split coequalizer} is a diagram of the form
@@ -667,9 +673,9 @@ $T$ and $T^2$ preserve split coequalizers, hence they preserve our coequalizer.
 \end{cor}
 \begin{proof}
 	We have already observed that the second statement holds, so that
-    coeq$(U^T(T\alpha), U^T(\mu_a))$ is preserved by $T$ and $T^2$, hence there
-    exists a unique lift of the (split) coequalizer in $\C$ to a coequalizer in
-    $T\Alg$.
+	coeq$(U^TT\alpha, U^T\mu_a)$ is preserved by $T$ and $T^2$, hence there
+	exists a unique lift of the (split) coequalizer in $\C$ to a coequalizer in
+	$T\Alg$.
 \end{proof}
 Results like the previous one inspire us to look at the parallel pairs of
 morphisms in a category which are sent to split coequalizers or, to say it
@@ -680,22 +686,22 @@ characterizing monadic functors.
 	Let $U\colon\D\to\C$ be a functor. A pair of morphisms $f,g\colon d\rightrightarrows d'$ in $\D$ is \emph{$U$-split} if $Uf,Ug\colon Ud\rightrightarrows Ud'$ is part of a split coequalizer in $\C$.
 \end{defn}
 \begin{rmk}
-    Given a $T$-algebra $(a,\alpha)$, the morphisms
-    $T\alpha,\mu_a\colon(T^2a,\mu_{Ta})\rightrightarrows(Ta,\mu_a)$ form a
-    $U^T$-split pair. Moreover, $T\Alg$ has coequalizers of $U^T$-split pairs
-    and $U^T$ preserves them. This implies that functors equivalent to $U^T$
-    satisfy three conditions:
+	Given a $T$-algebra $(a,\alpha)$, the morphisms
+	$T\alpha,\mu_a\colon(T^2a,\mu_{Ta})\rightrightarrows(Ta,\mu_a)$ form a
+	$U^T$-split pair. Moreover, $T\Alg$ has coequalizers of $U^T$-split pairs
+	and $U^T$ preserves them. This implies that functors equivalent to $U^T$
+	satisfy three conditions:
 	\begin{enumerate}
 		\item they have a left adjoint;
 		\item they are conservative;
 		\item $U$-split pairs have coequalizers which are preserved by $U$.
 	\end{enumerate}
-    As it turns out, these properties are enough for $U$ to be monadic.
+	As it turns out, these properties are enough for $U$ to be monadic.
 \end{rmk}
 
 \begin{teo}[Beck]\label{Beck} Let $U\colon\D\to\C$ be a right adjoint to $F$.
-    Let $(T=UF, U\epsilon F, \eta)$ be the induced monad and
-    $\overline{U}\colon\D\to T\Alg$ be the comparison functor.
+	Let $(T=UF, U\epsilon F, \eta)$ be the induced monad and
+	$\overline{U}\colon\D\to T\Alg$ be the comparison functor.
 	\begin{enumerate}
 		\item If $\D$ has coequalizers of $U$-split pairs, then $\overline{U}$ has a left adjoint $\overline{F}\colon T\Alg\to\D$;
 		\item if, in addition, $U$ preserves coequalizers of $U$-split pairs, the unit $\overline{\eta}\colon\id_{T\Alg}\Rightarrow\overline{U}\hspace{.5mm} \overline{F}$ is an isomorphism;
@@ -764,7 +770,6 @@ characterizing monadic functors.
 
 \begin{defn}
 	A pair $f,g\colon c\rightrightarrows d$ in a category $\C$ is \emph{reflexive} if there exists a common section $i\colon d\rightarrow c$, that is $fi=gi=\id_d$.
-
 	A coequalizer of a reflexive pair is a \emph{reflexive coequalizer}.
 \end{defn}
 
@@ -801,7 +806,7 @@ characterizing monadic functors.
 
 \section{Sifted colimits}
 
-In this chapter we are going to show how various categories emerging from algebra can be studied naturally using the theory of monads. We will begin by introducing the notion of \emph{algebraic theory}, but first we need some preliminary definitions and results.
+In this chapter we are going to show how various categories emerging in algebra can be studied naturally using the theory of monads. We will begin by introducing the notion of \emph{algebraic theory}, but first we need some preliminary definitions and results.
 
 \begin{defn}
 	A functor $F\colon\I\rightarrow\J$ between small categories is called \emph{final} if for any diagram $D\colon\J\to\C$ the comparison morphism $\colim_{\I} DF\to\colim_{\J} D$ is an isomorphism whenever both colimits exist.
@@ -848,20 +853,19 @@ In this chapter we are going to show how various categories emerging from algebr
 \end{defn}
 
 \begin{exmp}
-	For any filtered category $\I$, the category $((i,i')\downarrow\Delta)$ is again filtered for any $(i,i')\in\I\times\I$ and hence connected, thus filtered colimits are sifted.
-\end{exmp}
-
-\begin{exmp}
-	Coequalizers are not sifted. Indeed, their indexing category $\I=\{
-		1\rightrightarrows 0\}$ is such that $((0,1)\downarrow\Delta)$ is not connected. However, reflexive coequalizers are sifted. Checking it for yourself may be a tedious yet useful exercise.
-\end{exmp}
-
-\begin{exmp}
-	Initial objects and coproducts are not sifted, for their slice categories are either empty or have several connected components.
-\end{exmp}
-
-\begin{exmp}
-	Pushouts are not sifted.
+	\begin{enumerate}
+		\item For any filtered category $\I$, the category
+		      $((i,i')\downarrow\Delta)$ is again filtered for any
+		      $(i,i')\in\I\times\I$ and hence connected, thus filtered colimits
+		      are sifted.
+		\item Coequalizers are not sifted. Indeed, their indexing category
+		      $\I=\{1\rightrightarrows 0\}$ is such that $((0,1)\downarrow\Delta)$
+		      is not connected. However, reflexive coequalizers are sifted.
+		      Checking it for yourself may be a tedious yet useful exercise.
+		\item Initial objects and coproducts are not sifted, for their slice
+		      categories are either empty or have several connected components.
+		\item Pushouts are not sifted.
+	\end{enumerate}
 \end{exmp}
 
 \begin{prop}
@@ -887,7 +891,10 @@ In this chapter we are going to show how various categories emerging from algebr
 			& F(a_2,b_2) \\
 		\end{tikzcd}
 	\]
-	From general facts, $F(a_2,b_2)$ is the colimit of the square in the top left. We may prove this using the sections, however in this case we can use the fact that a reflexive coequalizer is sifted.
+	From general facts, $F(a_2,b_2)$ is the colimit of the square in the top
+	left. We may prove this using the sections, however in this case we can use
+	the fact that a reflexive coequalizer is sifted and apply the last
+	proposition.
 \end{proof}
 
 \begin{exmp}
@@ -970,7 +977,10 @@ In order to prove this, we need to know how such an endofunctor is determined by
 We write $[\C,\D]_\text{fin}$ for the full subcategory of $[\C,\D]$ whose objects are finitary functors, $\Set_\text{fin}$ for the category of finite sets.
 
 \begin{thm}
-	Restriction along the inclusion $K\colon\Set_\text{fin}\rightarrow\Set$ induces an equivalence $[\Set,\Set]_\text{fin}\rightarrow[\Set_\text{fin},\Set]$ whose inverse send $F$ to $\Lan_KF$.
+	Restriction along the inclusion $K\colon\Set_\text{fin}\rightarrow\Set$
+	induces an equivalence
+	$[\Set,\Set]_\text{fin}\rightarrow[\Set_\text{fin},\Set]$ whose inverse
+	sends $F$ to $\Lan_KF$.
 \end{thm}
 
 Before proving this theorem, we present some consequences.
@@ -980,13 +990,25 @@ Before proving this theorem, we present some consequences.
 \end{cor}
 
 \begin{proof}
-	Recall that $\Lan_K\colon[\Set_\text{fin},\Set]\rightarrow[\Set,\Set]_\text{fin}$ is a left adjoint and on both sides colimits are computed pointwise. Moreover, functors preserving colimits of a given class are closed under formation of pointwise colimits, hence it is enough to check on a generating set.
+	Recall that
+	$\Lan_K\colon[\Set_\text{fin},\Set]\rightarrow[\Set,\Set]_\text{fin}$ is a
+	left adjoint and on both sides colimits are computed pointwise. Moreover,
+	functors preserving colimits of a given class are closed under formation of
+	pointwise colimits, hence it is enough to check on a generating set.
 
-	If $\Lan_KF_i$ preserves sifted colimits for all $F_i\colon\Set_\text{fin}\rightarrow\Set$, then the functor $\colim_{\cI}\Lan_KF_i\cong\Lan_K\colim_{\cI}F_i$ preserves sifted colimits.
+	If $\Lan_KF_i$ preserves sifted colimits for all
+	$F_i\colon\Set_\text{fin}\rightarrow\Set$, then the functor
+	$\colim_{\cI}\Lan_KF_i\cong\Lan_K\colim_{\cI}F_i$ preserves sifted colimits.
 
-	Any functor $F\colon\Set_\text{fin}\rightarrow\Set$ is a colimit of representable functors $\Set_\text{fin}(X,-)$. Indeed, it is enough to consider $(\yo\downarrow F)\rightarrow[\Set_\text{fin},\Set]$, $(\Set_\text{fin}(X,-)\Rightarrow F)\mapsto\Set_\text{fin}(X,-)$ and notice that this being a colimit diagram essentially follows from Yoneda as $F\cong\colim_{(\yo\downarrow F)}\dom$.
+	Any functor $F\colon\Set_\text{fin}\rightarrow\Set$ is a colimit of
+	representable functors $\Set_\text{fin}(X,-)$. Indeed, it is enough to
+	consider $(\yo\downarrow F)\rightarrow[\Set_\text{fin},\Set]$,
+	$(\Set_\text{fin}(X,-)\Rightarrow F)\mapsto\Set_\text{fin}(X,-)$ and notice
+	that this being a colimit diagram essentially follows from Yoneda as
+	$F\cong\colim_{(\yo\downarrow F)}\yo_a$.
 
-	By the previous theorem, it is enough to check now that the functor $\Lan_K\Set_\text{fin}(X,-)$ preserves sifted colimits.
+	By the previous theorem, it is enough to check now that the functor
+	$\Lan_K\Set_\text{fin}(X,-)$ preserves sifted colimits.
 
 	Observe the following diagram:
 	\[
@@ -1008,7 +1030,11 @@ Before proving this theorem, we present some consequences.
 \begin{proof}
 	One implication is obvious. For the other one, notice that we get finite coproducts immediately and an infinite coproduct can be written as a filtered colimit of finite coproducts. We are only missing coequalizers. If $f,g\colon a\rightrightarrows b$ is a pair, then $f+\id,g+\id\colon\hspace{-1.5mm}$\begin{tikzcd}
 		a+b\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}b\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]
-	\end{tikzcd}$\hspace{-1.5mm}\colon\text{in}_b$ (where in$_b$ is the inclusion of $b$ in the coproduct) is a reflexive pair hence the coequalizer $k=\text{coeq}(a+b\rightrightarrows b)$ exists and coequalizes the original pair. The universal $h\colon b\rightarrow k$ is also a coequalizer of $f,g\colon a\rightrightarrows b$.
+	\end{tikzcd}$\hspace{-1.5mm}\colon\text{in}_b$ (where in$_b$ is the
+	inclusion of $b$ in the coproduct) is a reflexive pair, hence the
+	coequalizer $k=\text{coeq}(a+b\rightrightarrows b)$ exists and coequalizes
+	the original pair. The universal arrow $h\colon b\rightarrow k$ is also a
+	coequalizer of $f,g\colon a\rightrightarrows b$.
 \end{proof}
 \begin{thm}
 	Let $X$ be a finite set, $T\colon\prod_{x\in X}\Set\to\prod_{x\in X}\Set$ a finitary monad. Then $T\Alg$ is cocomplete.
@@ -1041,12 +1067,17 @@ Before proving this theorem, we present some consequences.
 	From the corollary, $T$ preserves sifted colimits, hence $T\Alg$ has reflexive coequalizers. Then the diagram above has a coequalizer, which is a coproduct of $(a,\alpha)$ and $(b,\beta)$.
 \end{proof}
 \begin{rmk}
-	This shows that $\Ab,\ \mathbf{Grp},\ \mathbf{Rng}$, etc.\ are cocomplete.
+	\begin{enumerate}
+		\item This shows that $\Ab,\ \mathbf{Grp},\ \mathbf{Rng}$, etc.\ are cocomplete.
+		\item We only used the fact that $T$ preserves sifted colimits, hence a
+		      monad on a cocomplete category $\C$ preserving sifted colimits has a
+		      cocomplete category of algebras. In fact, we only need that
+		      reflexive coequalizers and filtered colimits exist in $T\Alg$.
+	\end{enumerate}
 \end{rmk}
-\begin{rmk}
-	We only used the fact that $T$ preserves sifted colimits, hence a monad on a cocomplete category $\C$ preserving sifted colimits has a cocomplete category of algebras. In fact, we only need that reflexive coequalizers and filtered colimits exist in $T\Alg$.
-\end{rmk}
+
 \section{Dense generators}
+
 The aim of this section is to prove the theorem about finitary endofunctors of $\Set$. We want to identify ``nice" generating subcategories like $\Set_\text{fin}\to\Set$.
 \begin{defn}
 	Let $K\colon\A\to\C$ be the inclusion of a full subcategory or, equivalently, a fully faithful functor. We define the \emph{restricted Yoneda functor} $\widetilde{K}\colon\C\to\left[\A^{\op},\Set\right]$ as the functor sending $c\in\C$ to $\C(K-,c)$.
@@ -1063,8 +1094,12 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 \begin{defn}
 	A full subcategory/fully faithful functor $K\colon\A\to\C$ is called \emph{dense} if $\widetilde{K}$ is fully faithful.
 \end{defn}
-\begin{thm}\label{long thm}
-	Let $\C$ be a cocomplete category, $\A$ a small category and $K\colon\A\to\C$ a fully faithful functor. Then $\widetilde{K}$ has a left adjoint given by $\Lan_\yo K\colon[\A^{\op},\Set]\to\C$.
+
+\begin{thm}[Realisation-Nerve Adjunction]
+	Let $\cC$ be a cocomplete category, $\cA$ a small category and
+	$K\colon\cA\rightarrow\cC$ a functor. Then, $\widetilde{K}$ has a left
+	adjoint given by $\Lan_\yo K\colon[\cA,\Set]\rightarrow\cC$ such that the
+	following diagram commutes up to natural isomorphism.
 	\[
 		\begin{tikzcd}[column sep=tiny]
 			\A\ar[rr, "\yo"]\ar[dr, swap, "K"]
@@ -1072,7 +1107,23 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 				K"] \\
 			& \C\end{tikzcd}
 	\]
-	Moreover, the following conditions are equivalent:
+\end{thm}
+\begin{proof}
+	We have $\displaystyle \Lan_\yo K(F)=\colim_{(\yo\downarrow F)}Ka$, hence
+	\begin{align*}
+		\C(\Lan_\yo K(F),c) & \cong\lim_{(\yo\downarrow F)}\C(Ka,c)                                                   \\
+		                    & \Yoneda \lim_{(\yo\downarrow F)}\left[\A^{\op},\Set\right]\left(\A(-,a),\C(K-,c)\right) \\
+		                    & \cong\left[\A^{\op},\Set\right]\left(\colim_{(\yo\downarrow F)}\A(-,a),\C(K-,c)\right)  \\
+		                    & \cong\left[\A^{\op},\Set\right](F,\C(K-,c)).
+	\end{align*}
+	Notice that for $F=\yo_a$ the category $(\yo\downarrow F)$ has a
+	terminal object $(a,\id_a)$, thus $\Lan_\yo K(\yo_a)\cong Ka$ naturally.
+\end{proof}
+
+\begin{thm}\label{long thm}
+	Let $\C$ be a cocomplete category, $\A$ a small category and
+	$K\colon\A\to\C$ a fully faithful functor. The following
+	conditions are equivalent:
 	\begin{enumerate}
 		\item $\widetilde{K}$ is fully faithful;
 		\item for every $c\in\C$, the canonical cocone on $\dom\colon (K\downarrow c)\to\C$ exhibits $c$ as colimit of the diagram $\dom\colon(K\downarrow c)\to\C$;
@@ -1088,63 +1139,91 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	\end{enumerate}
 \end{thm}
 \begin{proof}
-	We have $\displaystyle \Lan_\yo K(F)=\colim_{(\yo\downarrow F)}Ka$, hence
-	\begin{align*}
-		\C(\Lan_\yo K(F),c) & \cong\lim_{(\yo\downarrow F)}\C(Ka,c)                                                   \\
-		                    & \Yoneda \lim_{(\yo\downarrow F)}\left[\A^{\op},\Set\right]\left(\A(-,a),\C(K-,c)\right) \\
-		                    & \cong\left[\A^{\op},\Set\right]\left(\colim_{(\yo\downarrow F)}\A(-,a),\C(K-,c)\right)  \\
-		                    & \cong\left[\A^{\op},\Set\right](F,\C(K-,c)),
-	\end{align*}
-	hence $\Lan_\yo K\dashv\widetilde{K}$. It remains to check the implications.
 	\begin{itemize}[itemindent=36pt]
 		\item[(1)$\implies$(2)] If $\widetilde{K}$ is fully faithful, it suffices to check that the image of the canonical cocone under $\widetilde{K}$ is a colimit. Since $K$ is fully faithful, this image is precisely the diagram $\A(-,a)\cong\C(K-,Ka)\Rightarrow\C(K-,c)$. Then $$\colim_{(K\downarrow c)}\widetilde{K}\dom=\displaystyle\colim_{(\yo\downarrow\C(K-,c))}\A(-,a)\cong\C(K-,c).$$This proves $(2)$ and the fact that the colimit of $(K\downarrow c)\to\C$ is preserved by $\widetilde{K}\colon\C\to\left[\A^{\op},\Set\right]$.
 		\item[(2)$\implies$(3)] As we just observed, $\displaystyle\colim_{(K\downarrow c)}\dom$ is $\widetilde{K}$-absolute and $\dom\colon(K\downarrow c)\to\C$ factors through $\A$.
 		\item[(3)$\implies$(4)] Clear.
-		\item[(4)$\implies$(5)] Let $\B$ be full subcategory spanned by the elements $b\in\C$ such that\ $\epsilon_b\colon\Lan_\yo K\widetilde{K}(b)\to b$ is an isomorphism. It is closed under $K$-absolute colimits since they are preserved by $\widetilde{K}$ (by definition), by the left adjoint $\Lan_\yo K$ and by $\id_{\C}$. It remains to check that the counit at $a\in\A$ is an isomorphism. But $\widetilde{K}a=\C(K-,Ka)\cong\A(-,a)$, so $\Lan_\yo K(\A(-,a))\cong a$, where the last isomorphism is a consequence of the fact that $(\yo\downarrow\A(-,a))$ has a terminal object $\id_{\cA(-,a)}$.
+		\item[(4)$\implies$(5)] Let $\cB$ be full subcategory spanned by the
+		      elements $b\in\cC$ such that\ $\epsilon_b\colon\Lan_\yo
+			      K(\widetilde{K}b)\to b$ is an isomorphism. It is closed under
+		      $K$-absolute colimits since they are preserved by $\widetilde{K}$
+		      (by definition), by the left adjoint $\Lan_\yo K$ and by $\id_{\C}$.
+		      It remains to check that the counit at $Ka\in\cC$ is an isomorphism.
+		      But $\widetilde{K}Ka=\C(K-,Ka)\cong\A(-,a)$, so $\Lan_\yo
+			      K(\widetilde{K}Ka)=\Lan_\yo K(\yo_a)\cong Ka$.
 		\item[(5)$\implies$(1)] Any right adjoint whose counit is an isomorphism is fully faithful.\qedhere
 	\end{itemize}
 \end{proof}
 \begin{rmk}
-	Notice that the first four points of the Theorem \ref{long thm} are equivalent even when $\C$ is not cocomplete. In fact, we also have the implication $(4)\implies(1)$ without assumptions on the cocompleteness of $\C$.
+	Notice that the first four points of the Theorem \ref{long thm} are
+	equivalent even when $\C$ is not cocomplete. In fact, we also have the
+	implication $(4)\implies(1)$ without assumptions on the cocompleteness of
+	$\C$.
 \end{rmk}
 \begin{proof}
-	We give an alternative proof of the implication $(4)\implies(1)$.
+	We give an alternative proof which holds without the cocompleteness
+	hypothesis of the implication $(4)\implies(1)$.
 
-	Consider the full subcategory $\B$ of $\C$ with objects $$\{b\in\cC \ | \ \widetilde{K}_{Ka,b}\colon\C(Ka,b)\to\left[\A^{\op},\Set\right](\widetilde{K}Ka,\widetilde{K}b) \ \text{is bijective}\ \forall a\in \A\}$$
-	Since $\widetilde{K}Ka=\A(-,a)$, by Yoneda, the target is given by $\text{ev}_a\circ\widetilde{K}(b)$. Therefore it preserves $K$-absolute colimits. The domain is also equal to $\text{ev}_a\circ\widetilde{K}(b)$, by definition. Hence it preserves $K$-absolute colimits and contains $Ka'$ for every $a'$, therefore $\B=\C$. Consider now $$\B'=\{b'\ | \ \C(b',b)\xrightarrow{\widetilde{K}}\left[\A^{\op},\Set\right](\widetilde{K}b',\widetilde{K}b) \ \text{is bijective}\}$$
+	Consider the full subcategory $\B$ of $\C$ with objects $$\{b\in\cC \ | \
+		\widetilde{K}_{Ka,b}\colon\C(Ka,b)\to\left[\A^{\op},\Set\right](\widetilde{K}Ka,\widetilde{K}b)
+		\ \text{is bijective}\ \forall a\in \A\}$$
+	Since $\widetilde{K}Ka=\A(-,a)$, by Yoneda, the target is given by
+	$\text{ev}_a\circ\widetilde{K}(b)$. Therefore it preserves $K$-absolute
+	colimits. The domain is also equal to $\text{ev}_a\circ\widetilde{K}(b)$, by
+	definition. Hence it preserves $K$-absolute colimits and contains $Ka'$ for
+	every $a'$, therefore $\B=\C$. Consider now $$\B'=\{b'\ | \
+		\C(b',b)\xrightarrow{\widetilde{K}}\left[\A^{\op},\Set\right](\widetilde{K}b',\widetilde{K}b)
+		\ \text{is bijective}\}$$
 	This is closed under all $K$-absolute colimits and contains $Ka$ by the above argument, hence it is all of $\C$.
 \end{proof}
 \begin{defn}
-	A fully faithful $K\colon\A\to\C$ is \emph{dense} if $\widetilde{K}$ is fully faithful. A collection of diagrams $\{D_j\colon\I_j\to\C\}$ such that $\C$ is the closure of $K$ under colimits of $D_j$ and the $\colim D_j$ are $K$-absolute is a \emph{density presentation}.
+	A fully faithful functor $K\colon\A\to\C$ is \emph{dense} if $\widetilde{K}$
+	is fully faithful. A collection of diagrams $\{D_j\colon\I_j\to\C\}$ such
+	that $\C$ is the closure of $K$ under colimits of $D_j$ and the $\colim D_j$
+	are $K$-absolute is a \emph{density presentation}.
 \end{defn}
 \begin{rmk}
 	The definition of density makes sense for arbitrary $K$, but the implication $(4)\implies(1)$ does not work in general.
 \end{rmk}
 \begin{exmp}
 	\begin{enumerate}
-		\item $\yo\colon\A\to\left[\A^{\op},\Set\right]$ is dense. In fact, we have $$\widetilde{\yo}(G)=\left[\A^{\op},\Set\right](\yo-,G)\Yoneda G,$$ thus $\widetilde{\yo}\cong\id$ preserves all colimits. The colimit indexed by the slice $(\yo\downarrow F)$ gives a density presentation.
-		\item $K\colon\Set_\text{fin}\hookrightarrow\Set$ is dense: $S$ finite implies $\Set(S,-)$ preserves sifted, hence filtered, colimits. Filtered (and sifted) colimits are $K$-absolute and a density presentation for $K$ can be found once one writes an arbitrary set as union of its finite subset.
-		\item
-		      $K\colon\{*\}\subseteq\Set$ is dense: $\widetilde{K}\colon\Set\to\left[*,\Set\right]\cong\Set$, $X\mapsto\Set(*,S)\cong S$, hence we find that $\widetilde{K}$ preserves all colimits. We can use coproducts to get a density presentation.
-		\item
-		      $\{k\}\subset \mathbf{Vect}_k$ is not dense even though every vector space is a coproduct of copies of $k$.
+		\item $\yo\colon\A\to\left[\A^{\op},\Set\right]$ is dense. In fact, we
+		      have $$\widetilde{\yo}\circ
+			      G=\left[\A^{\op},\Set\right](\yo-,G)\Yoneda G,$$ thus
+		      $\widetilde{\yo}\cong\id$ preserves all colimits. The colimits
+		      indexed by the slices $(\yo\downarrow F)$ give a density
+		      presentation.
+		\item $K\colon\Set_\text{fin}\hookrightarrow\Set$ is dense: $S$ finite
+		      implies that $\Set(S,-)$ preserves sifted, hence filtered, colimits.
+		      Filtered (and sifted) colimits are $K$-absolute and a density
+		      presentation for $K$ can be found once one writes an arbitrary set
+		      as a union of its finite subset.
+		\item $K\colon\{*\}\subseteq\Set$ is dense:
+		      $\widetilde{K}\colon\Set\to\left[*,\Set\right]\cong\Set$,
+		      $S\mapsto\Set(*,S)\cong S$, hence we find that $\widetilde{K}$
+		      preserves all colimits. We can use coproducts to get a density
+		      presentation.
+		\item $\{k\}\subset \mathbf{Vect}_k$ is not dense even though every
+		      vector space is a coproduct of copies of $k$.
 	\end{enumerate}
 \end{exmp}
 \begin{defn}
 	Given \emph{any} functor $F\colon\A\to\D$, we can talk about the \emph{restricted Yoneda embedding} $\widetilde{F}\colon\D\to\left[\A^{\op},\Set\right]$, sending $d\in\D$ to $\D(F-,d)$.
 \end{defn}
 \begin{prop}
-	Let $K\colon\A\to\C$ be fully faithful and $F\colon\A\to\D$ any functor. Suppose there exists $L\colon\C\to\D$ and bijections $\D(Lc,d)\to\left[\A^{\op},\Set\right](\C(K-,c),\D(F-,d))$ natural both in $c$ and $d$. Then there is an isomorphism $\eta\colon F\xRightarrow{\sim}L\circ K$ exibiting $L$ as left Kan extension of $F$ along $K$.
+	Let $K\colon\A\to\C$ be fully faithful and $F\colon\A\to\D$ any functor.
+	Suppose there exists $L\colon\C\to\D$ and bijections
+	$\D(Lc,d)\to\left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}d)$ natural both in $c$ and $d$. Then there is an isomorphism $\eta\colon F\xRightarrow{\sim}LK$ exibiting $L$ as left Kan extension of $F$ along $K$.
 \end{prop}
 \begin{proof}
 	The presheaf $\C(K-,c)$ is the colimit of the canonical cocone on
 	$(\yo\downarrow\C(K-,c)).$ By Yoneda, this is equivalent to
 	$(K\downarrow c)$ with objects $(a\in\A,\varphi\colon Ka\to c)$ and the
 	evident morphisms. If $c\cong Ka$, this has $(a,\id_a)$ as terminal
-	object. Therefore the colimit is $\C(K-,Ka)\cong\A(-,a)$. Moreover, the
-	formula above in this case gives
-	$$\D(LKa,d)\cong\left[\A^{\op},\Set\right](\A(-,a),\D(F-,d))\cong\D(Fa,d).$$
-	This shows that $L\circ K\cong F$ naturally. Then $\displaystyle
+	object, in which case the colimit is $\C(K-,Ka)\cong\A(-,a)$. Moreover,
+	the formula above in this case gives
+	$$\D(LKa,d)\cong[\cA^{\op},\Set](\widetilde{K}Ka,\widetilde{F}d)\cong\left[\A^{\op},\Set\right](\A(-,a),\D(F-,d))\cong\D(Fa,d).$$
+	This shows that $LK\cong F$ naturally. Then $\displaystyle
 		Lc=\colim_{(K\downarrow c)}Fa$, which is the classical formula for left
 	Kan extensions.
 \end{proof}
@@ -1155,32 +1234,50 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	Let $K\colon\A\to\C$ be a fully faithful dense functor with density presentation $\{D_j\colon\I_j\to\C\}_{j\in\J}$. Let $F\colon\A\to\D$ be a functor and assume that $\D$ has colimits of shape $\I_j$ for all $j\in\J$. Then the pointwise left Kan extension of $F$ along $K$ exists. In particular, the unit $F\Rightarrow\Lan_KF\circ K$ is an isomorphism.
 \end{thm}
 \begin{proof}
-	We want a $L$ as in the above proposition $\D(Lc,d)\cong\left[\A^{\op},\Set\right](\C(K-,c),\D(F-,d))$ natural in $c,d$. This simply says that for all $c\in\C$ the functor $\left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}-)\colon\D\to\Set$ is representable. Take $\B\coloneqq\{b\in\C\ | \ \left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}-) \ \text{is representable}\}$. If $c=Ka$, then $\widetilde{K}c=\C(K-,Ka)\cong\A(-,a)$. Therefore
+	We want a $L$ as above, that is such that
+	$\D(Lc,d)\cong\left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}d)$ naturally in
+	$c,d$. This simply says that for all $c\in\C$ the functor
+	$\left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}-)\colon\D\to\Set$
+	is representable. Take $\B\coloneqq\{c\in\C\ | \
+		\left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}-) \ \text{is
+			representable}\}$. If $c=Ka$, then $\widetilde{K}c=\C(K-,Ka)\cong\A(-,a)$,
+	therefore
 	\begin{align*}
 		\left[\A^{\op},\Set\right](\widetilde{K}Ka,\widetilde{F}d) & \cong\left[\A^{\op},\Set\right](\A(-,a),\widetilde{F}d) \\
 		                                                           & \Yoneda \hspace{1.5mm}\widetilde{F}d(a)                 \\
-		                                                           & \cong\D(Fa,d)
+		                                                           &
+		\cong\D(Fa,d),
 	\end{align*}
-	so it is represented by $Fa$ and $Ka\in\B$. Furthermore $\B$ is closed under $\widetilde{K}$-absolute colimits of shape $\I_j$. Let $D\colon\I_j\to\B$ be a diagram such that $\colim_{\I_j} D$ exists in $\C$ and is preserved by $\widetilde{K}$. We claim that $\colim_{\I_j} D\in\B$.
+	hence it is represented by $Fa$ and $Ka\in\B$. Furthermore, $\B$ is closed
+	under $\widetilde{K}$-absolute colimits of shape $\I_j$, thus, letting
+	$D\colon\I_j\to\B$ be a diagram such that $\colim_{\I_j} D$ exists in $\C$
+	and is preserved by $\widetilde{K}$, we claim that $\colim_{\I_j} D\in\B$.
 	\begin{align*}
 		\left[\A^{\op},\Set\right](\widetilde{K}\colim_{\I_j} D,\widetilde{F}d) & \cong\left[\A^{\op},\Set\right](\colim_{\I_j}\widetilde{K}D,\widetilde{F}d) \\
 		                                                                        & \cong\lim_{\I_j}\left[\A^{\op},\Set\right](\widetilde{K}D,\widetilde{F}d)   \\
 		                                                                        & \cong\lim_{\I_j}\D(LD,d)                                                    \\
-		                                                                        & \cong\D(\colim_{\I_j} LD,d)
+		                                                                        &
+		\cong\D(\colim_{\cI_j} LD,d),
 	\end{align*}
-	Hence $\B=\C$ and we get the functor $L\cong\Lan_KF$.
+	therefore $\B=\C$ and we get the functor $L=\Lan_KF$.
 \end{proof}
 \begin{lemma}
 	Under the same conditions as before, pointwise Kan extensions along $K$ preserve $K$-absolute colimits.
 \end{lemma}
 \begin{proof}
-	By definition, $\D(\Lan_KF(c),d)\cong \left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}d)$. Let $\displaystyle \colim_{i\in\I_j}D_i$ be $K$-absolute. Then the claim is shown by the following chain of isomorphisms.
+	By definition, $\D(\Lan_KF(c),d)\cong
+    \left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}d)$. Let
+    $\displaystyle \colim_{\I}D$ be $K$-absolute. Then the claim is shown by
+    the following chain of isomorphisms.
 	\begin{align*}
-		\D(\Lan_KF(\colim D_i),d) & \cong\left[\A^{\op},\Set\right](\widetilde{K}\colim D_i,\widetilde{F}d) \\
-		                          & \cong\left[\A^{\op},\Set\right](\colim\widetilde{K}D_i,\widetilde{F}d)  \\
-		                          & \cong\lim\left[\A^{\op},\Set\right](\widetilde{K}D_i,\widetilde{F}d)    \\
-		                          & \cong\lim\D(\Lan_KF(D_i),d)                                             \\
-		                          & \cong\D(\colim\Lan_KF(D_i),d).\qedhere
+        \D(\Lan_KF(\colim_{\cI} D),d) &
+        \cong\left[\A^{\op},\Set\right](\widetilde{K}\colim_{\cI} D,\widetilde{F}d) \\
+                                  &
+                                  \cong\left[\A^{\op},\Set\right](\colim_{\cI}\widetilde{K}D,\widetilde{F}d)  \\
+		                          &
+                                  \cong\lim_{\cI}\left[\A^{\op},\Set\right](\widetilde{K}D,\widetilde{F}d)    \\
+                                  & \cong\lim_{\cI}\D(\Lan_KF(D),d)                                             \\
+                                  & \cong\D(\colim_{\cI}\Lan_KF(D),d).\qedhere
 	\end{align*}
 \end{proof}
 \begin{thm}
