@@ -1266,18 +1266,18 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 \end{lemma}
 \begin{proof}
 	By definition, $\D(\Lan_KF(c),d)\cong
-    \left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}d)$. Let
-    $\displaystyle \colim_{\I}D$ be $K$-absolute. Then the claim is shown by
-    the following chain of isomorphisms.
+		\left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}d)$. Let
+	$\displaystyle \colim_{\I}D$ be $K$-absolute. Then the claim is shown by
+	the following chain of isomorphisms.
 	\begin{align*}
-        \D(\Lan_KF(\colim_{\cI} D),d) &
-        \cong\left[\A^{\op},\Set\right](\widetilde{K}\colim_{\cI} D,\widetilde{F}d) \\
-                                  &
-                                  \cong\left[\A^{\op},\Set\right](\colim_{\cI}\widetilde{K}D,\widetilde{F}d)  \\
-		                          &
-                                  \cong\lim_{\cI}\left[\A^{\op},\Set\right](\widetilde{K}D,\widetilde{F}d)    \\
-                                  & \cong\lim_{\cI}\D(\Lan_KF(D),d)                                             \\
-                                  & \cong\D(\colim_{\cI}\Lan_KF(D),d).\qedhere
+		\D(\Lan_KF(\colim_{\cI} D),d) &
+		\cong\left[\A^{\op},\Set\right](\widetilde{K}\colim_{\cI} D,\widetilde{F}d) \\
+		                              &
+		\cong\left[\A^{\op},\Set\right](\colim_{\cI}\widetilde{K}D,\widetilde{F}d)  \\
+		                              &
+		\cong\lim_{\cI}\left[\A^{\op},\Set\right](\widetilde{K}D,\widetilde{F}d)    \\
+		                              & \cong\lim_{\cI}\D(\Lan_KF(D),d)             \\
+		                              & \cong\D(\colim_{\cI}\Lan_KF(D),d).\qedhere
 	\end{align*}
 \end{proof}
 \begin{thm}
@@ -1373,17 +1373,26 @@ From now on we fix a regular cardinal $\kappa$\footnote{Namely, a union of $<\ka
 	so that $\A_0\xhookrightarrow{K}\A$ has density presentation consisting of $\kappa$-filtered colimits. Thus $\widetilde{K}\colon\A\to\left[\A_0^{\op},\Set\right]$ is fully faithful and preserves $\kappa$-filtered colimits.
 \end{rmk}
 \begin{defn}
-	A functor is \emph{$\kappa$-accessible} if it commutes with $\kappa$-filtered colimits. We write $\left[\A,\B\right]_\kappa$ for the subcategory of $\kappa$-accessible functors ($\left[\A,\B\right]_{\text{fin}}$ if $\kappa=\aleph_0$).
+	A functor is \emph{$\kappa$-accessible} if it commutes with
+    $\kappa$-filtered colimits. We write $\left[\cA,\cC\right]_\kappa$ for the
+    subcategory of $\kappa$-accessible functors
+    ($\left[\cA,\cC\right]_{\text{fin}}$ if $\kappa=\aleph_0$).
 \end{defn}
 It follows that
 \[
 	\begin{tikzcd}
-		\left[\A_0,\B\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A, below}] & \left[\A,\B\right]_\kappa\ar[l, shift left=1.5ex, "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
+		\left[\cA_0,\cC\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A,
+        below}]
+        & \left[\cA,\cC\right]_\kappa\ar[l, shift left=1.5ex,
+        "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
 	\end{tikzcd}
 \]
-if $\A$, $\A_0$ are as above and $\B$ has $\kappa$-filtered colimits.
+if $\cA$, $\cA_0$ are as above and $\cC$ has $\kappa$-filtered colimits.
 \begin{rmk}
-	A $\kappa$-accessible category $\A$ is locally $\kappa$-presentable if and only if $\A\xrightarrow{\widetilde{K}}\left[\A_0^{\op},\Set\right]$ has a left adjoint for any choice of $\A_0\subseteq\A$ that defines it as the closure under $\kappa$-filtered colimits.
+	A $\kappa$-accessible category $\A$ is locally $\kappa$-presentable if and
+    only if $\A\xrightarrow{\widetilde{K}}\left[\A_0^{\op},\Set\right]$ has a
+    left adjoint for any choice of $\A_0\subseteq\A$ that defines it as the
+    closure under $\kappa$-filtered colimits.
 \end{rmk}
 \begin{defn}
 	A monad $(T,\mu,\eta)$ is said to have rank $\kappa$ if $T$ is a $\kappa$-accessible endofunctor.
@@ -1397,9 +1406,24 @@ Our next goal is to prove that if $(T,\mu,\eta)$ is an accessible monad on a loc
 	Let $\A$ be $\kappa$-accessible, $\A_0\subseteq\A$ be the small subcategory of $\kappa$-presentable objects such that $\A$ is the closure of $\A_0$ under $\kappa$-filtered colimits, and $(T,\mu,\eta)$ be a monad of rank $\kappa$ on $\A$. Then $\B=\{ (Ta_0,\mu_{a_0})\ | \ a_0\in\A_0 \}$ is a dense generator of $T\Alg$.
 \end{prop}
 \begin{proof}
-	First note that $(Ta_0,\mu_{a_0})$ is $\kappa$-presentable. Indeed, we have $T\Alg((Ta_0,\mu_{a_0}),-)\cong\A(a_0,U^T-)$ and $U^T$ creates all colimits that $T$ preserves, in particular $\kappa$-filtered ones. Hence, LHS preserves $\kappa$-filtered colimits and for this reason $(Ta_0,\mu_{a_0})$ is $\kappa$-presentable. Let $\Phi_1$  be the class of $\kappa$-filtered diagrams. Writing $K\colon\B\to T\Alg$ for the inclusion, we have just shown that $\Phi_1$-colimits are $K$-absolute. Note that the closure of $\B$ under $\Phi_1$ contains all free algebras $(Ta,\mu_a)$ since $\A$ is the closure of $\A_0$ under $\Phi_1$-colimits. Let $\Phi_2$ be the class of diagrams $\hspace{-1.5mm}\begin{tikzcd}
-			(T^2a,\mu_{Ta})\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}(Ta,\mu_a)\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]
-		\end{tikzcd}\hspace{-1.5mm}$ for all $(a,\alpha)\in T\Alg$. The closure under $\Phi_1\cup\Phi_2$ is clearly all of $T\Alg$, so we just need to show that $\Phi_2$-colimits are $K$-absolute, that is preserved by each $T\Alg((Ta_0,\mu_{a_0}),-)$. Since $T\Alg((Ta_0,\mu_{a_0}),-)\cong\A(a_0, U^T-)$ and $U^T$ sends a coequalizer in question to a split coequalizer, the colimit is indeed $K$-absolute.
+	First note that $(Ta_0,\mu_{a_0})$ is $\kappa$-presentable. Indeed, we have
+    $T\Alg((Ta_0,\mu_{a_0}),-)\cong\A(a_0,U^T-)$ and $U^T$ creates all colimits
+    that $T$ preserves, in particular $\kappa$-filtered ones. Hence, $U^T$
+    preserves $\kappa$-filtered colimits and for this reason $(Ta_0,\mu_{a_0})$
+    is $\kappa$-presentable. Let $\Phi_1$  be the class of $\kappa$-filtered
+    diagrams. Writing $K\colon\B\to T\Alg$ for the inclusion, we have just shown
+    that $\Phi_1$-colimits are $K$-absolute. Note that the closure of $\B$ under
+    $\Phi_1$ contains all free algebras $(Ta,\mu_a)$ since $\A$ is the closure
+    of $\A_0$ under $\Phi_1$-colimits. Let $\Phi_2$ be the class of diagrams
+    $\begin{tikzcd}
+	        (T^2a,\mu_{Ta})\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}(Ta,\mu_a)\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]
+		\end{tikzcd}\hspace{-1.5mm}$ for all $(a,\alpha)\in T\Alg$. The closure
+        under $\Phi_1\cup\Phi_2$ is clearly all of $T\Alg$, so we just need to
+        show that $\Phi_2$-colimits are $K$-absolute, that is preserved by each
+        $T\Alg((Ta_0,\mu_{a_0}),-)$. Since
+        $T\Alg((Ta_0,\mu_{a_0}),-)\cong\A(a_0, U^T-)$ and $U^T$ sends a
+        coequalizer in question to a split coequalizer, the colimit is indeed
+        $K$-absolute.
 \end{proof}
 \begin{exmp}
 	\emph{Finite} free groups, abelian groups, commutative rings etc.\ form dense generators of $\mathbf{Grp}$, $\Ab$, $\mathbf{CRng}$ etc.
@@ -1422,7 +1446,7 @@ Recall that the category of $T$-algebras of a finitary monad $T\colon\Set\to\Set
 	This terminates when $ \lambda = \kappa $, so $\A_\kappa $ is the colimit closure and thus small.
 	From the above mentioned fact we know that $\A'  $ consists of $ \kappa $-presentable objects.
 	Since it contains $\A $, the inclusion $ K \colon\A' \to \C $ is dense.
-	If $\A' $ is dense, then each object in $ \C $ is a colimit of $(\A'\downarrow c)$ which is a $ \kappa $-filtered diagram by construction.
+	If $\A' $ is dense, then each object in $ \C $ is a colimit of $(K\downarrow c)$ which is a $ \kappa $-filtered diagram by construction.
 \end{proof}
 \begin{cor}
 	For each finitary monad $ T $ on $ \Set $, the category $ T\Alg $ is locally finitely presentable.
@@ -1468,7 +1492,7 @@ Recall that the category of $T$-algebras of a finitary monad $T\colon\Set\to\Set
 	In any category, $ \kappa $-presentable objects are closed under $ \kappa $-small colimits.
 \end{cor}
 \begin{proof}
-	Let $ C \from \I \to \C $ be a filtered diagram and
+	Let $ C \from \I \to \C $ be a $\kappa$-filtered diagram and
 	$ D\from \J \to \C $ a $ \kappa $-small diagram of $ \kappa $-presentable objects $ D_J $.
 	\begin{align*}
 		\C (\colim_{\J} D_j, \colim_{\I} C_i) & \cong \lim_{\J} \C (D_j,\colim_{\I} C_i)            \\
@@ -1484,8 +1508,10 @@ Recall that the category of $T$-algebras of a finitary monad $T\colon\Set\to\Set
 \end{prop}
 \begin{proof}
 	Let $ \C $ be locally $\kappa $-presentable, choose a small dense subcategory $\A $ of $ \kappa $-presentable objects.
-	So, any object $ c \in \C $ we have is a colimit of $\dom\colon (\A\downarrow c)\rightarrow\C$.
-	Choose $ \lambda $ such that $ \lambda > \kappa $ and $ \lambda > \card{\Arr(\A/c)} $.
+	So, any object $ c \in \C $ we have is a colimit of $\dom\colon (K\downarrow
+    c)\rightarrow\C$, where $K$ is the inclusion $\cA\rightarrow\cC$.
+	Choose $ \lambda $ such that $ \lambda > \kappa $ and $ \lambda >
+    \card{\Arr(K\downarrow c)} $.
 \end{proof}
 The characterization of filtered colimits in $ \Set $ gives the following characterization of finitely presentable objects:
 $ a $ is finitely presentable if for all filtered colimits $ k_i \from c_i \to c $ in $ \C $ and all $ f\from a \to c $ there exists a factorization
@@ -1507,13 +1533,22 @@ and any two such lifts $ f', f"  $ satisfying $ k_i \circ f' = k_i \circ f" $ be
 	Let $\C$, $\D$ be locally $\kappa$-presentable, $\lambda\ge\kappa$ a regular cardinal. Then the category $\left[\C,\D\right]_\lambda$ of $\lambda$-accessible functors and natural transformations is locally small, cocomplete and the inclusion $\left[\C,\D\right]_\lambda\to\left[\C,\D\right]$ preserves colimits. In fact, $\left[\C,\D\right]_\lambda$ is locally presentable.
 \end{prop}
 \begin{proof}
-	The category $\C_\lambda$ of $\lambda$-presentable objects in $\C$ is essentially small and each $(\C_\lambda\downarrow c)$ is $\lambda$-filtered, so $\C_\lambda\hookrightarrow\C$ is dense with density presentation consisting of $\lambda$-filtered colimits. From a general fact, the left adjoint of
+	The category $\C_\lambda$ of $\lambda$-presentable objects in $\C$ is
+    essentially small and each $(\C_\lambda\downarrow c)$ is $\lambda$-filtered,
+    so $\C_\lambda\hookrightarrow\C$ is dense with density presentation
+    consisting of $\lambda$-filtered colimits. From a general fact, the left
+    adjoint of
 	\[
 		\begin{tikzcd}
 			\left[\C_\lambda,\D\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A, below}] & \left[\C,\D\right]\ar[l, shift left=1.5ex, "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
 		\end{tikzcd}
 	\]
-	induces an equivalence onto its essential image, which is precisely $\left[\C,\D\right]_\lambda$. In other words, $\left[\C,\D\right]_\lambda\cong\left[\C_\lambda,\D\right]$ is locally small and the inclusion preserves all colimits. Furthermore, $\left[\C,\D\right]_\lambda$ is locally presentable since  $\left[\C_\lambda,\D\right]$ is locally $\kappa$-presentable.
+	induces an equivalence onto its essential image, which is precisely
+    $\left[\C,\D\right]_\lambda$. In other words,
+    $\left[\C,\D\right]_\lambda\cong\left[\C_\lambda,\D\right]$ is locally small
+    and the inclusion preserves all colimits. Furthermore,
+    $\left[\C,\D\right]_\lambda$ is locally presentable since
+    $\left[\C_\lambda,\D\right]$ is locally $\kappa$-presentable.
 \end{proof}
 \begin{cor}
 	The category of accessible functors $\left[\C,\D\right]_\text{acc}$ is closed under small colimits in $\left[\C,\D\right]$.
@@ -1521,7 +1556,7 @@ and any two such lifts $ f', f"  $ satisfying $ k_i \circ f' = k_i \circ f" $ be
 \begin{proof}
 	This is clear, since $\displaystyle\left[\C,\D\right]_\text{acc}=\bigcup_\lambda\left[\C,\D\right]_\lambda$.
 \end{proof}
-The following theorem about dense functor has already been secretly used previously. Let us prove it once and for all.
+The following theorem about dense functors has already been secretly used previously. Let us prove it once and for all.
 \begin{thm}
 	Consider two small categories $\A$ and $\A'$ and two fully faithful functors $\A\xrightarrow{P}\A'\xrightarrow{J}\C$. If the composite $K=JP$ is dense, then both $P$ and $J$ are dense.
 \end{thm}
@@ -1575,7 +1610,11 @@ Kelly's main observation is that all above constructions can be reduced to the c
 	Let $S\colon\C\to\C$ be a functor. We call $S$ \emph{pointed} if there exists $\sigma\colon\id_{\C}\Rightarrow S$. The pair $(S,\sigma)$ is \emph{well pointed}\footnote{Note that, as soon as one defines a monad to be idempotent if the multiplication is an isomorphism, being idempotent is equivalent to being well pointed.} if $S\sigma=\sigma S\colon S\Rightarrow S^2$.
 \end{defn}
 \begin{defn}
-	Given a pointed endofunctor $(S,\sigma)$, a $(S,\sigma)$-algebra is a pair $(a,\alpha)$, where $\alpha\colon Sa\to a$ is a morphism in $\C$ s.t.\ $\alpha\sigma_a=\id_a$ (basically a monad without multiplication gives an example). A morphism of algebras $(a,\alpha)\to(b,\beta)$ is a morphism $f\colon a\to b$ in $\C$ such that
+	Given a pointed endofunctor $(S,\sigma)$, a $(S,\sigma)$-algebra is a pair
+    $(a,\alpha)$, where $\alpha\colon Sa\to a$ is a morphism in $\C$ s.t.\
+    $\alpha\cdot\sigma_a=\id_a$ (basically a monad without multiplication gives
+    an example). A morphism of algebras $(a,\alpha)\to(b,\beta)$ is a morphism
+    $f\colon a\to b$ in $\C$ such that
 	\[
 		\begin{tikzcd}
 			Sa\arrow["\alpha"']{d}\arrow["Sf"]{r}
@@ -1599,9 +1638,13 @@ Kelly's main observation is that all above constructions can be reduced to the c
 			& Sa
 		\end{tikzcd}
 	\]
-	commutes by the naturality of $\sigma$. Since $S$ is well pointed, this implies $\sigma_a \alpha=S\alpha\cdot\sigma_{Sa}=S\alpha\cdot S\sigma_a=S(\alpha\sigma_a)=S(\id_a)=\id_{Sa}$, therefore $\alpha=\sigma_a^{-1}$. On the other hand, if $\sigma_a$ is invertible then $(a,\sigma_a^{-1})$ is a $(S,\sigma)$-algebra.
+	commutes by the naturality of $\sigma$. Since $S$ is well pointed, this
+    implies $\sigma_a\cdot\alpha=S\alpha\cdot\sigma_{Sa}=S\alpha\cdot
+    \cdot S\sigma_a=S(\alpha\cdot\sigma_a)=S\id_a=\id_{Sa}$, therefore
+    $\alpha=\sigma_a^{-1}$. On the other hand, if $\sigma_a$ is invertible then
+    $(a,\sigma_a^{-1})$ is a $(S,\sigma)$-algebra.
 
-	If $f\colon a\to b$ is any morphism, and both $\sigma_a$ and $\sigma_b$ are invertible, then
+	If $f\colon a\to b$ is any morphism and both $\sigma_a$ and $\sigma_b$ are invertible, then
 	\[
 		\begin{tikzcd}
 			Sa\arrow["\sigma_a^{-1}"']{d}\arrow["Sf"]{r}
@@ -1613,7 +1656,9 @@ Kelly's main observation is that all above constructions can be reduced to the c
 	commutes by naturality of $\sigma$, so $U^S$ is full (being faithful by construction). It follows that $U^S\colon(S,\sigma)\Alg\to\{a\in\C\ |\ \sigma_a \ \text{is invertible}\}$ is bijective on objects and fully faithful, so it is an isomorphism.
 \end{proof}
 \begin{lemma}
-	Let $(S,\sigma)$ be a pointed endofunctor, then $U^S\colon(S,\sigma)\Alg\to\C$ is monadic if and only if it has a left adjoint.
+	If $(S,\sigma)$ be a pointed endofunctor, then
+    $U^S\colon(S,\sigma)\Alg\to\C$ is monadic if and only if it has a left
+    adjoint.
 \end{lemma}
 \begin{proof}
 	$U^S$ is conservative and creates all colimits preserved by $S$. In particular, it preserves coequalizers of $U^S$-split pairs.
@@ -1623,7 +1668,7 @@ Kelly's main observation is that all above constructions can be reduced to the c
 \end{defn}
 
 We will denote by $\Ord$ the category of ordinals. Furthermore, using
-the well-ordering principal, we can associate an ordinal to any cardinal.
+the well-ordering principle, we can associate an ordinal to any cardinal.
 Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
 (which also will be denoted by $\kappa$) will be a limit ordinal.
 
@@ -4299,7 +4344,7 @@ $[m]\rightarrow[n]+[0]$ in $\Delta_+$.
 
 We write $\Delta_\infty$ for this category.
 
-The structure of $\Delta_+$-module is given by ordinal 
+The structure of $\Delta_+$-module is given by ordinal
 ----- Insert pic -----
 
 $W$ is $\Delta_\infty$ with this $\Delta_+$-action. By construction, we get
