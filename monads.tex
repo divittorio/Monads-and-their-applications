@@ -1691,7 +1691,11 @@ Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
 		\end{tikzcd}
 	\]
 
-	Well pointedness gives us the upper equality and the diagram commutes, hence we get a cocone culminating in $S^\kappa c$, which will then factor uniquely through the cocone culminating in $S(S^\kappa c)$ as $\alpha\colon S(S^\kappa c)\rightarrow S^\kappa c$. By construction, the following diagram commutes and $l_{\mu+1}\sigma_{S^\mu c}=l_\mu$.
+	Well pointedness gives us the upper equality and the diagram commutes, hence
+    we get a cocone culminating in $S^\kappa c$, which will then factor uniquely
+    through the cocone culminating in $S(S^\kappa c)$ as $\alpha\colon
+    S(S^\kappa c)\rightarrow S^\kappa c$. By construction, the following diagram
+    commutes and $l_{\mu+1}\cdot\sigma_{S^\mu c}=l_\mu$.
 	\[
 		\begin{tikzcd}
 			S^\mu c\ar[r, "\sigma_{S^\mu c}"]\ar[d, "l_\mu"]
@@ -1702,23 +1706,43 @@ Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
 		\end{tikzcd}
 	\]
 
-	Passing to the colimit, this implies that $\alpha\sigma_{S^\kappa c}=\id_{S^\kappa c}$ because the $l_\mu$ on the left and $l_{\mu+1}\sigma_{S^\mu c}=l_\mu$ become identities, hence $(S^\kappa,\alpha)$ is indeed a $(S,\sigma)$-algebra.
+	Passing to the colimit, this implies that $\alpha\cdot\sigma_{S^\kappa
+    c}=\id_{S^\kappa c}$ because the $l_\mu$ on the left and therefore
+    $l_{\mu+1}\cdot\sigma_{S^\mu c}=l_\mu$ become identities, hence
+    $(S^\kappa c,\alpha)$ is indeed a $(S,\sigma)$-algebra.
 
-	We now claim that $l_0\colon c\rightarrow S^\kappa c$ defines a reflection into the full subcategory given by $\B\coloneqq\{c\in\C\ |\ \sigma_c\text{ is an isomorphism}\}$. Firstly, we have shown that $S^\kappa c\in\B$, hence we only need $l_0^*\colon\B(S^\kappa c,b)\rightarrow\C(c,b)$ to be a bijection for all $b\in\B$.
+	We now claim that $l_0\colon c\rightarrow S^\kappa c$ defines a reflection
+    into the full subcategory given by $\B\coloneqq\{c\in\C\ |\ \sigma_c\text{
+        is an isomorphism}\}$. Firstly, we have shown that $S^\kappa c\in\B$,
+    hence we only need $l_0^*\colon\B(S^\kappa c,b)\rightarrow\C(c,b)$ to be a
+    bijection for all $b\in\B$.
 
-	Since representable functors $\C(-,b)$ send colimits to limits, this immediately reduces to the following: given $b\in\B$, $c\in\C$, the map $\sigma^*_c\colon\C(Sc,b)\rightarrow\C(c,b)$ is a bijection.
+	Since representable functors $\C(-,b)$ send colimits to limits, this
+    immediately reduces to the following: given $b\in\B$, $c\in\C$, the map
+    $\sigma^*_c\colon\C(Sc,b)\rightarrow\C(c,b)$ is a bijection.
 
-	Using well pointedness, we can write the inverse to $\sigma^*_c$ as $\C(c,b)\rightarrow\C(c,b)$, $f\mapsto\sigma^{-1}_b Sf$.
+	Using well pointedness, we can write the inverse to $\sigma^*_c$ as
+    $\C(c,b)\rightarrow\C(c,b)$, $f\mapsto\sigma^{-1}_b\cdot Sf$.
 \end{proof}
 
 \begin{thm}
-	Let $\C$ be a cocomplete category, $F\colon\C\rightarrow\C$ an endofunctor. The slice category $(F\downarrow\C)$ is cocomplete. Moreover, all colimits preserved by $F$ are computed pointwise, that is $\colim_{\I}(a_i,b_i,\alpha_i\colon Fa_i\rightarrow b_i)=(\colim_{\I} a_i,\colim_{\I} b_i,\colim_{\I}\alpha_i\colon F(\colim_{\I} a_i)\rightarrow\colim_{\I} b_i)$.
+	Let $\C$ be a cocomplete category, $F\colon\C\rightarrow\C$ an endofunctor.
+    The comma category $(F\downarrow\C)$ is cocomplete. Moreover, all colimits
+    preserved by $F$ are computed pointwise, that is
+    $\colim_{\I}(a_i,b_i,\alpha_i\colon Fa_i\rightarrow b_i)=(\colim_{\I}
+    a_i,\colim_{\I} b_i,\colim_{\I}\alpha_i\colon F(\colim_{\I}
+    a_i)\rightarrow\colim_{\I} b_i)$.
 \end{thm}
 
 \begin{proof}
-	Giving a diagram $D\colon\I\rightarrow (F\downarrow\C)$ amounts to giving diagrams $a_\bullet\colon\I\rightarrow\C$, $b_\bullet\colon\I\rightarrow\C$ and a natural transformation $\alpha_\bullet\colon Fa_\bullet\Rightarrow b_\bullet$.
+	Giving a diagram $D\colon\I\rightarrow (F\downarrow\C)$ amounts to giving
+    diagrams $a_\bullet\colon\I\rightarrow\C$, $b_\bullet\colon\I\rightarrow\C$
+    and a natural transformation $\alpha_\bullet\colon Fa_\bullet\Rightarrow
+    b_\bullet$.
 
-	Giving a cocone on this with vertex $(c,d,\gamma\colon Fc\rightarrow d)$ is equivalent to giving morphisms $\colim_{\I}a_i\rightarrow c$, $\colim_{\I}b_i\rightarrow c$ such that the following diagram commutes for all $i$.
+	Giving a cocone on this with vertex $(c,d,\gamma\colon Fc\rightarrow d)$ is
+    equivalent to giving morphisms $\colim_{\I}a_i\rightarrow c$,
+    $\colim_{\I}b_i\rightarrow c$ such that the diagram
 	\[
 		\begin{tikzcd}
 			Fa_i\ar[r]\ar[d]
@@ -1729,8 +1753,10 @@ Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
 			& d
 		\end{tikzcd}
 	\]
+    commutes foe all $i$.
 
-	Equivalently, we can give a morphism $\colim_{\I}a_i\rightarrow c$ and a morphism from the pushout $p$ to $d$ making the following diagram commute.
+	Equivalently, we can give a morphism $\colim_{\I}a_i\rightarrow c$ and a
+    morphism from the pushout $p$ to $d$ making the following diagram commute.
 	\[
 		\begin{tikzcd}
 			\colim_{\I}Fa_i\ar[r]\ar[d, "\colim_{\I}\alpha_i"]
@@ -1742,19 +1768,35 @@ Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
 		\end{tikzcd}
 	\]
 
-	We have then the colimit $(\colim_{\I}a_i,p,F(\colim_{\I}\alpha_i)\rightarrow p)$ in $(F\downarrow\C)$. In particular, if $F$ preserves this colimit, then the top map $\colim_{\I}F(a_{i})\to F(\colim_{\I}a_i)$ is an isomorphism, in which case we may take $p=\colim_{\I}b_{i}$ and the identity as the map from $\colim_{\I}b_{i}$ to $p$.
+	We have then the colimit
+    $(\colim_{\I}a_i,p,F(\colim_{\I}\alpha_i)\rightarrow p)$ in
+    $(F\downarrow\C)$. In particular, if $F$ preserves this colimit, then the
+    top map $\colim_{\I}F(a_{i})\to F(\colim_{\I}a_i)$ is an isomorphism, in
+    which case we may take $p=\colim_{\I}b_{i}$ and the identity as the map from
+    $\colim_{\I}b_{i}$ to $p$.
 \end{proof}
 
 \begin{prop}
-	If in the theorem above $\C$ is locally presentable and $F$ is accessible, then $(F\downarrow\C)$ is locally presentable.
+	If in the theorem above $\C$ is locally presentable and $F$ is accessible,
+    then $(F\downarrow\C)$ is locally presentable.
 \end{prop}
 
 \begin{proof}
-	There exists a regular cardinal $\kappa$ such that $\C$ is locally $\kappa$-presentable and $F(\C_\lambda)\subset\C_\kappa$, with $F$ $\lambda$-accessible and $\lambda\leq\kappa$. We claim that the full subcategory $\A\coloneqq\{(a,b,\alpha\colon Fa\rightarrow b)\ |\ a\in\C_\lambda,\ b\in\C_\kappa\}$ is dense and consists of $\kappa$-presentable objects in $(F\downarrow\C)$.
+	There exists a regular cardinal $\kappa$ such that $\C$ is locally
+    $\kappa$-presentable and $F(\C_\lambda)\subset\C_\kappa$, with $F$
+    $\lambda$-accessible and $\lambda\leq\kappa$. We claim that the full
+    subcategory $\A\coloneqq\{(a,b,\alpha\colon Fa\rightarrow b)\ |\
+    a\in\C_\lambda,\ b\in\C_\kappa\}$ is dense and consists of
+    $\kappa$-presentable objects in $(F\downarrow\C)$.
 
-	The fact that it consists of $\kappa$-presentable objects follows from the facts that $\kappa$-filtered colimits in $(F\downarrow\C)$ are computed pointwise.
+	The fact that it consists of $\kappa$-presentable objects follows from the
+    facts that $\kappa$-filtered colimits in $(F\downarrow\C)$ are computed
+    pointwise.
 
-	To prove density, we want that for each $(c,d,\gamma\colon Fc\rightarrow d)$ the canonical cocone $(\A\downarrow (c,d,\gamma))$ exhibits $(c,d,\gamma)$ as a colimit. In the arrow category $[[1],\C]$, $Fc\rightarrow d$ is a colimit of all $\kappa$-presentable pairs $c_0,c_1\in\C_\lambda$.
+	To prove density, we want that for each $(c,d,\gamma\colon Fc\rightarrow d)$
+    the canonical cocone $(\A\downarrow (c,d,\gamma))$ exhibits $(c,d,\gamma)$
+    as a colimit. In the arrow category $\cC^{[1]}$, $Fc\rightarrow d$ is a
+    colimit of all $\kappa$-presentable pairs $c_0,c_1\in\C_\lambda$.
 	\[
 		\begin{tikzcd}
 			c_0\ar[d]\ar[r]
@@ -1764,9 +1806,13 @@ Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
 		\end{tikzcd}
 	\]
 
-	We need to check that the natural functor $(\A\downarrow (c,d,\gamma))\rightarrow ([[1],\C]_\lambda\downarrow\gamma)$ is final.
+	We need to check that the natural functor $(\A\downarrow
+    (c,d,\gamma))\rightarrow ((\cC^{[1]})_\lambda\downarrow\gamma)$ is final.
 
-	Check for yourself that the category $([[1],\C]_\lambda\downarrow\gamma)$ we are considering is actually filtered and specifically can always find a pair of morphisms completing the following commutative diagram, where $Fa\rightarrow b$ comes from $\A$.
+	Check for yourself that the category $((\cC^{[1]})_\lambda\downarrow\gamma)$
+    we are considering is actually filtered and specifically can always find a
+    pair of morphisms completing the following commutative diagram, where
+    $Fa\rightarrow b$ comes from $\A$.
 	\[
 		\begin{tikzcd}
 			& Fa\ar[dr]\ar[dd] \\
@@ -1778,14 +1824,18 @@ Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
 		\end{tikzcd}
 	\]
 
-	The codomains form a colimit diagram in $\C$, hence we are left with checking that the domains form a colimit diagram as well. To do this, we use the fact that $(\C_\lambda\downarrow c)\rightarrow\C$ has colimit $c$ and an argument similar to the previous one.
+	The codomains form a colimit diagram in $\C$, hence we are left with
+    checking that the domains form a colimit diagram as well. To do this, we use
+    the fact that $(\C_\lambda\downarrow c)\rightarrow\C$ has colimit $c$ and an
+    argument similar to the previous one.
 \end{proof}
 
 \section{Algebraically free Monads on a pointed Endofunctor}
 
 Let $ T\from \C \to \C $ a $ \kappa $-accessible endofunctor, with $ \C $ cocomplete.
-As we have already shown, the category $ (T \downarrow \C )$ is cocomplete and $ \kappa $-filtered colimits in $ (T\downarrow\C) $ are computed objectwise.
-Given a natural transformation $ \alpha \from T' \to T $, we get an adjunction
+As we have already shown, the category $ (T \downarrow \C )$ is cocomplete and $
+\kappa $-filtered colimits in $ (T\downarrow\C) $ are computed objectwise.
+Given a natural transformation $ \alpha \from T' \Rightarrow T $, we get an adjunction
 \begin{displaymath}
 	\begin{tikzcd}
 		(T' \downarrow \C) \arrow[r, "\alpha_!", bend left=20]
@@ -1794,25 +1844,28 @@ Given a natural transformation $ \alpha \from T' \to T $, we get an adjunction
 		& (T \downarrow \C)
 	\end{tikzcd}
 \end{displaymath}
-where $ \alpha^*(a,b,Ta \xrightarrow{\gamma} b) = (a,b,T'a \to Ta \xrightarrow{\gamma} b) $
-and $ \alpha_! $ is given by the pushout
+where $\alpha^*(a,b,Ta\xrightarrow{\gamma}b)=(a,b,T'a\xrightarrow{\alpha_a}Ta\xrightarrow{\gamma}b)$
+and $\alpha_!$ is given by the pushout
 \begin{displaymath}
 	\begin{tikzcd}
-		&[-3.3em]T'a \arrow[r,"\beta"]\arrow[d,"\alpha_a"]& b\arrow[d]\\
-		\alpha_!(a,b,\beta)= (&	Ta \arrow[r, "\gamma"] & c)
-	\end{tikzcd}
+		T'a \arrow[r,"\beta"]\arrow[d,"\alpha_a"]& b\arrow[d]\\
+		Ta \arrow[r, "\gamma"] & c
+	\end{tikzcd},
 \end{displaymath}
+that is $\alpha_!(a,b,\beta)= (Ta\xrightarrow{\gamma} c)$.
 If $ T,T' $ are $ \kappa $-accessible, then $ \alpha ^* $ is $ \kappa $-accessible.
-If we apply this to the case $ T' = \id_{\C} $, $ \alpha=\tau\from \id_{\C} \to T $, then $ (\id_{\C} \downarrow C = \C ^{[1]}) $ is the arrow category, and
-$ \tau^* $ sends $ (a,b,Ta \xrightarrow{\alpha}b) $ to $ a \to Ta \to b $.
-
+If we apply this to the case $ T' = \id_{\C} $, $ \alpha=\tau\from \id_{\C} \to
+T$, then $(\id_\cC\downarrow\cC)=\cC ^{[1]}$ is the arrow category, and
+$ \tau^* $ sends $ (a,b,Ta \xrightarrow{\gamma}b) $ to $ a
+\xrightarrow{\alpha_a} Ta \xrightarrow{\gamma} b $.
 Now use exercise 5.1.
+
 \begin{prop}
 	If
 	\begin{displaymath}
 		\begin{tikzcd}
-			\D \arrow[r, "F", bend left=20]
-			\arrow[from=r, "U", bend left=20]
+			\D \arrow[r, "F", shift left=.1em, bend left=30]
+			\arrow[from=r, "U", shift left=.1em, bend left=30]
 			\arrow[r, phantom, "\bot"]
 			& \C
 		\end{tikzcd}
@@ -1853,11 +1906,12 @@ Now use exercise 5.1.
 			b\arrow[r,"\tau_b"'] & Tb \arrow[r, "\beta"']& b
 		\end{tikzcd}
 	\end{displaymath}
-	Since $ (a,\alpha) $ and $ (b,\beta) $ are algebras, we have $ \beta\tau_b = \id_b $ and $ \alpha \tau_a = \id_a $.
+	Since $(a,\alpha)$ and $(b,\beta)$ are algebras, we have
+    $\beta\cdot\tau_b=\id_b$ and $\alpha\cdot\tau_a=\id_a$.
 	It immediately follows that $ f = g $.
 	Moreover, the essential image of this functor is
 	\begin{displaymath}
-		\{(a,b,\gamma)\in (T\downarrow\C)\ |\ \gamma\tau_a \text{ is an isomorphism}\}
+		\{(a,b,\gamma)\in (T\downarrow\C)\ |\ \gamma\cdot\tau_a \text{ is an isomorphism}\}
 	\end{displaymath}
 	Apply the previous proposition to the pullback
 	\begin{displaymath}
@@ -1881,18 +1935,24 @@ Now use exercise 5.1.
 		\end{tikzcd}
 	\end{displaymath}
 	and $ (T,\tau)\Alg \to \C $ has a left adjoint.
-	We only need to a left adjoint to $ \dom $ which is given by $ c \mapsto (c,Tc, \id_{Tc}) $.
+	To show this, we only need to find a left adjoint to $ \dom $ which is given
+    by $ c \mapsto (c,Tc, \id_{Tc}) $.
 \end{proof}
+
 \begin{thm}
-	Let $ \C $ a cocomplete category and $ F $ a $ \kappa $-accessible endofunctor.
-	The category $ F\Alg $ is cocomplete and the algebraically free monad on $ F $ exists, that is the functor
-	$ U^F \from F\Alg \to \C $ has a left adjoint.
+	Let $ \C $ be a cocomplete category and $ F $ a $ \kappa $-accessible
+    endofunctor. The category $ F\Alg $ is cocomplete and the algebraically free
+    monad on $ F $ exists, that is the functor $U^F \from F\Alg \to \C $ has a
+    left adjoint.
 \end{thm}
 \begin{proof}
-	Let $ T $ be the coproduct $ F + \id_{\C} $ and $ \tau\from \id_{\C} \to F+\id_{\C} $ the inclusion.
-	Then $  (T,\tau)\Alg \cong F\Alg $ is an isomorphism which is compatible with the forgetful functors.
+	Let $ T $ be the coproduct $ F + \id_{\C} $ and $ \tau\from
+    \id_{\C}\Rightarrow F+\id_{\C} $ the inclusion.	Then $  (T,\tau)\Alg \cong
+    F\Alg $ is an isomorphism which is compatible with the forgetful functors.
 \end{proof}
-For example, we can easily prove the following
+
+For example, we can easily prove the following.
+
 \begin{prop}
 	Let $ \cC $ be a locally $ \kappa $-presentable category and $ T \from \C
 		\to \C $ $ \kappa $-accessible. Then $ (T\downarrow\C) $ is locally $ \kappa
@@ -1915,9 +1975,13 @@ For example, we can easily prove the following
 		T\alpha \cdot \tau_{Ta} $ (see the exercises for more details).
 \end{rmk}
 \begin{prop}
-	Let $ (S,\sigma) $ be a well-pointed endofunctor on $ \C $ and let $ L\from \C \to \C $ be a functor.
-	If $ \pi \from S \to L $ is a natural transformation such that $ \pi_c \from
-		Sc \to Lc $ is epic for all $ c\in\C $, the $ (L,\pi\cdot \sigma) $ is a well-pointed endofunctor and $ (L,\pi\sigma)\Alg $ is equivalent to the full subcategory of $ (S,\sigma)\Alg $ on objects $ (a,\alpha) $ such that $ \pi_a\colon Sa \to La $ is an isomorphism.
+	Let $(S,\sigma)$ be a well-pointed endofunctor on $\C$ and let
+    $L\from\C\to\C$ be a functor.
+	If $\pi\from S\to L$ is a natural transformation such that $\pi_c\from
+	Sc\to Lc$ is epic for all $c\in\C$, then $(L,\pi\cdot\sigma) $ is
+    a well pointed endofunctor and $(L,\pi\sigma)\Alg$ is equivalent to
+    the full subcategory of $(S,\sigma)\Alg$ on objects $(a,\alpha)$
+    such that $\pi_a\colon Sa\to La$ is an isomorphism.
 \end{prop}
 \begin{proof}
 	Exercise.
@@ -1990,11 +2054,18 @@ We have the following result as a consequence.
 	We have shown that $\{(Ta,\mu_a)\ |\ a\in\C_\kappa\}$ is a dense generating system of $\kappa$-presentable objects, hence the claim follows from the fact that $T\Alg$ is cocomplete.
 \end{proof}
 
-\chapter{Monads in 2-category theory}
-
 \section{Monads are monadic}
 
-Given an endofunctor $F\colon\C\rightarrow\C$, an algebraically free monad on $F$ exists if $U^F\colon F\Alg\rightarrow\C$ has a left adjoint $F^F\colon\C\rightarrow F\Alg$. We write then $T(F)=(U^FF^F,\eta,U^F\epsilon F^F)$ for the resulting monad. From Beck's theorem, we know that $J\colon F\Alg\rightarrow T(F)\Alg$, $(a,\alpha)\mapsto (U^F(a,\alpha)=a,U^F\epsilon_{(a,\alpha)})$ is an equivalence of categories. We also have a natural transformation $\psi\colon F\Rightarrow T(F)$ corresponding via adjunction to $\alpha\colon FU^F\Rightarrow U^F$. This gives us a functor $\psi^*\colon T(F)\Alg\rightarrow F\Alg$, $(a,\alpha)\mapsto (a,\alpha\psi_a)$ such that $\psi^* J=\id_{F\Alg}$. We have the following result.
+Given an endofunctor $F\colon\C\rightarrow\C$, an algebraically free monad on
+$F$ exists if $U^F\colon F\Alg\rightarrow\C$ has a left adjoint
+$F^F\colon\C\rightarrow F\Alg$. We write then $T(F)=(U^FF^F,U^F\epsilon
+F^F,\eta)$ for the resulting monad. From Beck's theorem, we know that $J\colon
+F\Alg\rightarrow T(F)\Alg$, $(a,\alpha)\mapsto
+(U^F(a,\alpha)=a,U^F\epsilon_{(a,\alpha)})$ is an equivalence of categories. We
+also have a natural transformation $\psi\colon F\Rightarrow T(F)$ corresponding
+via adjunction to $\alpha\colon FU^F\Rightarrow U^F$. This gives us a functor
+$\psi^*\colon T(F)\Alg\rightarrow F\Alg$, $(a,\alpha)\mapsto (a,\alpha\psi_a)$
+such that $\psi^* J=\id_{F\Alg}$. We have the following result.
 
 \begin{prop}
 	In the described situation, $\psi^*$ is an isomorphism of categories.
@@ -2005,7 +2076,9 @@ Given an endofunctor $F\colon\C\rightarrow\C$, an algebraically free monad on $F
 \end{proof}
 
 \begin{defn}
-	A \emph{morphism of monads} $(T,\mu,\eta)\rightarrow (T',\eta',\mu')$ over a category $\C$ is a natural transformation $\phi\colon T\Rightarrow T'$ making the following diagrams commute.
+	A \emph{morphism of monads} $(T,\mu,\eta)\rightarrow (T',\mu',\eta')$ over a
+    category $\C$ is a natural transformation $\phi\colon T\Rightarrow T'$
+    making the following diagrams commute.
 	\[
 		\begin{tikzcd}
 			T^2\ar[d, Rightarrow, "\mu"]\ar[r, Rightarrow, "\phi^2"]
@@ -2020,7 +2093,7 @@ Given an endofunctor $F\colon\C\rightarrow\C$, an algebraically free monad on $F
 			& T'
 		\end{tikzcd}
 	\]
-	The first diagram is equivalent to equating the following two.
+	The first diagram is equivalent to equating the following 2-cells.
 	\[
 		\begin{minipage}{0.3\linewidth}
 			\begin{tikzcd}
@@ -2045,7 +2118,8 @@ Given an endofunctor $F\colon\C\rightarrow\C$, an algebraically free monad on $F
 			\end{tikzcd}
 		\end{minipage}
 	\]
-	The second diagram amounts saying that the following two are equal.
+	Likewise, the second diagram amounts saying that the following two 2-cells
+    are equal.
 	\[
 		\begin{minipage}{0.3\linewidth}
 			\begin{tikzcd}[row sep=1cm, column sep=1cm]
@@ -2076,14 +2150,17 @@ Given an endofunctor $F\colon\C\rightarrow\C$, an algebraically free monad on $F
 		(T,\mu,\eta)   & \mapsto(U^F\colon T\Alg\rightarrow\C)               \\
 		\phi           & \mapsto\left(\begin{aligned}
 				\phi^*\colon T'\Alg & \rightarrow T\Alg        \\
-				(a,\alpha)          & \mapsto (a,\alpha\phi_a)
+				(a,\alpha)          & \mapsto (a,\alpha\cdot\phi_a)
 			\end{aligned}\right)
 	\end{align*}
 	is fully faithful.
 \end{prop}
 
 \begin{proof}
-	Prove by yourself that this is a functor. Consider then two monads $T$, $T'$ over $\C$. Giving a functor making the following diagram commute amounts to giving an action on $U^{T'}$, that is $\rho\colon TU^{T'}\Rightarrow U^{T'}$.
+	Prove by yourself that this is a functor. Consider then two monads $T$, $T'$
+    over $\C$. Giving a functor making the following diagram commute amounts to
+    giving a $T$-action on $U^{T'}$, that is a natural transformation
+    $\rho\colon TU^{T'}\Rightarrow U^{T'}$ making the known diagrams commute.
 	\[
 		\begin{tikzcd}[column sep=tiny]
 			T'\Alg\ar[rr]\ar[dr, swap, "U^{T'}"]
@@ -2099,11 +2176,11 @@ Given an endofunctor $F\colon\C\rightarrow\C$, an algebraically free monad on $F
 \end{prop}
 
 \begin{proof}
-	Consider the following commutative diagram. We want to prove that the horizontal arrows and the one on the right are bijection, which will give us the thesis.
+	Consider the diagram
 
 	\begin{center}
 		\begin{tikzcd}
-			\Mnd(\C)(T(F),T)\ar[r, "\cong"]\ar[d, "\psi^*"'] & {\left\{
+            \Mnd(\C)^{\op}(T(F),T)\ar[r, "\cong"]\ar[d, "\psi^*"'] & {\left\{
 					\begin{tikzpicture}[x=4mm,y=4mm,baseline={([yshift=-.5ex]current bounding box.center)}]
 						\node (C) {$\mathcal C$};
 						\node[above left=5mm and 5mm of C] (TAlg) {$T\Alg$};
@@ -2113,7 +2190,7 @@ Given an endofunctor $F\colon\C\rightarrow\C$, an algebraically free monad on $F
 						\draw[->] (TFAlg) -- (C);
 					\end{tikzpicture}
 					\right\}}\ar[d, "\cong"',"\text{compose with } \psi^*\colon T(F)\Alg\xrightarrow{\sim} F\Alg"] \\
-			\lbrack\C,\C\rbrack(F,T) \ar[r] & {\left\{
+            \lbrack\C,\C\rbrack^{\op}(F,T) \ar[r] & {\left\{
 					\begin{tikzpicture}[x=4mm,y=4mm,baseline={([yshift=-.5ex]current bounding box.center)}]
 						\node (C) {$\mathcal C$};
 						\node[above left=5mm and 5mm of C] (TAlg) {$T\Alg$};
@@ -2130,8 +2207,11 @@ Given an endofunctor $F\colon\C\rightarrow\C$, an algebraically free monad on $F
 					\end{aligned}}
 		\end{tikzcd}
 	\end{center}
-
-	The diagram commutes by Yoneda, while the top map is a bijection by the previous proposition and the one on the right is a bijection given by composing with $\psi^*\colon T(F)\Alg\xrightarrow{\sim}F\Alg$.
+    which commutes by Yoneda. We want to prove that the horizontal arrows and
+    the one on the right are bijective, which will give us the thesis.
+    The top map is a bijection by the previous
+    proposition and the one on the right is a bijection given by composing with
+    $\psi^*\colon T(F)\Alg\xrightarrow{\sim}F\Alg$.
 
 	Notice that giving the following commutative diagram amounts to giving a natural transformation $\rho\colon FG\Rightarrow G$ without requiring any additional property.
 	\[
@@ -2157,7 +2237,7 @@ Given an endofunctor $F\colon\C\rightarrow\C$, an algebraically free monad on $F
 	$F \mapsto F \circ F$ and $F \mapsto F \circ F \circ F$. Now for a coequalizer
 	\begin{center}
 		\begin{tikzcd}
-			UT_{1} \arrow[r, shift left] \arrow[r, shift right] & UT_{2} \arrow[l] \arrow[r] & T'
+			UT_{1} \arrow[r, shift left=.3em] \arrow[r, shift right=.3em] & UT_{2} \arrow[l] \arrow[r] & T'
 		\end{tikzcd}
 	\end{center}
 	of such a $U$-split reflexive pair, the diagram
@@ -2170,27 +2250,28 @@ Given an endofunctor $F\colon\C\rightarrow\C$, an algebraically free monad on $F
 	$T' \circ T' \circ T'$ as a coequalizer and verify the associativity. Also the unit $\eta \from \id \Rightarrow T'$ can be constructed this way, such that the unit law
 	holds. Thus we have constructed a coequalizer in $\Mnd_{\kappa}(\C)$ and $U$ is monadic.
 
-	To see the second claim, it remains to show, that $U$ preserves
+	To get the second claim, it remains to show that $U$ preserves
 	$\kappa$-filtered colimits. Note again, that for any $F \in [\C,\C]_{\kappa}$ pre-composition with $F$ preserves all colimits, since those are computed point wise,
 	and post-composition preserves $\kappa$-filtered colimits, since $F$ is $\kappa$-accessible.  Thus, since $\kappa$-filtered colimits are sifted, the functor
-	$[\C,\C]_{\kappa} \times [\C,\C]_{\kappa} \to [\C,\C]_{\kappa}$ given by composition preserves such. So again we conclude, that the functors given by the
-	assignments $F \mapsto F \circ F$ and $F \mapsto F \circ F \circ F$ preserve $\kappa$-filtered colimits and use the same arguments as above to see, that
+	$[\C,\C]_{\kappa} \times [\C,\C]_{\kappa} \to [\C,\C]_{\kappa}$ given by
+    composition preserves them, hence we conclude that the functors given by the
+	assignments $F \mapsto F \circ F$ and $F \mapsto F \circ F \circ F$ preserve $\kappa$-filtered colimits and use the same arguments as above to see that
 	$U$ creates $\kappa$-filtered colimits.
 \end{proof}
 
 \begin{prop}
 	Let $\C$ be locally $\kappa$-presentable. Then the functor
 	\begin{equation*}
-		(\_)\Alg \from \Mnd_{\kappa}(\C)^{\op} \to (\CAT \downarrow \C)
+		(_)\Alg \from \Mnd_{\kappa}(\C)^{\op} \to (\CAT \downarrow \C)
 	\end{equation*}
-	preserves limits. That is, sends colimits in $\Mnd_{\kappa}(\C)$ to limits.
+	preserves limits. That is, it sends colimits in $\Mnd_{\kappa}(\C)$ to limits.
 \end{prop}
 
 The following proof uses a generalisation of the endomorphism monad $\langle b,b\rangle$ on an object $b \in \C$, which was discussed in the exercise class.
 We will prove the details in use later, but give an idea why the statement holds.
 
 \begin{proof}
-	Recall, that this endomorphism monad was given by $\Ran_{b}b \from \C \to \C$. Similarly, given tow objects $a,b \in \C$, one can construct a monad
+	Recall that this endomorphism monad was given by $\Ran_{b}b \from \C \to \C$. Similarly, given tow objects $a,b \in \C$, one can construct a monad
 	$\langle a,b\rangle$ given by the right Kan extension of $b$ along $a$.
 	\begin{center}
 		\begin{tikzcd}[row sep=small]
@@ -2200,30 +2281,36 @@ We will prove the details in use later, but give an idea why the statement holds
 		\end{tikzcd}
 	\end{center}
 	Furthermore a morphism $f \from a \to b$ gives natural transformations $\langle a,f \rangle \from \langle a,a \rangle \to \langle a,b \rangle$ and
-	$\langle f,b \rangle \from \langle b,b \rangle \to \langle a,b \rangle$. Now, just by unveiling the definitions, on checks, that giving a morphism of monads
-	$T \Rightarrow \langle a,a \rangle$ is equivalent to giving a $T$-algebra structure on a. Moreover the pullback
+	$\langle f,b \rangle \from \langle b,b \rangle \to \langle a,b \rangle$.
+    Now, just by unveiling the definitions, one checks that giving a morphism of monads
+	$T \Rightarrow \langle a,a \rangle$ is equivalent to giving a $T$-algebra
+    structure on a. Moreover, the pullback
 	\begin{center}
 		\begin{tikzcd}
 			\langle f,f \rangle \arrow[r] \arrow[d] & \langle b,b \rangle \arrow[d] \\
 			\langle a,a \rangle \arrow[r] & \langle a,b \rangle
 		\end{tikzcd}
 	\end{center}
-	induced by a morphism $f \from a \to b$, also gives a monad, such that, for fixed $T$-algebra structures $T \Rightarrow \langle a,a \rangle$ and
-	$T \Rightarrow \langle b,b \rangle$, there exists am morphism of monads $T \Rightarrow \langle f,f \rangle$, if and only if $f$ is a morphism of $T$-algebras.
-	Now, we claim there also exist $\kappa$-accessible monads $\langle a,a \rangle_{\kappa}$ and $\langle f,f \rangle_{\kappa}$, having the property, that
-	for any $\kappa$-accessible monad $T$, there is a natural isomorphism
+	induced by a morphism $f \from a \to b$ also gives a monad such that, for fixed $T$-algebra structures $T \Rightarrow \langle a,a \rangle$ and
+	$T \Rightarrow \langle b,b \rangle$, there exists a morphism of monads $T
+    \Rightarrow \langle f,f \rangle$ if and only if $f$ is a morphism of
+    $T$-algebras.
+	Now we claim there also exist $\kappa$-accessible monads $\langle a,a
+    \rangle_{\kappa}$ and $\langle f,f \rangle_{\kappa}$ having the property
+    that for any $\kappa$-accessible monad $T$ there is a natural isomorphism
 	\begin{equation*}
 		\Mnd_{\kappa}(\C)(T,\langle a,a \rangle_{\kappa}) \iso \Mnd (\C)(T,\langle a,a \rangle)
 	\end{equation*}
-	(similarly for $\langle f,f \rangle_{\kappa}$). The construction of those will be given later in the lecture. Unveiling the constructions given above, one sees that
-	giving an object in $(\colim T_{i})\Alg$ is equivalent to giving a compatible system of $T_{i}$-algebra structures on a fixed object $a \in \C$. This shows
-	$(\colim T_{i})\Alg \iso \lim (T_{i}\Alg)$ in $(\CAT\downarrow\C)$.
+	(similarly for $\langle f,f \rangle_{\kappa}$). The construction of those
+    will be given later in the lecture. Unraveling the constructions given above, one sees that
+	giving an object in $(\colim_\cI T_{i})\Alg$ is equivalent to giving a compatible system of $T_{i}$-algebra structures on a fixed object $a \in \C$. This shows
+	$(\colim_\cI T_{i})\Alg \iso \lim_\cI (T_{i}\Alg)$ in $(\CAT\downarrow\C)$.
 \end{proof}
 
 Now we can use this proposition to construct monads via presentations.
 
 \begin{exmp}
-	Let $\E$ be a locally presentable cartesian closed category, that is there is a product functor $\_ \times X \from \E \to \E$, which has a right adjoint for
+	Let $\E$ be a locally presentable cartesian closed category, that is there is a product functor $_ \times X \from \E \to \E$ which has a right adjoint for
 	all $X \in \E$. Now we start with the endofunctor $F_{1} \from \E \to \E$ given by the assignment $X \mapsto X \times X + X$. So the category of
 	$F_{1}\Alg$ is given by the following data
 	\begin{equation*}
@@ -2245,29 +2332,37 @@ Now we can use this proposition to construct monads via presentations.
 		G_{1}(X,m,e) = (X, m \circ m \times X, m \circ e \times X, m \circ X \times e) \\
 		G_{2}(X,m,e) = (X, m \circ X \times m, \id_{X}, \id_{X})
 	\end{align*}
-	By fullness and faithfulness of $(\_)\Alg$, we get monad morphisms $\varphi_{1},\varphi_{2} \from T(F_{2}) \to T(F_{1})$, inducing $G_{1}$ and $G_{2}$ up to
-	isomorphism ($G_{1} = \varphi_{1}^{\ast},G_{2} = \varphi_{2}^{\ast}$). Now the coequalizer $T_{mon}$ of $\varphi_{1}$ and $\varphi_{2}$ has algebras
-	isomorphic to the equalizer of $G_{1}$ and $G_{2}$. So is gives the data of a monoid object in $\E$
+	By fullness and faithfulness of $(_)\Alg$, we get monad morphisms
+    $\varphi_{1},\varphi_{2} \from T(F_{2}) \to T(F_{1})$, inducing $G_{1}$ and
+    $G_{2}$ up to isomorphism ($G_{1} = \varphi_{1}^{\ast},G_{2} =
+    \varphi_{2}^{\ast}$). Now the coequalizer $T_{mon}$ of $\varphi_{1}$ and
+    $\varphi_{2}$ has algebras isomorphic to the equalizer of $G_{1}$ and
+    $G_{2}$, thus this is gives the data of a monoid object in $\E$
 	\begin{equation*}
-		T_{mon}\Alg = \set{(X,m,e)}{m \circ m \times X = m \circ X \times e, m \circ e \times X = \id_{X}, m \circ X \times e = \id_{X}}
+		T_{mon}\Alg = \set{(X,m,e)}{m \circ m \times X = m \circ X \times e, m
+        \circ e \times X = \id_{X}, m \circ X \times e = \id_{X}}.
 	\end{equation*}
 \end{exmp}
 
 \begin{exmp}
-	In the exercise classes, we will see $\Cat$, the category of small categories and functors, is locally finitely presentable. Let $\D = \{0 \rightrightarrows 1\}$ be
-	the category with two objects and two non trivial parallel morphisms. We now want to show, that small categories with chosen coequalizers are monadic.
-	First we take the endofunctor $F_{1} \from \Cat \to \Cat$ given by $\C \mapsto [\C,\D]$ and obtain
+	In the exercise classes we will see $\Cat$ is locally finitely presentable.
+    Let $\D = \{0 \rightrightarrows 1\}$ be the category with two objects and
+    two non trivial parallel morphisms. We now want to show that small
+    categories with chosen coequalizers are monadic. First we take the
+    endofunctor $F_{1} \from \Cat \to \Cat$ given by $\C \mapsto [\C,\D]$ and
+    obtain
 	\begin{equation*}
 		F_{1}\Alg = \{(\C,l \from [\C,\D] \to \C)\}
 	\end{equation*}
-	We now want to say, that such a $l$ is left adjoint to the constant diagram functor $c \from \C \to [\C,\D]$. For this we need unit $\eta$ and counit $\varepsilon$.
-	To construct them we use the arrow category $[1]$, since to give a natural transformation
+	We want to say that such a $l$ is left adjoint to the constant diagram functor $c \from \C \to [\C,\D]$. For this we need unit $\eta$ and counit $\varepsilon$.
+	To construct them we use the arrow category $[1]$, since giving a natural transformation
 	\begin{center}
 		\begin{tikzcd}
-			\C \arrow[r, bend left, "f", ""{name=U, below}] \arrow[r, bend right, "g"', ""{name=H}] & \D \arrow[Rightarrow, from=U, to=H]
+			\C \arrow[r, bend left=30, "f", ""{name=U, below}] \arrow[r, bend
+            right=30, "g"', ""{name=H}] & \D \arrow[Rightarrow, from=U, to=H]
 		\end{tikzcd}
 	\end{center}
-	it amounts to give a homotopy
+	amounts to giving a commutative diagram
 	\begin{center}
 		\begin{tikzcd}
 			\C \arrow[rd, bend left, "f"] \arrow[d] & \\
@@ -2279,10 +2374,13 @@ Now we can use this proposition to construct monads via presentations.
 	$\eta \from [\D,\C] \times [1] \to [\D,\C]$, there has to be done a bit more. But the functor $[\D,\_]$ is right adjoint to $\_\times \D$ and via this adjunction
 	such a morphism corresponds to $[\D,\C] \times [1] \times \D \to \C$. So we can get the unit using the endofunctor given by
 	$F_{3}(\C) = [\D,\C] \times [1] \times \D$. Now we can express, having "same" natural transformations with desired source and target via equalizers of
-	$(\_)\Alg$. Also the $\Delta$-identities then can be expressed in a second coequalizer step. But in this construction the following problem appears: Since
+	$(\_)\Alg$. Also the $\Delta$-identities then can be expressed in a second
+    coequalizer step. But in this construction the following problem appears: since
 	the morphisms preserve the chosen coequalizers on the nose, they will rarely arise in nature.
 \end{exmp}
 
+
+\chapter{Monads in 2-category theory}
 
 \section{Symmetric monoidal categories}
 
@@ -2304,7 +2402,11 @@ Now we can use this proposition to construct monads via presentations.
 			& X\otimes Y
 		\end{tikzcd}
 	\]
-	commute. We call $\otimes$ the \emph{tensor product}, $I$ the \emph{unit object} or \emph{tensor unit}, $\alpha$ the \emph{associator}, $\lambda$ the \emph{left unitor} and $\rho$ the \emph{right unitor}.
+	commute. We call $\otimes$ the \emph{tensor product}, $I$ the \emph{unit
+    object} or \emph{tensor unit}, $\alpha$ the \emph{associator}, $\lambda$ the
+    \emph{left unitor} and $\rho$ the \emph{right unitor}. For convenience, we
+    shall denote $-\otimes\id_X$ and $\id_X\otimes -$ by $-\otimes X$ and
+    $X\otimes-$ respectively.
 \end{defn}
 
 \begin{exmp}
@@ -2313,7 +2415,9 @@ Now we can use this proposition to construct monads via presentations.
 		\item If $\E$ is a category with finite products, then $(\E,\times,*)$ is monoidal, with $\alpha$, $\lambda$ and $\rho$ induced by the universal property. Instances of this are $\Set$, $\Cat$, $\Grp$, $\sSet$, $\Top$, $\mathbf{CGTop}$ and $\mathbf{CGHTop}$.
 		\item $(\Ab,\otimes_{\Z},\Z)$ and, given a commutative ring $R$, $(\Mod_R,\otimes_R,R)$ and $(\dgMod_R,\otimes_R,R)$.
 		\item The order $\overline{\R}_+=[0,\infty]$ with $\otimes=+$, $I=0$.
-		\item A monoid in $\Cat$ or $\CAT$ is a monoidal category such that $\alpha$, $\lambda$ and $\rho$ are identities. This is the case of $[\C,\C]$, $[\C,\C]_\kappa$, $\Phi\Cocts[\C,\C]$.
+		\item A monoid in $\Cat$ or $\CAT$ is a monoidal category such that
+            $\alpha$, $\lambda$ and $\rho$ are identities. This is the case of
+            $[\C,\C]$, $[\C,\C]_\kappa$ and $\Phi\Cocts[\C,\C]$.
 	\end{enumerate}
 \end{exmp}
 
@@ -2323,7 +2427,11 @@ We mention without proof the following fundamental theorem.
 	Any diagram built from $\otimes$, $I$, $\alpha$, $\lambda$, $\rho$ and their iterations is commutative.
 \end{thm}
 
-Given a word of objects tensored among them, any two choices of bracketing are uniquely isomorphic. This result is plausible if $\otimes$ is derived from an universal property as in $(1)-(3)$ and clear if $\V$ is strict, like in $(3)$ and $(4)$, while the general proof uses a rewriting argument which can be found in \cite{MacLane2}.
+Given a word of objects tensored among them, any two choices of bracketing are
+uniquely isomorphic. This result is plausible if $\otimes$ is derived from an
+universal property as in $(1)-(3)$ and clear if $\V$ is strict (that is the
+natural isomorphisms are identities), like in $(3)$ and $(4)$, while the general
+proof uses a rewriting argument which can be found in \cite{MacLane2}.
 
 \begin{defn}
 	A \emph{lax monoidal functor} from $\cV$ to $\cW$ is a triple $(F,\phi_0,\phi)$, where $F\colon\V\rightarrow\W$ is a functor, $\phi_0\colon I_{\W}\rightarrow FI_{\V}$ a morphism and $\phi\colon\otimes_{\W}\circ(F\times F)\Rightarrow F\circ\otimes_{\W}$ a natural transformation such that for all $X,Y,Z\in\V$ the diagrams
@@ -2356,7 +2464,7 @@ Given a word of objects tensored among them, any two choices of bracketing are u
 
 	If we reverse the direction of $\phi_0$ and $\phi$ we get \emph{oplax monoidal functors}.
 
-	A \emph{strong (strict) monoidal functor} is a lax monoidal functor such that $\phi_0$ and $\phi$ are isomorphisms (respectively identities).
+	A \emph{strong (strict) monoidal functor} is a lax monoidal functor such that $\phi_0$ and $\phi$ are isomorphisms (identities).
 
 	A \emph{monoidal natural transformation} from $(F,\phi_0,\phi)$ to $(G,\psi_0,\psi)$ is a natural transformation $\gamma\colon F\Rightarrow G$ such that the diagrams
 	\[
@@ -2405,11 +2513,11 @@ The previous example is an instance of a more general phenomenon, as shown by th
 			& UI_{\W}
 		\end{tikzcd}
 		\quad
-		\begin{tikzcd}
-			UX\otimes_{\V}UY\ar[r, "\psi_{X,Y}"]\ar[d, "U(\epsilon_X\otimes_{\V}\epsilon_Y)"]
+        \begin{tikzcd}[column sep=4em]
+            UX\otimes_{\V}UY\ar[r, "\psi_{X,Y}"]\ar[d, "\eta_{UX\otimes_{\V}UY}"]
 			& U(X\otimes_{\V}Y) \\
-			UF(UX\otimes_{\V}UY)\ar[r, "U\phi^{-1}_{X,Y}", swap]
-			& U(FUX\otimes_{\W}FUY)\ar[u, "\eta_{UX\otimes_{\W}UY}", swap]
+			UF(UX\otimes_{\V}UY)\ar[r, "U\phi^{-1}_{UX,UY}", swap]
+            & U(FUX\otimes_{\W}FUY)\ar[u,"U(\epsilon_X\otimes_{\W}\epsilon_Y)", swap]
 		\end{tikzcd}
 	\]
 	define a lax monoidal structure on $U$ which is unique with the property that $\eta$, $\epsilon$ are monoidal.
@@ -2420,7 +2528,9 @@ The previous example is an instance of a more general phenomenon, as shown by th
 \end{proof}
 
 \begin{exmp}
-	Given a homomorphism of commutative rings $R\rightarrow S$, then $S\otimes_R-\dashv U$, where $U$ is the restriction on scalars, and $-\otimes_RS\colon\Mod_R\rightarrow\Mod_S$ is a monoidal adjunction.
+	Given a homomorphism of commutative rings $R\rightarrow S$, then
+    $-\otimes_RS\dashv U$, where $U$ is the restriction on scalars, and
+    $-\otimes_RS\colon\Mod_R\rightarrow\Mod_S$ is a monoidal adjunction.
 
 	The free module functor $\Set\rightarrow\Mod_R$ is strong monoidal by the previous example.
 \end{exmp}
@@ -2450,7 +2560,8 @@ The previous example is an instance of a more general phenomenon, as shown by th
 	\]
 	commute.
 
-	Morphisms of monoids are maps $f\colon M\rightarrow M'$ such that $m'\circ (f\otimes f)=fm$, $fu=u'$.
+	Morphisms of monoids are maps $f\colon M\rightarrow M'$ such that
+    $m'\cdot(f\otimes f)=f\cdot m$, $f\cdot u=u'$.
 
 	We write $\Mon(\V)$ for the category of monoids over $\V$.
 \end{defn}
@@ -2465,30 +2576,35 @@ The previous example is an instance of a more general phenomenon, as shown by th
 \end{exmp}
 
 \begin{prop}
-	If $ F \dashv U \from\cV\to \cW $ is a monoidal adjunction ($ F $ strong, $ U $ monoidal), then $ F\dashv U $ lifts to an adjunction of monoids
+	If $ F \from\cV\to \cW\colon U $ is a monoidal adjunction ($ F $ strong, $ U $ monoidal), then $ F\dashv U $ lifts to an adjunction of monoids
 	\begin{displaymath}
 		\begin{tikzcd}[row sep = 4em]
 			\Mon(\cV)\arrow[d] \arrow[r,bend left, "\overline F"]\arrow[r,phantom, "\bot"] & \Mon(\cW) \arrow[l, bend left, "\overline U"] \arrow[d]\\
-			\cV\arrow[r,bend left, "F"] \arrow[r,phantom, "\bot"]& \catname W \arrow[l, bend left, "U"]
+			\cV\arrow[r,bend left, "F"] \arrow[r,phantom, "\bot"]& \cW \arrow[l, bend left, "U"]
 		\end{tikzcd}
 	\end{displaymath}
 	where $ \overline F(M,m,n) = (FM, Fm \circ \phi_{M,M}^F, Fn \circ \phi_0^F) $
 	and $ \overline U(M',m',n') = (UM, Um'\circ \phi U_{M,M}, Un'\circ \phi U_0) $.
 \end{prop}
 \begin{proof}
-	The axioms for lax monoidal functors show that these are indeed monads,
-	naturality of $ \phi^F, \phi^U $ shows that $ Ff $ is a monoid morphism if $ f $ is.
-	It follows that $ \overline F,\overline U $ are indeed functors.
-	Axioms for monoidal transformations show $ \eta, \epsilon $ are monoid morphisms.
-	Hence $ \overline F \dashv \overline U $.
+	The axioms for lax monoidal functors show that these are indeed monoids,
+	naturality of $ \phi^F, \phi^U $ shows that $ Ff $ is a monoid morphism if $
+    f $ is. It follows that $ \overline F,\overline U $ are indeed functors.
+	Axioms for monoidal transformations show $ \eta, \epsilon $ are monoid
+    morphisms, hence $ \overline F \dashv \overline U $.
 \end{proof}
 \begin{exmp}
 	\begin{enumerate}[label=\roman*)]
 		\item A ring homomorpshism $ R \to S $ of commutative rings induces base change functors$\begin{tikzcd}
-				      \mathsf{Alg}_R \arrow[r, "S\otimes_R -", bend left] & \mathsf{Alg}_S \arrow[l,"\text{forget}", bend left]
-			      \end{tikzcd}.$
-		      This works equally for commutative algebras, etc.
-		\item Let $ \cC$ locally $ \kappa $-presentable. Then $ [\cC,\cC]_\kappa \to [\cC,\cC] $ is strict monoidal and a     left adjoint, so it lifts to a left adjoint $ \Mod_\kappa (\cC) \to \Mod(\cC) $.
+				      \mathsf{Alg}_R \arrow[r, shift left=.3em, "S\otimes_R -"]
+                      & \mathsf{Alg}_S \arrow[l, shift left=.3em,
+                      "\text{forget}"].
+			\end{tikzcd}$
+		      This also works for commutative algebras, etc.
+		\item Let $\cC$ be locally $ \kappa $-presentable. Then $
+            [\cC,\cC]_\kappa \to [\cC,\cC] $ is strict monoidal and a     left
+            adjoint, so it lifts to a left adjoint $ \Mod_\kappa (\cC) \to
+            \Mod(\cC) $.
 		      Why is it left adjoint? Let $ K\from \cC_\kappa \to \cC$ be the inclusion. Since $ \Phi $ is cocontinuous we have
 		      \begin{displaymath}
 			      \begin{tikzcd}[row sep = large, column sep = large]
@@ -2499,24 +2615,25 @@ The previous example is an instance of a more general phenomenon, as shown by th
 				      \lbrack\cC, \cC\rbrack \arrow[ru, "K^*"', bend right]
 			      \end{tikzcd}
 		      \end{displaymath}
-		      Hence the inclusion is indeed a left adjoint.
+		      From this it follows that the inclusion is indeed a left adjoint.
 	\end{enumerate}
 \end{exmp}
 \begin{rmk}
 	This completes the proof that $ (-)\Alg \from \Mnd_\kappa(\cC)^{\text{op}} \to (\Cat\downarrow\cC)$ is full and faithful and sends colimits of monads to limits of categories.
 \end{rmk}
 Let $ (\cV,\otimes, I) $ be a monoidal category such that $ x\otimes - $ and $ -\otimes x $ preserve coproducts for all $ x\in\cV$.
-The category of $\cV$-matrices with index set $ S $ is $ [S\times S,\cV] =\prod_{S\times S}\cV $ and denoted by $ \Mat(\cV ,     S) $. There is a natural monoidal structure on $ \Mat(\cV,S) $ given by matrix multiplication:
+The category of $\cV$-matrices with index set $ S $ is $ [S\times S,\cV] =\prod_{S\times S}\cV $ and denoted by $ \Mat(\cV ,     S) $. There is a natural monoidal structure on $ \Mat(\cV,S) $ given by matrix multiplication
 \begin{displaymath}
-	M(x,y)_{(x,y) \in S^2} \otimes N(x,y)_{(x,y) \in S^2} = \Big(\sum_{z\in S} M(z,y)\otimes N(x,z) \Big)_{(x,y)\in S^2}.
+	M(x,y)_{(x,y) \in S^2} \otimes N(x,y)_{(x,y) \in S^2} = \Big(\sum_{z\in S}
+    M(z,y)\otimes N(x,z) \Big)_{(x,y)\in S^2}
 \end{displaymath}
-
-and unit $ (I_{x,y})_{(x,y) \in S^2} $ where $ I_{x,y}= I $ if $ x = y $ and $ I_{x,y} = \emptyset $ otherwise.
-The $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ are induced by the ones on $\cV$ via the universal properties of coproducts.
+and the unit $ (I_{x,y})_{(x,y) \in S^2} $ where $ I_{x,y}= I $ if $ x = y $ and $ I_{x,y} = \emptyset $ otherwise.
+The triple $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ is induced by the one on $\cV$ via the universal properties of coproducts.
 
 \begin{defn}
-	A $\cV$\emph{-category} $ \cA $ with object set $ S $ is a monoid in $ \Mat(\cV,S) $
-	i.e. for each pair $ (a,b) \in S^2 $ an object $ \cA(a,b) \in\cV$, called the $\cV$-object of homomorphisms.
+	A $\cV$\emph{-category} $ \cA $ with object set $ S $ is a monoid in $
+    \Mat(\cV,S) $, i.e.\ for each pair $ (a,b) \in S^2 $ there is a unique
+    object $ \cA(a,b) \in\cV$, called the $\cV$-object of homomorphisms.
 	Moreover we have units $ I\xrightarrow{\id_a} \cA(a,a) $ and composition homomorphisms
 	\begin{displaymath}
 		\cA(b,c) \otimes \cA(a,b) \xrightarrow{C_{a,b,c}} \cA(a,c)
@@ -2567,8 +2684,7 @@ The $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ are induced by the ones on $\
 		f^* \from \Mat(\cV ,T)          & \to \Mat(\cV, S)                                                            \\
 		( T\times T \xrightarrow{M}\cV) & \mapsto ( S\times S \xrightarrow{f \times  f} T\times T \xrightarrow{M}\cV)
 	\end{align*}
-	and $ f_* \from \Mat(\cV,S)\to \Mat(\cV,T) $ for its left adjoint.
-	It sends $ M $ to
+	and $ f_* \from \Mat(\cV,S)\to \Mat(\cV,T) $ for its left adjoint, given by
 	\begin{displaymath}
 		(f_* M)(a,b) = \sum_{\{(x,y)\colon fx = a, fy = b \} }M(x,y).
 	\end{displaymath}
@@ -2659,7 +2775,7 @@ The $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ are induced by the ones on $\
 			& \A(A,B) \otimes I \arrow[r, "G\otimes \alpha_{A}"'] & \B(GA,GB) \otimes \B(FA,GA) \arrow[ru, "\circ"'] &
 		\end{tikzcd}
 	\end{center}
-	is commutative. We then first define the whiskering operations. So consider the diagram
+	is commutative. We then first define the whiskering operations. consider the diagram
 	\begin{center}
 		\begin{tikzcd}
 			\A' \arrow[r, "K"] & \A \arrow[r, bend left, ""{name=A, below}, "F"] \arrow[r, bend right, ""{name=B}, "G"'] &
@@ -2699,24 +2815,30 @@ The $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ are induced by the ones on $\
 \end{defn}
 
 \begin{exmp}
-	For $\V=\Set$, we get precisely the $2$-categories of categories, functors and natural transformations. So what happens if we take $\Cat$ or even $\CAT$.
-	$0$-cells are $2$-categories. $1$-cells are $2$-functors or $\Cat$-functors, that is: Given two $2$-categories $\K,\K'$, we have an assignment
-	$\Ob(\K) \to \Ob(\K')$ of the form $A \mapsto FA$ and for any two objects $A,B$ in $\Ob(\K)$ there is a functor $F_{A,B} \from \K(A,B) \to \K'(FA,FB)$
+	For $\V=\Set$, we get precisely the $2$-categories of categories, functors
+    and natural transformations. What happens if instead we take $\Cat$ or even $\CAT$.
+	$0$-cells are $2$-categories? $1$-cells are $2$-functors or $\Cat$-functors,
+    that is: given two $2$-categories $\K,\K'$, we have an assignment
+	$\Ob(\K) \to \Ob(\K')$ of the form $A \mapsto FA$ and for any two objects
+    $A,B$ in $\Ob(\K)$ there is a functor $F_{A,B} \from \K(A,B) \to \K'(FA,FB)$
 	\begin{center}
 		\begin{tikzcd}
 			A \arrow[r, bend left, ""{name=A, below}, "f"] \arrow[r, bend right, ""{name=B}, "g"'] & B \arrow[Rightarrow, from=A, to=B, "\alpha"] \arrow[r, mapsto] &
 			FA \arrow[r, bend left, ""{name=C, below}, "Ff"] \arrow[r, bend right, ""{name=D}, "Fg"'] & FB \arrow[Rightarrow, from=C, to=D, "F\alpha"]
 		\end{tikzcd}
 	\end{center}
-	to say that this defines a functor is exactly to say that this assignment respects vertical composition. The first $\V$-functor axiom says that $F(\id_{A}) =\id_{A}$
-	and the second, that the diagram
+	to say that this defines a functor is exactly to say that this assignment
+    respects vertical composition. The first $\V$-functor axiom says that
+    $F\id_{A}=\id_{FA}$
+	and the second that the diagram
 	\begin{center}
 		\begin{tikzcd}
 			\K(B,C) \times \K(A,B) \arrow[r, "\circ"] \arrow[d, "F\times F"'] & \K(A,C) \arrow[d, "F"] \\
 			\K'(FB,FC) \times \K'(FA,FB) \arrow[r, "\circ"'] & \K'(FA,FC)
 		\end{tikzcd}
 	\end{center}
-	commutes, so $F$ preserves the whiskering operation. What are $2$-natural transformations?
+	commutes, so $F$ preserves the whiskering operation. What is a $2$-natural
+    transformation?
 	\begin{center}
 		\begin{tikzcd}
 			\K \arrow[r, bend left, ""{name=A, below}, "F"] \arrow[r, bend right, ""{name=B}, "G"'] & \K' \arrow[Rightarrow, from=A, to=B, "\alpha"]
@@ -2763,7 +2885,10 @@ The goal of the following section is to use them to define new $\V$-categories f
 \end{align*}
 Here $V_*\C$ has the same object class as $\C$ and $V_*\C(a,b)=V(\C(a,b))$. For the composition we use the lax monoidal structure of $\V$, i.e.\ the morphisms in $V_*\C$ from $a$ to $b$ are given by morphisms $I\xrightarrow{f}\C(a,b)$. The composition of the morphisms $f\colon a\to b$ and $g\colon b\to c$ is the morphism defined as
 $$g\circ f = I\xrightarrow{\sim} I\otimes I\xrightarrow{g\otimes f}\C(b,c)\otimes\C(a,b)\xrightarrow{\circ}\C(a,c).$$
-We write $\C_0$ for the underlying unenriched category of $\C$. It would thus be good if $(T\Alg)_0\cong T_0\Alg$ in the sense we defined before. Hence the objects should be $T_0$-algebras, i.e.\ pairs $(A,\alpha), \ \alpha\colon TA\to A\cong I\xrightarrow{\alpha}\C(TA,A)$ such that the two algebra axioms hold.
+We write $\C_0$ for the underlying unenriched category of $\C$. It would be good
+if $(T\Alg)_0\cong T_0\Alg$ in the sense we defined before. The objects
+should be $T_0$-algebras, i.e.\ pairs $(A,\alpha), \ \alpha\colon TA\to A\cong
+I\xrightarrow{\alpha}\C(TA,A)$ such that the two algebra axioms hold.
 
 \begin{exmp}
 	A few examples of the action of the functor $\V\mbox{-}\CAT\to\CAT$:
@@ -2771,13 +2896,18 @@ We write $\C_0$ for the underlying unenriched category of $\C$. It would thus be
 		\item when $\V=\Mod_R$ we just forget the additive structure of the hom-sets;
 		\item if $\V=\Top$ we forget the topology;
 		\item for $\V=\dgMod_R$ we consider cycles of degree zero;
-		\item if $\V=(\sSet,\times)$ then $V_*\C$ forgets all the simplices in $\C(a,b)$ except the $0$-simplices, i.e.\ the vertices;
-		\item if $\V=[0,\infty]$, a $\V$-enriched category is a metric space (in the sense of Lawvere) and the composition is given by the triangle inequality. The functor above just sees the poset of real numbers as a set.
+		\item if $\V=(\sSet,\times)$ then $V_*\C$ forgets all the simplices in
+            $\C(a,b)$ except the $0$-simplices, i.e.\ the vertices;
+        \item if $\V=\overline{\bbR}_+$, a $\V$-enriched category is a metric
+            space (in the sense of Lawvere) and the composition is given by the
+            triangle inequality. The functor above just sees the poset of real
+            numbers as a set.
 	\end{enumerate}
 \end{exmp}
 From now on we assume that $\V$ has equalizers.
 \begin{prop}
-	Let $\C$ be a $\V$-category and $(T,\mu,\eta)$ a $\V$-monad on $\C$. For algebras $(A,\alpha), (B,\beta)\in T_0\Alg$ let
+	Let $\C$ be a $\V$-category and $(T,\mu,\eta)$ a $\V$-monad on $\C$. For
+    algebras $(A,\alpha), (B,\beta)\in T_0\Alg$ let
 \end{prop}
 \[
 	\begin{tikzcd}
@@ -2789,7 +2919,9 @@ be an equalizer in $\V$, where $\beta_*$ is the composition
 $$\C(TA,TB)\cong I\otimes\C(TA,TB)\xrightarrow{\beta\otimes\id}\C(TB,B)\otimes\C(TA,TB)\xrightarrow{\circ}\C(TA,B)$$
 and similarly $\alpha^*=\circ \cdot \id\otimes\alpha$. Then there is a unique way to define a structure of $\V$-category with objects equal to $T_0\Alg$ and hom-object $T\Alg((A,\alpha),(B,\beta))\in\V$ such that $U$ becomes a $\V$-functor.
 \begin{proof}
-	For the identities note that $\id_A\colon I\to\C(A,A)$ equalizes the two arrows, if $(A,\alpha)=(B,\beta)$. Namely, we have $\id_A\alpha=\alpha T\id_A$ thus we get a factorization
+	For the identities note that $\id_A\colon I\to\C(A,A)$ equalizes the two
+    arrows if $(A,\alpha)=(B,\beta)$. Namely, we have
+    $\id_A\cdot\alpha=\alpha\cdot T\id_A$, thus we get a factorization
 	\[
 		\begin{tikzcd}
 			T\Alg((A,\alpha),(A,\alpha)) \arrow[rr, tail, "U"] & & \C(A,A)\\
@@ -2810,8 +2942,13 @@ and similarly $\alpha^*=\circ \cdot \id\otimes\alpha$. Then there is a unique wa
 \begin{exmp}
 	If $\V=$``sets with structure" we just get the corresponding substructure on the morphism set, e.g.\ subspace topology, submodules etc.
 	\begin{enumerate}
-		\item If $G$ is a topological group then $G\times-\colon\Top\to\Top$ is a $\Top$-monad if $\Top$ is a cartesian closed category of topological spaces such as compactly generated weak hausdorff spaces. From that we get the topological category of $G$-spaces.
-		\item If $\V=\Ab$ and $R$ is a ring, then $\Ab$ is an $\Ab$-category since we can add morphisms of abelian groups and this is $\mathbb{Z}$-bilinear. Moreover $R\otimes_\mathbb{Z}-\colon\Ab\to\Ab$ is an additive monad. $T\Alg$ is simply $\Mod_R$ with addition of $R$-module homomorphisms.
+		\item If $G$ is a topological group then $G\times-\colon\Top\to\Top$ is
+            a $\Top$-monad if $\Top$ is a cartesian closed category of
+            topological spaces such as compactly generated weak T2 spaces. From
+            that we get the topological category of $G$-spaces.
+		\item If $\V=\Ab$ and $R$ is a ring, then $\Ab$ is an $\Ab$-category
+            since we can sum morphisms of abelian groups and this is
+            $\mathbb{Z}$-bilinear. Moreover $-\otimes_\mathbb{Z}R\colon\Ab\to\Ab$ is an additive monad. $T\Alg$ is simply $\Mod_R$ with addition of $R$-module homomorphisms.
 		\item For $\V=\Cat$ we have $2$-monads $T$ in $2$-$\CAT$. From a $2$-category $\K$ with a $2$-monad $T\colon \K\to \K$ we get a new $2$-category $T\Alg$.
 		      $0$-cells are elements of $T_0\Alg$, namely pairs $(A,\alpha)$ s.t.
 		      \[
@@ -2829,7 +2966,8 @@ and similarly $\alpha^*=\circ \cdot \id\otimes\alpha$. Then there is a unique wa
 			      \end{tikzcd}
 		      \]
 		      are commutative.
-		      A $1$-cell in $T\Alg$ is simply a morphism in $T_0\Alg$, that is, a $1$-cell $A\xrightarrow{f}B$ in $K$ s.t.\ the diagram
+		      A $1$-cell in $T\Alg$ is simply a morphism in $T_0\Alg$, that is,
+              a $1$-cell $A\xrightarrow{f}B$ in $\cK$ s.t.\ the diagram
 		      \[
 			      \begin{tikzcd}
 				      TA\arrow[d, "\alpha"']\arrow["Tf"]{r}
@@ -2841,8 +2979,10 @@ and similarly $\alpha^*=\circ \cdot \id\otimes\alpha$. Then there is a unique wa
 		      is commutative. A $2$-cell in $T\Alg$ is a morphism in the equalizer
 		      \[
 			      \begin{tikzcd}
-				      && K(TA,TB) \arrow[rd, "\beta_*"] &  \\
-				      T\Alg((A,\alpha),(B,\beta)) \arrow[r, tail, "U"] & K(A,B) \arrow[rr, "\alpha^*"] \arrow[ru, "T"] &             & K(TA,B)
+				      && \cK(TA,TB) \arrow[rd, "\beta_*"] &  \\
+				      T\Alg((A,\alpha),(B,\beta)) \arrow[r, tail, "U"] &
+                      \cK(A,B) \arrow[rr, "\alpha^*"] \arrow[ru, "T"]
+                      && \cK(TA,B)
 			      \end{tikzcd}
 		      \]
 		      i.e.\ a $2$-cell $\varphi\colon f\Rightarrow g$ such that
@@ -2877,7 +3017,7 @@ and similarly $\alpha^*=\circ \cdot \id\otimes\alpha$. Then there is a unique wa
 		      ($\bar{f}$ is an isomorphism in the pseudo case) subject to some axioms.
 	\end{enumerate}
 \end{exmp}
-We get four $2$-categories from $T$: the original $T\Alg$ is called $T\Alg_S$ and its $1$-cells are the \emph{strict} morphisms of algebras. We have non full inclusions
+We get four $2$-categories from $T$: the original $T\Alg$ is called $T\Alg_S$ and its $1$-cells are the \emph{strict} morphisms of algebras. We have non-full inclusions
 \[
 	\begin{tikzcd}
 		&& T\Alg_L\\
@@ -3014,19 +3154,31 @@ Now we want to define opposite $\cV$-categories and $\cV$-functors of several va
 
 	A \emph{braided natural transformation} is just a monoidal natural transformation between braided monoidal functors.
 
-	If $\cV$ and $\cW$ are braided symmetric monoidal categories, then the braided functors and natural transformations are also called symmetric.
+	If $\cV$ and $\cW$ are braided symmetric monoidal categories, then the
+    braided functors and natural transformations are also called
+    \emph{symmetric}.
 \end{defn}
 
 \begin{exmp}
-	\item[(i)] If $\phi\colon R\rightarrow S$ is a map of commutative rings, then $S\otimes_R-\colon\Mod_R\rightarrow\Mod_S$ is a symmetric strong monoidal functor.
+	\item[(i)] If $\phi\colon R\rightarrow S$ is a map of commutative rings,
+        then $-\otimes_RS\colon\Mod_R\rightarrow\Mod_S$ is a symmetric strong
+        monoidal functor.
 
-	\item[(ii)] If $A$ is an abelian group, $(h,c)$ a normalized abelian 3-cocycle on $A$ with values in $R^\times$ and $\phi\colon R\rightarrow S$ a ring homomorphism, we have that $S\otimes_R-\colon A\text{-}\Mod_R^{(h,c)}\rightarrow A\text{-}\Mod_S^{(\phi h,\phi c)}$ is a braided strong monoidal functor. In particular, base change is a symmetric strong monoidal functor for both the trivial and the Koszul symmetry on $\bbZ\text{-}\Mod_R$.
+	\item[(ii)] If $A$ is an abelian group, $(h,c)$ a normalized abelian
+        3-cocycle on $A$ with values in $R^\times$ and $\phi\colon R\rightarrow
+        S$ a ring homomorphism, we have that $S\otimes_R-\colon
+        A\text{-}\Mod_R^{(h,c)}\rightarrow A\text{-}\Mod_S^{(\phi h,\phi c)}$ is
+        a braided strong monoidal functor. In particular, base change is a
+        symmetric strong monoidal functor for both the trivial and the Koszul
+        symmetry on $\bbZ\text{-}\Mod_R$.
 
-	\item[(iii)] If $F$ is a braided strong monoidal left adjoint, then the right adjoint is braided lax monoidal.
+	\item[(iii)] If $F$ is a braided strong monoidal left adjoint, then the
+        right adjoint is braided lax monoidal.
 \end{exmp}
 
 \begin{defn}
-	Let $\cV$ be a braided monoidal category. A monoid $(M,\mu,\eta)$ in $\cV$ is \emph{commutative} if
+	Let $\cV$ be a braided monoidal category. A monoid $(M,\mu,\eta)$ in $\cV$
+    is \emph{commutative} if
 	\[
 		\begin{tikzcd}[column sep=tiny]
 			M\otimes M\ar[rr, "\gamma_{M,M}"]\ar[dr, swap, "\mu"]
@@ -3090,11 +3242,13 @@ For this we need $ \cA \otimes \cB$.
 	\end{enumerate}
 	Note: The first isomoprhism is unique, if $ \cV $ is symmetric.
 \end{defn}
-The final ingredient for Yoneda is enrichment of $ \cV $ over itself.
+The final ingredient for Yoneda is the enrichment of $ \cV $ over itself.
 For this we need an internal $ \Hom $-functor.
 
 \begin{defn}
-	A monoidal category $ \cV $ is \emph{closed monoidal} if for any $ X \in \cV $ the functors $ X\otimes - $ and $ -\otimes X $ have right adjoints $ [X,-]_l $ and $ [X,-]_r $.
+	A monoidal category $ \cV $ is \emph{closed monoidal} if for any $ X \in \cV
+    $ the functors $ X\otimes - $ and $ -\otimes X $ have right adjoints $
+    [X,-]_l $ and $ [X,-]_r $.
 	We denote the unit and counit by $ \coev $ and $ \ev $ respectively.
 	For example
 	\begin{displaymath}
@@ -3102,13 +3256,15 @@ For this we need an internal $ \Hom $-functor.
 	\end{displaymath}
 \end{defn}
 \begin{rmk}
-	If $ \cV $ is braided, we have $ -\otimes X \iso X\otimes - $, so $ [-,-]_l $ exists if and only $ [-,-]_r $ does and they are isomorphic.
+	If $ \cV $ is braided, we have $ -\otimes X \iso X\otimes - $, so $ [-,-]_l
+    $ exists if and only $ [-,-]_r $ does and they are isomorphic.
 	We simply write $ [-,-] = [-,-]_r $ in this case.
 	In other words $ \cV(X\otimes Y,Z)\iso \cV(X,[Y,Z]) $.
 \end{rmk}
 
 \begin{rmk}
-	If $ -\otimes X $ and $ X\otimes - $ have right adjoints, the monoidal natural transformatons may \emph{not} define a braiding $ \gamma $!
+	If $ -\otimes X $ and $ X\otimes - $ have right adjoints, the monoidal
+    natural transformatons may \emph{not} define a braiding $ \gamma $!
 	We need more compatibility.
 \end{rmk}
 
@@ -3116,7 +3272,7 @@ For this we need an internal $ \Hom $-functor.
 	Let $ \cV $ be a right-closed (that is $ [-,-]_r $ exists) monoidal category.
 	Then the morphisms
 	\begin{displaymath}
-		([Y,Z]_r \otimes [X,Y]_r ) \to [X,Z]_r \quad \text{and} \quad I \to [X,X]_r
+		[Y,Z]_r \otimes [X,Y]_r\to [X,Z]_r\quad\text{and}\quad I\to[X,X]_r
 	\end{displaymath}
 	correponding to
 	\begin{displaymath}
@@ -3126,10 +3282,11 @@ For this we need an internal $ \Hom $-functor.
 		\end{tikzcd}\quad \text{and}\quad
 		I\otimes X \xrightarrow{\lambda_X} X
 	\end{displaymath}
-	give a $ \cV $-category structure on $ \Ob(\cV) $ with undelying category isomorphic to $ \cV $.
+	give a $\cV$-category structure on $\Ob(\cV)$ with underlying category
+    isomorphic to $\cV$.
 \end{prop}
 \begin{proof}
-	The proof is slightly tedious; We refer to Kelly's book.
+	The proof is slightly tedious and we refer to Kelly's book.
 
 	A more abstract argument is possible if $ \cV $ is locally presentable and biclosed.
 	Then we have a monoidal left adjoint
@@ -3152,26 +3309,32 @@ For this we need an internal $ \Hom $-functor.
 \begin{exmp}
 	\begin{enumerate}[label=\arabic*)]
 		\item
-		      If $ \cV $ is a category of ``sets with structure,'' that is if $ V \from \cV \to \Set $ is monadic for example $ \cV = \Mod_R,\Ab $ or $ \cV = \Top_{\mathrm{CGWH}} $, then $ [-,-] $ is just the obvious structure on $ \Hom $-sets of $ \cV $.
-		      Specifically if $ M,N $ are $ R $-modules, then $ \Hom_R(M,N) $ has the natural $ R $-modules structure.
-		\item
-		      For $ \cV = \Cat $, $ [A,B] $ is just the category of functors from $ A $ to $ B $. Note that this is not just structure on the $ \Hom $-sets, we need the additional data of natural transformations.
-		\item Even more involved: $ \dgMod_R$, $\sSet $:
+		      If $ \cV $ is a category of ``sets with structure,'' that is if $
+              V \from \cV \to \Set $ is monadic (for example $ \cV = \Mod_R,\Ab
+              $ or $ \cV = \Top_{\mathrm{CGWH}} $), then $ [-,-] $ is just the
+              obvious structure on $\Hom$-sets of $\cV$. Specifically if $ M,N $
+              are $ R $-modules, then $\Hom_R(M,N)$ has the natural $ R
+              $-modules structure.
+		\item For $\cV=\Cat$, $[A,B]$ is just the category of functors from $A$
+            to $B$. Note that this is not just structure on the $\Hom$-sets, we
+            need the additional data of natural transformations.
+		\item Even more involved: $\dgMod_R$, $\sSet$:
 	\end{enumerate}
 \end{exmp}
-If we have all these structures, that is a symmetric monoidal closed category, we can define a $ \cV $-functor
+If we have all these structures, that is a symmetric monoidal closed category,
+we can define a $\cV$-functor
 \begin{displaymath}
-	\cC(-,-) \from \cC^{\op}\otimes \cC \to \cV
+	\cC(-,-)\from\cC^{\op}\otimes\cC\to\cV.
 \end{displaymath}
-as follows.
-In order to do this, we use the following way of constructing functors $ \cA\otimes \cB \to \cC $:
+In order to do this, we use the following way of constructing functors
+$\cA\otimes\cB\to\cC$:
 \begin{prop}
-	To give a $ \cV $-functor $ T\from \cA \otimes \cB \to \cC $ amounts to ginving families of functors $ T(A,-)\from \cB \to \cC)_{A \in \cA} $ and $ (T(-,B) \from \cA \to \cC)_{B\in \cB} $ such that
+	To give a $\cV$-functor $T\from\cA\otimes\cB\to\cC$ amounts to
+    giving families of functors $(T(A,-)\from\cB\to\cC)_{A\in\cA}$ and
+    $(T(-,B)\from\cA\to\cC)_{B\in\cB}$ such that
 	\begin{enumerate}[label=\roman*)]
-		\item
-		      On objects $ T(A,-)(B) = T(-,B)(A) $ which we denote by $ T(A,B) $.
-		\item
-		      For all $ A,A' \in \cA $ and $ B,B' \in \cB $ the diagram
+		\item On objects $T(A,-)(B)=T(-,B)(A)$, which we denote by $T(A,B)$.
+        \item $A,A'\in\cA$ and $B,B'\in\cB$ the diagram
 		      \begin{displaymath}
 			      \begin{tikzcd}%[column sep = 3em]
 				      \cA(A,A')\otimes \cB(B,B')
@@ -3202,11 +3365,11 @@ But $ \cC(-,c) $ is just $ \cC^{\op}(c,-) $, so we only need to prove that the c
 On objects we define $ \cC(c,-)(c') = \cC(c,c') \in \cV $.
 The action on morphisms is given by the morphism
 \begin{displaymath}
-	\cC(c,-)_{c',c''} \from \cC(c',c'') \to [\cC(c,c'),\cC(c',c'')]
+	\cC(c,-)_{c',c''} \from \cC(c',c'') \to [\cC(c,c'),\cC(c,c'')]
 \end{displaymath}
-corrseponding under adjunction to the composition
+correponding under adjunction to the composition
 \begin{displaymath}
-	\cC(c',c'')\otimes \cC(c,c') \xrightarrow{\circ} \cC(c,c'')
+	\cC(c',c'')\otimes\cC(c,c')\xrightarrow{\circ}\cC(c,c'')
 \end{displaymath}
 The diagram in the above proposition commutes by adjunction since composition is associative.
 \begin{exmp}
@@ -3222,7 +3385,7 @@ The diagram in the above proposition commutes by adjunction since composition is
 		      \end{displaymath}
 		      we remember that $ \cC(-,-) $ is an $ R $-module, a topological space, etc.
 		\item
-		      For $ \cC = \Cat $, we get $ \cK(-,-) \from \cK^{\op}\times \cK \to \Cat $, $ (x,y)\mapsto \cK(x,y) $.
+		      For $ \cC = \Cat $, we get $ \cK(-,-) \from \cK^{\op}\times \cK \to \Cat $, $ (x,y)\mapsto \cK(x,y) $,
 		      a 2-functor, where the action on 1-cells is given by whiskering on either side.
 		\item
 		      For $ \cV $ itself, we get  $ \cV(-,-) \from \cV^{\op}\otimes \cV \to \cV $, $ (V,W)\mapsto [V,W] $.
@@ -3233,7 +3396,8 @@ The diagram in the above proposition commutes by adjunction since composition is
 	%If we do this add a shortcut.
 \end{exmp}
 \begin{prop}
-	Ther is a $ \cV $-functor $ -\otimes -\from \cV \otimes \cV \to \cV $ which on $ \Hom $-objects is the morphism
+	There is a $ \cV $-functor $ -\otimes -\from \cV \otimes \cV \to \cV $ which
+    on $ \Hom $-objects is the morphism
 	\begin{displaymath}
 		[X,X']\otimes [Y,Y'] \to [X\otimes Y , X'\otimes Y']
 	\end{displaymath}
@@ -3241,7 +3405,10 @@ The diagram in the above proposition commutes by adjunction since composition is
 	\begin{displaymath}
 		([X,X']\otimes[Y,Y']) \otimes (X\otimes Y)\iso ([X,X']\otimes X)\otimes ([Y,Y']\otimes Y) \xrightarrow{\ev^X \otimes \ev^Y} X'\otimes Y'.
 	\end{displaymath}
-	For this functor, $ \alpha,\lambda,\rho $ are $ \cV $-natural transformations. Moreover for each $ X $, the maps $ \ev^X $ and $ \coev^X $ are $ \cV $-natural, so $ -\otimes X $ is a left adjoint to the functor $ [X,-] $ in $ \cV $-$\CAT$
+	For this functor, $ \alpha,\lambda,\rho $ are $ \cV $-natural
+    transformations. Moreover for each $ X $, the maps $ \ev^X $ and $ \coev^X $
+    are $ \cV $-natural, so $ -\otimes X $ is a left adjoint to the functor $
+    [X,-] $ in $ \cV $-$\CAT$.
 \end{prop}
 \begin{proof}
 	By adjunction. Straightforward, but tedious (see Kelly).
@@ -3253,18 +3420,22 @@ The diagram in the above proposition commutes by adjunction since composition is
 		\cA(f,-) \from \cA(B,-)\Rightarrow \cA(A,-) \quad \text{and} \quad  \cA(-,f) \from \cA(-,A) \Rightarrow \cA(-,B)
 	\end{displaymath}defined by applying
 	\begin{displaymath}
-		\cA_0^{\op}\times \cA_0 \to (\cA^{\op} \otimes \cA) \xrightarrow{\cA(-,-)_0} \cV_0
+		\cA_0^{\op}\times \cA_0 \to \cA^{\op} \otimes \cA \xrightarrow{\cA(-,-)_0} \cV_0
 	\end{displaymath}
 	to $ (f,\id) $ and $ (\id,f) $ respectively.
 
-	Further details---or more precisely---a good list of instructions on how to preceed efficiently can be found in \cite[\S 1.7 and 1.8]{Kelly}.
+	Further details - or more precisely a good list of instructions on how to
+    preceed efficiently - can be found in \cite[\S 1.7 and 1.8]{Kelly}.
 \end{rmk}
 
 
 \section{The weak Yoneda Lemma}
 
 \begin{rmk}
-	With the morphism just defined, we can sxporess $ \cV $-naturality of $ \alpha \from F \Rightarrow G $ where $ F,G\from \cC \to \cD $ by saying that the following diagram commutes for all $ c,c' \in \cC $:
+	With the morphism just defined, we can express $ \cV $-naturality of $
+    \alpha \from F \Rightarrow G $, where $ F,G\from \cC \to \cD $ are
+    $\cV$-functors, by saying that the following diagram commutes for all $ c,c'
+    \in \cC $.
 	\begin{displaymath}
 		\begin{tikzcd}[column sep = huge]
 			\cC(c,c') \arrow[r, "F"]\arrow[d, "G"]& \cD(Fc, Fc')\arrow[d, "{\cD(Fc,\alpha_{c'})}"] \\
@@ -3274,18 +3445,25 @@ The diagram in the above proposition commutes by adjunction since composition is
 \end{rmk}
 
 \begin{thm}[Weak Yoneda lemma]
-	Let $\cV$ be a symmetric monoidal category, $\cA$ a $\cV$-category, $F\colon\cA\rightarrow\cV$ a $\cV$-functor, $A\in\cA$ and $\alpha\colon\cA(A,-)\Rightarrow F$ a $\cV$-natural transformation. Consider the map$$\phi(A)\colon I\xrightarrow{\id_A}\cA(A,A)\xrightarrow{\alpha_A}FA.$$
+	Let $\cV$ be a symmetric monoidal category, $\cA$ a $\cV$-category,
+    $F\colon\cA\rightarrow\cV$ a $\cV$-functor, $A\in\cA$. Given a $\cV$-natural
+    transformation $\alpha\colon\cA(A,-)\Rightarrow F$, let $\phi(\alpha)$ be
+    the map$$I\xrightarrow{\id_A}\cA(A,A)\xrightarrow{\alpha_A}FA.$$
 	The assignment
 	\begin{align*}
-		\phi\colon\cV\text{-}\Nat(\cA(A,-),F) & \rightarrow\cV_0(I,FA) \\
-		A                                     & \mapsto\phi(A)
+        \cV\text{-}\Nat(\cA(A,-),F) & \rightarrow\cV_0(I,FA) \\
+		\alpha                                     & \mapsto\phi(\alpha)
 	\end{align*}
-	is a bijection, where the inserve map $\psi$ is given by sending $\eta\colon I\rightarrow FA$ to the $\cV$-natural transformation
-	$$\cA(A,B)\xRightarrow{F_{A,B}}[FA,FB]\xRightarrow{[\eta,\id_{FB}]}[I,FB]\cong FB$$
+	is a bijection whose inverse map $\psi$ is given by sending $\eta\colon
+    I\rightarrow FA$ to the $\cV$-natural transformation
+	$$\cA(A,B)\xrightarrow{F_{A,B}}[FA,FB]\xrightarrow{[\eta,\id_{FB}]}[I,FB]\cong FB$$
 \end{thm}
 
 \begin{proof}
-	$\cV$-naturality follows from the general principle previously mentioned that ``all'' morphisms coming from the monoidal structure are $\cV$-natural. Since $F_{A,A}(\id_A)=\id_{FA}$, we get $\phi\psi=\id$ by construction. We still have to prove that $\psi\phi=\id$.
+	$\cV$-naturality follows from the general principle previously mentioned
+    that ``all'' morphisms coming from the monoidal structure are $\cV$-natural.
+    Since $F_{A,A}(\id_A)=\id_{FA}$, we get $\phi\cdot\psi=\id$ by construction.
+    We still have to prove that $\psi\cdot\phi=\id$.
 
 	Consider the diagram
 	\[
@@ -3294,7 +3472,7 @@ The diagram in the above proposition commutes by adjunction since composition is
 			& {[\cA(A,A),\cA(A,B)]}\ar[r, "{[\id_A,I]}"]\ar[d, "{[I,\alpha_B]}"]
 			& {[I,\cA(A,B)]}\ar[r, "\sim"]\ar[d, "{[I,\alpha_B]}"]
 			& \cA(A,B)\ar[d, "\alpha_B"] \\
-			{[FA,FB]}\ar[r, "{[\alpha_A,I]}"]\ar[rrr, bend right, dotted, "{[\phi(B),I]}"]
+			{[FA,FB]}\ar[r, "{[\alpha_A,I]}"]\ar[rrr, bend right=15, dotted, "{[\phi(B),I]}"]
 			& {[\cA(A,A),FB]}\ar[r, "{[\id_A,I]}"]
 			& {[I,FB]}\ar[r, "\sim"]
 			& FB
@@ -3329,18 +3507,33 @@ The diagram in the above proposition commutes by adjunction since composition is
 
 \section{Weighted colimits and enriched presheaf categories}
 
-We want to define the $\cV$-category $[\cA^{\op},\cV]$ of $\cV$-presheaves or $\cV$-functors for $\cA$ small. We will do this by defining a suitable $\cV$-monad $T$ such that $[\cA^{\op},\cV]\coloneqq T\Alg$. We want our category to have at least coproducts and equalizers, so from now on we assume that $\cV$ is a (co)complete, symmetric monoidal and closed. Such an object is called \emph{cosmos}, after \emph{B\'enabou cosmos}.
+We want to define the $\cV$-category $[\cA^{\op},\cV]$ of $\cV$-presheaves or
+$\cV$-functors for $\cA$ small. We will do this by defining a suitable
+$\cV$-monad $T$ such that $[\cA^{\op},\cV]\coloneqq T\Alg$. We want our category
+to have at least coproducts and equalizers, so from now on we assume that $\cV$
+is a (co)complete, symmetric monoidal and closed. Such an object is called
+\emph{cosmos}, after \emph{B\'enabou cosmos}.
 
 \begin{defn}
-	Let $\cC$ be a $\cV$-category, $(C_j)_{j\in J}\in\Ob(\cC)^J$ a family of objects in $\cC$. We say that a collection $j_j\colon C_j\rightarrow C$ exhibits $C$ as a $\cV$-coproduct of the $(C_j)_{j\in J}$ if$$\cC(j_j,D)\colon\cC(C,D)\rightarrow\cC(C_j,D)$$is a product diagram in $\cV_0$ for all $D\in\cC$.
+	Let $\cC$ be a $\cV$-category, $(C_j)_{j\in J}\in\Ob(\cC)^J$ a family of
+    objects in $\cC$. We say that a collection $j_j\colon C_j\rightarrow C$
+    exhibits $C$ as a $\cV$-coproduct of the $(C_j)_{j\in J}$
+    if$$\cC(j_j,D)\colon\cC(C,D)\rightarrow\cC(C_j,D)$$is a product diagram in
+    $\cV_0$ for all $D\in\cC$.
 
-	Similarly, we define a $\cV$-coequalizer$$A\rightrightarrows B\rightarrow C$$ by requiring that $$\cC(C,D)\rightarrow\cC(B,D)\rightrightarrows\cC(A,D)$$is a coequalizer in $\cV_0$.
+	Similarly, we define a $\cV$-coequalizer$$A\rightrightarrows B\rightarrow
+    C$$ by requiring that
+    $$\cC(C,D)\rightarrow\cC(B,D)\rightrightarrows\cC(A,D)$$is a coequalizer in
+    $\cV_0$.
 
-	Dualizing the definitions, we find the notions of \emph{product} and \emph{equalizer}.
+	Dualizing the definitions, we find the notions of $\cV$-\emph{product} and
+    $\cV$-\emph{equalizer}.
 \end{defn}
 
 \begin{rmk}
-	If we apply $\cC_0(-,A)\colon\cC_0\rightarrow\Set$ for every $A\in\cC$, we see that $\cV$-coproducts and $\cV$-coequalizers are in particular coproducts and coequalizers in $\cC_0$.
+	If we apply $\cC_0(-,A)\colon\cC_0\rightarrow\Set$ for every $A\in\cC$, we
+    see that $\cV$-coproducts and $\cV$-coequalizers are in particular
+    coproducts and coequalizers in $\cC_0$.
 \end{rmk}
 
 \begin{exmp}
@@ -3375,7 +3568,7 @@ For enriched categories, there is an important third kind of colimit called \emp
 	$$C\times[1]\rightarrow D\quad\leftrightarrow\quad
 		\begin{tikzcd}
 			C\ar[r, bend left, ""{name=A}]\ar[r, bend right, swap, ""{name=B}]
-			& C
+			& D
 			\ar[Rightarrow, shorten <= .3em, shorten >= .3em, from=A, to=B, "\alpha"]
 		\end{tikzcd}
 		\quad\leftrightarrow\quad C\rightarrow D^{[1]}.$$
@@ -3394,10 +3587,14 @@ For enriched categories, there is an important third kind of colimit called \emp
 \end{cor}
 
 \begin{proof}
-	We need to check that $[-,V]_0\colon\cC_0\rightarrow\cV_0^{\op}$ preserves coproducts and coequalizers, but this is just $[-,V]\colon\cV_0\rightarrow\cV_0^{\op}$ and we have $[-,V]\dashv[-,V]\colon\cV_0^{\op}\rightarrow\cV_0$ because
-	$$\cV_0(X,[Y,Z])\cong\cV_0(X\otimes Y,Z)\cong\cV_0(Y\otimes X,Z)\cong\cV_0(Y,[X,Z]).$$
+	We need to check that $[-,V]_0\colon\cC_0\rightarrow\cV_0^{\op}$ preserves
+    coproducts and coequalizers, but this is just
+    $[-,V]\colon\cV_0\rightarrow\cV_0^{\op}$ and we have
+    $[-,V]\dashv[-,V]\colon\cV_0^{\op}\rightarrow\cV_0$ because
+	$$\cV_0(X,[Y,V])\cong\cV_0(X\otimes Y,V)\cong\cV_0(Y\otimes
+    X,V)\cong\cV_0(Y,[X,V]).$$
 
-	For $\cV^{\op}$, we need to check that $[V,-]_0\colon\cV_0\rightarrow\cV_0^{\op}$ preserves the limits, which follows from $-\otimes V\dashv [V,-]$.
+	For $\cV^{\op}$, we need to check that $[V,-]_0\colon\cV_0\rightarrow\cV_0^{\op}$ preserves limits, which follows from $-\otimes V\dashv [V,-]$.
 \end{proof}
 
 \begin{prop}
@@ -3417,26 +3614,29 @@ For enriched categories, there is an important third kind of colimit called \emp
 \end{exmp}
 
 \begin{prop}
-	If $\C$ has powers (cotensors), then $\C$ is cocomplete, if and only if $\C_{0}$ is cocomplete and $\C$ has copowers.
+	If $\C$ has powers (cotensors), then $\C$ is cocomplete if and only if
+    $\C_{0}$ is cocomplete and $\C$ has copowers.
 \end{prop}
 
 \begin{proof}
 	$"\Rightarrow ":$ We have already seen this. \\
-	$"\Leftarrow ":$ We need to show, that ordinary coequalizers and coproducts in $\C_{0}$ are automatically $\V$-coequalizers and $\V$-coproducts.
-	We will just check the case of coequalizers and leave the other case for the reader. We know, that we have a natural bijection of sets between
-	equalizers
+	$"\Leftarrow ":$ We need to show that ordinary coequalizers and coproducts
+    in $\C_{0}$ are automatically $\V$-coequalizers and $\V$-coproducts. We
+    will just check the case of coequalizers and leave the other case for the
+    reader. We know that we have a natural bijection of sets between equalizers
 	\begin{center}
 		\begin{tikzcd}
 			\C_{0}(K,D) \arrow[r, "\iso"] & \Eq(\C_{0}(B,D) \arrow[r, shift left, "f^{\ast}"] \arrow[r, shift right, "g^{\ast}"'] & \C_{0}(A,D))
 		\end{tikzcd}
 	\end{center}
-	and coequalizers
+	in $\Set$ and coequalizers
 	\begin{center}
 		\begin{tikzcd}
 			A \arrow[r, shift left, "f"] \arrow[r, shift right, "g"'] & B \arrow[r, "k"] & K
 		\end{tikzcd}
 	\end{center}
-	in $\C_{0}$. For each $E \in \C$ and $V \in \V_{0}$, we thus have
+	in $\C_{0}$. For each $E \in \C$ and $V \in \V_{0}$ we have then the
+    commutative diragram
 	\begin{center}
 		\begin{tikzcd}
 			\C_{0}(K.E^{V}) \arrow[r] \arrow[d, "\iso"'] & \C_{0}(B,E^{V}) \arrow[r, shift left] \arrow[r, shift right] \arrow[d, "\iso"] & \C_{0}(A,E^{V}) \arrow[d, "\iso"] \\
@@ -3455,8 +3655,8 @@ For enriched categories, there is an important third kind of colimit called \emp
 \end{rmk}
 
 \begin{defn}
-	We say, that a $\V$-functor $F \from \C \to \D$ preserves (certain) $\V$-coequalizers or $\V$-coproducts, if $F_{0} \from \C_{0} \to \D_{0}$ preserves
-	coequalizers or coproducts. $[V]$
+	We say that a $\V$-functor $F \from \C \to \D$ preserves (certain) $\V$-coequalizers or $\V$-coproducts if $F_{0} \from \C_{0} \to \D_{0}$ preserves
+	coequalizers or coproducts.
 \end{defn}
 
 To talk about preservation of copowers, we need a canonical comparison morphism $\bar{F} \from V\copw FC \to F(V\copw C)$, which we define to be
@@ -3474,8 +3674,10 @@ where the lower horizontal morphism is $[V,F]$ and $\eta$ corresponds via weak Y
 \end{defn}
 
 \begin{lemma}
-	Let $\C$ be a $\V$-category and $\B \subset \C$ the full subcategory, generated by those object $B \in \C$ such that $V \copw B$ exists (in $\C$) for all
-	$V \in \V$. Then $\B$ is closed in $\C$ under $\V$-coequalizers and $\V$-coproducts.
+	Let $\C$ be a $\V$-category and $\B \subset \C$ the full subcategory
+    generated by those object $B \in \C$ such that $V \copw B$ exists (in $\C$)
+    for all $V \in \V$. Then $\B$ is closed in $\C$ under $\V$-coequalizers and
+    $\V$-coproducts.
 \end{lemma}
 
 \begin{proof}
@@ -3485,7 +3687,8 @@ where the lower horizontal morphism is $[V,F]$ and $\eta$ corresponds via weak Y
 			A \arrow[r, shift left, "f"] \arrow[r, shift right, "g"'] & B \arrow[r, "k"] & K
 		\end{tikzcd}
 	\end{center}
-	be a $\V$-coequalizer, such that $B,A \in \B$. We need to show, that the $\V$-coequalizer of
+	be a $\V$-coequalizer such that $A,B\in\cB$. We need to show that the
+    $\V$-coequalizer of
 	\begin{center}
 		\begin{tikzcd}
 			V \copw A \arrow[r, shift left, "V\copw f"] \arrow[r, shift right, "V\copw g"'] & V \copw B
@@ -3503,9 +3706,11 @@ where the lower horizontal morphism is $[V,F]$ and $\eta$ corresponds via weak Y
 \end{proof}
 
 \begin{thm}
-	Let $\C$ be a complete $\V$-category and let $T \from \C \to \C$ be a $\V$-monad. Then $T\Alg$ is complete and $U \from T\Alg \to \C$ preserves $\cV$-powers,
-	$\V$-products and $\V$-equalizers. If $\C$ is also cocomplete, then $T\Alg$ is cocomplete, if and only if the underlying unenriched category
-	$(T\Alg)_{0} \iso T_{0}\Alg$ is cocomplete.
+	Let $\C$ be a complete $\V$-category and let $T \from \C \to \C$ be a
+    $\V$-monad. Then $T\Alg$ is complete and $U \from T\Alg \to \C$ preserves
+    $\cV$-powers, $\V$-products and $\V$-equalizers. If $\C$ is also cocomplete,
+    then $T\Alg$ is cocomplete if and only if the underlying unenriched category
+    $(T\Alg)_{0}\iso T_{0}\Alg$ is cocomplete.
 \end{thm}
 
 \begin{proof}
@@ -3516,11 +3721,16 @@ where the lower horizontal morphism is $[V,F]$ and $\eta$ corresponds via weak Y
 			T\Alg((A,a),(B,b)) \arrow[r] & \C(A,B) \arrow[r, shift left] \arrow[r, shift right] & \C(TA,B)
 		\end{tikzcd}
 	\end{center}
-	and we thus get the claim for $\V$-equalizers and $\V$-products, since equalizers and products commute with equalizers in $\V_{0}$. We will leave the
-	claim for powers as an exercise. But once we have the powers, we get from the cocompleteness of $T_{0}\Alg$, that $T\Alg$ has $\V$-coequalizers and
-	$\V$-coproducts. So it remains to show, that $T\Alg$ has copowers. For this we use the lemma above. Since every object is a coequalizer of free
-	algebras, hence a $\V$-coequalizer, it suffices to check this for free algebras, i.e. algebras in the image of the left $\V$-adjoint
-	$F \from \C \to T\Alg$. So we are done if we can show, that left $\V$-adjoints preserve copowers. This follows from the next proposition.
+	and we thus get the claim for $\V$-equalizers and $\V$-products, since
+    equalizers and products commute with equalizers in $\V_{0}$. We will leave
+    the claim for powers as an exercise. Once we have the powers, we get from
+    the cocompleteness of $T_{0}\Alg$ that $T\Alg$ has $\V$-coequalizers and
+    $\V$-coproducts. It remains to show that $T\Alg$ has copowers. For this we
+    use the lemma above: since every object is a coequalizer of free
+	algebras, hence a $\V$-coequalizer, it suffices to check this for free
+    algebras, i.e. algebras in the image of the left $\V$-adjoint $F\from\cC\to
+    T\Alg$. So we are done if we can show that left $\V$-adjoints preserve
+    copowers. This follows from the next proposition.
 \end{proof}
 
 \begin{prop}
@@ -3528,27 +3738,31 @@ where the lower horizontal morphism is $[V,F]$ and $\eta$ corresponds via weak Y
 \end{prop}
 
 \begin{proof}
-	Let $F \from \C \to \D$ be a left $\V$-adjoint $U\vdash F$. The claims all follow as in the unenriched case. For copowers we have the isomorphisms
+	Let $F \from \C \to \D$ be a left $\V$-adjoint $F\dashv U$. The claims all follow as in the unenriched case. For copowers we have the isomorphisms
 	\begin{align*}
 		\D(F(V\copw C),D) \iso \C(V\copw C,UD) \iso \lbrack V,\C(C,UD) \rbrack \iso \lbrack V,\D(FC,D) \rbrack
 	\end{align*}
-	and one checks, that this is the coup morphism if the target has copowers.
+	and one checks that this is the coup morphism if the target has copowers.
 \end{proof}
 
-We are now ready to define enriched presheaf categories. Let $\A$ be a small $\V$-category. Then $\prod_{A \in \Ob(\A)}\V$ is clearly a complete and
-cocomplete $\V$-category with everything computed pointwise. We define the $\V$-monad for presheafs by
+We are now ready to define enriched presheaf categories. Let $\A$ be a small
+$\V$-category. Then $\prod_{A \in \Ob(\A)}\V$ is clearly a complete and
+cocomplete $\V$-category with everything computed pointwise. We define the
+$\V$-monad for presheaves as
 \begin{align*}
 	T((FA)_{A \in \Ob(\A)}) = \left(\coprod_{A \in \Ob(\A)}\A(B,A)\copw FA\right)_{B \in \Ob(\A)}
 \end{align*}
-with unit given by identities and multiplication given by composition. A $T$-algebra is thus a collection $(FA) \in \prod_{A \in \Ob(\A)}\V$ with action
+with unit given by identities and multiplication given by composition. A
+$T$-algebra is thus a collection $(FA)_{A\in\Ob(\cA)}\in\prod_{A \in\Ob(\A)}\V$ with action
 $\coprod \A(B,A) \copw FA \to FB$, which amounts precisely to a $\V$-functor $\A(B,A) \to [FA,FB]$ i.e. a $\V$-functor $\A^{\op} \to \V$.
 
 \begin{defn}
-	We write $[\A^{\op},\V]$ for $T\Alg$ and call it the $\V$-category of $\V$-presheafs on $\A$. By construction we have
+	We write $[\A^{\op},\V]$ for $T\Alg$ and call it the $\V$-category of
+    $\V$-presheaves on $\A$. By construction we have
 	$[\A^{\op},\V]_{0} = \V$-$\CAT(\A^{op},\V)$.
 \end{defn}
 
-\begin{rmk}:
+\begin{rmk}
 	\begin{itemize}
 		\item[(1)]
 		      The same construction works for any cocomplete $\V$-category $\C$ and we get $\V$-categories $[\A^{\op},\C]$ and $[\A,\C]$.
@@ -3556,10 +3770,12 @@ $\coprod \A(B,A) \copw FA \to FB$, which amounts precisely to a $\V$-functor $\A
 		      The statement ``$T$ is a $\V$-monad'' actually needs to be checked. It can be done using Kelly (1.7,1.8)   % to ref
 		      and the universal properties of $\coprod$ and $\copw$ (see also later exercise).
 		\item[(3)]
-		      We have as enriched Yoneda lemma basically by definition: Taking the free algebra of the collection $(I_{A})_{B \in \Ob(\A)}$, given by
-		      $I$ if $B=A$ and $\emptyset$ else, is precisely $\A(\_,A)$. So we get isomorphisms
+		      We have the enriched Yoneda lemma basically by definition: the
+              free algebra of the collection $(I_{B})_{B \in \Ob(\A)}$, given by
+		      $I$ if $B=A$ and $\emptyset$ else, is precisely $\A(-,A)$. So we get isomorphisms
 		      \begin{center}
-			      $\lbrack \A^{\op},\V \rbrack (\A(\_,A),F) \iso T\Alg((F(I_{A})),F) \iso \prod \V(I_{A},(FB)_{B\in \A}) \iso FA$
+                  $\lbrack \A^{\op},\V \rbrack (\A(-,A),F) \iso
+                  T\Alg((FI_{B})_{B\in\Ob(\cA)},F) \iso \prod \V(I_{B},(FB)_{B\in \A}) \iso FA$
 		      \end{center}
 		\item[(4)]
 		      The hom-object is by definition the equalizer
@@ -3604,29 +3820,56 @@ $\coprod \A(B,A) \copw FA \to FB$, which amounts precisely to a $\V$-functor $\A
 We can think of $Wa\to\C(Ka,c)$ as a bunch of enriched cocones.
 \begin{exmp}
 	\begin{enumerate}[label=(\roman*)]
-		\item If $\A=\J$ with $\Ob(\J)=*$ and $\J(*,*)=\{\id_*\}$, then $[\J^{\op},\V\}\cong\V$ and every $\J\to\C$ amounts to give an object $c\in\C$. Hence $v\copw_{\J} c$ is simply the copower $v\copw c$.
-		\item If $\D$ is an unenriched small category, we can consider the free $\V$-category $(I)_*\D$. Then giving a $\V$-functor $(I)_*\D\to\C$ is the same as giving a functor $\D\to\C_0$. The conical weight $\Delta_{I}\from(I)_*\D^{\op}\to\V$ gives us a functor $\D^{\op}\to\V_0$ sending the whole category to the identity of the monoidal category $\V$. Then $\Delta_I\copw_{I_*D}F$ is really the same as a colimit of $\widetilde{F}\from \D\to\C_0$ with the additional property that $\C(\colim\widetilde{F}d, c)\cong \lim\C(Fd, c)$ in $\V$ (rather than just a bijection of sets).
-		      In particular, when $\C$ has powers there is no distinction between colimits in $\C_0$ and $\Delta_I$-weighted colimits. Powers make it possible to lift the bijection of sets to an isomorphism in $\V$ via (unenriched) Yoneda for $\V_0$. The $\Delta_I$-weighted colimits are called \emph{conical} colimits. In particular, $\V$-coequalizers and $\V$-coproducts are conical colimits.
+        \item If $\A=\J$ with $\Ob(\J)=\{*\}$ and $\J(*,*)=\{\id_*\}$, then
+            $[\J^{\op},\V]\cong\V$ and every $\J\to\C$ amounts to giving an
+            object $c\in\C$. Hence $v\copw_{\J} c$ is simply the copower $v\copw
+            c$.
+		\item If $\D$ is an unenriched small category, we can consider the free
+            $\V$-category $(I)_*\D$. Then giving a $\V$-functor $(I)_*\D\to\C$
+            is the same as giving a functor $\D\to\C_0$. The conical weight
+            $\Delta_{I}\from(I)_*\D^{\op}\to\V$ gives us a functor
+            $\D^{\op}\to\V_0$ sending the whole category to the identity of the
+            monoidal category $\V$. Then $\Delta_I\copw_{I_*\cD}F$ is really the
+            same as a colimit of $\widetilde{F}\from \D\to\C_0$ with the
+            additional property that $\C(\colim\widetilde{F}d, c)\cong
+            \lim\C(Fd, c)$ in $\V$ (rather than just a bijection of sets).
+		      In particular, when $\C$ has powers there is no distinction
+              between colimits in $\C_0$ and $\Delta_I$-weighted colimits.
+              Powers make it possible to lift the bijection of sets to an
+              isomorphism in $\V$ via (unenriched) Yoneda for $\V_0$. The
+              $\Delta_I$-weighted colimits are called \emph{conical} colimits.
+              In particular, $\V$-coequalizers and $\V$-coproducts are conical
+              colimits.
 	\end{enumerate}
 \end{exmp}
 \begin{thm}
 	Let $\C$ be a $\V$-category. TFAE:
 	\begin{enumerate}
 		\item The $\V$-category $\C$ is cocomplete.
-		\item For each small $\V$-category $\A$ and each $\V$-functor $K\from\A\to\C$, the functor $\Hom_{\A}(K,-)\from\C\to[\A^{\op},\V]$ has a left $\V$-adjoint $-\copw_{\A} K\from [\A^{\op},\V]\to\C$.
+		\item For each small $\V$-category $\A$ and each $\V$-functor
+            $K\from\A\to\C$, the functor $\cC(K,-)\from\C\to[\A^{\op},\V]$ has a left $\V$-adjoint $-\copw_{\A} K\from [\A^{\op},\V]\to\C$.
 		\item The category $\C$ has all weighted colimits.
 	\end{enumerate}
 \end{thm}
 \begin{proof}
-	In the example we saw $3\Rightarrow1$ and clearly $2\Rightarrow3$ by definition. It remains to show $1\Rightarrow2$. By the parametrized Yoneda lemma, we need to show that
-	$$W\mapsto[\A^{\op},\V](W,\Hom_{\A}(K,-))$$
-	is representable for every $W\in[\A^{\op},\V]$. Every such $W$ is canonically a $\V$-coequalizer of free objects (recall that $[\A^{\op},\V]=T\Alg$). Let $\B\subseteq[\A^{\op},\V]$ be the subcategory of $W$ such that $[\A^{\op},\V](W,\Hom_{\A}(K,-))$ is representable. By assumption, $B$ is closed under copowers, $\V$-coproducts and $\V$-coequalizers. Thus it suffices to show that if $W$ is a free $T$-algebra, then $W\in\B$. Using copowers and coproducts, we can reduce the case $W=T(V_A)_{A\in\A}$ to $T(I_{\A})$ where
+	In the example we saw $3\Rightarrow1$ and clearly $2\Rightarrow3$ by
+    definition. It remains to show $1\Rightarrow2$. By the parametrized Yoneda
+    lemma, we need to show that
+	$$W\mapsto[\A^{\op},\V](W,\cC(K,-))$$
+	is representable for every $W\in[\A^{\op},\V]$. Every such $W$ is
+    canonically a $\V$-coequalizer of free objects (recall that
+    $[\A^{\op},\V]=T\Alg$). Let $\B\subseteq[\A^{\op},\V]$ be the subcategory of
+    the $W$ such that $[\A^{\op},\V](W,\cC(K,-))$ is representable. By
+    assumption, $\cB$ is closed under copowers, $\V$-coproducts and
+    $\V$-coequalizers. Thus it suffices to show that if $W$ is a free
+    $T$-algebra, then $W\in\B$. Using copowers and coproducts, we can reduce the
+    case $W=T(V_A)_{A\in\A}$ to $T(I_{\A})$ where
 	$$(I_{\A})=\begin{cases} \emptyset, & \mbox{if } \B\ne\A \\ I, & \mbox{if } \B=\A
 		\end{cases}$$
 	Therefore $$(V_A)_{A\in\A}=\coprod{V_{\A}\copw I_{\A}}\in\prod_{A\in\A}\V$$
 	so that we are reduced to checking $T(I_{\A})\in\B$. But $T(I_{\A})=\A(-,A)$ by definition of $T$. Here we have
-	$$[\A^{\op},\V](T(I_{\A}),\Hom_{\A}(K,-))\cong\prod\V(I_{\A},(\C(KB,-))_{B\in\A})\cong\C(KA,-)$$
-	so this is represented by $KA\in\C$.
+	$$[\A^{\op},\V](T(I_{\A}),\cC(K,-))\cong\prod\V(I_{\A},(\C(KB,-))_{B\in\A})\cong\C(KA,-)$$
+	so this is corepresented by $KA\in\C$.
 \end{proof}
 \begin{rmk}
 	We may extract a formula from the proof above. Then we find $$\A(-,A)\copw_{\A}K=KA$$ and $$W\copw_{\A}K=\text{coeq}\left(\coprod_{A,B}(WB\otimes\A(A,B))\copw KA\rightrightarrows\coprod_{A}WA\otimes KA \right)$$
@@ -3635,10 +3878,13 @@ We can think of $Wa\to\C(Ka,c)$ as a bunch of enriched cocones.
 	For all small $\A$, $[\A,\V]$ has weighted colimits.
 \end{cor}
 \begin{exmp}
-	Take $\V=\Cat$ and $\K$ a (cocomplete) $2$-category. In this case, $[\A,\K]$ us the $2$-category with $0$-cells the $2$-functors, $1$-cells the $2$-natural transformations and $2$-cells the so-called \emph{modifications}.
+	Take $\V=\Cat$ and $\K$ a (cocomplete) $2$-category. In this case, $[\A,\K]$ is the $2$-category with $0$-cells the $2$-functors, $1$-cells the $2$-natural transformations and $2$-cells the so-called \emph{modifications}.
 \end{exmp}
 \begin{defn}
-	Let $\alpha,\beta\colon F\Rightarrow G\colon\A\to\K$ be $2$-natural transformations. A modification $\varphi\from\alpha\Rrightarrow\beta$ is a collection of $2$-cells $(\varphi_A\colon\alpha_A\Rightarrow\beta_A)_{A\in\A}$ in $\K$, such that
+	Let $\alpha,\beta\colon F\Rightarrow G$ be $2$-natural transformations
+    between 2-functors $\cA\rightarrow\cK$. A modification
+    $\varphi\from\alpha\Rrightarrow\beta$ is a collection of $2$-cells
+    $(\varphi_A\colon\alpha_A\Rightarrow\beta_A)_{A\in\A}$ in $\K$, such that
 	\[
 		\begin{minipage}{0.3\linewidth}
 			\begin{tikzcd}[row sep=1cm, column sep=1cm]
@@ -3660,9 +3906,12 @@ We can think of $Wa\to\C(Ka,c)$ as a bunch of enriched cocones.
 	\]
 	holds for every $f\from A\to B$
 \end{defn}
-Take $\A=\hspace{-1.5mm}\begin{tikzcd}[row sep=1cm, column sep=1.3cm]
-		0\hspace{-1.5mm}\arrow[r, "f_1" description,  shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, "f_0", shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}1
-	\end{tikzcd}\hspace{-1.5mm}$ and $W\from\A\to\Cat$ sending $0$ to the terminal category $*$, $1$ to the category $[1]=(0\to 1)$ and such that $Wf_i=\text{incl}_i\from *\to[1]$ are the inclusions of the domain and the target in the walking arrow. The $W$-weighted limit represents $[\A,\Cat](W,\C(c,F-))$ for $F\from\A\to\C$. This amounts to a morphism $c\xrightarrow{c}F_0$ and a $2$-cell
+Take $\A=\{f_0,f_1\colon 0\rightrightarrows 1\}$ and $W\from\A\to\Cat$ sending
+$0$ to the terminal category $*$, $1$ to the category $[1]=\{0\to 1\}$ and such
+that $Wf_i=\text{in}_i\from *\to[1]$ are the inclusions of the domain and the
+target in the walking arrow. The $W$-weighted limit represents
+$[\A,\Cat](W,\C(c,F-))$ for $F\from\A\to\C$. This amounts to a morphism
+$c\xrightarrow{c}F_0$ and a $2$-cell
 \[
 	\begin{tikzcd}
 		& F_0\ar[dd, "\gamma", Rightarrow, shorten <= 1.8em, shorten >= 1.8em]\ar[dr, "Ff_0"]&\\
@@ -3707,35 +3956,54 @@ As in the unenriched case, we can define $\V$-dense functors and density present
 \end{defn}
 
 \begin{defn}
-	If $K$ is full and faithful, a $\V$-density presentation is a collection of weights and diagrams $\{W_\gamma\colon\A^{\op}_\gamma\to\V, F_\gamma\colon\A_\gamma\to\C\}_{\gamma\in\Gamma}$ such that $W_\gamma\copw_{\A_\gamma}F_\gamma$ exists, is $K$-absolute and $\C$ is the closure of $\{KA|A\in\A\}$ under colimits in $\Gamma$.
+	If $K$ is full and faithful, a $\V$-density presentation is a collection of
+    weights and diagrams $\{W_\gamma\colon\A^{\op}_\gamma\to\V,
+    F_\gamma\colon\A_\gamma\to\C\}_{\gamma\in\Gamma}$ such that
+    $W_\gamma\copw_{\A_\gamma}F_\gamma$ exists, is $K$-absolute and $\C$ is the
+    closure of $\{KA\ |\ A\in\A\}$ under colimits in $\Gamma$.
 \end{defn}
 \begin{prop}
-	If a full and faithful $K\from\A\to\C$ has a $\V$-density presentation, then it is $\V$-dense.
+	If a full and faithful functor $K\from\A\to\C$ has a $\V$-density
+    presentation, then it is $\V$-dense.
 \end{prop}
 \begin{proof}
-	Consider the full subcategory $\B\subseteq\C$ spanned by the objects $B$ s.t.\ $$\C(K,-)_{B,C}\colon\C(B,C)\to[\A^{\op},\V](\C(k-,B),\C(K-,C))$$ is an iso in $\V$ for all $c\in\C$. By definition of $K$-absoluteness, $\B$ is closed under $K$-absolute colimits, both sides preserve $K$-absolute colimits, i.e.\ $\C(-,c)$ and $[\A^{\op},\V]((\C(K,-),\C(K-,c))\colon\C\to\V^{\op}$ preserve them. It only remains to show that $KA\in\B\ \forall A\in\A$. To see this one needs to observe that the diagram
+	Consider the full subcategory $\B\subseteq\C$ spanned by the objects $B$
+    s.t.\ $$\C(K,-)_{B,C}\colon\C(B,C)\to[\A^{\op},\V](\C(K-,B),\C(K-,C))$$ is
+    an iso in $\V$ for all $c\in\C$. By definition of $K$-absoluteness, $\B$ is
+    closed under $K$-absolute colimits, both sides preserve $K$-absolute
+    colimits, i.e.\ $\C(-,c)$ and
+    $[\A^{\op},\V]((\C(K,-),\C(K,c))\colon\C\to\V^{\op}$ preserve them. It only
+    remains to show that $KA\in\B\ \forall A\in\A$. To see this one needs to
+    observe that the diagram
 	\begin{center}
 		\begin{tikzcd}
-			\C(KA,C) \arrow[r,"\C{(K,-)}"] \arrow{dr}{\cong}[swap]{\text{Yoneda}}& \lbrack \A^{\op},\V\rbrack{(\C(K-,KA),\C(K-,C))} \arrow[d, "K_{-,\A}"] \\
+			\C(KA,C) \arrow[r,"\C{(K,-)}"] \arrow{dr}{\cong}[swap]{\text{Yoneda}}& \lbrack \A^{\op},\V\rbrack{(\C(K-,KA),\C(K-,C))} \arrow[d] \\
 
 			& \lbrack \A^{\op},\V\rbrack{(\A(-,A),\C(K-,C))}
 		\end{tikzcd}
 	\end{center}
-	is commutative\footnote{Compare this result with faithfulness of $[\A^{\op},\V]\to\prod\V$ }. The claim follows since we assumed that $K_{-,A}$ is an isomorphism.
+	is commutative\footnote{Compare this result with faithfulness of
+    $[\A^{\op},\V]\to\prod\V$ }. The claim follows since we assumed that
+    $\cC(K-,KA)\cong\cA(-,A)$.
 \end{proof}
 \begin{exmp}
 	$ I \in \cV $ is always dense, but rarely $ \Set $-dense.
 \end{exmp}
 \begin{defn}
-	Given a small $ \cV $-cat $ \cA $ and $ \cV $-functors $ K\from \cA \to \cC $ and $ F \from \cA \to \cD$, we say that the \emph{pointwise Kan extenstion} of $ F $ along $ K $ exists if the $ \cV $-functor
+	Given a small $ \cV $-category $ \cA $ and $ \cV $-functors $ K\from \cA \to
+    \cC $ and $ F \from \cA \to \cD$, we say that the \emph{pointwise Kan
+    extenstion} of $ F $ along $ K $ exists if the $ \cV $-functor
 	\begin{displaymath}
-		[\cA^{\op}, \cV]\bigg(\Hom_{\cA} (K,-) ,\Hom_{\cA}(F,-)\bigg) \from \cC^{\op} \times  \cD \to \cV
+		[\cA^{\op}, \cV]\bigg(\cC(K,-) ,\cC(F,-)\bigg) \from \cC^{\op} \times  \cD \to \cV
 	\end{displaymath}
 	is representable in the first variable.
-	By parameterized Yoneda, we get a functor $ \cC \to \cD $ which we denote by $ \Lan_K F $. In other words $ \Lan_K F = (- \odot_\cA F) \circ \Hom_\cA(K,-) $ and $ \Lan_K F(c) = \cC(K-,c)\odot _\cA F $.
+	By parameterized Yoneda, we get a functor $ \cC \to \cD $ which we denote by
+    $ \Lan_K F $. In other words $ \Lan_K F = (- \odot_\cA F) \circ\cC(K,-) $
+    and $ \Lan_K F(c) = \cC(K-,c)\odot _\cA F $.
 \end{defn}
 \begin{prop}
-	If the pointwise Kan extension exists, then it is in particular a left Kan extension in $ \cV \text{-} \CAT $ i.e.
+	If the pointwise Kan extension exists, then it is in particular a left Kan
+    extension in $ \cV \text{-} \CAT $, i.e.
 	\begin{displaymath}
 		\begin{tikzcd}
 			\cA \arrow[r, "K"]\arrow[rd,"F"', 	""{name=F,marking,near start}] 	 &
@@ -3752,12 +4020,16 @@ As in the unenriched case, we can define $\V$-dense functors and density present
 	\begin{displaymath}
 		\frac{\Lan_K F \Rightarrow G}{F \Rightarrow GK}
 	\end{displaymath}
-	By definition we have $ \Lan_K F = (- \odot F) \circ \Hom_\cA(K,-) $ so by (partial) adjunction we have
+	By definition we have $ \Lan_K F = (- \odot F) \circ\cC(K,-) $ so by
+    (partial) adjunction we have
 	\begin{displaymath}
-		\frac{\Lan_K F \to G}{\Hom_\cA(K,-) \to \Hom_\cA(F,-)\circ G}
+		\frac{\Lan_K F \to G}{\cC(K,-) \to\cC(F,-)\circ G}
 	\end{displaymath}
-	Both $ \Hom_\cA(K,-) $ and $ \Hom_\cA(F ,-) $ are defined by lifting $ T $-action on collections ($ T $ the presheaf monad) so this amount to giving a collection of $ \cV $-natural transformations
-	$ \cC(Ka,-) \xRightarrow{\alpha_{a,-}} \cD(Fa,G-) $ compatible with the action, i.e.
+	Both $\cC(K,-) $ and $\cC(F ,-) $ are defined by lifting $ T $-action on
+    collections ($ T $ the presheaf monad) so this amounts to giving a
+    collection of $ \cV $-natural transformations
+	$ \cC(Ka,-) \xRightarrow{\alpha_{a,-}} \cD(Fa,G-) $ compatible with the
+    action, i.e.
 	\begin{displaymath}
 		\begin{tikzcd}
 			{\cA(a',a) \otimes \cC(Ka,c)}
@@ -3776,11 +4048,13 @@ As in the unenriched case, we can define $\V$-dense functors and density present
 	\begin{displaymath}
 		1\otimes \id_{Ka} \from \cA(a,a') \to \cA(a,a')\otimes \cC(Ka,Ka)
 	\end{displaymath}
-	we find that $ \beta $ is $ \cV $-natural, i.e. $ \alpha_{a,-} $ are compatible with the $ \cV $-action as above.
+	we find that $ \beta $ is $ \cV $-natural, i.e. the $ \alpha_{a,-} $ are
+    compatible with the $ \cV $-action as above.
 \end{proof}
 
 \begin{lemma}
-	If the pointwise left Kan extension exists and $ K $ is fully faithful, then the unit
+	If the pointwise left Kan extension exists and $ K $ is fully faithful, then
+    the unit
 	\begin{displaymath}
 		\begin{tikzcd}
 			\cA \arrow[r, "K"]\arrow[rd,"F"', 	""{name=F,marking,near start}] 	 &
@@ -3789,6 +4063,7 @@ As in the unenriched case, we can define $\V$-dense functors and density present
 			\arrow[Rightarrow, from=F, to=L, shorten <=10pt, shorten >=10pt, start anchor={north west}, end anchor={[yshift=1pt]}, "\eta_F"]
 		\end{tikzcd}
 	\end{displaymath}
+    is a natural isomorphism.
 \end{lemma}
 \begin{proof}
 	One checks that the unit is
@@ -3813,11 +4088,14 @@ As in the unenriched case, we can define $\V$-dense functors and density present
 	i.e. a composition of natural isomorphisms since $ K $ is fully faithful.
 \end{proof}
 \begin{defn}
-	Give a class of weights $ \Phi $ we write $ \Phi\Cocts_0[\cC,\cD] $ for the category of $ \cV $-functors which preserve $ \Phi $-colimits and $ \cV $ natural transformations, i.e.
+	Give a class of weights $ \Phi $ we write $ \Phi\Cocts_0[\cC,\cD] $ for the
+    category of $ \cV $-functors which preserve $ \Phi $-colimits and $ \cV $
+    natural transformations, i.e.
 	\begin{displaymath}
 		W\odot _\cA FD \xrightarrow{F}  F(W\odot_\cA D)
 	\end{displaymath}
-	is an isomorphism fo all $ W \from \cA ^{\op} \to \cV $ and $ D \from \cA \to \cC $.
+	is an isomorphism for all $ W \from \cA ^{\op} \to \cV $ and $ D \from \cA
+    \to \cC $.
 \end{defn}
 \begin{thm}
 	Let $ \Phi $ be a class of weights, $ K \from \cA \to \cC $ full and faithful.
@@ -3830,12 +4108,12 @@ As in the unenriched case, we can define $\V$-dense functors and density present
 	are inverse equivalences.
 \end{thm}
 \begin{proof}
-	The full subcategory $ \cB \subseteq \cC $ on objects $ B $ such that $ \cC(K-,B)\odot _\cA F $ exists is closed under $ \Phi $-colimits, since they are $ K $-absolute and contains representables $ \{ KA \mid A \in \cA \} $.
+	The full subcategory $ \cB \subseteq \cC $ of objects $ B $ such that $ \cC(K-,B)\odot _\cA F $ exists is closed under $ \Phi $-colimits, since they are $ K $-absolute and contains representables $ \{ KA \mid A \in \cA \} $.
 	Therefore $ \cB = \cC $ and so $ \Lan_K F $ exists and is clearly $ \Phi $-cocontinuous, since
 	\begin{displaymath}
-		(- \odot _\cA F) \circ \Hom_\cA (K,-)
+		(- \odot _\cA F) \circ\cC(K,-)
 	\end{displaymath}
-	preserve $ \Phi $-colimits.
+	preserves $ \Phi $-colimits.
 
 	For the second statement we already know that the unit is an isomorphism, so we only need to show that the right adjoint $ K^* $ is conservative.
 	The same colimit-closure argument shows this is the case, hence $ \epsilon $ is an iso by the triangle identities.
@@ -3849,7 +4127,8 @@ As in the unenriched case, we can define $\V$-dense functors and density present
 	for any $ \Phi $-cocomplete $ \cD $.
 \end{cor}
 \begin{proof}
-	As in the unenriched case, one shows that there is a $ \cV $-natural isomorphism $ \Hom_\cA(Y,-)\iso \id_{[A^{\op}, \cV]} $ (check on collections),
+	As in the unenriched case, one shows that there is a $ \cV $-natural
+    isomorphism $ \cC(Y,-)\iso \id_{[A^{\op}, \cV]} $ (check on collections),
 	so all colimits are $ Y $-absolute.
 \end{proof}
 We are now ready to define locally presentable $ \cV $-categories.
@@ -3863,7 +4142,9 @@ This ensures that all filtered colimits in $ \cV_0 $ behave ``the same'' as in $
 \end{defn}
 
 Note that this imposes a condition even for $ \cC = \cV $.
-An object $ V \in \cV $ is finitely presentable if and only if $ [V,-] $ preserves filtered colimits, if and only if $ -\otimes \cV $ preserves finitely presentable objects.
+An object $ V \in \cV $ is finitely presentable if and only if $ [V,-] $
+preserves filtered colimits, or equivalently if and only if $ -\otimes \cV $
+preserves finitely presentable objects.
 
 So, finitely presentable in $ \cV $ is equivalent to finitely presentable in $ \cV_0 $ if $ (\cV_0)_{\text{fp}} $ is closed under finite $ \otimes $-products.
 
@@ -3872,7 +4153,9 @@ So, finitely presentable in $ \cV $ is equivalent to finitely presentable in $ \
 \end{defn}
 
 \begin{exmp}
-	$ \Set,\Cat,\sSet,\Mod_R,\dgMod_R $ are all locally finitely presentable (lfp) as a closed category. We call such $ \cV $ an \emph{lfp cosmos}.
+	$ \Set,\Cat,\sSet,\Mod_R,\dgMod_R $ are all locally finitely presentable
+    (lfp) as a closed category. We call such $ \cV $ a \emph{locally finitely
+    presentable cosmos}.
 \end{exmp}
 \begin{prop}
 	If $ \cV $ is an lfp cosmos and $ \cC $ ha copowers, then $ c\in \cC $ is $ \kappa $-presentable if and only if $ V\odot c \in \cC_0 $ is $ \kappa $-presentable for each $ V \in \cV_{\text{fp}} $.
@@ -3887,7 +4170,11 @@ So, finitely presentable in $ \cV $ is equivalent to finitely presentable in $ \
 	Conversely the $ \cV_0(V,-) $ define the full and faithful embedding $ \cV_0 \to [\cV ^{\op} _{\text{fp}} , \Set ] $ which preserves filtered colimits so they jointly detect $ \kappa $-filtered colimits.
 \end{proof}
 \begin{defn}
-	Let $ \cV $ be an lfp  cosmos. Then a $ \cV $-category $ \cC $ is called locally $ \kappa $-presentable if it has a small subcategory $ \cA \subseteq\cC  $ consisting of $ \kappa $-presentable objects in $ \cC $, $ \cC $ is cocomplete and the inclusion $ K \from \cA \subseteq\cC  $ has a density presentation consisting of conical $ \kappa $-filtered colimits.
+	Let $ \cV $ be an lfp  cosmos. Then a $ \cV $-category $ \cC $ is called
+    locally $ \kappa $-presentable if it has a small subcategory $ \cA
+    \subseteq\cC  $ consisting of $ \kappa $-presentable objects in $ \cC $, $
+    \cC $ is cocomplete and the inclusion $ K \from \cA\rightarrow\cC  $ has a
+    density presentation consisting of conical $ \kappa $-filtered colimits.
 \end{defn}
 \begin{thm}
 	Let $ \cV $ an lfp cosmos.
@@ -3905,7 +4192,7 @@ So, finitely presentable in $ \cV $ is equivalent to finitely presentable in $ \
 	Use the $ \cV $-dense $ K \from \cA \to \cC $ from the definition.
 	The functor
 	\begin{displaymath}
-		\Hom_{\cA}(K,-)\from \cC \to [\cA^{\op},\cV]
+		\cC(K,-)\from \cC \to [\cA^{\op},\cV]
 	\end{displaymath}
 	is fully faithful and preserves $ \kappa $-filtered colimits.
 	\item[$ 2) \Rightarrow 3) $]
@@ -3988,7 +4275,8 @@ Recall that a $\V$-matrix on a set $S$ is an object of $\V\mbox{-}\Mat(S)=\prod_
 	First, let $S=\colim S_i$ with universal cocone $\iota_i\from S_i\to S$ in $\Set$. Then $(\iota_i)_*\A_i$ defines a diagonal of the same shape in $\Mon(\V^{S\times S})$. Let $\A=\colim_i(\iota_i)_*\A_i$. Then $\colim(S_i,\A_i)=(S,\A)$. The same recipe works for colimits of $\V$-graphs $\colim(S_i, M_i)=(S,\colim_{\V^{S\times S}}(\iota_i)_*M_i)$. It follows that $U\colon\V\mbox{-}\Cat\to\V\mbox{-}\mathbf{Grph}$ preserves all the colimits that are preserved by each forgetful functor $\Mon(\V^{S\times S})\to\V^{S\times S}, \ S\in\Set$. Now we use the fact that the tensor product of matrices preserves sifted colimits in each variable. Hence sifted colimits of monoids are preserved by $\Mon(\V^{S\times S})\xrightarrow{\text{forget}}\V^{S\times S}$.
 \end{proof}
 \begin{rmk}
-	We don't really need locally $\kappa$-presentable here: $\V$ any cosmos suffices by Kelly's  ``transfinite construction''.
+	We don't really need locally $\kappa$-presentable here: any cosmos $\cV$
+    suffices by Kelly's  ``transfinite construction''.
 \end{rmk}
 
 It remains to show that $\V\Graph$ is locally $\kappa$-presentable if $\V$ is. We consider the $\V$-graph $(2, \bar{V})$, for $V \in \V$ denoted as follows:
@@ -4104,7 +4392,7 @@ $(\V_{0})_{\kappa}$ is closed under $-\otimes -$, then the same is true in $\V\t
 \section{Two-dimensional monad theory}
 
 In the case $\V=\Cat$ the (large) categories $\V\text{-}\CAT(\K,\Lf)$ are again $2$-categories (modifications can be defined as for small $\K$). We denote
-this by $[\K,\Lf]$. Moreover, we have $2$-functors $[\Lf,\M] \times [\K,\Lf] \to [\K,\M]$. Since $\Cat$ is cartesian, we also have a diagonal
+them by $[\K,\Lf]$. Moreover, we have $2$-functors $[\Lf,\M] \times [\K,\Lf] \to [\K,\M]$. Since $\Cat$ is cartesian, we also have a diagonal
 $[\K,\K] \to [\K,\K] \times [\K,\K]$ given by the assignment $F \mapsto (F,F)$. This allows us to present the $2$-monad for $\kappa$-accessible $2$-monads on
 a locally $\kappa$-presentable $2$-cat $\K$. This way we can study $2$-monads by studying the algebras of $2$-monads. Moreover $2\text{-}\Cat_{/\K}$ is
 a $2$-category and $(-)\Alg \from 2\text{-}\Mnd_{\kappa}(\K) \to 2\text{-}\Cat_{/\K}$ preserves all weighted limits (sends $\Cat$-weighted colimits to limits).
@@ -4210,14 +4498,15 @@ By construction giving $T \to \Arrowvert \sigma,\sigma \Arrowvert$ amounts to li
 \end{defn}
 
 \begin{exmp}
-	The pseudo/lax morphisms for the $2$-monad for monoidal $\V$-categories are precisely the strong monoidal/lax monoidal $\V$-functors. $2$-cells are the
+    \begin{enumerate}
+        \item The pseudo/lax morphisms for the $2$-monad for monoidal $\V$-categories are precisely the strong monoidal/lax monoidal $\V$-functors. $2$-cells are the
 	monoidal $2$-cells.
-\end{exmp}
-
-\begin{exmp}
-	For the $2$-monad of presheaves on a small $2$-category $\A$ $T \from \prod_{\Ob(\A)} \Cat \to \prod_{\Ob(\A)} \Cat$ the pseudo-$T$-morphisms are
-	the pseudo-natural transformations, the lax morphisms are the lax-natural transformations between (strict) $2$-functors. One way to prove this is to use
-	the corresponding pseudo/lax version of $\{f,f\}$
+        \item For the $2$-monad of presheaves
+    $T\from\prod_{\Ob(\A)}\Cat\to\prod_{\Ob(\A)}\Cat$ on a small $2$-category
+    $\A$ the pseudo-$T$-morphisms are the pseudo-natural transformations, the
+    lax morphisms are the lax-natural transformations between (strict)
+    $2$-functors. One way to prove this is to use the corresponding pseudo/lax
+    version of $\{f,f\}$
 	\begin{center}
 		\begin{tikzcd}
 			\{f,f\}_{l} \arrow[r] \arrow[d] & \langle B,B \rangle \arrow[d] \arrow[ld, Rightarrow, shorten=4mm] \\
@@ -4226,6 +4515,7 @@ By construction giving $T \to \Arrowvert \sigma,\sigma \Arrowvert$ amounts to li
 	\end{center}
 	the comma object with the universal $2$-cell an iso for $\{f,f\}_{p}$ for a complete $2$-category and check that there are $2$-monads such that
 	$2$-monad morphisms $T \to  \{f,f\}_{l}$ are precisely lax $T$-morphisms $(f,\bar{f}) \from (A,a) \to (B,b)$.
+    \end{enumerate}
 \end{exmp}
 
 We thus have $2$-categories and $2$-functors
