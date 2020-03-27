@@ -149,9 +149,11 @@ Notice that we always have a category $\C$ and some functor $T\colon\C\rightarro
 		\end{tikzcd}
 	\]
 
-	commute. $\mu$ is called the \emph{multiplicative map}, while $\eta$ is the \emph{unit} of $T$.
+	commute. $\mu$ is called the \emph{multiplicative map}, while $\eta$ is the
+    \emph{unit} of $T$.
 
-	The commutativity of the first diagram is equivalent to stating that the following two diagrams are equal.
+	The commutativity of the first diagram is equivalent to stating that the
+    following two diagrams are equal.
 	\begin{center}
 		\begin{minipage}{0.3\linewidth}
 			\begin{tikzcd}[row sep=1cm, column sep=1cm]
@@ -213,7 +215,9 @@ On the other hand, the second diagram can be rephrased as follows:
 A monad naturally defines other algebraic structures, which we now introduce.
 
 \begin{defn}
-	Given a monad $(T,\mu,\eta)$, a \emph{$T$-algebra} or \emph{$T$-module} is a pair $(a,\alpha)$, where $a\in\Ob(\C)$ and $\alpha\colon Ta\rightarrow a$ is such that the following diagrams commute.
+	Given a monad $(T,\mu,\eta)$, a \emph{$T$-algebra} or \emph{$T$-module} is a
+    pair $(a,\alpha)$, where $a\in\Ob(\C)$ and $\alpha\colon Ta\rightarrow a$ is
+    such that the following diagrams commute.
 	\[
 		\begin{tikzcd}
 			T^2 a\ar["\mu_{a}"']{d}\ar["T\alpha"]{r}
@@ -270,7 +274,8 @@ We now show how to recover the examples previously given with this language.
 	\end{enumerate}
 \end{exmp}
 
-Now that we have introduced these structures, our aim is to characterize \emph{monadic functors}, that is functors $U\colon\A\rightarrow\C$ which are equivalent to $U^T\colon T\Alg\rightarrow\C$ for some monad $(T,\mu,\eta)$ on $\C$.
+Now that we have introduced these structures, our aim is to characterize
+\emph{monadic functors}, which we will soon define.
 
 First of all, notice that $U^T$ is faithful by construction, hence $U$ must be faithful, but more is true.
 
@@ -291,9 +296,9 @@ First of all, notice that $U^T$ is faithful by construction, hence $U$ must be f
 			& b
 		\end{tikzcd}
 	\]
-	the square on the left commutes, that is $g\beta=\alpha\cdot Tg$.
-	We see that $fg\beta=\beta$ and $f\cdot\alpha\cdot Tg=\beta\cdot Tf\cdot
-		Tg=\beta\cdot T(fg)=\beta\cdot T\id_b=\beta$, hence the thesis.
+	the square on the left commutes, that is $g\cdot\beta=\alpha\cdot Tg$.
+	We see that $f\cdot g\cdot\beta=\beta$ and $f\cdot\alpha\cdot Tg=\beta\cdot Tf\cdot
+		Tg=\beta\cdot T(f\cdot g)=\beta\cdot T\id_b=\beta$, hence the thesis.
 \end{proof}
 \begin{rmk}
 	Notice that the forgetful functor $U\colon\Top\to\Set$ can't be monadic
@@ -405,10 +410,13 @@ Thanks to the proposition above we can prove that, given a monad $T$, we can alw
 		\item Let us consider the adjunction $U\colon\mathbf{Top}\rightleftarrows\Set\colon\mathsf{Disc}\eqqcolon F$, whose left adjoint assigns to every set $X$ the discrete topological space $FX=(X, 2^X)$.
 		      It's immediate to see that $UFX=X$, hence $UF=\id_\Set$. How many natural transformations $\id_\Set=UF\xRightarrow{\alpha} UF=\id_\Set$ are there?
 		      We know that $\id_\Set\cong\Hom(*,-)$, so $\text{Nat}(\id_\Set,
-			      \id_\Set)\cong\text{Nat}(\Hom(*,-),\Hom(*,-))\cong\Hom(*,*)=\{\id_*\}$ by
-		      Yoneda, hence $\alpha=\id$. It follows that $(UF,U\epsilon F,
-			      \eta)=(\id_\Set, \id, \id)$.
-		\item If $S$ is a set, then $\Set(S,-)\colon\Set\to\Set$ is right adjoint to $S\times-\colon\Set\to\Set$, so we get a monad $X\mapsto\Set(S,S\times X)$. This is called the \emph{state monad} and it is important in Computer Science.
+			      \id_\Set)\cong\text{Nat}(\Hom(*,-),\Hom(*,-))\cong\Hom(*,*)=\{\id_*\}$
+                  by Yoneda, hence $\alpha=\id_\Set$ necessarily. It follows
+                  that $(UF,U\epsilon F,\eta)=(\id_\Set, \id, \id)$.
+		\item If $S$ is a set, then $\Set(S,-)\colon\Set\to\Set$ is right
+            adjoint to $S\times-\colon\Set\to\Set$, so we get a monad
+            $X\mapsto\Set(S,S\times X)$. This is called the \emph{state monad}
+            and it is important in Computer Science.
 	\end{enumerate}
 \end{exmp}
 
@@ -487,6 +495,18 @@ Just like a monad $(T,\mu,\eta)$ defines a category $T\Alg$, it also allows us t
 
 Following the construction in this proof, from the last example we get the comparison functor for the adjunction $F\dashv U$. In particular, $\overline{U}d=(Ud,U\epsilon_d)$. Furthermore, this means that $U\colon\Top\rightarrow\Set$ factors through identities.
 
+We conclude this section by defining the aforementioned concept of monadic
+functors.
+
+\begin{defn}
+    An adjunction$\begin{tikzcd}F\colon\cC\ar[r, shift left = .4em, above,
+    ""{name=F}] &\cD\colon U\ar[l, shift left = .4em, below,
+    ""{name=U}]\ar[from=F, to=U, symbol=\dashv]\end{tikzcd}$is said to be
+    a \emph{monadic adjunction} if the canonical comparison functor
+    $\overline{G}\colon\cD\rightarrow GF\Alg$ is an equivalence of categories.
+    A functor $G$ is said to be monadic if it admits a left adjoint $F$ such
+    that the pair defines a monadic adjunction.
+\end{defn}
 
 \section{Limits and colimits in the category of algebras}
 
@@ -593,11 +613,10 @@ A similar statement holds for colimits.
 \end{proof}
 
 \begin{rmk}
-	The same statements hold for monadic functors, except for the fact that they might not create limits and colimits strictly since they are just equivalent to a $U^T$.
-\end{rmk}
-
-\begin{rmk}
-	If $T$ is a monad on a complete category $\C$, then $T\Alg$ is complete. If $\C$ is cocomplete and $T$ is cocontinuous, then $T\Alg$ is cocomplete.
+    \begin{itemize}
+        \item The same statements hold for monadic functors, except for the fact that they might not create limits and colimits strictly since they are just equivalent to a $U^T$.
+        \item If $T$ is a monad on a complete category $\C$, then $T\Alg$ is complete. If $\C$ is cocomplete and $T$ is cocontinuous, then $T\Alg$ is cocomplete.
+    \end{itemize}
 \end{rmk}
 
 \begin{exmp}
@@ -741,7 +760,11 @@ characterizing monadic functors.
 				      U^T\overline{U}FUFU^T\arrow[r, shift left,  "U^T\overline{U}F\alpha"] \arrow[r, shift right, "U^T\overline{U}\epsilon FU^T"']&U^T\overline{U}FU^T\arrow[r, "U^T\overline{U}\beta"']& U^T\overline{U}\hspace{.5mm}\overline{F}
 			      \end{tikzcd}
 		      \]
-		      is a morphism of $T$-actions\footnote{In fact, this tells us that the morphism $\overline{\eta}_{(a,\alpha)}\colon a\to U^T\overline{U}\hspace{.5mm}\overline{F}(a,\alpha)$ in $\C$ lifts uniquely to a morphism of $T$-algebras $\overline{\eta}_{(a,\alpha)}\colon(a,\alpha)\to\overline{U}\hspace{.5mm}\overline{F}(a,\alpha)$.}.
+		      is a morphism of $T$-actions\footnote{In fact, this tells us that
+              the morphism $\overline{\eta}_{(a,\alpha)}\colon a\to
+              U^T\overline{U}\hspace{.5mm}\overline{F}(a,\alpha)$ in $\C$ lifts
+              uniquely to a morphism of $T$-algebras
+              $\overline{\eta}_{(a,\alpha)}\colon(a,\alpha)\to\overline{U}\hspace{.5mm}\overline{F}(a,\alpha)$.}.
 
 		      Unraveling what this means, we have to check that the diagram
 		      \[
@@ -752,7 +775,11 @@ characterizing monadic functors.
 				      & U\overline{F}(a,\alpha)
 			      \end{tikzcd}
 		      \]
-		      is commutative. We know that $\overline{\eta}\alpha=U\beta$ by the definition of $\overline{\eta}$. Moreover, $\alpha$ is a split epimorphism in $\C$, hence we can precompose with $UF\alpha$ (again a split epi) and check the commutativity of the resulting diagram. We get the diagram
+		      is commutative. We know that $\overline{\eta}\cdot\alpha=U\beta$
+              by the definition of $\overline{\eta}$. Moreover, $\alpha$ is a
+              split epimorphism in $\C$, hence we can precompose with $UF\alpha$
+              (again a split epi) and check the commutativity of the resulting
+              diagram. We get the diagram
 		      \[
 			      \begin{tikzcd}[column sep=1.5cm]
 				      UFUFa\arrow[d, "UF\alpha"'] \arrow[rd, bend left, near end, "UFU\beta_{(a,\alpha)}"description] \arrow[rrd, bend left, "U\epsilon_{Fa}"description] &            & \ar[lld,draw=none, near start,"\hspace{-1.5cm}\text{nat.\ of\ } \epsilon" description]  \\
@@ -760,21 +787,37 @@ characterizing monadic functors.
 				      a\arrow[r, "\overline{\eta}_{(a,\alpha)}"']                                             &     U\overline{F}(a,\alpha)       &
 			      \end{tikzcd}
 		      \]
-		      The definition of $\beta$ as a coequalizer implies that $\beta_{(a,\alpha)}F\alpha=\beta_{(a,\alpha)}\epsilon_{Fa}$, so we get the natural transformation $\overline{\eta}\colon\id_{T\Alg}\Rightarrow\overline{U}\hspace{.5mm}\overline{F}$. The only thing left to do is checking the triangular identities, which is left to the reader.
+		      The definition of $\beta$ as a coequalizer implies that
+              $\beta_{(a,\alpha)}\cdot
+              F\alpha=\beta_{(a,\alpha)}\cdot\epsilon_{Fa}$, so we get the
+              natural transformation
+              $\overline{\eta}\colon\id_{T\Alg}\Rightarrow\overline{U}\hspace{.5mm}\overline{F}$.
+              The only thing left to do is checking the triangular identities,
+              which is left to the reader.
 
-		\item If $U$ preserves coequalizers of $U$-split pairs, both $U\overline{F}$ and $U^T$ are coequalizers of the above diagram, hence $\overline{\eta}$ is an isomorphism.
+		\item If $U$ preserves coequalizers of $U$-split pairs, both
+            $U\overline{F}$ and $U^T$ are coequalizers of the above diagram,
+            hence $\overline{\eta}$ is an isomorphism.
 
-		\item From the triangular identities, $\overline{U}\overline{\epsilon}\cdot\overline{\eta}\overline{U}=\id_{\overline{U}}$, hence $\overline{U}\overline{\epsilon}$ is an isomorphism. Being $U^T\overline{U}=U$ conservative, $\overline{\epsilon}$ is an isomorphism as well. \qedhere
+		\item From the triangular identities,
+            $\overline{U}\overline{\epsilon}\cdot\overline{\eta}\overline{U}=\id_{\overline{U}}$,
+            hence $\overline{U}\overline{\epsilon}$ is an isomorphism. Being
+            $U^T\overline{U}=U$ conservative, $\overline{\epsilon}$ is an
+            isomorphism as well. \qedhere
 	\end{enumerate}
 \end{proof}
 
 \begin{defn}
-	A pair $f,g\colon c\rightrightarrows d$ in a category $\C$ is \emph{reflexive} if there exists a common section $i\colon d\rightarrow c$, that is $fi=gi=\id_d$.
+	A pair $f,g\colon c\rightrightarrows d$ in a category $\C$ is
+    \emph{reflexive} if there exists a common section $i\colon d\rightarrow c$,
+    that is $f\cdot i=g\cdot i=\id_d$.
 	A coequalizer of a reflexive pair is a \emph{reflexive coequalizer}.
 \end{defn}
 
 \begin{rmk}
-	To give a cone of a reflexive pair it is enough to give a map $h\colon d\rightarrow x$ such that $hf=hg$, hence $\colim (\hspace{-1.5mm}\begin{tikzcd}
+	To give a cone of a reflexive pair it is enough to give a map $h\colon
+    d\rightarrow x$ such that $h\cdot f=h\cdot g$, hence
+    $\colim (\hspace{-1.5mm}\begin{tikzcd}
 			c\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}d\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]
 		\end{tikzcd}\hspace{-1.5mm})\cong\colim (c\rightrightarrows d)$.
 \end{rmk}
@@ -835,13 +878,18 @@ In this chapter we are going to show how various categories emerging in algebra 
 \begin{proof}
 	\begin{itemize}[itemindent=36pt]
 
-		\item[(ii)$\iff$(iii)] We have $\Lan_{F^{\op}}*(j)\cong\colim_{(j\downarrow F)}*$ by the formula for Kan extensions. A cone of $(j\downarrow F)\rightarrow\Set$, $(\phi,j')\mapsto *$, is terminal if and only if $(j\downarrow F)$ is connected, hence the thesis.
+		\item[(ii)$\iff$(iii)] We have
+            $\Lan_{F^{\op}}*(j)\cong\colim_{(j\downarrow F)}*$ by the formula
+            for Kan extensions. A cone of $(j\downarrow F)\rightarrow\Set$,
+            $(\phi,j')\mapsto *$, is terminal if and only if $(j\downarrow F)$
+            is connected, hence the thesis.
 
-		\item[(ii)$\implies$(i)] Let $D\colon\J\rightarrow\C$ be a diagram. We can then write $\Cocone(D,-)$ as follows:
-		      $$\Cocone(D,X)\cong\Nat(*,\C(D-,X))\cong [\J^{\op},\Set](*,\C(D-,X))$$
+		\item[(ii)$\implies$(i)] Let $D\colon\J\rightarrow\C$ be a diagram. We
+            can then write $\Cocone(D,-)$ as follows:
+		      $$\Cocone(D,X)\cong\Nat(*,\C(D,X))\cong [\J^{\op},\Set](*,\C(D,X))$$
 
 		      By definition of left Kan extension, we also have
-		      $$\Cocone(DF,X)\cong[\I^{\op},\Set](*,\C(DF-,X))\cong [\J^{\op},\Set](\Lan_{F^{\op}}*,\C(D-,X))$$
+		      $$\Cocone(DF,X)\cong[\I^{\op},\Set](*,\C(DF,X))\cong [\J^{\op},\Set](\Lan_{F^{\op}}*,\C(D,X))$$
 
 		      If $\Lan_{F^{\op}}*\cong *$, this shows that $\colim_{\I} DF\cong\colim_{\J} D$.
 		\item[(i)$\implies$(iii)] Left as an exercise. \qedhere
@@ -986,7 +1034,10 @@ We write $[\C,\D]_\text{fin}$ for the full subcategory of $[\C,\D]$ whose object
 Before proving this theorem, we present some consequences.
 
 \begin{cor}
-	Any finitary functor $\Set\rightarrow\Set$ preserves sifted colimits. In particular, if $T\colon\Set\rightarrow\Set$ is the underlying endofunctor of a finitary monad, then $U^T\colon T\Alg\rightarrow\Set$ creates sifted colimits.
+	Any finitary functor $\Set\rightarrow\Set$ preserves sifted colimits. In
+    particular, if $T\colon\Set\rightarrow\Set$ is the underlying endofunctor of
+    a finitary monad, then $U^T\colon T\Alg\rightarrow\Set$ strictlycreates
+    sifted colimits.
 \end{cor}
 
 \begin{proof}
@@ -996,9 +1047,10 @@ Before proving this theorem, we present some consequences.
 	functors preserving colimits of a given class are closed under formation of
 	pointwise colimits, hence it is enough to check on a generating set.
 
-	If $\Lan_KF_i$ preserves sifted colimits for all
-	$F_i\colon\Set_\text{fin}\rightarrow\Set$, then the functor
-	$\colim_{\cI}\Lan_KF_i\cong\Lan_K\colim_{\cI}F_i$ preserves sifted colimits.
+	If for all $F_i\colon\Set_\text{fin}\rightarrow\Set$ we have that
+    $\Lan_KF_i$ preserves sifted colimits, then the functor
+	$\colim_{\cI}\Lan_KF_i\cong\Lan_K\colim_{\cI}F_i$ preserves sifted colimits
+    as well.
 
 	Any functor $F\colon\Set_\text{fin}\rightarrow\Set$ is a colimit of
 	representable functors $\Set_\text{fin}(X,-)$. Indeed, it is enough to
@@ -1020,30 +1072,42 @@ Before proving this theorem, we present some consequences.
 		\end{tikzcd}
 	\]
 
-	A natural transformation $\Lan_K\Set_\text{fin}(X,-)\Rightarrow G$ by definition is equivalent to a natural transformation $\Set_\text{fin}(X,-)\Rightarrow GK$, which by Yoneda is equivalent to a map $*\rightarrow GKX$, which again by Yoneda corresponds to a natural transformation $\Set(KX,-)\Rightarrow G$, hence $\Lan_K\Set_\text{fin}(X,-)\cong\Set(KX,-)$.
+	A natural transformation $\Lan_K\Set_\text{fin}(X,-)\Rightarrow G$ by
+    definition is equivalent to a natural transformation
+    $\Set_\text{fin}(X,-)\Rightarrow GK$, which by Yoneda is equivalent to a map
+    $*\rightarrow GKX$, which again by Yoneda corresponds to a natural
+    transformation $\Set(KX,-)\Rightarrow G$, hence
+    $\Lan_K\Set_\text{fin}(X,-)\cong\Set(KX,-)$.
 
-	We only have to check now that $\Set(KX,-)\cong\Pi_{x\in X}\Set(*,-)$ preserves sifted colimits, but this is just the functor $Y\mapsto\Pi_{x\in X}Y$, which as we know commutes with sifted colimits.
+	We only have to check now that $\Set(KX,-)\cong\Pi_{x\in X}\Set(*,-)$
+    preserves sifted colimits, but this is just the functor $Y\mapsto\Pi_{x\in
+    X}Y$, which as we know commutes with sifted colimits.
 \end{proof}
 \begin{prop}
-	A category $\C$ with sifted colimits is cocomplete if and only if it has an initial object and binary coproducts.
+	A category $\C$ with sifted colimits is cocomplete if and only if it has an
+    initial object and binary coproducts.
 \end{prop}
 \begin{proof}
-	One implication is obvious. For the other one, notice that we get finite coproducts immediately and an infinite coproduct can be written as a filtered colimit of finite coproducts. We are only missing coequalizers. If $f,g\colon a\rightrightarrows b$ is a pair, then $f+\id,g+\id\colon\hspace{-1.5mm}$\begin{tikzcd}
+	One implication is obvious. For the other one, notice that we get finite
+    coproducts immediately and an infinite coproduct can be written as a
+    filtered colimit of finite coproducts. We are only missing coequalizers. If
+    $f,g\colon a\rightrightarrows b$ is a pair, then
+    $f+\id,g+\id\colon\hspace{-1.5mm}$\begin{tikzcd}
 		a+b\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}b\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]
 	\end{tikzcd}$\hspace{-1.5mm}\colon\text{in}_b$ (where in$_b$ is the
 	inclusion of $b$ in the coproduct) is a reflexive pair, hence the
-	coequalizer $k=\text{coeq}(a+b\rightrightarrows b)$ exists and coequalizes
-	the original pair. The universal arrow $h\colon b\rightarrow k$ is also a
+	coequalizer $c=\text{coeq}(a+b\rightrightarrows b)$ exists and coequalizes
+	the original pair. The universal arrow $h\colon b\rightarrow c$ is also a
 	coequalizer of $f,g\colon a\rightrightarrows b$.
 \end{proof}
 \begin{thm}
 	Let $X$ be a finite set, $T\colon\prod_{x\in X}\Set\to\prod_{x\in X}\Set$ a finitary monad. Then $T\Alg$ is cocomplete.
 \end{thm}
 \begin{proof}
-	$T\Alg$ has always an initial object, namely the free algebra of the initial
-	object $\left(T\prod_{x\in X}\emptyset,\mu_{\prod_{x\in
-				X}\emptyset}\right)$. Similarly, for $a,b\in\prod_{x\in X}\Set$, using that
-	$F^T$ is a left adjoint (hence it preserves colimits) we find that
+	The category $T\Alg$ has always an initial object, namely the free algebra
+    of the initial object $\left(T\prod_{x\in X}\emptyset,\mu_{\prod_{x\in
+    X}\emptyset}\right)$. Similarly, for $a,b\in\prod_{x\in X}\Set$, using that
+    $F^T$ is a left adjoint (hence it preserves colimits) we find that
 	$\left(T\left(a\coprod b\right),\mu_{a\coprod b}\right)$ is a coproduct of
 	$(Ta,\mu_a)$ and $(Tb,\mu_b)$. Therefore $T\Alg$ has coproducts of free
 	algebras. We want to check that we have binary coproducts of $T$-algebras
@@ -1096,10 +1160,10 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 \end{defn}
 
 \begin{thm}[Realisation-Nerve Adjunction]
-	Let $\cC$ be a cocomplete category, $\cA$ a small category and
-	$K\colon\cA\rightarrow\cC$ a functor. Then, $\widetilde{K}$ has a left
+	Let $\cC$ be a locally small cocomplete category, $\cA$ a small category
+    and $K\colon\cA\rightarrow\cC$ a functor. Then, $\widetilde{K}$ has a left
 	adjoint given by $\Lan_\yo K\colon[\cA,\Set]\rightarrow\cC$ such that the
-	following diagram commutes up to natural isomorphism.
+	diagram
 	\[
 		\begin{tikzcd}[column sep=tiny]
 			\A\ar[rr, "\yo"]\ar[dr, swap, "K"]
@@ -1107,6 +1171,7 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 				K"] \\
 			& \C\end{tikzcd}
 	\]
+    commutes up to isomorphism.
 \end{thm}
 \begin{proof}
 	We have $\displaystyle \Lan_\yo K(F)=\colim_{(\yo\downarrow F)}Ka$, hence
@@ -1121,7 +1186,7 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 \end{proof}
 
 \begin{thm}\label{long thm}
-	Let $\C$ be a cocomplete category, $\A$ a small category and
+	Let $\C$ be a locally small cocomplete category, $\A$ a small category and
 	$K\colon\A\to\C$ a fully faithful functor. The following
 	conditions are equivalent:
 	\begin{enumerate}
@@ -1174,37 +1239,38 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	every $a'$, therefore $\B=\C$. Consider now $$\B'=\{b'\ | \
 		\C(b',b)\xrightarrow{\widetilde{K}}\left[\A^{\op},\Set\right](\widetilde{K}b',\widetilde{K}b)
 		\ \text{is bijective}\}$$
-	This is closed under all $K$-absolute colimits and contains $Ka$ by the above argument, hence it is all of $\C$.
+	This is closed under all $K$-absolute colimits and contains $Ka$ by the
+    above argument, hence it is all of $\C$.
 \end{proof}
 \begin{defn}
 	A fully faithful functor $K\colon\A\to\C$ is \emph{dense} if $\widetilde{K}$
 	is fully faithful. A collection of diagrams $\{D_j\colon\I_j\to\C\}$ such
-	that $\C$ is the closure of $K$ under colimits of $D_j$ and the $\colim D_j$
-	are $K$-absolute is a \emph{density presentation}.
+	that $\C$ is the closure of $\cA$ under colimits of $D_j$ and the $\colim
+    D_j$ are $K$-absolute is a \emph{density presentation}.
 \end{defn}
 \begin{rmk}
 	The definition of density makes sense for arbitrary $K$, but the implication $(4)\implies(1)$ does not work in general.
 \end{rmk}
 \begin{exmp}
 	\begin{enumerate}
-		\item $\yo\colon\A\to\left[\A^{\op},\Set\right]$ is dense. In fact, we
-		      have $$\widetilde{\yo}\circ
-			      G=\left[\A^{\op},\Set\right](\yo-,G)\Yoneda G,$$ thus
-		      $\widetilde{\yo}\cong\id$ preserves all colimits. The colimits
-		      indexed by the slices $(\yo\downarrow F)$ give a density
-		      presentation.
+		\item $\yo\colon\A\to\left[\A^{\op},\Set\right]$ is dense: we
+            have $$\widetilde{\yo}(G)
+            =\left[\A^{\op},\Set\right](\yo-,G)\Yoneda G,$$ thus
+		    $\widetilde{\yo}\cong\id$ preserves all colimits. The colimits
+		    indexed by the slices $(\yo\downarrow F)$ give a density
+		    presentation.
 		\item $K\colon\Set_\text{fin}\hookrightarrow\Set$ is dense: $S$ finite
-		      implies that $\Set(S,-)$ preserves sifted, hence filtered, colimits.
-		      Filtered (and sifted) colimits are $K$-absolute and a density
-		      presentation for $K$ can be found once one writes an arbitrary set
-		      as a union of its finite subset.
-		\item $K\colon\{*\}\subseteq\Set$ is dense:
-		      $\widetilde{K}\colon\Set\to\left[*,\Set\right]\cong\Set$,
-		      $S\mapsto\Set(*,S)\cong S$, hence we find that $\widetilde{K}$
-		      preserves all colimits. We can use coproducts to get a density
-		      presentation.
-		\item $\{k\}\subset \mathbf{Vect}_k$ is not dense even though every
-		      vector space is a coproduct of copies of $k$.
+		    implies that $\Set(S,-)$ preserves sifted, hence filtered, colimits.
+		    Filtered (and sifted) colimits are $K$-absolute and a density
+		    presentation for $K$ can be found once one writes an arbitrary set
+		    as a union of its finite subset.
+		\item $K\colon\{*\}\rightarrow\Set$ is dense:
+		    $\widetilde{K}\colon\Set\to\left[*,\Set\right]\cong\Set$,
+		    $S\mapsto\Set(*,S)\cong S$, hence we find that $\widetilde{K}$
+		    preserves all colimits. We can use coproducts to get a density
+		    presentation.
+		\item $K\colon\{k\}\rightarrow\mathbf{Vect}_k$ is not dense even though
+            every vector space is a coproduct of copies of $k$.
 	\end{enumerate}
 \end{exmp}
 \begin{defn}
@@ -1231,7 +1297,12 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	Any such Kan extension is called pointwise.
 \end{defn}
 \begin{thm}
-	Let $K\colon\A\to\C$ be a fully faithful dense functor with density presentation $\{D_j\colon\I_j\to\C\}_{j\in\J}$. Let $F\colon\A\to\D$ be a functor and assume that $\D$ has colimits of shape $\I_j$ for all $j\in\J$. Then the pointwise left Kan extension of $F$ along $K$ exists. In particular, the unit $F\Rightarrow\Lan_KF\circ K$ is an isomorphism.
+	Let $K\colon\A\to\C$ be a fully faithful dense functor with density
+    presentation $\{D_j\colon\I_j\to\C\}_{j\in\J}$. Let $\cD$ be a locally small
+    category, $F\colon\A\to\D$ a functor and assume that $\D$ has colimits of
+    shape $\I_j$ for all $j\in\J$. Then the pointwise left Kan extension of $F$
+    along $K$ exists. In particular, the unit $F\Rightarrow\Lan_KF\circ K$ is an
+    isomorphism.
 \end{thm}
 \begin{proof}
 	We want a $L$ as above, that is such that
@@ -1281,16 +1352,33 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	\end{align*}
 \end{proof}
 \begin{thm}
-	Let $K\colon\A\to\C$ be fully faithful, $\Phi$ a class of colimit shapes and assume there exists a density presentation for $K$ with colimits of shape $\I_j\in\Phi$. Let $\D$ be a category with colimits of shape $\Phi$. We write $\Phi\mbox{-}\mathbf{Cocts}(\C,\D)$ for the category of functors $\C\to\D$ which preserve $\Phi$-colimits. If all colimits of shape $\Phi$ are $K$-absolute, then
+	Let $K\colon\cA\to\cC$ be fully faithful, $\Phi$ a class of colimit shapes
+    and assume there exists a density presentation for $K$ with colimits of
+    shape $\I_j\in\Phi$. Let $\cD$ be a category with colimits of shape $\Phi$.
+    We write $\Phi\Cocts(\cC,\cD)$ for the category of functors $\C\to\D$ which
+    preserve $\Phi$-colimits. If all colimits of shape $\Phi$ are $K$-absolute,
+    then
 	\[
 		\begin{tikzcd}
-			\left[\A,\D\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A, below}] & \Phi\mbox{-}\mathbf{Cocts}(\C,\D)\ar[l, shift left=1.5ex, "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
+			\left[\A,\D\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A,
+            below}] & \Phi\Cocts(\C,\D)\ar[l, shift left=1.5ex,
+            "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
 		\end{tikzcd}
 	\]
 	is an equivalence.
 \end{thm}
 \begin{proof}
-	The existence of $\Lan_K$ is guaranteed by the fact that $\D$ has $\Phi$-colimits and $K$ has density presentation with colimits of shape $\I_j\in\Phi$. By definition, $\Lan_K$ is left adjoint to $K^*\colon\left[\C,\D\right]\to\left[\A,\D\right]$ and by the lemma it lands in $\Phi\mbox{-}\mathbf{Cocts}(\C,\D)$. Then $\Lan_K$ is a left adjoint to the restriction. The unit is an isomorphism since $\Lan_KF$ is pointwise, so it suffice to check that $K^*$ is conservative. Let $G,H\colon\C\to\D$ be $\Phi$-cocts, $\alpha\colon G\Rightarrow H$ natural transformation such that $\alpha K$ is an isomorphism. Then, $\{c\ |\ \alpha_c \ \text{is an isomorphism}\}$ contains $Ka$ for every $a$ and is closed under colimits of density presentations. Hence $\alpha$ is an isomorphism.
+	The existence of $\Lan_K$ is guaranteed by the fact that $\D$ has
+    $\Phi$-colimits and $K$ has density presentation with colimits of shape
+    $\I_j\in\Phi$. By definition, $\Lan_K$ is left adjoint to
+    $K^*\colon\left[\C,\D\right]\to\left[\A,\D\right]$ and by the lemma it lands
+    in $\Phi\Cocts(\C,\D)$. Then $\Lan_K$ is a left adjoint to the restriction.
+    The unit is an isomorphism since $\Lan_KF$ is pointwise, so it suffice to
+    check that $K^*$ is conservative. Let $G,H\colon\C\to\D$ be $\Phi$-cocts,
+    $\alpha\colon G\Rightarrow H$ natural transformation such that $\alpha K$ is
+    an isomorphism. Then, $\{c\ |\ \alpha_c \ \text{is an isomorphism}\}$
+    contains $Ka$ for every $a$ and is closed under colimits of density
+    presentations, hence $\alpha$ is an isomorphism.
 \end{proof}
 \begin{cor}
 	For $K\colon\Set_\text{fin}\hookrightarrow\Set$, we get that
@@ -1302,26 +1390,41 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	is an equivalence.
 \end{cor}
 \begin{defn}
-	Let $\Phi$ be a class of colimit shapes and $\A$ be a small category. We write $\Phi(\A)$ for the closure of the representable presheaves in $\left[\A^{\op},\Set\right]$ under $\Phi$-colimits. We have a functor $\yo\colon\A\to\Phi(\A)$.
+	Let $\Phi$ be a class of colimit shapes and $\A$ be a small category. We
+    write $\Phi(\A)$ for the closure of the representable presheaves in
+    $\left[\A^{\op},\Set\right]$ under $\Phi$-colimits. We have a functor
+    $\yo\colon\A\to\Phi(\A)$.
 \end{defn}
 \begin{rmk}
-	By construction, there exists a density presentation for $\yo\colon\A\to\Phi(\A)$ consisting of $\Phi$-colimits. This follows from $\widetilde{\yo}\colon\Phi(\A)\to\left[\A^{\op},\Set\right]$ being simply the inclusion.
+	By construction, there exists a density presentation for
+    $\yo\colon\A\to\Phi(\A)$ consisting of $\Phi$-colimits. This follows from
+    $\widetilde{\yo}\colon\Phi(\A)\to\left[\A^{\op},\Set\right]$ being simply
+    the inclusion.
 \end{rmk}
 \begin{thm}
-	Let $\Phi$ be a class of small colimit shapes, $\A$ a small category. Then $\A\xrightarrow{\yo}\Phi(\A)$ is the \emph{free cocompletion} of $\A$ under $\Phi$-colimits, that is\
+	Let $\Phi$ be a class of small colimit shapes, $\A$ a small category. Then
+    $\A\xrightarrow{\yo}\Phi(\A)$ is the \emph{free cocompletion} of $\A$ under
+    $\Phi$-colimits, that is
 	\[
 		\begin{tikzcd}
-			\left[\A,\C\right]\ar[r, shift left=1.5ex,"\Lan_\yo",""{name=A, below}] & \Phi\mbox{-}\mathbf{Cocts}(\Phi(\A),\C)\ar[l, shift left=1.5ex, "\yo^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
+			\left[\A,\C\right]\ar[r, shift left=1.5ex,"\Lan_\yo",""{name=A, below}] & \Phi\Cocts(\Phi(\A),\C)\ar[l, shift left=1.5ex, "\yo^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
 		\end{tikzcd}
 	\]
-	is an equivalence for every $\Phi$-cocomplete $\C$. In particular, if $\Phi$ is the class of all small colimit shapes, then $\Phi(\A)=\left[\A^{\op},\Set\right]$ is the free cocompletion of $\A$. In this case, every $L\cong\Lan_\yo F\in\mathbf{Cocts}(\left[\A^{\op},\Set\right],\C)$ has a right adjoint: $\Lan_\yo F\dashv\widetilde{F}$.
+	is an equivalence for every $\Phi$-cocomplete $\C$. In particular, if $\Phi$
+    is the class of all small colimit shapes, then
+    $\Phi(\A)=\left[\A^{\op},\Set\right]$ is the free cocompletion of $\A$. In
+    this case, every $L\cong\Lan_\yo
+    F\in\mathsf{Cocts}(\left[\A^{\op},\Set\right],\C)$ has a right adjoint, that
+    is $\Lan_\yo F\dashv\widetilde{F}$.
 \end{thm}
 \begin{proof}
-	Since $\yo\colon\A\to\Phi(\A)$ has density presentation consisting of $\Phi$-colimits, the two equivalences follow from the previous theorem. To see that $L$ has right adjoint, it suffices to check $L\cong\Lan_\yo F\dashv\widetilde{F}\colon$
+	Since $\yo\colon\A\to\Phi(\A)$ has density presentation consisting of
+    $\Phi$-colimits, the two equivalences follow from the previous theorem. To
+    exhibit the right adjoint of $L$, we see that
 	\[
-		\C(\Lan_\yo F(G), c')\cong\left[\A^{\op},\Set\right](\widetilde{\yo}(G), \widetilde{F}c')\cong\left[\A^{\op},\Set\right](G, \widetilde{F}c')
+		\C(\Lan_\yo F(G),c)\cong\left[\A^{\op},\Set\right](\widetilde{\yo}(G),\widetilde{F}c)\cong\left[\A^{\op},\Set\right](G,\widetilde{F}c)
 	\]
-	since $\Lan_\yo\colon F$ is pointwise.
+	since $\Lan_\yo F$ is pointwise.
 \end{proof}
 \begin{exmp}
 	Let $\Delta$ be the category of finite non-empty ordinals $[0], [1], \dots$ and order preserving maps. We have a functor $\Delta_\bullet\colon\Delta\to\Top$, sending $[n]$ to the standard (geometric) $n$-simplex $\Delta_n$ so we get and adjunction $\Lan_\yo\Delta_\bullet\colon\left[\A^{\op},\Set\right]\rightleftarrows\Top\colon\Delta_\bullet^*$. $\Lan_\yo\Delta_\bullet$ is called the \emph{geometric realization} and $\Delta_\bullet^*\eqqcolon\text{Sing}(-)$ is called the \emph{singular complex}. In pictures:
@@ -1352,17 +1455,25 @@ From now on we fix a regular cardinal $\kappa$\footnote{Namely, a union of $<\ka
 			x_i\arrow[r,shift left=2.2ex] \arrow[r,shift left=1.2ex,""{name=A}] \arrow[r, shift right=1.5ex,"<\kappa"',""{name=B}]\ar[from=A, to=B, phantom, "\vdots"]&x_j \arrow[r]&x
 		\end{tikzcd}
 	\]
-	is coequalizing. If $\kappa=\aleph_0$ a $\kappa$-filtered category is just a filtered one.
+	is coequalizing. If $\kappa=\aleph_0$ a $\kappa$-filtered category is just a
+    filtered one.
 \end{defn}
 \begin{defn}
-	An object $c\in\C$ is called \emph{$\kappa$-presentable} if $\C(c,-)$ preserves $\kappa$-filtered colimits. If $\kappa=\aleph_0$, $c$ is called \emph{finitely presentable}.
+	An object $c\in\C$ is called \emph{$\kappa$-presentable} if $\C(c,-)$
+    preserves $\kappa$-filtered colimits. If $\kappa=\aleph_0$, $c$ is called
+    \emph{finitely presentable}.
 \end{defn}
 \begin{defn}
-	A category $\A$ is called \emph{$\kappa$-accessible} if there exists a small subcategory $\A_0$ of $\kappa$-presentable objects such that $\A$ is the closure of $\A_0$ under $\kappa$-filtered colimits. The category $\A$ is called \emph{locally $\kappa$-presentable} if it is $\kappa$-accessible and cocomplete.
+	A category $\A$ is called \emph{$\kappa$-accessible} if there exists a small
+    subcategory $\A_0$ of $\kappa$-presentable objects such that $\A$ is the
+    closure of $\A_0$ under $\kappa$-filtered colimits. The category $\A$ is
+    called \emph{locally $\kappa$-presentable} if it is $\kappa$-accessible and
+    cocomplete.
 \end{defn}
 \begin{exmp}
 	Take $\A=\Set,\ \A_0=\Set_\text{fin}$ and $S\in\Set_\text{fin}$. Then $$\Set(S,-)=\displaystyle\prod_{|S| \ \text{finite}}\Set(*,-)$$
-	preserves sifted, hence filtered, colimits. Thus $\Set$ is locally finitely presentable.
+	preserves sifted, hence filtered, colimits, thus $\Set$ is locally finitely
+    presentable.
 \end{exmp}
 \begin{rmk}
 	For $\A_0$ as in the definition, $K\colon\A_0\to\A$ the inclusion, we find that $\kappa$-filtered colimits are $K$-absolute.
@@ -1426,14 +1537,21 @@ Our next goal is to prove that if $(T,\mu,\eta)$ is an accessible monad on a loc
         $K$-absolute.
 \end{proof}
 \begin{exmp}
-	\emph{Finite} free groups, abelian groups, commutative rings etc.\ form dense generators of $\mathbf{Grp}$, $\Ab$, $\mathbf{CRng}$ etc.
+	\emph{Finite} free groups, abelian groups, commutative rings etc.\ form
+    dense generators of $\mathbf{Grp}$, $\Ab$, $\mathbf{CRng}$ etc.
 \end{exmp}
-Recall that the category of $T$-algebras of a finitary monad $T\colon\Set\to\Set$ is cocomplete. We would like to know that $T\Alg$ is locally finitely presentable. This result can be proved using the following fact (which is in turn an easy consequence of the result about the commutativity of $\kappa$-filtered colimits with $\kappa$-small limits in $\Set$):
+Recall that the category of $T$-algebras of a finitary monad
+$T\colon\Set\to\Set$ is cocomplete. We would like to know that $T\Alg$ is
+locally finitely presentable. This result can be proved using the following fact
+(which is in turn an easy consequence of the result about the commutativity of
+$\kappa$-filtered colimits with $\kappa$-small limits in $\Set$):
 \begin{center}
 	$\kappa$-presentable objects are closed under $\kappa$-small colimits.
 \end{center}
 \begin{prop}
-	Let $\C$ be a cocomplete category which has a \emph{small} dense subcategory consisting of $\kappa$-presentable objects. Then $\C$ is locally $\kappa$-presentable.
+	Let $\C$ be a locally small cocomplete category which has a \emph{small}
+    dense subcategory consisting of $\kappa$-presentable objects. Then $\C$ is
+    locally $\kappa$-presentable.
 \end{prop}
 \begin{proof}
 	Let $\A'$ be the closure of $\A $ under $ \kappa $-small  colimits.
@@ -1442,11 +1560,15 @@ Recall that the category of $T$-algebras of a finitary monad $T\colon\Set\to\Set
 	\begin{displaymath}
 		\A_{i+1} = \{\text{colimits of $ \kappa $-small diagrams in $\A_i $\}}
 	\end{displaymath}
-	and for a limit-ordinal $ \lambda $ we set $\A_\lambda = \bigcup_{\mu<\lambda}\A_{\mu} $.
-	This terminates when $ \lambda = \kappa $, so $\A_\kappa $ is the colimit closure and thus small.
-	From the above mentioned fact we know that $\A'  $ consists of $ \kappa $-presentable objects.
+	and for a limit-ordinal $ \lambda $ we set $\A_\lambda =
+    \bigcup_{\mu<\lambda}\A_{\mu} $.
+	This terminates when $ \lambda = \kappa $, so $\A_\kappa $ is the colimit
+    closure and thus small.
+	From the above mentioned fact we know that $\A'  $ consists of $ \kappa
+    $-presentable objects.
 	Since it contains $\A $, the inclusion $ K \colon\A' \to \C $ is dense.
-	If $\A' $ is dense, then each object in $ \C $ is a colimit of $(K\downarrow c)$ which is a $ \kappa $-filtered diagram by construction.
+	If $\A' $ is dense, then each object in $ \C $ is a colimit of $(K\downarrow
+    c)\rightarrow\cC$ which is a $ \kappa $-filtered diagram by construction.
 \end{proof}
 \begin{cor}
 	For each finitary monad $ T $ on $ \Set $, the category $ T\Alg $ is locally finitely presentable.
@@ -1489,15 +1611,16 @@ Recall that the category of $T$-algebras of a finitary monad $T\colon\Set\to\Set
 	Then check that the product of cones satisfying i) and ii) of size $ < \kappa $ still satisfies i) and ii).
 \end{proof}
 \begin{cor}
-	In any category, $ \kappa $-presentable objects are closed under $ \kappa $-small colimits.
+	In any category, $ \kappa $-presentable objects are closed under $ \kappa
+    $-small colimits.
 \end{cor}
 \begin{proof}
 	Let $ C \from \I \to \C $ be a $\kappa$-filtered diagram and
 	$ D\from \J \to \C $ a $ \kappa $-small diagram of $ \kappa $-presentable objects $ D_J $.
 	\begin{align*}
 		\C (\colim_{\J} D_j, \colim_{\I} C_i) & \cong \lim_{\J} \C (D_j,\colim_{\I} C_i)            \\
-		                                      & \cong \lim_{\J} (\colim_{\I} \C (D_j,C_i))          \\
-		\null^{\text{Explicit check in Set}}  & \cong \colim_{\I} (\lim_{\J} \C (D_j,C_i))          \\
+		                                      & \cong \lim_{\J}\colim_{\I} \C (D_j,C_i)          \\
+		\null^{\text{Previous corollary}}     & \cong \colim_{\I}\lim_{\J} \C (D_j,C_i)          \\
 		                                      & \cong \colim_{\I} \C(\colim_{\J} D_j, C_i).\qedhere
 	\end{align*}
 \end{proof}
@@ -1521,7 +1644,7 @@ $ a $ is finitely presentable if for all filtered colimits $ k_i \from c_i \to c
 		a \arrow[ur, dashed, "f'"]\arrow[rr, "f"']&& c
 	\end{tikzcd}
 \end{displaymath}
-and any two such lifts $ f', f"  $ satisfying $ k_i \circ f' = k_i \circ f" $ become equal after composing with some $ c_\phi \from c_i \to c_j $.
+and any two such lifts $f',f"$ satisfying $k_i\cdot f'=k_i\cdot f"$ become equal after composing with some $c_\phi\from c_i\to c_j$.
 
 \begin{cor}
 	Let $\C$ be a locally $\kappa$-presentable category. We have that $\kappa$-filtered colimits commute with $\kappa$-small limits in $\C$.
@@ -1551,7 +1674,8 @@ and any two such lifts $ f', f"  $ satisfying $ k_i \circ f' = k_i \circ f" $ be
     $\left[\C_\lambda,\D\right]$ is locally $\kappa$-presentable.
 \end{proof}
 \begin{cor}
-	The category of accessible functors $\left[\C,\D\right]_\text{acc}$ is closed under small colimits in $\left[\C,\D\right]$.
+	The category of accessible functors $\left[\C,\D\right]_\text{acc}$ is
+    closed under small colimits in $\left[\C,\D\right]$.
 \end{cor}
 \begin{proof}
 	This is clear, since $\displaystyle\left[\C,\D\right]_\text{acc}=\bigcup_\lambda\left[\C,\D\right]_\lambda$.
@@ -1604,10 +1728,15 @@ This was observed by G.\ M.\ Kelly in \cite{kelly1980unified}, which is ``hard t
 
 Throughout this section we will work with locally presentable categories and accessible functors.
 
-Kelly's main observation is that all above constructions can be reduced to the case of algebras for a well pointed endofunctor.
+Kelly's main observation is that all above constructions can be reduced to the case of algebras for a well-pointed endofunctor.
 
 \begin{defn}
-	Let $S\colon\C\to\C$ be a functor. We call $S$ \emph{pointed} if there exists $\sigma\colon\id_{\C}\Rightarrow S$. The pair $(S,\sigma)$ is \emph{well pointed}\footnote{Note that, as soon as one defines a monad to be idempotent if the multiplication is an isomorphism, being idempotent is equivalent to being well pointed.} if $S\sigma=\sigma S\colon S\Rightarrow S^2$.
+	Let $S\colon\C\to\C$ be a functor. We call $S$ \emph{pointed} if there
+    exists $\sigma\colon\id_{\C}\Rightarrow S$. The pair $(S,\sigma)$ is
+    \emph{well-pointed}\footnote{Note that, as soon as one defines a monad to be
+    idempotent if the multiplication is an isomorphism, being idempotent is
+    equivalent to being well-pointed.} if $S\sigma=\sigma S\colon S\Rightarrow
+    S^2$.
 \end{defn}
 \begin{defn}
 	Given a pointed endofunctor $(S,\sigma)$, a $(S,\sigma)$-algebra is a pair
@@ -1626,7 +1755,7 @@ Kelly's main observation is that all above constructions can be reduced to the c
 	commutes. We write $(S,\sigma)\Alg$ for the resulting category and $U^S\colon(S,\sigma)\Alg\to\C$ for the forgetful functor.
 \end{defn}
 \begin{lemma}
-	If $(S,\sigma)$ is a well pointed endofunctor, then there exists at most one algebra structure for any object and it exists if and only if $\sigma_a$ is invertible, in which case $\alpha=\sigma_a^{-1}$. Moreover, $U^S\colon(S,\sigma)\Alg\to\C$ is fully faithful. In other words, $(S,\sigma)\Alg$ is isomorphic to the full subcategory of $\C$ given by $\{a\in\C\ |\ \sigma_a \ \text{is invertible} \}$.
+	If $(S,\sigma)$ is a well-pointed endofunctor, then there exists at most one algebra structure for any object and it exists if and only if $\sigma_a$ is invertible, in which case $\alpha=\sigma_a^{-1}$. Moreover, $U^S\colon(S,\sigma)\Alg\to\C$ is fully faithful. In other words, $(S,\sigma)\Alg$ is isomorphic to the full subcategory of $\C$ given by $\{a\in\C\ |\ \sigma_a \ \text{is invertible} \}$.
 \end{lemma}
 \begin{proof}
 	For fixed $(a,\alpha)\in(S,\sigma)\Alg$, the diagram
@@ -1638,7 +1767,7 @@ Kelly's main observation is that all above constructions can be reduced to the c
 			& Sa
 		\end{tikzcd}
 	\]
-	commutes by the naturality of $\sigma$. Since $S$ is well pointed, this
+	commutes by the naturality of $\sigma$. Since $S$ is well-pointed, this
     implies $\sigma_a\cdot\alpha=S\alpha\cdot\sigma_{Sa}=S\alpha\cdot
     \cdot S\sigma_a=S(\alpha\cdot\sigma_a)=S\id_a=\id_{Sa}$, therefore
     $\alpha=\sigma_a^{-1}$. On the other hand, if $\sigma_a$ is invertible then
@@ -1656,7 +1785,7 @@ Kelly's main observation is that all above constructions can be reduced to the c
 	commutes by naturality of $\sigma$, so $U^S$ is full (being faithful by construction). It follows that $U^S\colon(S,\sigma)\Alg\to\{a\in\C\ |\ \sigma_a \ \text{is invertible}\}$ is bijective on objects and fully faithful, so it is an isomorphism.
 \end{proof}
 \begin{lemma}
-	If $(S,\sigma)$ be a pointed endofunctor, then
+	If $(S,\sigma)$ is a pointed endofunctor, then
     $U^S\colon(S,\sigma)\Alg\to\C$ is monadic if and only if it has a left
     adjoint.
 \end{lemma}
@@ -1669,11 +1798,11 @@ Kelly's main observation is that all above constructions can be reduced to the c
 
 We will denote by $\Ord$ the category of ordinals. Furthermore, using
 the well-ordering principle, we can associate an ordinal to any cardinal.
-Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
+Note that, given a regular cardinal $\kappa$, its associated ordinal
 (which also will be denoted by $\kappa$) will be a limit ordinal.
 
 \begin{thm}
-	Let $\C$ be a category with colimits of chains (that is the domain of the diagram is an ordinal). Let $(S,\sigma)$ be a well pointed endofunctor such that $S$ preserves $\kappa$-filtered colimits. Then, the algebraically free monad on $(S,\sigma)$ exists. In particular, $\{c\in\C\ |\ \sigma_c\text{ is an isomorphism}\}$ is a reflective subcategory.
+	Let $\C$ be a category with colimits of chains (that is the domain of the diagram is an ordinal). Let $(S,\sigma)$ be a well-pointed endofunctor such that $S$ preserves $\kappa$-filtered colimits. Then, the algebraically free monad on $(S,\sigma)$ exists. In particular, $\{c\in\C\ |\ \sigma_c\text{ is an isomorphism}\}$ is a reflective subcategory.
 \end{thm}
 
 \begin{proof}
@@ -1681,10 +1810,14 @@ Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
 
 	We claim that $S^\kappa c$ lies in $(S,\sigma)\Alg$, that is $\sigma_{S^\kappa c}$ is an isomorphism. We will prove this by constructing an inverse $\alpha\colon S(S^\kappa c)\rightarrow S^\kappa c$.
 
-	Since $S$ is $\kappa$-accessible, $S^{\kappa+1}c=S(S^\kappa c)=\colim_{\lambda<\kappa} S(S^\lambda c)$. We construct a cocone on $S(S^\bullet c)$ by considering the maps $l_{\lambda+1}\colon S(S^\lambda c)=S^{\lambda+1}c\rightarrow S^\kappa c$ exibiting $S^\kappa c$ as a colimit.
+	Since $S$ is $\kappa$-accessible, $S^{\kappa+1}c=S(S^\kappa
+    c)=\colim_{\lambda<\kappa} S(S^\lambda c)$. We construct a cocone on
+    $S(S^\bullet c)$ by considering the maps $l_{\lambda+1}\colon S(S^\lambda
+    c)=S^{\lambda+1}c\rightarrow S^\kappa c$ exibiting $S^\kappa c$ as a
+    colimit.
 	\[
 		\begin{tikzcd}
-			S(S^\lambda c)=S^{\lambda+1}c\ar[rr, "S\sigma_{S^\lambda c}=\sigma_{S^{\lambda+1}c}"]\ar[d, "l_{\lambda+1}"]
+			S(S^\lambda c)\ar[rr, "S\sigma_{S^\lambda c}=\sigma_{S^{\lambda+1}c}"]\ar[d, "l_{\lambda+1}"]
 			&& S(S^{\lambda+1}c)\ar[d, "l_{\lambda+2}"] \\
 			S^\kappa c\ar[rr, equal]
 			&& S^\kappa c
@@ -1695,7 +1828,8 @@ Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
     we get a cocone culminating in $S^\kappa c$, which will then factor uniquely
     through the cocone culminating in $S(S^\kappa c)$ as $\alpha\colon
     S(S^\kappa c)\rightarrow S^\kappa c$. By construction, the following diagram
-    commutes and $l_{\mu+1}\cdot\sigma_{S^\mu c}=l_\mu$.
+    commutes and $l_{\mu+1}\cdot\sigma_{S^\mu c}=l_\mu$ by the definition of the
+    cocone.
 	\[
 		\begin{tikzcd}
 			S^\mu c\ar[r, "\sigma_{S^\mu c}"]\ar[d, "l_\mu"]
@@ -1714,15 +1848,15 @@ Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
 	We now claim that $l_0\colon c\rightarrow S^\kappa c$ defines a reflection
     into the full subcategory given by $\B\coloneqq\{c\in\C\ |\ \sigma_c\text{
         is an isomorphism}\}$. Firstly, we have shown that $S^\kappa c\in\B$,
-    hence we only need $l_0^*\colon\B(S^\kappa c,b)\rightarrow\C(c,b)$ to be a
+    hence we only need $l_0^*\colon\cC(S^\kappa c,b)\rightarrow\C(c,b)$ to be a
     bijection for all $b\in\B$.
 
 	Since representable functors $\C(-,b)$ send colimits to limits, this
     immediately reduces to the following: given $b\in\B$, $c\in\C$, the map
     $\sigma^*_c\colon\C(Sc,b)\rightarrow\C(c,b)$ is a bijection.
 
-	Using well pointedness, we can write the inverse to $\sigma^*_c$ as
-    $\C(c,b)\rightarrow\C(c,b)$, $f\mapsto\sigma^{-1}_b\cdot Sf$.
+	Using well-pointedness, we can write the inverse to $\sigma^*_c$ as
+    $\C(c,b)\rightarrow\C(Sc,b)$, $f\mapsto\sigma^{-1}_b\cdot Sf$.
 \end{proof}
 
 \begin{thm}
@@ -1771,7 +1905,7 @@ Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
 	We have then the colimit
     $(\colim_{\I}a_i,p,F(\colim_{\I}\alpha_i)\rightarrow p)$ in
     $(F\downarrow\C)$. In particular, if $F$ preserves this colimit, then the
-    top map $\colim_{\I}F(a_{i})\to F(\colim_{\I}a_i)$ is an isomorphism, in
+    top map $\colim_{\I}Fa_{i}\to F(\colim_{\I}a_i)$ is an isomorphism, in
     which case we may take $p=\colim_{\I}b_{i}$ and the identity as the map from
     $\colim_{\I}b_{i}$ to $p$.
 \end{proof}
@@ -1794,9 +1928,12 @@ Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
     pointwise.
 
 	To prove density, we want that for each $(c,d,\gamma\colon Fc\rightarrow d)$
-    the canonical cocone $(\A\downarrow (c,d,\gamma))$ exhibits $(c,d,\gamma)$
+    the canonical cocone of $(\A\downarrow (c,d,\gamma))\rightarrow
+    (F\downarrow\cC)$ exhibits $(c,d,\gamma)$
     as a colimit. In the arrow category $\cC^{[1]}$, $Fc\rightarrow d$ is a
-    colimit of all $\kappa$-presentable pairs $c_0,c_1\in\C_\lambda$.
+    colimit of all $\kappa$-presentable pairs $c_0,c_1\in\C_\lambda$ with a
+    morphism $c_0\rightarrow c_1$ such that there exists a pair of morphisms
+    making the diagram
 	\[
 		\begin{tikzcd}
 			c_0\ar[d]\ar[r]
@@ -1805,6 +1942,7 @@ Note that, since $\kappa$ is a regular cardinal, it's associated ordinal
 			& d
 		\end{tikzcd}
 	\]
+    commute.
 
 	We need to check that the natural functor $(\A\downarrow
     (c,d,\gamma))\rightarrow ((\cC^{[1]})_\lambda\downarrow\gamma)$ is final.
@@ -1979,7 +2117,7 @@ For example, we can easily prove the following.
     $L\from\C\to\C$ be a functor.
 	If $\pi\from S\to L$ is a natural transformation such that $\pi_c\from
 	Sc\to Lc$ is epic for all $c\in\C$, then $(L,\pi\cdot\sigma) $ is
-    a well pointed endofunctor and $(L,\pi\sigma)\Alg$ is equivalent to
+    a well-pointed endofunctor and $(L,\pi\sigma)\Alg$ is equivalent to
     the full subcategory of $(S,\sigma)\Alg$ on objects $(a,\alpha)$
     such that $\pi_a\colon Sa\to La$ is an isomorphism.
 \end{prop}
@@ -2225,7 +2363,12 @@ such that $\psi^* J=\id_{F\Alg}$. We have the following result.
 \end{proof}
 
 \begin{thm}
-	Let $\C$ be a locally $\kappa$-presentable category. We write $\Mnd_\kappa(\C)$ for the full subcategory of $\Mnd(\C)$ given by $\kappa$-accessible monads. Then, the forgeful functor $U\colon \Mnd_\kappa(\C)\rightarrow[\C,\C]_\kappa$ is monadic and $\kappa$-accessible. In particular, $\Mnd_\kappa(\C)$ is locally $\kappa$-presentable.
+	Let $\C$ be a locally $\kappa$-presentable category. We write
+    $\Mnd_\kappa(\C)$ for the full subcategory of $\Mnd(\C)$ given by
+    $\kappa$-accessible monads. Then, the forgeful functor $U\colon
+    \Mnd_\kappa(\C)\rightarrow[\C,\C]_\kappa$ is monadic and
+    $\kappa$-accessible. In particular, $\Mnd_\kappa(\C)$ is locally
+    $\kappa$-presentable.
 \end{thm}
 
 \begin{proof}
@@ -2883,7 +3026,11 @@ The goal of the following section is to use them to define new $\V$-categories f
 	\V\mbox{-}\CAT & \longrightarrow\Set\mbox{-}\CAT=\CAT \\
 	\C             & \longmapsto V_*\C
 \end{align*}
-Here $V_*\C$ has the same object class as $\C$ and $V_*\C(a,b)=V(\C(a,b))$. For the composition we use the lax monoidal structure of $\V$, i.e.\ the morphisms in $V_*\C$ from $a$ to $b$ are given by morphisms $I\xrightarrow{f}\C(a,b)$. The composition of the morphisms $f\colon a\to b$ and $g\colon b\to c$ is the morphism defined as
+Here $V_*\C$ has the same object class as $\C$ and $V_*\C(a,b)=V(\C(a,b))$. For
+the composition we use the lax monoidal structure of $\V$, i.e.\ the morphisms
+in $V_*\C$ from $a$ to $b$ are given by morphisms $I\xrightarrow{f}\C(a,b)$. The
+composition of the morphisms $f\colon a\to b$ and $g\colon b\to c$ is the
+morphism defined as
 $$g\circ f = I\xrightarrow{\sim} I\otimes I\xrightarrow{g\otimes f}\C(b,c)\otimes\C(a,b)\xrightarrow{\circ}\C(a,c).$$
 We write $\C_0$ for the underlying unenriched category of $\C$. It would be good
 if $(T\Alg)_0\cong T_0\Alg$ in the sense we defined before. The objects
