@@ -2408,7 +2408,7 @@ such that $\psi^* J=\id_{F\Alg}$. We have the following result.
 \begin{prop}
 	Let $\C$ be locally $\kappa$-presentable. Then the functor
 	\begin{equation*}
-		(_)\Alg \from \Mnd_{\kappa}(\C)^{\op} \to (\CAT \downarrow \C)
+		\left(-\right)\Alg \from \Mnd_{\kappa}(\C)^{\op} \to (\CAT \downarrow \C)
 	\end{equation*}
 	preserves limits. That is, it sends colimits in $\Mnd_{\kappa}(\C)$ to limits.
 \end{prop}
@@ -2756,9 +2756,10 @@ The previous example is an instance of a more general phenomenon, as shown by th
 			      \begin{tikzcd}[row sep = large, column sep = large]
 				      \lbrack\cC,\cC\rbrack_\kappa
 				      \arrow[r, "\simeq"]\arrow[d] &
-				      \lbrack\cC_\kappa,\cC\rbrack \arrow[dl, "\Lan_K"']\arrow[dl, phantom, "\bot", bend left=15]
+				      \lbrack\cC_\kappa,\cC\rbrack \arrow[dl, "\Lan_K"', ""{name=Lan}]
 				      \\
-				      \lbrack\cC, \cC\rbrack \arrow[ru, "K^*"', bend right]
+				      \lbrack\cC, \cC\rbrack \arrow[ru, "K^*"', bend right, ""{name=K}]
+				      \ar[from=Lan, to=K, symbol=\dashv]
 			      \end{tikzcd}
 		      \end{displaymath}
 		      From this it follows that the inclusion is indeed a left adjoint.
