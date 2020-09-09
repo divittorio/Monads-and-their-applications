@@ -95,9 +95,9 @@ Cover image \copyright \href{http://existentialcomics.com/comic/other/10}{\ Exis
 
 \end{proof}
 
-\noindent We will denote by $\yo$  (the kana for ``Yo") the Yoneda embedding $\C\hookrightarrow\Set^{\C^{\op}}$.
+\noindent We will denote by $\yo$ (the kana for ``Yo") the Yoneda embedding $\C\hookrightarrow\Set^{\C^{\op}}$.
 
-\chapter{Monads, algebras and adjunctions}
+\chapter{Monads and adjunctions}
 
 Throughout mathematics we encounter structures defined by some action morphisms. Here we give some examples.
 
@@ -106,9 +106,15 @@ Throughout mathematics we encounter structures defined by some action morphisms.
 	\begin{enumerate}
 		\item Given a group $G$, we may consider a $G$-set $X$ described by an action map $G\times X\rightarrow X$.
 		\item Given an abelian group $M$ and a ring $R$, we can get an $R$-module $M$ by fixing a group homomorphism $R\otimes_{\Z} M\rightarrow M$.
-		\item Given a monoid $M$ in $\Set$, we get a map $\Pi_{k=1}^n M\rightarrow M$, $(m_1,\ldots,m_n)\mapsto ((\ldots ((m_1m_2)m_3)\ldots )m_{n-1}) m_n$. This induces an action map from $W(M)=\amalg_{n\in\N}\Pi_{k=1}^n M$, the set of words on $M$, to $M$.
+		\item Given a monoid $M$ in $\Set$, we get a map
+            \begin{align*}
+                \Pi_{k=1}^n M &\rightarrow M \\
+                (m_1,\ldots,m_n) &\mapsto ((\ldots ((m_1m_2)m_3)\ldots )m_{n-1})
+                m_n
+            \end{align*}
+            This induces an action map from $WM=\amalg_{n\in\N}\Pi_{k=1}^n M$, the set of words on $M$, to $M$.
 		\item\label{ultrafilters}
-		      Given a set $X$, let $\mathcal{U}X$ be the set of ultrafilters on it. Any compact T2 topology on $X$ allows us to see each ultrafilter as a system of neighborhoods of a unique point in $X$, hence it gives us a unique map $\mathcal{U}X\rightarrow X$ sending each ultrafilter to the respective point.
+		      Given a set $X$, let $\mathcal{U}X$ be the set of ultrafilters on it. Any compact Hausdorff topology on $X$ allows us to see each ultrafilter as a system of neighborhoods of a unique point in $X$, hence it gives us a unique map $\mathcal{U}X\rightarrow X$ sending each ultrafilter to the respective point.
 		\item Given a directed graph $D=(V,E,\hspace{-1.5mm}\begin{tikzcd}
 				      E\hspace{-1.5mm}\arrow[r, "t" description,  shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, "s" description, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}V
 			      \end{tikzcd}\hspace{-1.5mm})$, we can create its free category $FD$, where the objects are the vertices and $FD(v,w)=\{\text{finite paths } v\rightarrow\ldots\rightarrow w\}$. We set $\id_v$ to be the path of length 0, while composition is just the concatenation of paths.
@@ -271,8 +277,8 @@ We now show how to recover the examples previously given with this language.
 		      \end{align*}
 		      We have that $(R\otimes_{\Z}-)\Alg\cong\Mod_R$.
 		\item Consider $W\colon\Set\rightarrow\Set$ given by $WX=\amalg_{n\in\N}\Pi_{k=1}^n X$. Multiplication $\mu_X\colon WWX\rightarrow WX$ is given by concatenation of words, while the unit $\eta_X\colon X\rightarrow WX$ is just $x\mapsto (x)$. With this, $W\Alg\cong \Mon(\Set)$.
-		\item The functor $\mathcal{U}$ defined in Example \ref{ultrafilters}, equipped with suitable natural transformations, is a monad on $\Set$ and $\mathcal{U}\Alg\cong \CHTop$, the category of compact T2 spaces.
-		\item The free-forgetful adjunction $F\dashv U$ between categories and directed graphs induces a monad on the latter, with $UF\Alg\cong\Cat$.
+		\item The functor $\mathcal{U}$ defined in Example \ref{ultrafilters}, equipped with suitable natural transformations, is a monad on $\Set$ and $\mathcal{U}\Alg\cong \CHTop$, the category of compact Hausdorff spaces.
+		\item The free-forgetful adjunction $F\dashv U$ between small categories and directed graphs induces a monad on the latter, with $UF\Alg\cong\Cat$.
 	\end{enumerate}
 \end{exmp}
 
@@ -352,7 +358,8 @@ explicit.
 \begin{defn}
 	Given a monad $(T,\mu,\eta)$, $T$-algebras of the form $(Tc, \mu_c)$ are called \emph{free $T$-algebras}.
 \end{defn}
-Thanks to the proposition above we can prove that, given a monad $T$, we can always find an adjunction that generates it. Actually, the converse holds too.
+Thanks to the proposition above we can prove that, given a monad $T$, we can
+always construct an adjunction from it, but there's more.
 \begin{prop}
 	If $U\colon\D\to\C$ has a left adjoint $F$ with unit $\eta$ and counit $\epsilon$, then $(UF,U\epsilon F,\eta)$ is a monad on $\C$. Also, if $(T,\mu,\eta)$ is a monad on $\C$, then $(U^TF^T,U^T\epsilon F^T,\eta)=(T,\mu,\eta)$.
 \end{prop}
@@ -381,7 +388,13 @@ Thanks to the proposition above we can prove that, given a monad $T$, we can alw
 
 \begin{exmp}
 	\begin{enumerate}
-		\item Let us consider the adjunction $U\colon\mathbf{Top}\rightleftarrows\Set\colon\mathsf{Disc}\eqqcolon F$, whose left adjoint assigns to every set $X$ the discrete topological space $FX=(X, 2^X)$.
+		\item Let us consider the adjunction
+            $\begin{tikzcd}F\coloneqq\mathsf{Disc}\colon\Set\ar[r, shift left =
+            .4em, above, ""{name=F}] &\Top\colon U\ar[l, shift left = .4em,
+            below, ""{name=U}]\ar[from=F, to=U,
+            symbol=\dashv]\end{tikzcd}$, whose
+            left adjoint assigns to every set $X$ the discrete topological space
+            $FX=(X, 2^X)$.
 		      It's immediate to see that $UFX=X$, hence $UF=\id_\Set$. How many natural transformations $\id_\Set=UF\xRightarrow{\alpha} UF=\id_\Set$ are there?
 		      We know that $\id_\Set\cong\Hom(*,-)$, so $\text{Nat}(\id_\Set,
 			      \id_\Set)\cong\text{Nat}(\Hom(*,-),\Hom(*,-))\cong\Hom(*,*)=\{\id_*\}$
@@ -481,8 +494,8 @@ We conclude this section by introducing the concept of \emph{monadic functor}.
     ""{name=F}] &\cD\colon U\ar[l, shift left = .4em, below,
     ""{name=U}]\ar[from=F, to=U, symbol=\dashv]\end{tikzcd}$is said to be
     a \emph{monadic adjunction} if the canonical comparison functor
-    $\overline{G}\colon\cD\rightarrow GF\Alg$ is an equivalence of categories.
-    A functor $G$ is said to be monadic if it admits a left adjoint $F$ such
+    $\overline{U}\colon\cD\rightarrow UF\Alg$ is an equivalence of categories.
+    A functor $U$ is said to be monadic if it admits a left adjoint $F$ such
     that the pair defines a monadic adjunction.
 \end{defn}
 
@@ -514,13 +527,13 @@ construction, hence $U$ must be faithful, but more is true.
 \begin{rmk}
 	Notice that the forgetful functor $U\colon\Top\to\Set$ can't be monadic
 	since it does not reflect isomorphisms. However, if we restrict it to
-	the full subcategory of $\Top$ spanned by compact T2 spaces we indeed
+	the full subcategory of $\Top$ spanned by compact Hausdorff spaces we indeed
 	obtain a monadic functor.
 \end{rmk}
-\section{Limits and colimits in the category of algebras}
+\section{Limits and colimits in the category of $T$-algebras}
 
 We have shown that the forgetful functor $U^T\colon T\Alg\rightarrow\C$ is a
-right adjoint and as such it preserves limits, however, we have another result
+right adjoint and as such it preserves limits, however we have another result
 concerning them.
 
 \begin{prop}\label{create lims}
@@ -606,7 +619,12 @@ A similar statement holds for colimits.
 \end{prop}
 
 \begin{proof}
-	Similarly to the dual situation, this means that for any diagram $D\colon I\rightarrow T\Alg$ such that $U^TD\colon I\rightarrow\C$ has a colimit $(c,\kappa_i)$ preserved by both $T$ and $T^2$, there is a unique $T$-algebra structure $\lambda\colon Tc\rightarrow c$ such that $\kappa_i$ is a morphism of $T$-algebras for all $i\in I$. This makes $((c,\lambda),\kappa_i)$ into a colimit of $D$.
+	Similarly to the dual situation, this means that for any diagram
+    $D\colon\cI\rightarrow T\Alg$ such that $U^TD\colon\cI\rightarrow\C$ has a
+    colimit $(c,\kappa_i)$ preserved by both $T$ and $T^2$ there is a unique
+    $T$-algebra structure $\lambda\colon Tc\rightarrow c$ such that $\kappa_i$
+    is a morphism of $T$-algebras for all $i\in\cI$. This makes
+    $((c,\lambda),\kappa_i)$ into a colimit of $D$.
 
 	The proof is essentially dual to the one given earlier, in the sense that we
 	find again a unique $\lambda\colon Tc\rightarrow c$ using the universal
@@ -653,7 +671,7 @@ It is natural to ask if we can do this systematically for general $T$-algebras. 
 is a well defined diagram in $T\Alg$, with $\alpha\cdot\mu_a=\alpha\cdot
 	T\alpha$. Moreover, this is a coequalizer. In order to prove it using
 Proposition~\ref{create colims} we need to check whether $U^T$
-sends the diagram above into a coequalizer preserved by $T$ and $T^2$. In $\C$,
+sends the diagram above to a coequalizer preserved by $T$ and $T^2$. In $\C$,
 we extend the diagram to
 \[
 	\begin{tikzcd}
@@ -730,7 +748,7 @@ characterizing monadic functors.
 
 \begin{teo}[Beck]\label{Beck} Let $U\colon\D\to\C$ be a right adjoint to $F$.
 	Let $(T=UF, U\epsilon F, \eta)$ be the induced monad and
-	$\overline{U}\colon\D\to T\Alg$ be the comparison functor.
+	$\overline{U}\colon\D\to T\Alg$ the comparison functor.
 	\begin{enumerate}
 		\item If $\D$ has coequalizers of $U$-split pairs, then $\overline{U}$ has a left adjoint $\overline{F}\colon T\Alg\to\D$;
 		\item if, in addition, $U$ preserves coequalizers of $U$-split pairs, the unit $\overline{\eta}\colon\id_{T\Alg}\Rightarrow\overline{U}\hspace{.5mm} \overline{F}$ is an isomorphism;
@@ -931,11 +949,11 @@ In this chapter we are going to show how various categories emerging in algebra 
 \end{prop}
 
 \begin{proof}
-	We need to check that, given a reflexive coequalizer $\hspace{-1.5mm}\begin{tikzcd}
+	We need to check that, given a reflexive coequalizer$$\hspace{-1.5mm}\begin{tikzcd}
 			a_0\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}a_1\hspace{-1.5mm}\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]\arrow[r, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}a_2
-		\end{tikzcd}\hspace{-1.5mm}$ in $\A$ and $\hspace{-1.5mm}\begin{tikzcd}
+		\end{tikzcd}\hspace{-1.5mm}$$in $\A$ and$$\hspace{-1.5mm}\begin{tikzcd}
 			b_0\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}b_1\hspace{-1.5mm}\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]\arrow[r, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}b_2
-		\end{tikzcd}\hspace{-1.5mm}$ in $\B$, the diagonal of the following diagram is a coequalizer diagram in $\C$.
+		\end{tikzcd}\hspace{-1.5mm}$$in $\B$, the diagonal of the following diagram is a coequalizer diagram in $\C$.
 	\[
 		\begin{tikzcd}
 			F(a_0,b_0)\ar[r, shift right=.5ex]\ar[r, shift left=1ex]\ar[d, shift right=.5ex]\ar[d, shift left=1ex]\ar[dr, shift right=.5ex]\ar[dr, shift left=1ex]
@@ -984,7 +1002,9 @@ Many objects in algebra can be described as sets $X$ with some finitary operatio
 	(Commutative) monoids and groups, rings and, fixed a ring $R$, $R$-modules, where for each $r\in R$ we specify an operation $X\xrightarrow{r}X$.
 \end{exmp}
 
-We can construct categories whose objects are sets paired with operations fullfilling the axioms and functions commuting with the operations as morphisms. These are called models for single-sorted finitary theories.
+We can construct categories whose objects are sets paired with operations
+fullfilling the axioms and functions commuting with the operations as morphisms.
+These are called \emph{models for single-sorted finitary theories}.
 
 \begin{prop}
 	The forgetful functor from a category $\C$ of models of a single-sorted finitary theory to $\Set$ creates sifted colimits.
@@ -1046,7 +1066,7 @@ Before proving this theorem, we present some consequences.
 \begin{cor}
 	Any finitary functor $\Set\rightarrow\Set$ preserves sifted colimits. In
     particular, if $T\colon\Set\rightarrow\Set$ is the underlying endofunctor of
-    a finitary monad, then $U^T\colon T\Alg\rightarrow\Set$ strictlycreates
+    a finitary monad, then $U^T\colon T\Alg\rightarrow\Set$ strictly creates
     sifted colimits.
 \end{cor}
 
@@ -1102,12 +1122,12 @@ Before proving this theorem, we present some consequences.
     coproducts immediately and an infinite coproduct can be written as a
     filtered colimit of finite coproducts. We are only missing coequalizers. If
     $f,g\colon a\rightrightarrows b$ is a pair, then
-    $f+\id,g+\id\colon\hspace{-1.5mm}$\begin{tikzcd}
-		a+b\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}b\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]
+    $f+\id_b,g+\id_b\colon\hspace{-1.5mm}$\begin{tikzcd}
+		a\coprod b\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}b\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]
 	\end{tikzcd}$\hspace{-1.5mm}\colon\text{in}_b$ (where in$_b$ is the
 	inclusion of $b$ in the coproduct) is a reflexive pair, hence the
-	coequalizer $c=\text{coeq}(a+b\rightrightarrows b)$ exists and coequalizes
-	the original pair. The universal arrow $h\colon b\rightarrow c$ is also a
+	coequalizer $c=\text{coeq}(a\coprod b\rightrightarrows b)$ exists.
+	The universal arrow $h\colon b\rightarrow c$ is also a
 	coequalizer of $f,g\colon a\rightrightarrows b$.
 \end{proof}
 \begin{thm}
@@ -1115,7 +1135,7 @@ Before proving this theorem, we present some consequences.
 \end{thm}
 \begin{proof}
 	The category $T\Alg$ has always an initial object, namely the free algebra
-    of the initial object $\left(T\prod_{x\in X}\emptyset,\mu_{\prod_{x\in
+    $\left(T\prod_{x\in X}\emptyset,\mu_{\prod_{x\in
     X}\emptyset}\right)$. Similarly, for $a,b\in\prod_{x\in X}\Set$, using that
     $F^T$ is a left adjoint (hence it preserves colimits) we find that
 	$\left(T\left(a\coprod b\right),\mu_{a\coprod b}\right)$ is a coproduct of
@@ -1166,7 +1186,7 @@ The \emph{canonical cocone} on the domain functor
 	\dom\colon(K\downarrow c) & \to\C      \\
 	(a,\varphi)               & \mapsto Ka
 \end{align*}
-has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
+has components $\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 \begin{defn}
 	A colimit of a diagram $D\colon\cI\to\C$ is \emph{$K$-absolute} if it is
     preserved by $\widetilde{K}\colon\C\to\left[\A^{\op},\Set\right]$.
@@ -1180,7 +1200,7 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 \begin{thm}[Kan]
 	Let $\cC$ be a locally small cocomplete category, $\cA$ a small category
     and $K\colon\cA\rightarrow\cC$ a functor. Then, $\widetilde{K}$ has a left
-	adjoint given by $\Lan_\yo K\colon[\cA,\Set]\rightarrow\cC$ such that the
+    adjoint given by $\Lan_\yo K\colon[\cA^{\op},\Set]\rightarrow\cC$ such that the
 	diagram
 	\[
 		\begin{tikzcd}[column sep=tiny]
@@ -1195,9 +1215,12 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	We have $\displaystyle \Lan_\yo K(F)=\colim_{(\yo\downarrow F)}Ka$, hence
 	\begin{align*}
 		\C(\Lan_\yo K(F),c) & \cong\lim_{(\yo\downarrow F)}\C(Ka,c)                                                   \\
-		                    & \Yoneda \lim_{(\yo\downarrow F)}\left[\A^{\op},\Set\right]\left(\A(-,a),\C(K,c)\right) \\
-		                    & \cong\left[\A^{\op},\Set\right]\left(\colim_{(\yo\downarrow F)}\A(-,a),\C(K,c)\right)  \\
-		                    & \cong\left[\A^{\op},\Set\right](F,\C(K,c)).
+		                    & \Yoneda \lim_{(\yo\downarrow
+                            F)}\left[\A^{\op},\Set\right](\yo_a,\widetilde{K}c) \\
+		                    &
+                            \cong\left[\A^{\op},\Set\right]\left(\colim_{(\yo\downarrow
+                            F)}\yo_a,\widetilde{K}c\right)  \\
+                            & \cong[\cA^{\op},\Set](F,\widetilde{K}c).
 	\end{align*}
 	Notice that for $F=\yo_a$ the category $(\yo\downarrow F)$ has a
 	terminal object $(a,\id_a)$, thus $\Lan_\yo K(\yo_a)\cong Ka$ naturally.
@@ -1224,7 +1247,7 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
                       then $\colim D_i\in\B$
 			      \end{center}
 
-			      is $\C$ itself.} of $\A$ under the colimits of $D_i$;
+			      is $\C$ itself.} of $\A$ under the colimits of the $D_i$;
 		\item the counit of $\Lan_\yo K\dashv\widetilde{K}$ is an isomorphism.
 	\end{enumerate}
 \end{thm}
@@ -1233,16 +1256,16 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 		\item[(1)$\implies$(2)] If $\widetilde{K}$ is fully faithful, it
             suffices to check that the image of the canonical cocone under
             $\widetilde{K}$ is a colimit. Since $K$ is fully faithful, this
-            image is precisely the diagram
-            $\A(-,a)\cong\C(K,Ka)\Rightarrow\C(K,c)$. Then
+            image is precisely the diagram given by the natural transformations
+            $\yo_a=\cA(-,a)\cong\C(K,Ka)\Rightarrow\C(K,c)=\widetilde{K}c$. Then
             $$\colim_{(K\downarrow
-            c)}\widetilde{K}\dom=\displaystyle\colim_{(\yo\downarrow\C(K,c))}\A(-,a)\cong\C(K,c).$$This
+            c)}\widetilde{K}\dom a=\displaystyle\colim_{(\yo\downarrow\widetilde{K}c)}\yo_a\cong\widetilde{K}c.$$This
             proves $(2)$ and the fact that the colimit of $(K\downarrow c)\to\C$
             is preserved by
             $\widetilde{K}\colon\C\to\left[\A^{\op},\Set\right]$.
 		\item[(2)$\implies$(3)] As we just observed,
-            $\displaystyle\colim_{(K\downarrow c)}\dom$ is
-            $\widetilde{K}$-absolute and $\dom\colon(K\downarrow c)\to\C$
+            $\displaystyle\colim_{(K\downarrow c)}\dom a$ is
+            $K$-absolute and $\dom\colon(K\downarrow c)\to\C$
             factors through $\A$.
 		\item[(3)$\implies$(4)] Clear.
 		\item[(4)$\implies$(5)] Let $\cB$ be full subcategory spanned by the
@@ -1251,7 +1274,7 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 		      $K$-absolute colimits since they are preserved by $\widetilde{K}$
 		      (by definition), by the left adjoint $\Lan_\yo K$ and by $\id_{\C}$.
 		      It remains to check that the counit at $Ka\in\cC$ is an isomorphism.
-		      But $\widetilde{K}Ka=\C(K-,Ka)\cong\A(-,a)$, so $\Lan_\yo
+		      But $\widetilde{K}Ka=\C(K,Ka)\cong\A(-,a)=\yo_a$, so $\Lan_\yo
 			      K(\widetilde{K}Ka)=\Lan_\yo K(\yo_a)\cong Ka$.
 		\item[(5)$\implies$(1)] Any right adjoint whose counit is an isomorphism
             is fully faithful.\qedhere
@@ -1271,7 +1294,7 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 		\widetilde{K}_{Ka,b}\colon\C(Ka,b)\to\left[\A^{\op},\Set\right](\widetilde{K}Ka,\widetilde{K}b)
 		\ \text{is bijective}\ \forall a\in \A\}$$
 	Since $\widetilde{K}Ka=\A(-,a)$, by Yoneda, the target is given by
-	$\text{ev}_a\circ\widetilde{K}(b)$. Therefore it preserves $K$-absolute
+	$\text{ev}_a\circ\widetilde{K}b$. Therefore it preserves $K$-absolute
 	colimits. The domain is also equal to $\text{ev}_a\circ\widetilde{K}(b)$, by
 	definition. Hence it preserves $K$-absolute colimits and contains $Ka'$ for
 	every $a'$, therefore $\B=\C$. Consider now $$\B'=\{b'\ | \
@@ -1294,7 +1317,7 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	\begin{enumerate}
 		\item $\yo\colon\A\to\left[\A^{\op},\Set\right]$ is dense: we
             have $$\widetilde{\yo}(G)
-            =\left[\A^{\op},\Set\right](\yo-,G)\Yoneda G,$$ thus
+            =\left[\A^{\op},\Set\right](\yo,G)\Yoneda G,$$ thus
 		    $\widetilde{\yo}\cong\id$ preserves all colimits. The colimits
 		    indexed by the slices $(\yo\downarrow F)$ give a density
 		    presentation.
@@ -1308,7 +1331,8 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 		    $S\mapsto\Set(*,S)\cong S$, hence we find that $\widetilde{K}$
 		    preserves all colimits. We can use coproducts to get a density
 		    presentation.
-		\item $K\colon\{k\}\rightarrow\mathbf{Vect}_k$ is not dense even though
+		\item $K\colon\{k\}\rightarrow\mathbf{Vect}_k$ is not dense even though,
+            assuming the axiom of choice,
             every vector space is a coproduct of copies of $k$.
 	\end{enumerate}
 \end{exmp}
@@ -1316,23 +1340,23 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	Given \emph{any} functor $F\colon\A\to\D$, we can talk about the
     \emph{restricted Yoneda embedding}
     $\widetilde{F}\colon\D\to\left[\A^{\op},\Set\right]$, sending $d\in\D$ to
-    $\D(F-,d)$.
+    $\D(F,d)$.
 \end{defn}
 \begin{prop}
 	Let $K\colon\A\to\C$ be fully faithful and $F\colon\A\to\D$ any functor.
 	Suppose there exists $L\colon\C\to\D$ and bijections
 	$\D(Lc,d)\to\left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}d)$
     natural both in $c$ and $d$. Then there is an isomorphism $\eta\colon
-    F\xRightarrow{\sim}LK$ exibiting $L$ as left Kan extension of $F$ along $K$.
+    F\xRightarrow{\sim}LK$ exhibiting $L$ as left Kan extension of $F$ along $K$.
 \end{prop}
 \begin{proof}
-	The presheaf $\C(K-,c)$ is the colimit of the canonical cocone on
-	$(\yo\downarrow\C(K-,c)).$ By Yoneda, this is equivalent to
+    The presheaf $\widetilde{K}c$ is the colimit of the canonical cocone on
+    $(\yo\downarrow\widetilde{K}c).$ By Yoneda, this is equivalent to
 	$(K\downarrow c)$ with objects $(a\in\A,\varphi\colon Ka\to c)$ and the
-	evident morphisms. If $c\cong Ka$, this has $(a,\id_a)$ as terminal
-	object, in which case the colimit is $\C(K-,Ka)\cong\A(-,a)$. Moreover,
+    evident morphisms. If $c\cong Ka$, this has $(a,\id_{Ka})$ as terminal
+	object, in which case the colimit is $\C(K,Ka)\cong\A(-,a)=\yo_a$. Moreover,
 	the formula above in this case gives
-	$$\D(LKa,d)\cong[\cA^{\op},\Set](\widetilde{K}Ka,\widetilde{F}d)\cong\left[\A^{\op},\Set\right](\A(-,a),\D(F-,d))\cong\D(Fa,d).$$
+    $$\D(LKa,d)\cong[\cA^{\op},\Set](\widetilde{K}Ka,\widetilde{F}d)\cong\left[\A^{\op},\Set\right](\yo_a,\widetilde{F}d)\cong\D(Fa,d).$$
 	This shows that $LK\cong F$ naturally. Then $\displaystyle
 		Lc=\colim_{(K\downarrow c)}Fa$, which is the classical formula for left
 	Kan extensions.
@@ -1352,19 +1376,21 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	We want a $L$ as above, that is such that
 	$\D(Lc,d)\cong\left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}d)$ naturally in
 	$c,d$. This simply says that for all $c\in\C$ the functor
-	$\left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}-)\colon\D\to\Set$
+	$\left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F})\colon\D\to\Set$
 	is representable. Take $\B\coloneqq\{c\in\C\ | \
-		\left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}-) \ \text{is
-			representable}\}$. If $c=Ka$, then $\widetilde{K}c=\C(K-,Ka)\cong\A(-,a)$,
+		\left[\A^{\op},\Set\right](\widetilde{K}c,\widetilde{F}) \ \text{is
+			representable}\}$. If $c=Ka$, then
+            $\widetilde{K}c=\C(K,Ka)\cong\A(-,a)=\yo_a$,
 	therefore
 	\begin{align*}
-		\left[\A^{\op},\Set\right](\widetilde{K}Ka,\widetilde{F}d) & \cong\left[\A^{\op},\Set\right](\A(-,a),\widetilde{F}d) \\
+		\left[\A^{\op},\Set\right](\widetilde{K}Ka,\widetilde{F}d) &
+        \cong\left[\A^{\op},\Set\right](\yo_a,\widetilde{F}d) \\
 		                                                           & \Yoneda \hspace{1.5mm}\widetilde{F}d(a)                 \\
 		                                                           &
 		\cong\D(Fa,d),
 	\end{align*}
 	hence it is represented by $Fa$ and $Ka\in\B$. Furthermore, $\B$ is closed
-	under $\widetilde{K}$-absolute colimits of shape $\I_j$, thus, letting
+	under $K$-absolute colimits of shape $\I_j$, thus, letting
 	$D\colon\I_j\to\B$ be a diagram such that $\colim_{\I_j} D$ exists in $\C$
 	and is preserved by $\widetilde{K}$, we claim that $\colim_{\I_j} D\in\B$.
 	\begin{align*}
@@ -1405,8 +1431,8 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
     then
 	\[
 		\begin{tikzcd}
-			\left[\A,\D\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A,
-            below}] & \Phi\Cocts(\C,\D)\ar[l, shift left=1.5ex,
+			\left[\A,\D\right]\ar[r, shift left=1.2ex,"\Lan_K",""{name=A,
+            below}] & \Phi\Cocts(\C,\D)\ar[l, shift left=1.2ex,
             "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
 		\end{tikzcd}
 	\]
@@ -1418,10 +1444,11 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
     $\I_j\in\Phi$. By definition, $\Lan_K$ is left adjoint to
     $K^*\colon\left[\C,\D\right]\to\left[\A,\D\right]$ and by the lemma it lands
     in $\Phi\Cocts(\C,\D)$. Then $\Lan_K$ is a left adjoint to the restriction.
-    The unit is an isomorphism since $\Lan_KF$ is pointwise, so it suffice to
-    check that $K^*$ is conservative. Let $G,H\colon\C\to\D$ be $\Phi$-cocts,
+    The unit is an isomorphism since $\Lan_KF$ is pointwise, so it suffices to
+    check that $K^*$ is conservative. Let $G,H\colon\C\to\D$ be
+    $\Phi$-cocontinuous,
     $\alpha\colon G\Rightarrow H$ natural transformation such that $\alpha K$ is
-    an isomorphism. Then, $\{c\ |\ \alpha_c \ \text{is an isomorphism}\}$
+    an isomorphism. Then, $\{c\in\cC\ |\ \alpha_c \ \text{is an isomorphism}\}$
     contains $Ka$ for every $a$ and is closed under colimits of density
     presentations, hence $\alpha$ is an isomorphism.
 \end{proof}
@@ -1429,7 +1456,7 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
 	For $K\colon\Set_\text{fin}\hookrightarrow\Set$, we get that
 	\[
 		\begin{tikzcd}
-			\left[\Set_\text{fin},\Set\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A, below}] & \left[\Set,\Set\right]_\text{fin}\ar[l, shift left=1.5ex, "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
+			\left[\Set_\text{fin},\Set\right]\ar[r, shift left=1.2ex,"\Lan_K",""{name=A, below}] & \left[\Set,\Set\right]_\text{fin}\ar[l, shift left=1.2ex, "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
 		\end{tikzcd}
 	\]
 	is an equivalence.
@@ -1452,7 +1479,7 @@ has components $\varphi\colon\dom(a,\varphi)=Ka\xrightarrow{\varphi}c$.
     $\Phi$-colimits, that is
 	\[
 		\begin{tikzcd}
-			\left[\A,\C\right]\ar[r, shift left=1.5ex,"\Lan_\yo",""{name=A, below}] & \Phi\Cocts(\Phi(\A),\C)\ar[l, shift left=1.5ex, "\yo^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
+			\left[\A,\C\right]\ar[r, shift left=1.2ex,"\Lan_\yo",""{name=A, below}] & \Phi\Cocts(\Phi(\A),\C)\ar[l, shift left=1.2ex, "\yo^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
 		\end{tikzcd}
 	\]
 	is an equivalence for every $\Phi$-cocomplete $\C$. In particular, if $\Phi$
@@ -1513,7 +1540,7 @@ $<\kappa$ sets of cardinality $<\kappa$ has cardinality $<\kappa$.}.
 			x_i\arrow[r,shift left=2.2ex] \arrow[r,shift left=1.2ex,""{name=A}] \arrow[r, shift right=1.5ex,"<\kappa"',""{name=B}]\ar[from=A, to=B, phantom, "\vdots"]&x_j \arrow[r]&x
 		\end{tikzcd}
 	\]
-	is coequalizing. If $\kappa=\aleph_0$ a $\kappa$-filtered category is just a
+	is coequalizing. If $\kappa=\aleph_0$, then a $\kappa$-filtered category is just a
     filtered one.
 \end{defn}
 \begin{defn}
@@ -1538,9 +1565,9 @@ $<\kappa$ sets of cardinality $<\kappa$ has cardinality $<\kappa$.}.
     that $\kappa$-filtered colimits are $K$-absolute.
 	\begin{align*}
 		\A & \xlongrightarrow{\widetilde{K}}\left[\A_0^{\op},\Set\right]\xlongrightarrow{\text{ev}_a}\Set \\
-		a' & \longmapsto\A(K-,a')\longmapsto\A(a,a')
+		a' & \longmapsto\A(K,a')\longmapsto\A(a,a')
 	\end{align*}
-	so that $\A_0\xhookrightarrow{K}\A$ has density presentation consisting of
+	so that $\A_0\xhookrightarrow{K}\A$ has a density presentation consisting of
     $\kappa$-filtered colimits. Thus
     $\widetilde{K}\colon\A\to\left[\A_0^{\op},\Set\right]$ is fully faithful and
     preserves $\kappa$-filtered colimits.
@@ -1551,12 +1578,12 @@ $<\kappa$ sets of cardinality $<\kappa$ has cardinality $<\kappa$.}.
     subcategory of $\kappa$-accessible functors
     ($\left[\cA,\cC\right]_{\text{fin}}$ if $\kappa=\aleph_0$).
 \end{defn}
-It follows that
+It follows that we have an adjunction
 \[
 	\begin{tikzcd}
-		\left[\cA_0,\cC\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A,
+		\left[\cA_0,\cC\right]\ar[r, shift left=1.2ex,"\Lan_K",""{name=A,
         below}]
-        & \left[\cA,\cC\right]_\kappa\ar[l, shift left=1.5ex,
+        & \left[\cA,\cC\right]_\kappa\ar[l, shift left=1.2ex,
         "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
 	\end{tikzcd}
 \]
@@ -1598,7 +1625,7 @@ locally presentable category, then $T\Alg$ is locally presentable.
     $\Phi_1$ contains all free algebras $(Ta,\mu_a)$ since $\A$ is the closure
     of $\A_0$ under $\Phi_1$-colimits. Let $\Phi_2$ be the class of diagrams
     $\begin{tikzcd}
-	        (T^2a,\mu_{Ta})\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em]  \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}(Ta,\mu_a)\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]
+	    (T^2a,\mu_{Ta})\hspace{-1.5mm}\arrow[r, shift right=.5ex, shorten <= .3em, shorten >= .3em] \arrow[r, shift left=1ex, shorten <= .3em, shorten >= .3em] & \hspace{-1.5mm}(Ta,\mu_a)\arrow[l, shift right=.25ex, shorten <=.3em, shorten >=.3em]
 		\end{tikzcd}\hspace{-1.5mm}$ for all $(a,\alpha)\in T\Alg$. The closure
         under $\Phi_1\cup\Phi_2$ is clearly all of $T\Alg$, so we just need to
         show that $\Phi_2$-colimits are $K$-absolute, that is preserved by each
@@ -1648,7 +1675,7 @@ $\kappa$-filtered colimits with $\kappa$-small limits in $\Set$):
     $\kappa$-presentable if and only if it is cocomplete.
 \end{cor}
 \begin{thm}
-	Let $\cI$ be a filtered category and
+	Let $\cI$ be a filtered category,
 	\begin{displaymath}
 		X\colon\cI\to\Set,\quad i\mapsto X_i
 	\end{displaymath}
@@ -1697,7 +1724,7 @@ $\kappa$-filtered colimits with $\kappa$-small limits in $\Set$):
 \begin{proof}
 	Let $ C \from \I \to \C $ be a $\kappa$-filtered diagram and
 	$ D\from \J \to \C $ a $ \kappa $-small diagram of $ \kappa $-presentable
-    objects $ D_J $.
+    objects $ D_j $.
 	\begin{align*}
 		\C (\colim_{\J} D_j, \colim_{\I} C_i) & \cong \lim_{\J} \C (D_j,\colim_{\I} C_i)            \\
 		                                      & \cong \lim_{\J}\colim_{\I} \C (D_j,C_i)          \\
@@ -1727,7 +1754,7 @@ a \to c $ there exists a factorization
 		a \arrow[ur, dashed, "f'"]\arrow[rr, "f"']&& c
 	\end{tikzcd}
 \end{displaymath}
-and any two such lifts $f',f"$ satisfying $k_i\cdot f'=k_i\cdot f"$ become equal
+and any two such lifts $f',f''$ satisfying $k_i\cdot f'=k_i\cdot f''$ become equal
 after composing with some $c_\phi\from c_i\to c_j$.
 
 \begin{cor}
@@ -1743,10 +1770,10 @@ after composing with some $c_\phi\from c_i\to c_j$.
     $\left[\A^{\op}, \Set\right]$\footnote{Note, that one also could define a
     locally $\kappa$-presentable category to be a reflexive subcategory of a
     presheaf category, such that the inclusion commutes with $\kappa$-filtered
-    colimits}. Moreover, $\widetilde{K}$ preserves $\kappa$-filtered colimits,
-    given that $\text{ev}_a\circ\widetilde{K}=\C(Ka,-)$ hence this reduces the
-    problem to limits and $\kappa$-filtered colimits in $\left[\A^{\op},
-    \Set\right]$, where both are computed levelwise.
+    colimits}. Moreover, $\widetilde{K}$ preserves $\kappa$-filtered colimits
+    because $\text{ev}_a\circ\widetilde{K}=\C(Ka,-)$, which reduces the
+    problem to $\kappa$-small limits and $\kappa$-filtered colimits in $\left[\A^{\op},
+    \Set\right]$, where both are computed pointwise.
 \end{proof}
 \begin{prop}
 	Let $\C$, $\D$ be locally $\kappa$-presentable, $\lambda\ge\kappa$ a regular
@@ -1764,7 +1791,7 @@ after composing with some $c_\phi\from c_i\to c_j$.
     adjoint of
 	\[
 		\begin{tikzcd}
-			\left[\C_\lambda,\D\right]\ar[r, shift left=1.5ex,"\Lan_K",""{name=A, below}] & \left[\C,\D\right]\ar[l, shift left=1.5ex, "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
+			\left[\C_\lambda,\D\right]\ar[r, shift left=1.2ex,"\Lan_K",""{name=A, below}] & \left[\C,\D\right]\ar[l, shift left=1.2ex, "K^*",""{name=B,above}] \ar[from=A, to=B, "\perp"description]
 		\end{tikzcd}
 	\]
 	induces an equivalence onto its essential image, which is precisely
@@ -1789,10 +1816,11 @@ previously. Let us prove it once and for all.
     then both $P$ and $J$ are dense.
 \end{thm}
 \begin{proof}
-	It is immediate for $P$, since $\widetilde{P}=\widetilde{K}|_{\A'}$. Let us show $J$ is dense. Note that we have
+	It is immediate for $P$, since $\widetilde{P}=\widetilde{K}|_{\A'}$. Let us
+    show that $J$ is dense. Note that we have
 	\begin{align*}
-		\C(Jd,c) & \xrightarrow[\sim]{\hspace*{4mm}\widetilde{JP}\hspace*{4mm}}\left[\A^{\op}, \Set\right](\C(JP-,Jd),\C(JP-,c)) \\
-		         & \xrightarrow[\sim]{(J_{P-,d})^*}\left[\A^{\op}, \Set\right](\A'(P-,d),\C(JP-,c))
+		\C(Jd,c) & \xrightarrow[\sim]{\hspace*{4mm}\widetilde{JP}\hspace*{4mm}}\left[\A^{\op}, \Set\right](\C(JP,Jd),\C(JP,c)) \\
+		         & \xrightarrow[\sim]{(J_{P,d})^*}\left[\A^{\op}, \Set\right](\A'(P,d),\C(JP,c))
 	\end{align*}
 	where the first isomorphism holds because $JP$ is dense and the second one
     because $J$ is fully faithful. Consequently $J$ is the pointwise left Kan
@@ -1810,17 +1838,17 @@ previously. Let us prove it once and for all.
     apply $\C(-,c)\colon\C\to\Set^{\op}$ and we get that
 	\[
 		\begin{tikzcd}[column sep=tiny]
-			\A^{\op}\ar[rr, "P^{\op}"]\ar[dr, swap, "\C(JP-\text{, }\hspace*{-.5mm}c)"near start, ""{name=JP, below}]
-			&& (\A')^{\op}\ar[dl, "\C(J-\text{, }\hspace*{-.5mm} c)" near start, ""{name=J, below}] \\
+			\A^{\op}\ar[rr, "P^{\op}"]\ar[dr, swap, "\C(JP\text{, }\hspace*{-.5mm}c)"near start, ""{name=JP, below}]
+			&& (\A')^{\op}\ar[dl, "\C(J\text{, }\hspace*{-.5mm} c)" near start, ""{name=J, below}] \\
 			& \Set
 			\ar[Leftarrow, shorten <= .6em, shorten >= .6em, shift left=1.5ex, "\sim", from=JP, to=J]
 		\end{tikzcd}
 	\]
 	is a right Kan extension for every $c\in\C$. In particular, each
-    $\alpha\colon\C(J-,c)\Rightarrow\C(J-,c')$ is uniquely given by $\alpha
-    P^{\op}\colon\C(JP-,c)\Rightarrow\C(JP-,c')$. By density of $JP=K$, $\alpha
+    $\alpha\colon\C(J,c)\Rightarrow\C(J,c')$ is uniquely given by $\alpha
+    P^{\op}\colon\C(JP,c)\Rightarrow\C(JP,c')$. By density of $JP=K$, $\alpha
     P^{\op}$ must be of the form $g_*$ for a unique $g\colon c\to c'$. By
-    uniqueness, $\alpha=\C(J-,g)$, hence $\widetilde{J}$ is full. Moreover,
+    uniqueness, $\alpha=\C(J,g)$, hence $\widetilde{J}$ is full. Moreover,
     $\widetilde{JP}$ is equal to the composition
     $\C\xlongrightarrow{\widetilde{J}}
     \left[(\A')^{\op},\Set\right]\xrightarrow{(P^{\op})^*}\left[\A^{\op},\Set\right]$
@@ -1898,7 +1926,7 @@ case of algebras for a well-pointed endofunctor.
 	\]
 	commutes by the naturality of $\sigma$. Since $S$ is well-pointed, this
     implies $\sigma_a\cdot\alpha=S\alpha\cdot\sigma_{Sa}=S\alpha\cdot
-    \cdot S\sigma_a=S(\alpha\cdot\sigma_a)=S\id_a=\id_{Sa}$, therefore
+    S\sigma_a=S(\alpha\cdot\sigma_a)=S\id_a=\id_{Sa}$, therefore
     $\alpha=\sigma_a^{-1}$. On the other hand, if $\sigma_a$ is invertible then
     $(a,\sigma_a^{-1})$ is a $(S,\sigma)$-algebra.
 
@@ -2023,7 +2051,7 @@ Note that, given a regular cardinal $\kappa$, its associated ordinal
 
 	Giving a cocone on this with vertex $(c,d,\gamma\colon Fc\rightarrow d)$ is
     equivalent to giving morphisms $\colim_{\I}a_i\rightarrow c$,
-    $\colim_{\I}b_i\rightarrow c$ such that the diagram
+    $\colim_{\I}b_i\rightarrow d$ such that the diagram
 	\[
 		\begin{tikzcd}
 			Fa_i\ar[r]\ar[d]
@@ -2034,7 +2062,7 @@ Note that, given a regular cardinal $\kappa$, its associated ordinal
 			& d
 		\end{tikzcd}
 	\]
-    commutes foe all $i$.
+    commutes for all $i$.
 
 	Equivalently, we can give a morphism $\colim_{\I}a_i\rightarrow c$ and a
     morphism from the pushout $p$ to $d$ making the following diagram commute.
@@ -2071,14 +2099,14 @@ Note that, given a regular cardinal $\kappa$, its associated ordinal
     $\kappa$-presentable objects in $(F\downarrow\C)$.
 
 	The fact that it consists of $\kappa$-presentable objects follows from the
-    facts that $\kappa$-filtered colimits in $(F\downarrow\C)$ are computed
+    fact that $\kappa$-filtered colimits in $(F\downarrow\C)$ are computed
     pointwise.
 
 	To prove density, we want that for each $(c,d,\gamma\colon Fc\rightarrow d)$
     the canonical cocone of $(\A\downarrow (c,d,\gamma))\rightarrow
     (F\downarrow\cC)$ exhibits $(c,d,\gamma)$
     as a colimit. In the arrow category $\cC^{[1]}$, $Fc\rightarrow d$ is a
-    colimit of all $\kappa$-presentable pairs $c_0,c_1\in\C_\lambda$ with a
+    colimit of all $\lambda$-presentable pairs $c_0,c_1\in\C_\lambda$ with a
     morphism $c_0\rightarrow c_1$ such that there exists a pair of morphisms
     making the diagram
 	\[
@@ -2174,7 +2202,7 @@ Now use exercise 5.1.
 	is a pullback.\hfill\qedsymbol
 \end{prop}
 \begin{thm}
-	Let $ \C $ be a cocomplete category, $ (T,\tau) $ a pointed endofunctor on $
+	Let $ \C $ be a cocomplete category, $ (T,\tau) $ a well-pointed endofunctor on $
     \C $ with $ T $ $ \kappa $-accessible.
 	Then $ (T,\tau)\Alg $ is a reflective subcategory of $ (T\downarrow\C)$ and
     the algebraically free monad on $ (T,\tau) $ exists. In particular, by
@@ -2263,12 +2291,10 @@ For example, we can easily prove the following.
     where
 	\begin{displaymath}\tag{1}\label{fork1}
 		\begin{tikzcd}
-			T a \arrow[r,shift left, "T \tau_a"]\arrow[r,shift right, "\tau_{Ta}"']& T^2 a \arrow[r, "T\alpha" ] & Tb \arrow[r, "\beta"]  & c
+			T a \arrow[r,shift left, "T \tau_a"]\arrow[r,shift right,"\tau_{Ta}"']& T^2 a \arrow[r, "T\alpha" ] & Tb \arrow[r, "\gamma"]  & c
 		\end{tikzcd}
 	\end{displaymath}
-	is a coequalizer diagram in $ \C $.
-	Notice that $ \beta $ is a coequalizer of $ T\alpha \cdot T\tau_a $ and $
-		T\alpha \cdot \tau_{Ta} $ (see the exercises for more details).
+    is a coequalizer diagram in $ \C $ (see the exercises for more details).
 \end{rmk}
 \begin{prop}
 	Let $(S,\sigma)$ be a well-pointed endofunctor on $\C$ and let
@@ -2288,7 +2314,7 @@ We define an endofunctor $ L \from (T\downarrow\C) \to (T\downarrow\C) $ as
 follows: given $ (a,b,\alpha\from Ta \to b) $ we set $ L(a,b,\alpha) =
 (b,d,\gamma \from Tb \to d) $ with $ \gamma $ defined by the following pushout
 in $ \C $.
-\begin{displaymath}
+\begin{displaymath}\tag{2}\label{fork2}
 	\begin{tikzcd}
 		T^2 a \arrow[r, "\mu_a"]\arrow[d, "T\alpha"'] &  Ta \arrow[d, "\delta"]\\
 		Tb \arrow[r,"\gamma"'] & d
@@ -2307,7 +2333,8 @@ Using this construction we can finally prove the following.
     the functor $L$ just defined.
 
 	Since $\mu_a$ has a section $T\eta_a$, it is the coequalizer of $\id_a$ and
-    $T\eta_a\cdot\mu_a$. For that reason one also could define $\gamma$ to be
+    $T\eta_a\cdot\mu_a$. For that reason one also could define $\gamma$ in
+    (\ref{fork2}) to be
     given by the following coequalizer.
 	\[
 		\tag{2}\label{fork2}
@@ -2362,7 +2389,7 @@ Using this construction we can finally prove the following.
 
 	Having $\pi$ invertible is then equivalent to $\alpha$ being the coequalizer
     of (\ref{fork2}), where $b=a$. If it is a coequalizer diagram,
-    $\alpha\mu_a=\alpha T\alpha$, which implies that $(a,\alpha)$ is a
+    $\alpha\cdot\mu_a=\alpha\cdot T\alpha$, which implies that $(a,\alpha)$ is a
     $T$-algebra. Conversely, if $(a,\alpha)$ is a $T$-algebra, then this is a
     split coequalizer in $\C$. It follows that $T\Alg$ is equivalent to
     $(L,\pi\sigma')\Alg$.
@@ -2394,10 +2421,11 @@ $F$ exists if $U^F\colon F\Alg\rightarrow\C$ has a left adjoint
 $F^F\colon\C\rightarrow F\Alg$. We write then $T(F)=(U^FF^F,U^F\epsilon
 F^F,\eta)$ for the resulting monad. From Beck's theorem, we know that $J\colon
 F\Alg\rightarrow T(F)\Alg$, $(a,\alpha)\mapsto
-(U^F(a,\alpha)=a,U^F\epsilon_{(a,\alpha)})$ is an equivalence of categories. We
-also have a natural transformation $\psi\colon F\Rightarrow T(F)$ corresponding
-via adjunction to $\alpha\colon FU^F\Rightarrow U^F$. This gives us a functor
-$\psi^*\colon T(F)\Alg\rightarrow F\Alg$, $(a,\alpha)\mapsto (a,\alpha\psi_a)$
+(U^F(a,\alpha)=a,U^F\epsilon_{(a,\alpha)})$, is an equivalence of categories. We
+also have a natural transformation $\alpha\colon FU^F\Rightarrow F$,
+$(b,\beta)\mapsto\beta$, inducing another one by the adjunction $F^F\dashv U^F$,
+that is $\psi\colon F\Rightarrow T(F)$. This gives us a functor
+$\psi^*\colon T(F)\Alg\rightarrow F\Alg$, $(a,\alpha)\mapsto (a,\alpha\psi_a)$,
 such that $\psi^* J=\id_{F\Alg}$. We have the following result.
 
 \begin{prop}
@@ -2433,10 +2461,10 @@ such that $\psi^* J=\id_{F\Alg}$. We have the following result.
 		\begin{minipage}{0.3\linewidth}
 			\begin{tikzcd}
 				& \C\ar[dr, bend left, "T"]\ar[d, Rightarrow, shorten <= .6em, shorten >= .6em, "\mu"] \\
-				\C\ar[rr, "T" description, ""{name=T1, anchor=center}]\ar[ur, bend left, "T"]\ar[rr, bend right=70, swap, "T'", ""{name=T2, anchor=center}]
+				\C\ar[rr, "T" description, ""{name=T1, anchor=center}]\ar[ur, bend left, "T"]\ar[rr, bend right=70, swap, "T'", ""{name=Hausdorff, anchor=center}]
 				& \phantom{.}
 				& \C
-				\ar[Rightarrow, shorten <= .6em, shorten >= .6em, "\phi", from=T1, to=T2]
+				\ar[Rightarrow, shorten <= .6em, shorten >= .6em, "\phi", from=T1, to=Hausdorff]
 			\end{tikzcd}
 		\end{minipage}
 		\hspace{-0.9cm}
@@ -2444,12 +2472,12 @@ such that $\psi^* J=\id_{F\Alg}$. We have the following result.
 		\hspace{.4cm}
 		\begin{minipage}{0.3\linewidth}
 			\begin{tikzcd}
-				& \C\ar[dr, bend left=60, "T", ""{name=T12, anchor=center}]\ar[dr, bend right, "T'" description, ""{name=T22, anchor=center}]\ar[dd, Rightarrow, shorten <= 2em, shorten >= 2em, swap, "\mu'"] \\
-				\C\ar[ur, bend left=60, "T", ""{name=T11, anchor=center}]\ar[ur, bend right, "T'" description, ""{name=T21, anchor=center}]\ar[rr, bend right, swap, "T'"]
+				& \C\ar[dr, bend left=60, "T", ""{name=T12, anchor=center}]\ar[dr, bend right, "T'" description, ""{name=Hausdorff2, anchor=center}]\ar[dd, Rightarrow, shorten <= 2em, shorten >= 2em, swap, "\mu'"] \\
+				\C\ar[ur, bend left=60, "T", ""{name=T11, anchor=center}]\ar[ur, bend right, "T'" description, ""{name=Hausdorff1, anchor=center}]\ar[rr, bend right, swap, "T'"]
 				&& \C \\
 				& \phantom{.}
-				\ar[Rightarrow, shorten <= .6em, shorten >= .6em, swap, "\phi", from=T11, to=T21]
-				\ar[Rightarrow, shorten <= .6em, shorten >= .6em, "\phi", from=T12, to=T22]
+				\ar[Rightarrow, shorten <= .6em, shorten >= .6em, swap, "\phi", from=T11, to=Hausdorff1]
+				\ar[Rightarrow, shorten <= .6em, shorten >= .6em, "\phi", from=T12, to=Hausdorff2]
 			\end{tikzcd}
 		\end{minipage}
 	\]
@@ -2458,10 +2486,10 @@ such that $\psi^* J=\id_{F\Alg}$. We have the following result.
 	\[
 		\begin{minipage}{0.3\linewidth}
 			\begin{tikzcd}[row sep=1cm, column sep=1cm]
-				\C\ar[rr, bend left=70, "\id_{\C}", ""{name=id, anchor=center}]\ar[rr, "T" description, ""{name=T1, anchor=center}]\ar[rr, bend right=70, swap, "T'", ""{name=T2, anchor=center}]
+				\C\ar[rr, bend left=70, "\id_{\C}", ""{name=id, anchor=center}]\ar[rr, "T" description, ""{name=T1, anchor=center}]\ar[rr, bend right=70, swap, "T'", ""{name=Hausdorff, anchor=center}]
 				&& \C
 				\ar[Rightarrow, shorten <= .6em, shorten >= .6em, "\eta", from=id, to=T1]
-				\ar[Rightarrow, shorten <= .6em, shorten >= .6em, "\phi", from=T1, to=T2]
+				\ar[Rightarrow, shorten <= .6em, shorten >= .6em, "\phi", from=T1, to=Hausdorff]
 			\end{tikzcd}
 		\end{minipage}
 		\hspace{-1.3cm}
@@ -2469,9 +2497,9 @@ such that $\psi^* J=\id_{F\Alg}$. We have the following result.
 		\hspace{.4cm}
 		\begin{minipage}{0.3\linewidth}
 			\begin{tikzcd}[row sep=1cm, column sep=1cm]
-				\C\ar[rr, bend left, "\id_{\C}", ""{name=id, anchor=center}]\ar[rr, bend right, swap, "T'", ""{name=T2, anchor=center}]
+				\C\ar[rr, bend left, "\id_{\C}", ""{name=id, anchor=center}]\ar[rr, bend right, swap, "T'", ""{name=Hausdorff, anchor=center}]
 				&& \C
-				\ar[Rightarrow, shorten <= .6em, shorten >= .6em, "\eta'", from=id, to=T2]
+				\ar[Rightarrow, shorten <= .6em, shorten >= .6em, "\eta'", from=id, to=Hausdorff]
 			\end{tikzcd}
 		\end{minipage}
 	\]
@@ -2498,14 +2526,16 @@ such that $\psi^* J=\id_{F\Alg}$. We have the following result.
     $\rho\colon TU^{T'}\Rightarrow U^{T'}$ making the known diagrams commute.
 	\[
 		\begin{tikzcd}[column sep=tiny]
-			T'\Alg\ar[rr]\ar[dr, swap, "U^{T'}"]
+			T'\Alg\ar[rr, "H"]\ar[dr, swap, "U^{T'}"]
 			&& T\Alg\ar[dl, "U^T"] \\
 			& \C
 		\end{tikzcd}
 	\]
-	Using the adjunction $F^{T'}\dashv U^{T'}$, this corresponds to a unique
-    natural transformation $T\Rightarrow U^{T'}F^{T'}=T'$. Notice that the
-    $T$-action axioms for $\rho$ correspond precisely to axioms for morphisms of
+	We know that functors into $T\Alg$ are in bijection with $T$-actions, so
+    from $H$ we get a $\rho TU^TH=TU^{T'}\Rightarrow U^TH=U^{T'}$. Using
+    the bijection induced by the adjunction $F^{T'}\dashv U^{T'}$, we get then a unique natural
+    transformation $T\Rightarrow U^{T'}F^{T'}=T'$. Notice that the
+    $T$-action axioms correspond precisely to axioms for morphisms of
     monads, hence we are done.
 \end{proof}
 
@@ -2513,7 +2543,7 @@ such that $\psi^* J=\id_{F\Alg}$. We have the following result.
 	Let $F\colon\C\rightarrow\C$ be an endofunctor such that the algebraically
     free monad $T(F)$ exists. Then, for every monad $T$ over $\C$, the natural
     transformation $\psi\colon F\Rightarrow T(F)$ induces a bijection
-    $\psi^*\colon\Mnd(\C)\rightarrow [\C,\C](F,T)$.
+    $\psi^*\colon\Mnd(\C)(T(F),T)\rightarrow [\C,\C](F,T)$.
 \end{prop}
 
 \begin{proof}
@@ -2612,7 +2642,7 @@ such that $\psi^* J=\id_{F\Alg}$. We have the following result.
 	To get the second claim, it remains to show that $U$ preserves
     $\kappa$-filtered colimits. Note again, that for any $F \in
     [\C,\C]_{\kappa}$ pre-composition with $F$ preserves all colimits, since
-    those are computed point wise, and post-composition preserves
+    those are computed pointwise, and post-composition preserves
     $\kappa$-filtered colimits, since $F$ is $\kappa$-accessible.  Thus, since
     $\kappa$-filtered colimits are sifted, the functor $[\C,\C]_{\kappa} \times
     [\C,\C]_{\kappa} \to [\C,\C]_{\kappa}$ given by composition preserves them,
@@ -2637,7 +2667,7 @@ holds.
 
 \begin{proof}
 	Recall that this endomorphism monad was given by $\Ran_{b}b \from \C \to
-    \C$. Similarly, given tow objects $a,b \in \C$, one can construct a monad
+    \C$. Similarly, given two objects $a,b \in \C$, one can construct a monad
     $\langle a,b\rangle$ given by the right Kan extension of $b$ along $a$.
 	\begin{center}
 		\begin{tikzcd}[row sep=small]
@@ -2680,18 +2710,24 @@ holds.
 Now we can use this proposition to construct monads via presentations.
 
 \begin{exmp}
-	Let $\E$ be a locally presentable cartesian closed category, that is there is a product functor $_ \times X \from \E \to \E$ which has a right adjoint for
-	all $X \in \E$. Now we start with the endofunctor $F_{1} \from \E \to \E$ given by the assignment $X \mapsto X \times X + X$. So the category of
-	$F_{1}\Alg$ is given by the following data
+	Let $\E$ be a locally presentable cartesian closed category, that is there
+    is a product functor $- \times X \from \E \to \E$ which has a right adjoint for
+	all $X \in \E$. Now we start with the endofunctor $F_{1} \from \E \to \E$
+    given by the assignment $X \mapsto (X \times X) + *$, So the category of
+	$F_{1}\Alg$ is given by the data
 	\begin{equation*}
-		T(F_{1})\Alg \iso F_{1}\Alg = \set{(X,m,e)}{m\from X \times X \to X,e \from \ast \to X }
+		T(F_{1})\Alg\iso F_{1}\Alg=\{(X,m,e)\ |\ m\from X \times X \to X,\ e\from\ast\to X\}
 	\end{equation*}
-	satisfying no axioms. Furthermore we take another endofunctor $F_{2} \from \E \to \E$ given by $X \mapsto X \times X \times X + X + X$ and obtain the data
+	satisfying no axioms. Furthermore we take another endofunctor $F_{2}\from
+    \E\to\E$ given by $X\mapsto (X\times X\times X)+X+X$ and obtain the
+    data
 	\begin{equation*}
-		T(F_{2})\Alg \iso F_{2}\Alg = \set{(X,f_{1},f_{2},f_{3})}{f_{1}\from X \times X \times X \to X, f_{2},f_{3} \from X \to X}
+		T(F_{2})\Alg\iso F_{2}\Alg=\{(X,f_{1},f_{2},f_{3})\ |\ f_{1}\from X
+        \times X\times X\to X,\ f_{2},f_{3}\from X\to X\}
 	\end{equation*}
-	Note that $F_{1}$ and $F_{2}$ both are $\kappa$-accessible by the usual sifted colimit argument, thus the algebraically free monads $T(F_{1})$ and
-	$T(F_{2})$ exist and are $\kappa$-accessible. We now define two functors
+	Note that $F_{1}$ and $F_{2}$ both are $\kappa$-accessible by the usual
+    sifted colimit argument, thus the algebraically free monads $T(F_{1})$ and
+    $T(F_{2})$ exist and are $\kappa$-accessible. We now define two functors
 	\begin{center}
 		\begin{tikzcd}
 			F_{1}\Alg \arrow[r, shift left, "G_{1}"] \arrow[r, shift right, "G_{2}"'] & F_{2}\Alg
@@ -2699,23 +2735,23 @@ Now we can use this proposition to construct monads via presentations.
 	\end{center}
 	by the formulas
 	\begin{align*}
-		G_{1}(X,m,e) = (X, m \circ m \times X, m \circ e \times X, m \circ X \times e) \\
-		G_{2}(X,m,e) = (X, m \circ X \times m, \id_{X}, \id_{X})
+        G_{1}(X,m,e) &= (X, m \circ m \times X, m \circ e \times X, m \circ X \times e) \\
+        G_{2}(X,m,e) &= (X, m \circ X \times m, \id_{X}, \id_{X})
 	\end{align*}
-	By fullness and faithfulness of $(_)\Alg$, we get monad morphisms
+	By fullness and faithfulness of $(-)\Alg$, we get monad morphisms
     $\varphi_{1},\varphi_{2} \from T(F_{2}) \to T(F_{1})$, inducing $G_{1}$ and
     $G_{2}$ up to isomorphism ($G_{1} = \varphi_{1}^{\ast},G_{2} =
     \varphi_{2}^{\ast}$). Now the coequalizer $T_{mon}$ of $\varphi_{1}$ and
     $\varphi_{2}$ has algebras isomorphic to the equalizer of $G_{1}$ and
-    $G_{2}$, thus this is gives the data of a monoid object in $\E$
+    $G_{2}$, which gives the data of a monoid object in $\E$
 	\begin{equation*}
-		T_{mon}\Alg = \set{(X,m,e)}{m \circ m \times X = m \circ X \times e, m
-        \circ e \times X = \id_{X}, m \circ X \times e = \id_{X}}.
+		T_{mon}\Alg = \set{(X,m,e)}{m \circ m \times X = m \circ X \times e,\ m
+        \circ e \times X = \id_{X},\ m \circ X \times e = \id_{X}}.
 	\end{equation*}
 \end{exmp}
 
 \begin{exmp}
-	In the exercise classes we will see $\Cat$ is locally finitely presentable.
+	In the exercise classes we will see that $\Cat$ is locally finitely presentable.
     Let $\D = \{0 \rightrightarrows 1\}$ be the category with two objects and
     two non trivial parallel morphisms. We now want to show that small
     categories with chosen coequalizers are monadic. First we take the
@@ -2741,7 +2777,7 @@ Now we can use this proposition to construct monads via presentations.
 		\end{tikzcd}
 	\end{center}
 	so we can get the counit $\varepsilon \from l \circ c \to \id$ using the endofunctor $F_{2}(\C) = \C \times [1]$. Since the unit has to be of the form
-	$\eta \from [\D,\C] \times [1] \to [\D,\C]$, there has to be done a bit more. But the functor $[\D,\_]$ is right adjoint to $\_\times \D$ and via this adjunction
+	$\eta \from [\D,\C] \times [1] \to [\D,\C]$, there is a bit more to be done. But the functor $[\D,\_]$ is right adjoint to $\_\times \D$ and via this adjunction
 	such a morphism corresponds to $[\D,\C] \times [1] \times \D \to \C$. So we can get the unit using the endofunctor given by
 	$F_{3}(\C) = [\D,\C] \times [1] \times \D$. Now we can express, having "same" natural transformations with desired source and target via equalizers of
 	$(\_)\Alg$. Also the $\Delta$-identities then can be expressed in a second
@@ -2798,7 +2834,7 @@ We mention without proof the following fundamental theorem.
 \end{thm}
 
 Given a word of objects tensored among them, any two choices of bracketing are
-uniquely isomorphic. This result is plausible if $\otimes$ is derived from an
+canonically isomorphic. This result is plausible if $\otimes$ is derived from an
 universal property as in $(1)-(3)$ and clear if $\V$ is strict (that is the
 natural isomorphisms are identities), like in $(3)$ and $(4)$, while the general
 proof uses a rewriting argument which can be found in \cite{MacLane2}.
@@ -2954,13 +2990,13 @@ The previous example is an instance of a more general phenomenon, as shown by th
 		\end{tikzcd}
 	\end{displaymath}
 	where $ \overline F(M,m,n) = (FM, Fm \circ \phi_{M,M}^F, Fn \circ \phi_0^F) $
-	and $ \overline U(M',m',n') = (UM, Um'\circ \phi U_{M,M}, Un'\circ \phi U_0) $.
+	and $ \overline U(M',m',n') = (UM, Um'\circ \phi^U_{M,M}, Un'\circ \phi^U_0) $.
 \end{prop}
 \begin{proof}
 	The axioms for lax monoidal functors show that these are indeed monoids,
 	naturality of $ \phi^F, \phi^U $ shows that $ Ff $ is a monoid morphism if $
     f $ is. It follows that $ \overline F,\overline U $ are indeed functors.
-	Axioms for monoidal transformations show $ \eta, \epsilon $ are monoid
+	Axioms for monoidal transformations show that $ \eta, \epsilon $ are monoid
     morphisms, hence $ \overline F \dashv \overline U $.
 \end{proof}
 \begin{exmp}
@@ -2973,8 +3009,8 @@ The previous example is an instance of a more general phenomenon, as shown by th
 		      This also works for commutative algebras, etc.
 		\item Let $\cC$ be locally $ \kappa $-presentable. Then $
             [\cC,\cC]_\kappa \to [\cC,\cC] $ is strict monoidal and a     left
-            adjoint, so it lifts to a left adjoint $ \Mod_\kappa (\cC) \to
-            \Mod(\cC) $.
+            adjoint, so it lifts to a left adjoint $ \Mon_\kappa (\cC) \to
+            \Mon(\cC) $.
 		      Why is it left adjoint? Let $ K\from \cC_\kappa \to \cC$ be the inclusion. Since $ \Phi $ is cocontinuous we have
 		      \begin{displaymath}
 			      \begin{tikzcd}[row sep = large, column sep = large]
@@ -3041,7 +3077,7 @@ The triple $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ is induced by the one 
 	\end{itemize}
 \end{exmp}
 \begin{prop}
-	If $\cV$ is presentable and both $ x\otimes - $ and $ - \otimes x $ are $ \kappa $-accessible for all $ x\in \cD $ and preserve coproducts, then the category of $\cV$-categories with fixed object set $ S $ is locally $ \kappa $-presentable.
+	If $\cV$ is $\kappa$-presentable and both $ x\otimes - $ and $ - \otimes x $ are $ \kappa $-accessible for all $ x\in \cV $ and preserve coproducts, then the category of $\cV$-categories with fixed object set $ S $ is locally $ \kappa $-presentable.
 \end{prop}
 \begin{proof}
 	It suffices to show that the matrices are $ \kappa $-accessible in each variable, which follows from the fact that colimits commute.
@@ -3130,8 +3166,11 @@ The triple $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ is induced by the one 
 		\item[(iii)]
 		      Monoidal categories, lax monoidal functors and monoidal natural transformations.
 		\item[(iv)]
-		      For $\V$ a monoidal category, $\V\mbox{-}\Cat$ and $\V\mbox{-}\CAT$ are $2$-categories. $0$-cells are small/locally small $\V$-categories, $1$-cells are
-		      $\V$-functors and $2$-cells are $\V$-natural transformations.
+		      For $\V$ a monoidal category, $\V\mbox{-}\Cat$ and
+              $\V\mbox{-}\CAT$ are $2$-categories where $0$-cells are
+              respectively
+              small and locally small $\V$-categories, $1$-cells are $\V$-functors
+              and $2$-cells are $\V$-natural transformations.
 	\end{itemize}
 \end{exmp}
 
@@ -3187,8 +3226,8 @@ The triple $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ is induced by the one 
 
 \begin{exmp}
 	For $\V=\Set$, we get precisely the $2$-categories of categories, functors
-    and natural transformations. What happens if instead we take $\Cat$ or even $\CAT$.
-	$0$-cells are $2$-categories? $1$-cells are $2$-functors or $\Cat$-functors,
+    and natural transformations. What happens if instead we take $\Cat$ or even $\CAT$?
+	$0$-cells are $2$-categories, while $1$-cells are $2$-functors or $\Cat$-functors,
     that is: given two $2$-categories $\K,\K'$, we have an assignment
 	$\Ob(\K) \to \Ob(\K')$ of the form $A \mapsto FA$ and for any two objects
     $A,B$ in $\Ob(\K)$ there is a functor $F_{A,B} \from \K(A,B) \to \K'(FA,FB)$
@@ -3319,7 +3358,7 @@ and similarly $\alpha^*=\circ \cdot \id\otimes\alpha$. Then there is a unique wa
 	\begin{enumerate}
 		\item If $G$ is a topological group then $G\times-\colon\Top\to\Top$ is
             a $\Top$-monad if $\Top$ is a cartesian closed category of
-            topological spaces such as compactly generated weak T2 spaces. From
+            topological spaces such as compactly generated weak Hausdorff spaces. From
             that we get the topological category of $G$-spaces.
 		\item If $\V=\Ab$ and $R$ is a ring, then $\Ab$ is an $\Ab$-category
             since we can sum morphisms of abelian groups and this is
@@ -3758,9 +3797,8 @@ The diagram in the above proposition commutes by adjunction since composition is
 				      & \Set
 			      \end{tikzcd}
 		      \end{displaymath}
-		      we remember that $ \cC(-,-) $ is an $ R $-module, a topological space, etc.
 		\item
-		      For $ \cC = \Cat $, we get $ \cK(-,-) \from \cK^{\op}\times \cK \to \Cat $, $ (x,y)\mapsto \cK(x,y) $,
+		      For $ \cV = \Cat $, we get $ \cK(-,-) \from \cK^{\op}\times \cK \to \Cat $, $ (x,y)\mapsto \cK(x,y) $,
 		      a 2-functor, where the action on 1-cells is given by whiskering on either side.
 		\item
 		      For $ \cV $ itself, we get  $ \cV(-,-) \from \cV^{\op}\otimes \cV \to \cV $, $ (V,W)\mapsto [V,W] $.
@@ -3859,7 +3897,13 @@ The diagram in the above proposition commutes by adjunction since composition is
 \end{proof}
 
 \begin{thm}[Parametrized Yoneda]
-	Let $T\colon\cB^{\op}\otimes\cA\rightarrow\cV$ be a $\cV$-functor and suppose that for all $B\in\cB$ there exists a $KB\in\cA$ and a $\cV$-natural isomorphism $\alpha_B\colon\cA(KB,-)\xRightarrow{\sim} T(B,-)$. Then there is a unique way to define $K_{B,C}\colon\cB(B,C)\rightarrow\cA(KB,KC)$ in $\cV$ such that $K$ is a $\cV$-functor and $(\alpha_B)_A\colon\cA(KB,A)\rightarrow T(B,A)$ is $\cV$-natural in both variables as a $\cV$-functor $\cB^{\op}\otimes\cA\rightarrow\cV$.
+	Let $T\colon\cB^{\op}\otimes\cA\rightarrow\cV$ be a $\cV$-functor and
+    suppose that for all $B\in\cB$ there exists a $KB\in\cA$ and a $\cV$-natural
+    isomorphism $\alpha_B\colon\cA(KB,-)\xRightarrow{\sim} T(B,-)$. Then there
+    is a unique way to define $K_{B,C}\colon\cB(B,C)\rightarrow\cA(KB,KC)$ in
+    $\cV$ such that $K$ is a $\cV$-functor and
+    $(\alpha_B)_A\colon\cA(KB,A)\rightarrow T(B,A)$ is $\cV$-natural in both
+    variables.
 \end{thm}
 
 \begin{proof}
@@ -3898,7 +3942,7 @@ is a (co)complete, symmetric monoidal and closed. Such an object is called
 
 	Similarly, we define a $\cV$-coequalizer$$A\rightrightarrows B\rightarrow
     C$$ by requiring that
-    $$\cC(C,D)\rightarrow\cC(B,D)\rightrightarrows\cC(A,D)$$is a coequalizer in
+    $$\cC(C,D)\rightarrow\cC(B,D)\rightrightarrows\cC(A,D)$$is an equalizer in
     $\cV_0$.
 
 	Dualizing the definitions, we find the notions of $\cV$-\emph{product} and
@@ -4042,15 +4086,16 @@ To talk about preservation of copowers, we need a canonical comparison morphism 
 		& \lbrack V,\D (FC,F(V\copw C))\rbrack \arrow[u, "\iso"']
 	\end{tikzcd}
 \end{center}
-where the lower horizontal morphism is $[V,F]$ and $\eta$ corresponds via weak Yoneda to the $\V$-natural isomorphism $\C(V\copw C,\_) \iso [V,\C(C,\_)]$.
+where the lower horizontal morphism is $[V,F]$ and $\eta$ corresponds via weak
+Yoneda to the $\V$-natural isomorphism $\C(V\copw C,-) \iso [V,\C(C,-)]$.
 
 \begin{defn}
-	We say, that $F$ preserves the copower $V \copw C$ if $\bar{F} \from V \copw FC \to F(V \copw C)$ is an isomorphism in $\D_{0}$.
+	We say that $F$ preserves the copower $V \copw C$ if $\bar{F} \from V \copw FC \to F(V \copw C)$ is an isomorphism in $\D_{0}$.
 \end{defn}
 
 \begin{lemma}
 	Let $\C$ be a $\V$-category and $\B \subset \C$ the full subcategory
-    generated by those object $B \in \C$ such that $V \copw B$ exists (in $\C$)
+    generated by those objects $B \in \C$ such that $V \copw B$ exists (in $\C$)
     for all $V \in \V$. Then $\B$ is closed in $\C$ under $\V$-coequalizers and
     $\V$-coproducts.
 \end{lemma}
@@ -4072,7 +4117,8 @@ where the lower horizontal morphism is $[V,F]$ and $\eta$ corresponds via weak Y
 	is given by $V \copw K$. Indeed we have an induced isomorphism
 	\begin{center}
 		\begin{tikzcd}
-			\C(V \copw K,D) \arrow[r, "eq"] \arrow[d, dashed, "\exists !", "\iso"'] & \C(V\copw,D) \arrow[r, shift left] \arrow[r, shift right] \arrow[d, "\iso"] &
+			\C(V \copw K,D) \arrow[r, "eq"] \arrow[d, dashed, "\exists !",
+            "\iso"'] & \C(V\copw B,D) \arrow[r, shift left] \arrow[r, shift right] \arrow[d, "\iso"] &
 			\C(V \copw A, D) \arrow[d, "\iso"] \\
 			\lbrack V,\C(K,D) \rbrack \arrow[r, "eq"'] & \lbrack V,\C(B,D) \rbrack \arrow[r, shift left] \arrow[r, shift right] & \lbrack V,\C(A,D) \rbrack
 		\end{tikzcd}
@@ -4103,7 +4149,7 @@ where the lower horizontal morphism is $[V,F]$ and $\eta$ corresponds via weak Y
     $\V$-coproducts. It remains to show that $T\Alg$ has copowers. For this we
     use the lemma above: since every object is a coequalizer of free
 	algebras, hence a $\V$-coequalizer, it suffices to check this for free
-    algebras, i.e. algebras in the image of the left $\V$-adjoint $F\from\cC\to
+    algebras, i.e.\ algebras in the image of the left $\V$-adjoint $F\from\cC\to
     T\Alg$. So we are done if we can show that left $\V$-adjoints preserve
     copowers. This follows from the next proposition.
 \end{proof}
@@ -4113,7 +4159,7 @@ where the lower horizontal morphism is $[V,F]$ and $\eta$ corresponds via weak Y
 \end{prop}
 
 \begin{proof}
-	Let $F \from \C \to \D$ be a left $\V$-adjoint $F\dashv U$. The claims all follow as in the unenriched case. For copowers we have the isomorphisms
+	Let $F \from \C \to \D$ be a left $\V$-adjoint, $F\dashv U$. The claims all follow as in the unenriched case. For copowers we have the isomorphisms
 	\begin{align*}
 		\D(F(V\copw C),D) \iso \C(V\copw C,UD) \iso \lbrack V,\C(C,UD) \rbrack \iso \lbrack V,\D(FC,D) \rbrack
 	\end{align*}
@@ -4185,7 +4231,7 @@ $\coprod \A(B,A) \copw FA \to FB$, which amounts precisely to a $\V$-functor $\A
 	\begin{align*}
 		[\A^{\op},\V](W,\cC(K,-))\colon\cC\rightarrow\Set
 	\end{align*}
-	is corepresentable, that is there is a corepresenting object denoted by $W \copw_{\A} K$, such that
+	is representable, that is there is a representing object denoted by $W \copw_{\A} K$, such that
 	\begin{align*}
 		\C(W\copw_{\A} K, c) \iso [\A^{\op},\V](W,\C(K-,c))
 	\end{align*}
