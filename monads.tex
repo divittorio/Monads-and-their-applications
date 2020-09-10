@@ -2788,7 +2788,7 @@ Now we can use this proposition to construct monads via presentations.
 
 \chapter{Monads in 2-category theory}
 
-\section{Symmetric monoidal categories}
+\section{Monoidal categories}
 
 \begin{defn}
 	A \emph{monoidal category} is a tuple $(\V,\otimes,I,\alpha,\lambda,\rho)$, where $\V$ is a category, $\otimes\colon\V\times\V\rightarrow\V$ a functor, $I\in\V$ an object, $\alpha\colon(-\otimes-)\otimes-\Rightarrow-\otimes(-\otimes-)$, $\lambda\colon I\otimes-\Rightarrow\id$ and $\rho\colon-\otimes I\Rightarrow\id$ natural isomorphisms such that for every $W,X,Y,Z\in\V$ the diagrams
@@ -2903,7 +2903,12 @@ proof uses a rewriting argument which can be found in \cite{MacLane2}.
 \end{proof}
 
 \begin{exmp}
-	Given a locally small monoidal category $\V$, the functor $\V(I,-)\colon\V\rightarrow\Set$ is lax monoidal, with $\phi_0\colon\{*\}\rightarrow\V(I,I)$, $*\mapsto\id_{I}$ and $\phi_{X,Y}$ sending $(f,g)\in\V(I,X)\times\V(I,Y)$ to $(f\otimes g)\circ\lambda_I^{-1}=(f\otimes g)\circ\rho_I^{-1}\colon I\xrightarrow{\sim} I\otimes I\rightarrow X\otimes Y$. It is universally denoted by $V\colon\V\rightarrow\Set$ and, if $\V$ has coproducts, it has a left adjoint given by $F\colon\Set\rightarrow\V$, $S\mapsto\amalg_S I$.
+	Given a locally small monoidal category $\V$, the functor
+    $\V(I,-)\colon\V\rightarrow\Set$ is lax monoidal, with
+    $\phi_0\colon\{*\}\rightarrow\V(I,I)$, $*\mapsto\id_{I}$, and $\phi_{X,Y}$
+    sending $(f,g)\in\V(I,X)\times\V(I,Y)$ to $(f\otimes
+    g)\circ\lambda_I^{-1}=(f\otimes g)\circ\rho_I^{-1}\colon
+    I\xrightarrow{\lambda} I\otimes I\rightarrow X\otimes Y$. It is universally denoted by $V\colon\V\rightarrow\Set$ and, if $\V$ has coproducts, it has a left adjoint given by $F\colon\Set\rightarrow\V$, $S\mapsto\amalg_S I$.
 
 	Assuming for simplicity that $\V$ is cocomplete, it is easy to show that $F$ is strong monoidal if $\otimes$ preserves colimits in each variable by using that $\Set$ is the free cocomplete category on $\{*\}$.
 \end{exmp}
@@ -3101,7 +3106,10 @@ The triple $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ is induced by the one 
 \end{prop}
 \begin{defn}
 	A $\cV$\emph{-functor} $ (S,\cA) \to (T,\cB) $ is a pair
-	$ (F, (F_{a,b})_{(a,b) \in S^2}) $ where $ F\from S \to T $ is a function and $ (F_{a,b})_{(a,b) \in S^2} $ is a monoid morphism $ \cA \to F^*\cB $, that is $ F_{a,b}\from \cA (a,b) \to \cB (Fa,Fb) $ is a morphism in $\cV$ for any $ a,b \in S $.
+	$ (F, (F_{a,b})_{(a,b) \in S^2}) $ where $ F\from S \to T $ is a function
+    and $ (F_{a,b})_{(a,b) \in S^2} $ is a monoid morphism $ \cA \to F^*\cB $,
+    that is $ F_{a,b}\from \cA (a,b) \to \cB (Fa,Fb) $ is a morphism in $\cV$
+    preserving the identities and compatible with the compositions for any $ a,b \in S $.
 
 	We denote the resulting category of small $\cV$-categories by $\cV$-$ \Cat $. We may also define $\cV$-$ \CAT $ as the category of all $\cV$-categories.
 	We may define the category of $\cV$-graphs analogously. We have an
@@ -3185,7 +3193,9 @@ The triple $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ is induced by the one 
 			& \A(A,B) \otimes I \arrow[r, "G\otimes \alpha_{A}"'] & \B(GA,GB) \otimes \B(FA,GA) \arrow[ru, "\circ"'] &
 		\end{tikzcd}
 	\end{center}
-	is commutative. We then first define the whiskering operations. consider the diagram
+	is commutative.
+
+    We now first define the whiskering operations. Consider the diagram
 	\begin{center}
 		\begin{tikzcd}
 			\A' \arrow[r, "K"] & \A \arrow[r, bend left, ""{name=A, below}, "F"] \arrow[r, bend right, ""{name=B}, "G"'] &
@@ -3218,7 +3228,7 @@ The triple $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ is induced by the one 
 	we define the vertical composition $(\beta \cdot \alpha)_{A}$ by
 	\begin{center}
 		\begin{tikzcd}
-			I \iso I \otimes I \arrow[r, "\beta_{A}\otimes\alpha_{A}"] & \B(GA,HA) \otimes \B(FA,GA) \arrow[r, "\circ"] & \B(FA,HA)
+            I \ar[r, "\lambda^{-1}"] & I \otimes I \arrow[r, "\beta_{A}\otimes\alpha_{A}"] & \B(GA,HA) \otimes \B(FA,GA) \arrow[r, "\circ"] & \B(FA,HA)
 		\end{tikzcd}
 	\end{center}
 	with unit natural transformation $\id_{FA} \from I \to \B(FA,FA)$. We leave it to the reader to check associativity and the interchange law.
@@ -3235,7 +3245,7 @@ The triple $ (\alpha,\lambda,\rho) $ on $ \Mat(\cV , S) $ is induced by the one 
 		\begin{tikzcd}
 			A \arrow[r, bend left, ""{name=A, below}, "f"] \arrow[r, bend right, ""{name=B}, "g"'] & B \arrow[Rightarrow, from=A, to=B, "\alpha"] \arrow[r, mapsto] &
 			FA \arrow[r, bend left, ""{name=C, below}, "Ff"] \arrow[r, bend right, ""{name=D}, "Fg"'] & FB \arrow[Rightarrow, from=C, to=D, "F\alpha"]
-		\end{tikzcd}
+		\end{tikzcd};
 	\end{center}
 	to say that this defines a functor is exactly to say that this assignment
     respects vertical composition. The first $\V$-functor axiom says that
@@ -3298,7 +3308,7 @@ the composition we use the lax monoidal structure of $\V$, i.e.\ the morphisms
 in $V_*\C$ from $a$ to $b$ are given by morphisms $I\xrightarrow{f}\C(a,b)$. The
 composition of the morphisms $f\colon a\to b$ and $g\colon b\to c$ is the
 morphism defined as
-$$g\circ f = I\xrightarrow{\sim} I\otimes I\xrightarrow{g\otimes f}\C(b,c)\otimes\C(a,b)\xrightarrow{\circ}\C(a,c).$$
+$$g\circ f = I\xrightarrow{\lambda^{-1}} I\otimes I\xrightarrow{g\otimes f}\C(b,c)\otimes\C(a,b)\xrightarrow{\circ}\C(a,c).$$
 We write $\C_0$ for the underlying unenriched category of $\C$. It would be good
 if $(T\Alg)_0\cong T_0\Alg$ in the sense we defined before. The objects
 should be $T_0$-algebras, i.e.\ pairs $(A,\alpha), \ \alpha\colon TA\to A\cong
@@ -3641,7 +3651,7 @@ For this we need $ \cA \otimes \cB$.
 	\begin{enumerate}[label=$ \bullet $]
 		\item $ \Ob(\cA\otimes \cB) = \Ob(\cA) \times \Ob(\cB) $
 		\item $ (\cA\otimes\cB)((A,B),(A',B')) = \cA(A,A')\otimes \cB(B,B') $
-		\item identities: $ I \iso I\otimes I \xrightarrow{\id_A \otimes \id_B} \cA\otimes\cB((A,B),(A,B)) $ and
+        \item identities: $ I \xrightarrow{\lambda^{-1}} I\otimes I \xrightarrow{\id_A \otimes \id_B} \cA\otimes\cB((A,B),(A,B)) $ and
 		\item compositions
 		      \begin{displaymath}
 			      \begin{tikzcd}
