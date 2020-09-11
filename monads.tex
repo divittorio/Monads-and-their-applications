@@ -1640,40 +1640,8 @@ locally presentable category, then $T\Alg$ is locally presentable.
 \end{exmp}
 Recall that the category of $T$-algebras of a finitary monad
 $T\colon\Set\to\Set$ is cocomplete. We would like to know that $T\Alg$ is
-locally finitely presentable. This result can be proved using the following fact
-(which is in turn an easy consequence of the result about the commutativity of
-$\kappa$-filtered colimits with $\kappa$-small limits in $\Set$):
-\begin{center}
-	$\kappa$-presentable objects are closed under $\kappa$-small colimits.
-\end{center}
-\begin{prop}
-	Let $\C$ be a locally small cocomplete category which has a \emph{small}
-    dense subcategory consisting of $\kappa$-presentable objects. Then $\C$ is
-    locally $\kappa$-presentable.
-\end{prop}
-\begin{proof}
-	Let $\A'$ be the closure of $\A $ under $ \kappa $-small  colimits.
-	This is constructed as follows: $\A_0 =\A $.
-	For any ordinal $ i $ we set
-	\begin{displaymath}
-		\A_{i+1} = \{\text{colimits of $ \kappa $-small diagrams in $\A_i $\}}
-	\end{displaymath}
-	and for a limit-ordinal $ \lambda $ we set $\A_\lambda =
-    \bigcup_{\mu<\lambda}\A_{\mu} $.
-	This terminates when $ \lambda = \kappa $, so $\A_\kappa $ is the colimit
-    closure and thus small.
-	From the above mentioned fact we know that $\A'  $ consists of $ \kappa
-    $-presentable objects.
-	Since it contains $\A $, the inclusion $ K \colon\A' \to \C $ is dense.
-	If $\A' $ is dense, then each object in $ \C $ is a colimit of $(K\downarrow
-    c)\rightarrow\cC$ which is a $ \kappa $-filtered diagram by construction.
-\end{proof}
-\begin{cor}
-	For each finitary monad $T$ on $\Set$, the category $T\Alg$ is locally
-    finitely presentable. Moreover, if $T$ is a monad of rank $\kappa$ on a
-    locally $\kappa$-presentable category, then $T\Alg$ is locally
-    $\kappa$-presentable if and only if it is cocomplete.
-\end{cor}
+locally finitely presentable. We shall now work to prove it.
+
 \begin{thm}
 	Let $\cI$ be a filtered category,
 	\begin{displaymath}
@@ -1732,6 +1700,35 @@ $\kappa$-filtered colimits with $\kappa$-small limits in $\Set$):
 		                                      & \cong \colim_{\I} \C(\colim_{\J} D_j, C_i).\qedhere
 	\end{align*}
 \end{proof}
+
+\begin{prop}
+	Let $\C$ be a locally small cocomplete category which has a \emph{small}
+    dense subcategory consisting of $\kappa$-presentable objects. Then $\C$ is
+    locally $\kappa$-presentable.
+\end{prop}
+\begin{proof}
+	Let $\A'$ be the closure of $\A $ under $ \kappa $-small  colimits.
+	This is constructed as follows: $\A_0 =\A $.
+	For any ordinal $ i $ we set
+	\begin{displaymath}
+		\A_{i+1} = \{\text{colimits of $ \kappa $-small diagrams in $\A_i $\}}
+	\end{displaymath}
+	and for a limit-ordinal $ \lambda $ we set $\A_\lambda =
+    \bigcup_{\mu<\lambda}\A_{\mu} $.
+	This terminates when $ \lambda = \kappa $, so $\A_\kappa $ is the colimit
+    closure and thus small.
+	From the above mentioned fact we know that $\A'  $ consists of $ \kappa
+    $-presentable objects.
+	Since it contains $\A $, the inclusion $ K \colon\A' \to \C $ is dense.
+	If $\A' $ is dense, then each object in $ \C $ is a colimit of $(K\downarrow
+    c)\rightarrow\cC$ which is a $ \kappa $-filtered diagram by construction.
+\end{proof}
+\begin{cor}
+	For each finitary monad $T$ on $\Set$, the category $T\Alg$ is locally
+    finitely presentable. Moreover, if $T$ is a monad of rank $\kappa$ on a
+    locally $\kappa$-presentable category, then $T\Alg$ is locally
+    $\kappa$-presentable if and only if it is cocomplete.
+\end{cor}
 
 \begin{prop}
 	Each object in a locally presentable category is $ \lambda $-presentable
@@ -2085,65 +2082,7 @@ Note that, given a regular cardinal $\kappa$, its associated ordinal
     $\colim_{\I}b_{i}$ to $p$.
 \end{proof}
 
-\begin{prop}
-	If in the theorem above $\C$ is locally presentable and $F$ is accessible,
-    then $(F\downarrow\C)$ is locally presentable.
-\end{prop}
-
-\begin{proof}
-	There exists a regular cardinal $\kappa$ such that $\C$ is locally
-    $\kappa$-presentable and $F(\C_\lambda)\subset\C_\kappa$, with $F$
-    $\lambda$-accessible and $\lambda\leq\kappa$. We claim that the full
-    subcategory $\A\coloneqq\{(a,b,\alpha\colon Fa\rightarrow b)\ |\
-    a\in\C_\lambda,\ b\in\C_\kappa\}$ is dense and consists of
-    $\kappa$-presentable objects in $(F\downarrow\C)$.
-
-	The fact that it consists of $\kappa$-presentable objects follows from the
-    fact that $\kappa$-filtered colimits in $(F\downarrow\C)$ are computed
-    pointwise.
-
-	To prove density, we want that for each $(c,d,\gamma\colon Fc\rightarrow d)$
-    the canonical cocone of $(\A\downarrow (c,d,\gamma))\rightarrow
-    (F\downarrow\cC)$ exhibits $(c,d,\gamma)$
-    as a colimit. In the arrow category $\cC^{[1]}$, $Fc\rightarrow d$ is a
-    colimit of all $\lambda$-presentable pairs $c_0,c_1\in\C_\lambda$ with a
-    morphism $c_0\rightarrow c_1$ such that there exists a pair of morphisms
-    making the diagram
-	\[
-		\begin{tikzcd}
-			c_0\ar[d]\ar[r]
-			& Fc\ar[d] \\
-			c_1\ar[r]
-			& d
-		\end{tikzcd}
-	\]
-    commute.
-
-	We need to check that the natural functor $(\A\downarrow
-    (c,d,\gamma))\rightarrow ((\cC^{[1]})_\lambda\downarrow\gamma)$ is final.
-
-	Check for yourself that the category $((\cC^{[1]})_\lambda\downarrow\gamma)$
-    we are considering is actually filtered and specifically can always find a
-    pair of morphisms completing the following commutative diagram, where
-    $Fa\rightarrow b$ comes from $\A$.
-	\[
-		\begin{tikzcd}
-			& Fa\ar[dr]\ar[dd] \\
-			c_0\ar[ur, dotted]\ar[rr, crossing over]\ar[dd]
-			&& Fc\ar[dd] \\
-			& b\ar[dr] \\
-			c_1\ar[ur, dotted]\ar[rr]
-			&& d
-		\end{tikzcd}
-	\]
-
-	The codomains form a colimit diagram in $\C$, hence we are left with
-    checking that the domains form a colimit diagram as well. To do this, we use
-    the fact that $(\C_\lambda\downarrow c)\rightarrow\C$ has colimit $c$ and an
-    argument similar to the previous one.
-\end{proof}
-
-\section{Algebraically free Monads on a pointed Endofunctor}
+\section{Algebraically Free Monads on a Pointed Endofunctor}
 
 Let $ T\from \C \to \C $ a $ \kappa $-accessible endofunctor, with $ \C $ cocomplete.
 As we have already shown, the category $ (T \downarrow \C )$ is cocomplete and $
@@ -3620,7 +3559,7 @@ Now we want to define opposite $\cV$-categories and $\cV$-functors of several va
 \end{rmk}
 
 \begin{thm}
-	If $\cV$ is a locally presentable monoidal category with $-\otimes -$ cocontinuous in both variables, then $\CMon(\cV)\rightarrow\cV$ is monadic and accessible. Also, $\CMon(\cV)$ is locally $\kappa$-presentable if $\cV$ is.
+	If $\cV$ is a locally presentable braided monoidal category with $-\otimes -$ cocontinuous in both variables, then $\CMon(\cV)\rightarrow\cV$ is monadic and accessible. Also, $\CMon(\cV)$ is locally $\kappa$-presentable if $\cV$ is.
 \end{thm}
 
 \begin{proof}
@@ -3750,7 +3689,7 @@ we can define a $\cV$-functor
 \begin{displaymath}
 	\cC(-,-)\from\cC^{\op}\otimes\cC\to\cV.
 \end{displaymath}
-In order to do this, we use the following way of constructing functors
+In order to do this, we use the following way of constructing $\cV$-functors
 $\cA\otimes\cB\to\cC$:
 \begin{prop}
 	To give a $\cV$-functor $T\from\cA\otimes\cB\to\cC$ amounts to
@@ -3799,7 +3738,8 @@ The diagram in the above proposition commutes by adjunction since composition is
 \begin{exmp}
 	\begin{enumerate}[label=\arabic*)]
 		\item
-		      For $ \cV =  $``sets with structure,'' the functor $ \cC(-,-) $ simply defines a lift
+		      For $ \cV =  $``sets with structure'', the functor $ \cC(-,-) $
+              simply defines a lift
 		      \begin{displaymath}
 			      \begin{tikzcd}
 				      & \cV \arrow[dd, "V"]\\
@@ -3848,7 +3788,7 @@ The diagram in the above proposition commutes by adjunction since composition is
 	to $ (f,\id) $ and $ (\id,f) $ respectively.
 
 	Further details - or more precisely a good list of instructions on how to
-    preceed efficiently - can be found in \cite[\S 1.7 and 1.8]{Kelly}.
+    proceed efficiently - can be found in \cite[\S 1.7 and 1.8]{Kelly}.
 \end{rmk}
 
 
@@ -3879,7 +3819,7 @@ The diagram in the above proposition commutes by adjunction since composition is
 	\end{align*}
 	is a bijection whose inverse map $\psi$ is given by sending $\eta\colon
     I\rightarrow FA$ to the $\cV$-natural transformation
-	$$\cA(A,B)\xrightarrow{F_{A,B}}[FA,FB]\xrightarrow{[\eta,\id_{FB}]}[I,FB]\cong FB$$
+	$$\cA(A,B)\xrightarrow{F_{A,B}}[FA,FB]\xrightarrow{[\eta,I]}[I,FB]\cong FB$$
 \end{thm}
 
 \begin{proof}
@@ -3895,7 +3835,7 @@ The diagram in the above proposition commutes by adjunction since composition is
 			& {[\cA(A,A),\cA(A,B)]}\ar[r, "{[\id_A,I]}"]\ar[d, "{[I,\alpha_B]}"]
 			& {[I,\cA(A,B)]}\ar[r, "\sim"]\ar[d, "{[I,\alpha_B]}"]
 			& \cA(A,B)\ar[d, "\alpha_B"] \\
-			{[FA,FB]}\ar[r, "{[\alpha_A,I]}"]\ar[rrr, bend right=15, dotted, "{[\phi(B),I]}"]
+			{[FA,FB]}\ar[r, "{[\alpha_A,I]}"]\ar[rrr, bend right=15, dotted, "{[\phi(\alpha),I]}"]
 			& {[\cA(A,A),FB]}\ar[r, "{[\id_A,I]}"]
 			& {[I,FB]}\ar[r, "\sim"]
 			& FB
@@ -3992,7 +3932,7 @@ For enriched categories, there is an important third kind of colimit called \emp
 \end{rmk}
 
 \begin{exmp}
-	For $\cV=\cC=\Cat$, $C\times[1]$ is the copower of $C\in\cC$ by $[1]\in\cV$. Indeed, we have a pair of bijective correspondences inducing the one we want as follows:
+    For $\cV=\cC=\Cat$, $C\times[1]$ is the copower of $[1]\in\cC$ by $C\in\cV$. Indeed, we have a pair of bijective correspondences inducing the one we want as follows:
 
 	$$C\times[1]\rightarrow D\quad\leftrightarrow\quad
 		\begin{tikzcd}
@@ -4004,7 +3944,9 @@ For enriched categories, there is an important third kind of colimit called \emp
 \end{exmp}
 
 \begin{prop}
-	A $\cV$-category $\cC$ has $\cV$-coproducts and $\cV$-coequalizers if $\cC_0$ has coproducts and coequalizers and these are preserved by the functor $\cC_0(-,D)\colon\cC_0\rightarrow\cV^{\op}$ for every $D\in\cC$.
+	A $\cV$-category $\cC$ has $\cV$-coproducts and $\cV$-coequalizers if
+    $\cC_0$ has coproducts and coequalizers and these are preserved by the
+    functor $\cC_0(-,D)\colon\cC_0^{\op}\rightarrow\cV$ for every $D\in\cC$.
 \end{prop}
 
 \begin{proof}
@@ -4016,9 +3958,9 @@ For enriched categories, there is an important third kind of colimit called \emp
 \end{cor}
 
 \begin{proof}
-	We need to check that $[-,V]_0\colon\cC_0\rightarrow\cV_0^{\op}$ preserves
+    We need to check that $\cC_0(-,C)\colon\cC_0\rightarrow\cV_0^{\op}$ preserves
     coproducts and coequalizers, but this is just
-    $[-,V]\colon\cV_0\rightarrow\cV_0^{\op}$ and we have
+    $[-,V]_0\colon\cV_0^{\op}\rightarrow\cV_0$ and we have
     $[-,V]\dashv[-,V]\colon\cV_0^{\op}\rightarrow\cV_0$ because
 	$$\cV_0(X,[Y,V])\cong\cV_0(X\otimes Y,V)\cong\cV_0(Y\otimes
     X,V)\cong\cV_0(Y,[X,V]).$$
